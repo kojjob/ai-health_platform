@@ -6,3 +6,15 @@ import { application } from "./application"
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import NavbarController from "./navbar_controller"
+application.register("navbar", NavbarController)
+
+import DropdownController from "./dropdown_controller"
+application.register("dropdown", DropdownController)
+
+import HoverDropdownController from "./hover_dropdown_controller"
+application.register("hover-dropdown", HoverDropdownController)
+
+import MobileDropdownController from "./mobile_dropdown_controller"
+application.register("mobile-dropdown", MobileDropdownController)

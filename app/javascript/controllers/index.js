@@ -4,5 +4,66 @@
 
 import { application } from "./application"
 
+import CounterController from "./counter_controller"
+application.register("counter", CounterController)
+
+import ContactFormController from "./contact_form_controller"
+application.register("contact-form", ContactFormController)
+
+import FadeInController from "./fade_in_controller"
+application.register("fade-in", FadeInController)
+
+import FaqController from "./faq_controller"
+application.register("faq", FaqController)
+
+import AppPreviewController from "./app_preview_controller"
+application.register("app-preview", AppPreviewController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import NavbarController from "./navbar_controller"
+application.register("navbar", NavbarController)
+
+import TestimonialCarouselController from "./testimonial_carousel_controller"
+application.register("testimonial-carousel", TestimonialCarouselController)
+
+import ScrollToTopController from "./scroll_to_top_controller"
+application.register("scroll-to-top", ScrollToTopController)
+
+import PricingController from "./pricing_controller"
+application.register("pricing", PricingController)
+
+import BeforeAfterSliderController from "./before_after_slider_controller"
+application.register("before-after-slider", BeforeAfterSliderController)
+
+import AnalyticsController from "./analytics_controller"
+application.register("analytics", AnalyticsController)
+
+import StatsCounterController from "./stats_counter_controller"
+application.register("stats-counter", StatsCounterController)
+
+import StatusPageController from "./status_page_controller"
+application.register("status-page", StatusPageController)
+
+import CommunityController from "./community_controller"
+application.register("community", CommunityController)
+
+import ApiDocsController from "./api_docs_controller"
+application.register("api-docs", ApiDocsController)
+
+import HelpSearchController from "./help_search_controller"
+application.register("help-search", HelpSearchController)
+
+import DropdownController from "./dropdown_controller"
+application.register("dropdown", DropdownController)
+
+import HoverDropdownController from "./hover_dropdown_controller"
+application.register("hover-dropdown", HoverDropdownController)
+
+import MobileDropdownController from "./mobile_dropdown_controller"
+application.register("mobile-dropdown", MobileDropdownController)
+application.register("hover-dropdown", HoverDropdownController)
+
+import MobileDropdownController from "./mobile_dropdown_controller"
+application.register("mobile-dropdown", MobileDropdownController)

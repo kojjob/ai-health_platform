@@ -63,7 +63,3 @@ application.register("hover-dropdown", HoverDropdownController)
 
 import MobileDropdownController from "./mobile_dropdown_controller"
 application.register("mobile-dropdown", MobileDropdownController)
-application.register("hover-dropdown", HoverDropdownController)
-
-import MobileDropdownController from "./mobile_dropdown_controller"
-application.register("mobile-dropdown", MobileDropdownController)

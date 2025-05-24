@@ -17,78 +17,100 @@ export default class extends Controller {
   static targets = ["content", "icon"]
   
   connect() {
-    // Ensure all accordions start closed and have transition classes
+    console.log("Accordion controller connected");
+    
+    // Ensure all accordions start closed
     this.contentTargets.forEach((content, index) => {
-      // Add transition classes to all content elements
-      content.classList.add('hidden', 'overflow-hidden', 'transition-all', 'duration-300', 'ease-in-out', 'opacity-0')
+      content.classList.add('hidden')
+      content.style.maxHeight = '0px'
+      content.style.opacity = '0'
+      content.dataset.index = index.toString()
       
-      // Add data-index attribute to match content with its button
-      content.dataset.index = index
-      
-      // Find the corresponding button and add the index
-      const buttons = this.element.querySelectorAll('[data-action="click->accordion#toggle"]')
-      if (buttons[index]) {
-        buttons[index].dataset.index = index
+      // Find corresponding icon and add index
+      const icons = this.iconTargets.filter(icon => !icon.dataset.index)
+      if (icons[index]) {
+        icons[index].dataset.index = index.toString()
+      }
+    })
+    
+    // Make sure buttons have indexes
+    const buttons = this.element.querySelectorAll('[data-action="click->accordion#toggle"]')
+    buttons.forEach((button, index) => {
+      if (!button.dataset.index) {
+        button.dataset.index = index.toString()
       }
     })
   }
   
   toggle(event) {
-    // Find the nearest content and icon targets relative to the clicked button
     const button = event.currentTarget
-    const content = button.nextElementSibling
-    const icon = button.querySelector('i')
+    const index = button.dataset.index
+    const content = this.findContentByIndex(index)
+    const icon = this.findIconByIndex(index)
     
-    // Close any currently open accordions in the same group
-    this.closeOtherAccordions(button)
-    
-    // Toggle the content visibility with smooth transition
-    if (content.classList.contains('hidden')) {
-      // Show content with transition
-      content.classList.remove('hidden')
-      content.classList.add('max-h-0')
-      setTimeout(() => {
-        content.classList.remove('max-h-0')
-        content.classList.add('max-h-96', 'opacity-100')
-      }, 10)
-      
-      // Rotate icon for open state
-      icon.classList.add('rotate-45')
-    } else {
-      // Hide content with transition
-      content.classList.remove('max-h-96', 'opacity-100')
-      content.classList.add('max-h-0')
-      setTimeout(() => {
-        content.classList.add('hidden')
-      }, 300) // Match with CSS transition duration
-      
-      // Reset icon rotation
-      icon.classList.remove('rotate-45')
+    if (!content) {
+      console.error("No content found for index:", index)
+      return
     }
+    
+    // Close other accordions first
+    this.closeOtherAccordions(index)
+    
+    // Toggle current accordion with a slight delay
+    setTimeout(() => {
+      if (content.classList.contains('hidden')) {
+        // Open
+        content.classList.remove('hidden')
+        setTimeout(() => {
+          content.style.maxHeight = content.scrollHeight + 'px'
+          content.style.opacity = '1'
+          content.classList.add('open')
+        }, 10)
+        
+        if (icon) {
+          icon.style.transform = 'rotate(180deg)'
+        }
+      } else {
+        // Close
+        content.style.maxHeight = '0px'
+        content.style.opacity = '0'
+        content.classList.remove('open')
+        
+        if (icon) {
+          icon.style.transform = 'rotate(0deg)'
+        }
+        
+        setTimeout(() => {
+          content.classList.add('hidden')
+        }, 300)
+      }
+    }, 50)
   }
   
-  closeOtherAccordions(currentButton) {
-    // Close all other accordions in this controller
-    const buttons = this.element.querySelectorAll('[data-action="click->accordion#toggle"]')
-    buttons.forEach(button => {
-      if (button !== currentButton) {
-        const content = button.nextElementSibling
-        const icon = button.querySelector('i')
+  findContentByIndex(index) {
+    return this.contentTargets.find(target => target.dataset.index === index.toString())
+  }
+  
+  findIconByIndex(index) {
+    return this.iconTargets.find(target => target.dataset.index === index.toString())
+  }
+  
+  closeOtherAccordions(currentIndex) {
+    this.contentTargets.forEach(content => {
+      if (content.dataset.index !== currentIndex && !content.classList.contains('hidden')) {
+        const icon = this.findIconByIndex(content.dataset.index)
         
-        // Only process elements that are open
-        if (!content.classList.contains('hidden')) {
-          // Hide with transition
-          content.classList.remove('max-h-96', 'opacity-100')
-          content.classList.add('max-h-0')
-          setTimeout(() => {
-            content.classList.add('hidden')
-          }, 300)
-          
-          // Reset icon rotation
-          if (icon) {
-            icon.classList.remove('rotate-45')
-          }
+        content.style.maxHeight = '0px'
+        content.style.opacity = '0'
+        content.classList.remove('open')
+        
+        if (icon) {
+          icon.style.transform = 'rotate(0deg)'
         }
+        
+        setTimeout(() => {
+          content.classList.add('hidden')
+        }, 300)
       }
     })
   }

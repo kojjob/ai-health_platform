@@ -1,0 +1,105 @@
+/* Responsive Testing Utilities for Pricing Page */
+/* This file contains utility classes and styles to ensure the pricing page works well across all devices */
+
+/* Mobile First - Enhanced responsive breakpoints */
+@media (max-width: 640px) {
+  /* Hero section adjustments */
+  .hero-title {
+    font-size: 2.5rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  /* Pricing cards stack properly */
+  .pricing-cards {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  
+  /* Comparison table scrolls horizontally */
+  .comparison-table {
+    min-width: 800px;
+  }
+  
+  /* FAQ accordion adjustments */
+  .faq-question {
+    padding: 1rem !important;
+    font-size: 1rem !important;
+  }
+  
+  /* CTA buttons stack vertically */
+  .cta-buttons {
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 641px) and (max-width: 1024px) {
+  /* Two column grid for pricing cards */
+  .pricing-cards {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  
+  /* Enterprise form adjustments */
+  .enterprise-form {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Desktop enhancements */
+@media (min-width: 1025px) {
+  /* Three column grid for pricing cards */
+  .pricing-cards {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+  
+  /* Enhanced animations for larger screens */
+  .hover-effects:hover {
+    transform: translateY(-12px) scale(1.03) !important;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  /* Remove hover effects on touch devices */
+  .hover-effects:hover {
+    transform: none !important;
+  }
+  
+  /* Increase button sizes for touch */
+  .touch-button {
+    min-height: 48px !important;
+    padding: 12px 24px !important;
+  }
+  
+  /* Improve accordion touch targets */
+  .accordion-button {
+    min-height: 60px !important;
+  }
+}
+
+/* High DPI display optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Ensure crisp icons and graphics */
+  .icon {
+    image-rendering: -webkit-optimize-contrast !important;
+  }
+}
+
+/* Accessibility enhancements */
+@media (prefers-reduced-motion: reduce) {
+  /* Remove animations for users who prefer reduced motion */
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Dark mode considerations */
+@media (prefers-color-scheme: dark) {
+  /* Adjust contrast for dark mode if needed */
+  .text-muted {
+    color: #d1d5db !important;
+  }
+}

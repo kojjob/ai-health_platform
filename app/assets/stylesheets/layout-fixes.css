@@ -1,0 +1,305 @@
+/* 
+ * MEDGEMMA HEALTH - CRITICAL LAYOUT FIXES
+ * 
+ * This stylesheet applies critical layout fixes for all pages, with special 
+ * emphasis on the pricing page where text visibility and layout issues were reported.
+ * 
+ * Main fixes:
+ * 1. Font weight consistency across all elements
+ * 2. Improved text visibility with proper contrast
+ * 3. Layout stability for elements like pricing cards and FAQs
+ * 4. Accordion functionality improvements
+ * 5. Responsive design enhancements
+ */
+
+/* ===== TYPOGRAPHY FOUNDATION ===== */
+:root {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --color-text-dark: #111827; /* gray-900 */
+  --color-text-medium: #374151; /* gray-700 */
+  --color-text-light: #6b7280; /* gray-500 */
+}
+
+html, body {
+  font-family: var(--font-sans) !important;
+}
+
+body {
+  font-weight: 400;
+  color: var(--color-text-medium);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Font Weight Consistency for Headers */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-text-dark) !important;
+  line-height: 1.2;
+}
+
+h1, .text-6xl, .text-7xl {
+  font-weight: 900 !important;
+}
+
+h2, .text-5xl, .text-4xl {
+  font-weight: 800 !important;
+}
+
+h3, .text-3xl {
+  font-weight: 700 !important;
+}
+
+h4, .text-2xl {
+  font-weight: 600 !important;
+}
+
+h5, .text-xl {
+  font-weight: 500 !important;
+}
+
+/* ===== TEXT VISIBILITY FIXES ===== */
+p {
+  color: var(--color-text-medium);
+}
+
+.invisible-text-fix {
+  color: var(--color-text-dark) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Tailwind Color Class Overrides */
+.text-gray-900 {
+  color: var(--color-text-dark) !important;
+}
+
+.text-gray-800 {
+  color: #1f2937 !important;
+}
+
+.text-gray-700 {
+  color: var(--color-text-medium) !important;
+}
+
+.text-gray-600 {
+  color: #4b5563 !important;
+}
+
+.text-gray-500 {
+  color: var(--color-text-light) !important;
+}
+
+/* ===== PRICING PAGE SPECIFIC FIXES ===== */
+/* Hero Section */
+.hero-section {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-section h1 {
+  font-weight: 900 !important;
+  color: var(--color-text-dark) !important;
+}
+
+.hero-section p {
+  color: var(--color-text-medium) !important;
+  font-weight: 400;
+}
+
+/* Pricing Cards */
+.pricing-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.pricing-card {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.pricing-card h3 {
+  color: var(--color-text-dark) !important;
+  font-weight: 700 !important;
+}
+
+.pricing-card p {
+  color: var(--color-text-medium) !important;
+}
+
+.pricing-card .text-6xl {
+  color: var(--color-text-dark) !important;
+  font-weight: 900 !important;
+}
+
+/* Feature Comparison Table */
+.comparison-table th {
+  background-color: #f9fafb;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  font-weight: 600;
+  color: var(--color-text-dark);
+}
+
+.comparison-table td {
+  color: var(--color-text-medium);
+}
+
+/* ===== FAQ ACCORDION FIXES ===== */
+/* Accordion Container */
+.accordion-container {
+  margin-bottom: 1rem;
+}
+
+/* Accordion Button */
+.accordion-button {
+  width: 100%;
+  text-align: left;
+  padding: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.accordion-button:hover {
+  background-color: #f9fafb;
+}
+
+/* Accordion Content */
+.accordion-content {
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out, opacity 0.3s ease;
+  max-height: 0;
+  opacity: 0;
+}
+
+.accordion-content.open {
+  max-height: 1000px;
+  opacity: 1;
+}
+
+.faq-question {
+  color: var(--color-text-dark) !important;
+  font-weight: 700;
+}
+
+.faq-answer {
+  color: var(--color-text-medium) !important;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+/* Icon Rotation */
+.accordion-icon {
+  transition: transform 0.3s ease;
+}
+
+.accordion-icon.rotate {
+  transform: rotate(180deg);
+}
+
+/* ===== FORM ELEMENTS ===== */
+input, textarea, select {
+  color: var(--color-text-dark) !important;
+  font-weight: 400;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  transition: all 0.2s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+label {
+  color: var(--color-text-dark);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* ===== BUTTONS AND LINKS ===== */
+button, .btn, [role="button"] {
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+a {
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 640px) {
+  .text-6xl, .text-7xl {
+    font-size: 2.5rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  .text-5xl {
+    font-size: 2rem !important;
+  }
+  
+  .text-4xl {
+    font-size: 1.75rem !important;
+  }
+  
+  .text-3xl {
+    font-size: 1.5rem !important;
+  }
+  
+  /* Pricing cards stacked on mobile */
+  .pricing-cards {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem;
+  }
+  
+  /* Improve mobile form elements */
+  input, textarea, select, button {
+    font-size: 16px !important; /* Prevents zoom on iOS */
+  }
+}
+
+/* ===== ANIMATION OPTIMIZATIONS ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== ACCESSIBILITY ===== */
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+*:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}

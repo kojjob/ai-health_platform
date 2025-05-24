@@ -6,7 +6,8 @@ export default class extends Controller {
     "monthlyPrice", 
     "annualPrice",
     "monthlyText",
-    "annualText"
+    "annualText",
+    "savingsLabel"
   ]
   
   static values = {
@@ -32,20 +33,30 @@ export default class extends Controller {
   }
 
   updateUI() {
-    // Update prices visibility
+    // Update prices visibility with smooth transitions
     if (this.hasMonthlyPriceTarget && this.hasAnnualPriceTarget) {
       this.monthlyPriceTargets.forEach(el => {
         if (this.monthlyValue) {
+          el.style.opacity = '1'
+          el.style.transform = 'translateY(0)'
           el.style.display = 'block'
         } else {
-          el.style.display = 'none'
+          el.style.opacity = '0'
+          el.style.transform = 'translateY(-10px)'
+          setTimeout(() => { el.style.display = 'none' }, 200)
         }
       })
       this.annualPriceTargets.forEach(el => {
         if (this.monthlyValue) {
-          el.style.display = 'none'
+          el.style.opacity = '0'
+          el.style.transform = 'translateY(-10px)'
+          setTimeout(() => { el.style.display = 'none' }, 200)
         } else {
           el.style.display = 'block'
+          setTimeout(() => {
+            el.style.opacity = '1'
+            el.style.transform = 'translateY(0)'
+          }, 50)
         }
       })
     }
@@ -53,7 +64,22 @@ export default class extends Controller {
     // Update text styling
     if (this.hasMonthlyTextTarget && this.hasAnnualTextTarget) {
       this.monthlyTextTarget.classList.toggle('text-blue-600', this.monthlyValue)
+      this.monthlyTextTarget.classList.toggle('font-semibold', this.monthlyValue)
       this.annualTextTarget.classList.toggle('text-blue-600', !this.monthlyValue)
+      this.annualTextTarget.classList.toggle('font-semibold', !this.monthlyValue)
+    }
+
+    // Update savings label visibility
+    if (this.hasSavingsLabelTarget) {
+      this.savingsLabelTargets.forEach(el => {
+        if (this.monthlyValue) {
+          el.style.opacity = '0'
+          el.style.transform = 'scale(0.8)'
+        } else {
+          el.style.opacity = '1'
+          el.style.transform = 'scale(1)'
+        }
+      })
     }
 
     // Update ARIA attributes

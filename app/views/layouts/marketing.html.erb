@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8">
     <title><%= content_for(:title) || "AI-Enhanced Telemedicine Platform - Healthcare Reimagined" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="description" content="Experience the future of healthcare with AI-powered consultations, instant medical analysis, and 24/7 virtual care.">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "fixes", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "layout-fixes", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
     
     <!-- Font Awesome for icons -->

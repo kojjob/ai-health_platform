@@ -2,130 +2,249 @@
 <%= content_for :meta_description, "Discover MedGemma Health's transparent pricing options for individuals, families, and healthcare providers. Choose from Basic, Professional, or Enterprise plans." %>
 
 <!-- Hero Section -->
-<section class="pt-32 pb-20">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section class="relative pt-32 pb-24 overflow-hidden">
+  <!-- Background Elements -->
+  <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50"></div>
+  <div class="absolute top-0 left-0 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse"></div>
+  <div class="absolute top-0 right-0 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse" style="animation-delay: 2s;"></div>
+  <div class="absolute bottom-0 left-1/2 w-80 h-80 bg-indigo-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse" style="animation-delay: 4s;"></div>
+  
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Header -->
-    <div class="text-center mb-16" data-controller="fade-in">
-      <div class="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full mb-6">
-        <i class="fas fa-tags text-blue-600 mr-2"></i>
-        <span class="text-sm font-medium text-blue-800">Flexible Plans</span>
+    <div class="text-center mb-20" data-controller="fade-in">
+      <div class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-100 to-purple-100 rounded-full mb-8 shadow-sm border border-blue-200">
+        <div class="flex items-center">
+          <div class="w-2 h-2 bg-green-400 rounded-full mr-3 animate-pulse"></div>
+          <i class="fas fa-shield-alt text-blue-600 mr-2"></i>
+          <span class="text-sm font-semibold text-blue-800">HIPAA Compliant & Secure</span>
+        </div>
       </div>
       
-      <h1 class="text-5xl font-bold text-gray-900 mb-6">
-        Simple, Transparent
-        <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-          Pricing
+      <h1 class="text-6xl sm:text-7xl font-black text-gray-900 mb-8 leading-tight invisible-text-fix">
+        <span class="block text-gray-900">Healthcare AI</span>
+        <span class="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
+          That Fits Your Budget
         </span>
       </h1>
       
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-        Choose the perfect plan for your healthcare needs. All plans include our core AI technology.
+      <p class="text-2xl text-gray-600 max-w-4xl mx-auto mb-12 leading-relaxed invisible-text-fix">
+        Transparent pricing, powerful AI technology, and proven results. 
+        <span class="font-semibold text-gray-800">Join 50,000+ users</span> who trust MedGemma Health.
       </p>
-    </div>
 
-    <!-- Free Trial Banner -->
-    <div class="max-w-5xl mx-auto mb-12 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-200 p-6 shadow-sm" data-controller="fade-in">
-      <div class="flex flex-col md:flex-row items-center justify-between">
-        <div class="mb-4 md:mb-0">
-          <div class="flex items-center mb-2">
-            <i class="fas fa-gift text-blue-600 mr-2"></i>
-            <h3 class="text-lg font-semibold text-gray-900">Try MedGemma Health Risk-Free</h3>
-          </div>
-          <p class="text-gray-600">Start your 14-day free trial with full access to all features. No credit card required.</p>
+      <!-- Social Proof Stats -->
+      <div class="grid grid-cols-3 gap-8 max-w-2xl mx-auto mb-12">
+        <div class="text-center">
+          <div class="text-3xl font-bold text-blue-600 mb-2">99.7%</div>
+          <div class="text-sm text-gray-600">Accuracy Rate</div>
         </div>
-        <a href="#" class="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors">
-          Start Free Trial
-        </a>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-purple-600 mb-2">50K+</div>
+          <div class="text-sm text-gray-600">Active Users</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-indigo-600 mb-2">4.9★</div>
+          <div class="text-sm text-gray-600">User Rating</div>
+        </div>
       </div>
     </div>
 
-    <!-- Pricing Section with Toggle -->
-    <div data-controller="pricing">
-      <!-- Billing Toggle -->
-      <div class="flex justify-center items-center space-x-4 mb-12" data-controller="fade-in">
-        <span class="text-gray-600 font-medium" data-pricing-target="monthlyText">Monthly</span>
-        <button 
-          type="button" 
-          class="relative inline-flex h-10 w-20 items-center rounded-full bg-gray-200 cursor-pointer"
-          data-action="click->pricing#toggle"
-          role="switch"
-          aria-checked="false"
-        >
-          <span class="absolute inset-0 flex items-center justify-start pl-2">
-            <span 
-              data-pricing-target="toggleButton"
-              class="h-8 w-8 rounded-full bg-white shadow-lg transform transition-transform duration-200">
+    <!-- Enhanced Free Trial Banner -->
+    <div class="max-w-6xl mx-auto mb-16" data-controller="fade-in">
+      <div class="relative bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 rounded-2xl p-8 shadow-2xl overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 bg-white bg-opacity-5">
+          <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0); background-size: 40px 40px;"></div>
+        </div>
+        
+        <div class="relative flex flex-col lg:flex-row items-center justify-between">
+          <div class="text-center lg:text-left mb-6 lg:mb-0">
+            <div class="flex items-center justify-center lg:justify-start mb-4">
+              <div class="flex items-center bg-white bg-opacity-20 rounded-full px-4 py-2">
+                <i class="fas fa-sparkles text-yellow-300 mr-2"></i>
+                <span class="text-sm font-bold text-white">LIMITED TIME OFFER</span>
+              </div>
+            </div>
+            <h3 class="text-3xl font-bold text-white mb-3">
+              Start Your 14-Day Free Trial Today
+            </h3>
+            <p class="text-xl text-blue-100 mb-4">
+              Experience the full power of MedGemma Health with zero commitment
+            </p>
+            <div class="flex items-center justify-center lg:justify-start text-blue-100">
+              <i class="fas fa-check-circle mr-2"></i>
+              <span class="mr-6">No Credit Card</span>
+              <i class="fas fa-check-circle mr-2"></i>
+              <span class="mr-6">Full Features</span>
+              <i class="fas fa-check-circle mr-2"></i>
+              <span>Cancel Anytime</span>
+            </div>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#" class="group px-8 py-4 bg-white text-blue-600 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+              <span class="flex items-center">
+                Start Free Trial
+                <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+              </span>
+            </a>
+            <a href="#pricing-cards" class="px-8 py-4 bg-transparent border-2 border-white text-white rounded-xl font-bold text-lg hover:bg-white hover:text-blue-600 transition-all duration-300">
+              View Pricing
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pricing Section with Enhanced Toggle -->
+    <div data-controller="pricing" id="pricing-cards">
+      <!-- Enhanced Billing Toggle -->
+      <div class="flex flex-col items-center mb-16" data-controller="fade-in">
+        <div class="text-center mb-8">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4 invisible-text-fix">Choose Your Plan</h2>
+          <p class="text-lg text-gray-600 invisible-text-fix">All plans include our core AI technology with a 14-day free trial</p>
+        </div>
+        
+        <div class="flex items-center space-x-6 bg-white rounded-2xl p-2 shadow-lg border border-gray-100">
+          <span class="text-gray-700 font-semibold px-4" data-pricing-target="monthlyText">Monthly</span>
+          <button 
+            type="button" 
+            class="relative inline-flex h-12 w-24 items-center rounded-full bg-gradient-to-r from-blue-500 to-purple-500 cursor-pointer shadow-inner"
+            data-action="click->pricing#toggle"
+            role="switch"
+            aria-checked="false"
+          >
+            <span class="absolute inset-0 flex items-center justify-start pl-1">
+              <span 
+                data-pricing-target="toggleButton"
+                class="h-10 w-10 rounded-full bg-white shadow-lg transform transition-all duration-300 flex items-center justify-center">
+                <i class="fas fa-calendar-alt text-gray-600 text-sm"></i>
+              </span>
+            </span>
+          </button>
+          <span class="text-gray-700">
+            <span data-pricing-target="annualText" class="font-semibold">Annual</span>
+            <span class="inline-flex items-center ml-2 px-3 py-1 bg-gradient-to-r from-green-400 to-green-500 text-white text-xs font-bold rounded-full animate-pulse">
+              <i class="fas fa-tags mr-1"></i>
+              SAVE 20%
             </span>
           </span>
-        </button>
-        <span class="text-gray-600">
-          <span data-pricing-target="annualText" class="font-medium">Annual</span>
-          <span class="text-green-500 text-sm ml-1">(Save 20%)</span>
-        </span>
+        </div>
       </div>
 
-      <!-- Pricing Cards -->
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+      <!-- Enhanced Pricing Cards -->
+      <div class="pricing-cards grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
       <% @pricing_plans.each_with_index do |plan, index| %>
         <div 
-          class="relative bg-white rounded-2xl shadow-lg border <%= plan[:highlight] ? 'border-blue-500' : 'border-gray-100' %>" 
+          class="pricing-card group relative bg-white rounded-3xl shadow-xl border-2 <%= plan[:highlight] ? 'border-purple-500 transform scale-105 lg:scale-110' : 'border-gray-100 hover:border-blue-300' %> transition-all duration-300 hover:shadow-2xl hover:-translate-y-2" 
           data-controller="fade-in"
           data-action="mouseenter->fade-in#pulse"
         >
+          <!-- Popular Badge -->
           <% if plan[:badge] %>
-            <div class="absolute -top-5 inset-x-0 flex justify-center">
-              <span class="px-4 py-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-medium rounded-full">
+            <div class="absolute -top-6 inset-x-0 flex justify-center z-10">
+              <div class="flex items-center px-6 py-2 bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 text-white text-sm font-bold rounded-full shadow-lg animate-pulse">
+                <i class="fas fa-crown mr-2 text-yellow-300"></i>
                 <%= plan[:badge] %>
-              </span>
+                <div class="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
             </div>
           <% end %>
             
-            <div class="p-8">
-              <!-- Plan Header -->
-              <div class="text-center mb-8">
-                <h3 class="text-2xl font-bold text-gray-900 mb-4"><%= plan[:name] %></h3>
-                <p class="text-gray-600 mb-6"><%= plan[:description] %></p>
-                <div class="flex items-end justify-center mb-6">
-                  <div data-pricing-target="monthlyPrice" class="items-end">
-                    <span class="text-5xl font-bold text-gray-900">$<%= plan[:monthly_price] %></span>
-                    <span class="text-gray-500 ml-2">/month</span>
+          <div class="relative p-8 <%= plan[:highlight] ? 'bg-gradient-to-br from-purple-50 to-blue-50' : '' %> rounded-t-3xl">
+            <!-- Plan Header -->
+            <div class="text-center mb-8">
+              <!-- Plan Icon -->
+              <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br <%= plan[:highlight] ? 'from-purple-500 to-blue-500' : 'from-blue-500 to-indigo-500' %> flex items-center justify-center shadow-lg">
+                <i class="fas <%= case plan[:name]
+                  when 'Basic Care' then 'fa-heart'
+                  when 'Professional' then 'fa-user-md'
+                  when 'Enterprise' then 'fa-hospital'
+                  else 'fa-star'
+                end %> text-3xl text-white"></i>
+              </div>
+              
+              <h3 class="text-3xl font-black text-gray-900 mb-3 invisible-text-fix"><%= plan[:name] %></h3>
+              <p class="text-gray-600 mb-8 leading-relaxed invisible-text-fix"><%= plan[:description] %></p>
+              
+              <!-- Enhanced Pricing Display -->
+              <div class="mb-8">
+                <div data-pricing-target="monthlyPrice" class="transition-all duration-300">
+                  <div class="flex items-end justify-center mb-2">
+                    <span class="text-6xl font-black text-gray-900 invisible-text-fix">$<%= plan[:monthly_price] %></span>
+                    <span class="text-gray-500 ml-2 text-lg font-medium invisible-text-fix">/month</span>
                   </div>
-                  <div data-pricing-target="annualPrice" class="items-end hidden">
-                    <span class="text-5xl font-bold text-gray-900">$<%= plan[:annual_price] %></span>
-                    <span class="text-gray-500 ml-2">/month</span>
-                    <span class="ml-2 text-sm text-green-500">(billed annually)</span>
+                  <div class="text-sm text-gray-500 invisible-text-fix">Billed monthly</div>
+                </div>
+                <div data-pricing-target="annualPrice" class="transition-all duration-300 hidden">
+                  <div class="flex items-end justify-center mb-2">
+                    <span class="text-6xl font-black text-gray-900 invisible-text-fix">$<%= plan[:annual_price] %></span>
+                    <span class="text-gray-500 ml-2 text-lg font-medium invisible-text-fix">/month</span>
+                  </div>
+                  <div class="text-sm text-green-600 font-semibold invisible-text-fix" data-pricing-target="savingsLabel">
+                    <i class="fas fa-tags mr-1"></i>
+                    Billed annually - Save $<%= (plan[:monthly_price].to_i - plan[:annual_price].to_i) * 12 %>/year
                   </div>
                 </div>
-              <%= link_to plan[:cta_text], "#", class: "block w-full px-6 py-3 text-center #{plan[:highlight] ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white' : 'bg-gray-100 text-gray-900'} rounded-lg font-medium hover:shadow-lg transform hover:-translate-y-0.5 transition-all" %>
+              </div>
+              
+              <!-- Enhanced CTA Button -->
+              <%= link_to plan[:cta_text], "#", class: "group block w-full px-8 py-4 text-center #{plan[:highlight] ? 'bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 text-white shadow-lg shadow-purple-500/25' : 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg shadow-blue-500/25'} rounded-2xl font-bold text-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 relative overflow-hidden" %>
+                <span class="relative z-10 flex items-center justify-center">
+                  <%= plan[:cta_text] %>
+                  <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
+                </span>
+                <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+              </a>
+              
+              <!-- Money Back Guarantee -->
+              <div class="mt-4 text-sm text-gray-500 flex items-center justify-center">
+                <i class="fas fa-shield-check text-green-500 mr-2"></i>
+                30-day money-back guarantee
+              </div>
             </div>
+          </div>
 
-            <!-- Feature List -->
-            <div class="border-t border-gray-100 pt-8 px-8">
-              <ul class="space-y-4">
-                <% plan[:features].each do |feature| %>
-                  <li class="flex items-start">
-                    <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                    <span class="text-gray-600"><%= feature %></span>
-                  </li>
+                      <!-- Enhanced Feature List -->
+          <div class="border-t border-gray-100 pt-8 px-8">
+            <h4 class="text-lg font-bold text-gray-900 mb-6 flex items-center">
+              <i class="fas fa-check-circle text-green-500 mr-3"></i>
+              What's Included
+            </h4>
+            <ul class="space-y-4">
+              <% plan[:features].each do |feature| %>
+                <li class="group flex items-start hover:bg-gray-50 p-2 rounded-lg transition-colors duration-200">
+                  <div class="flex-shrink-0 w-6 h-6 bg-gradient-to-r from-green-400 to-green-500 rounded-full flex items-center justify-center mt-0.5 mr-4 group-hover:scale-110 transition-transform duration-200">
+                    <i class="fas fa-check text-white text-xs"></i>
+                  </div>
+                  <span class="text-gray-700 leading-relaxed group-hover:text-gray-900 transition-colors duration-200"><%= feature %></span>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+          
+          <!-- Enhanced Testimonial Card -->
+          <div class="mt-8 mx-8 mb-8 p-6 bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl border border-gray-100 hover:shadow-md transition-all duration-300">
+            <div class="flex items-start">
+              <div class="flex-shrink-0 mr-4">
+                <% if asset_exists?(plan[:testimonial][:avatar]) %>
+                  <img src="<%= asset_path(plan[:testimonial][:avatar]) %>" alt="<%= plan[:testimonial][:author] %>" class="w-14 h-14 rounded-full object-cover shadow-lg ring-2 ring-white">
+                <% else %>
+                  <div class="w-14 h-14 rounded-full flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-500 text-white shadow-lg ring-2 ring-white">
+                    <i class="fas fa-user-circle text-2xl"></i>
+                  </div>
                 <% end %>
-              </ul>
-            </div>
-            
-            <!-- Testimonial -->
-            <div class="mt-8 p-6 bg-gray-50 rounded-b-2xl border-t border-gray-100">
-              <div class="flex items-start">
-                <div class="flex-shrink-0 mr-4">
-                  <% if asset_exists?(plan[:testimonial][:avatar]) %>
-                    <img src="<%= asset_path(plan[:testimonial][:avatar]) %>" alt="<%= plan[:testimonial][:author] %>" class="w-12 h-12 rounded-full object-cover shadow-sm">
-                  <% else %>
-                    <div class="w-12 h-12 rounded-full flex items-center justify-center bg-blue-100 text-blue-600">
-                      <i class="fas fa-user-circle text-2xl"></i>
-                    </div>
+              </div>
+              <div class="flex-1">
+                <!-- Star Rating -->
+                <div class="flex items-center mb-3">
+                  <% 5.times do %>
+                    <i class="fas fa-star text-yellow-400 text-sm"></i>
                   <% end %>
+                  <span class="ml-2 text-xs font-semibold text-gray-600">Verified User</span>
                 </div>
+                <p class="text-gray-700 text-sm italic mb-3 leading-relaxed">"<%= plan[:testimonial][:quote] %>"</p>
                 <div>
-                  <p class="text-gray-600 text-sm italic mb-2">"<%= plan[:testimonial][:quote] %>"</p>
-                  <p class="text-gray-800 font-medium text-sm"><%= plan[:testimonial][:author] %></p>
+                  <p class="text-gray-900 font-bold text-sm"><%= plan[:testimonial][:author] %></p>
                   <p class="text-gray-500 text-xs"><%= plan[:testimonial][:role] %></p>
                 </div>
               </div>
@@ -137,179 +256,475 @@
   </div>
 </section>
 
-<!-- Comparison Table Section -->
-<section class="py-20 bg-gradient-to-b from-white to-gray-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-12" data-controller="fade-in">
-      <h2 class="text-4xl font-bold text-gray-900 mb-6">Feature Comparison</h2>
+<!-- Enhanced Comparison Table Section -->
+<section class="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+  <!-- Background Elements -->
+  <div class="absolute top-0 left-0 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+  <div class="absolute bottom-0 right-0 w-96 h-96 bg-purple-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+  
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16" data-controller="fade-in">
+      <div class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-100 to-purple-100 rounded-full mb-6">
+        <i class="fas fa-chart-bar text-blue-600 mr-2"></i>
+        <span class="text-sm font-bold text-blue-800">DETAILED COMPARISON</span>
+      </div>
+      <h2 class="text-5xl font-black text-gray-900 mb-6">Compare All Features</h2>
       <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-        Compare plans to find the perfect fit for your healthcare needs
+        Every plan includes our core AI technology. See exactly what you get with each tier.
       </p>
     </div>
     
-    <div class="overflow-x-auto" data-controller="fade-in">
-      <table class="w-full min-w-max bg-white rounded-xl shadow-md overflow-hidden">
-        <thead>
-          <tr class="text-left bg-gray-50">
-            <th class="py-4 px-6 font-medium text-gray-500 w-1/3">Features</th>
-            <th class="py-4 px-6 font-medium text-gray-500 text-center">Basic Care</th>
-            <th class="py-4 px-6 font-medium text-gray-500 text-center">Professional</th>
-            <th class="py-4 px-6 font-medium text-gray-500 text-center">Enterprise</th>
-          </tr>
-        </thead>
-        <tbody class="divide-y divide-gray-100">
-          <% @feature_comparison.each do |category| %>
-            <tr class="bg-blue-50">
-              <td colspan="4" class="py-3 px-6 font-medium text-blue-800"><%= category[:category] %></td>
+    <!-- Enhanced Comparison Table -->
+    <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100" data-controller="fade-in">
+      <!-- Sticky Table Header -->
+      <div class="overflow-x-auto">
+        <table class="w-full min-w-max">
+          <thead class="bg-gradient-to-r from-gray-900 to-gray-800 text-white sticky top-0">
+            <tr>
+              <th class="py-6 px-8 font-bold text-left text-lg">Features</th>
+              <th class="py-6 px-6 font-bold text-center text-lg">
+                <div class="flex flex-col items-center">
+                  <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mb-2">
+                    <i class="fas fa-heart text-white"></i>
+                  </div>
+                  Basic Care
+                </div>
+              </th>
+              <th class="py-6 px-6 font-bold text-center text-lg bg-gradient-to-r from-purple-600 to-blue-600 relative">
+                <div class="flex flex-col items-center">
+                  <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-2">
+                    <i class="fas fa-user-md text-purple-600"></i>
+                  </div>
+                  Professional
+                  <div class="absolute -top-2 -right-2 bg-yellow-400 text-gray-900 text-xs font-bold px-2 py-1 rounded-full">
+                    POPULAR
+                  </div>
+                </div>
+              </th>
+              <th class="py-6 px-6 font-bold text-center text-lg">
+                <div class="flex flex-col items-center">
+                  <div class="w-12 h-12 bg-indigo-500 rounded-xl flex items-center justify-center mb-2">
+                    <i class="fas fa-hospital text-white"></i>
+                  </div>
+                  Enterprise
+                </div>
+              </th>
             </tr>
-            <% category[:features].each do |feature| %>
-              <tr>
-                <td class="py-4 px-6">
-                  <div class="font-medium text-gray-900"><%= feature[:name] %></div>
-                  <div class="text-sm text-gray-500"><%= feature[:description] %></div>
-                </td>
-                <td class="py-4 px-6 text-center text-gray-600">
-                  <% if feature[:basic] == "Not included" %>
-                    <i class="fas fa-times-circle text-gray-400"></i>
-                  <% else %>
-                    <%= feature[:basic] %>
-                  <% end %>
-                </td>
-                <td class="py-4 px-6 text-center text-gray-600 bg-blue-50">
-                  <% if feature[:professional] == "Not included" %>
-                    <i class="fas fa-times-circle text-gray-400"></i>
-                  <% else %>
-                    <span class="font-medium"><%= feature[:professional] %></span>
-                  <% end %>
-                </td>
-                <td class="py-4 px-6 text-center text-gray-600">
-                  <% if feature[:enterprise] == "Not included" %>
-                    <i class="fas fa-times-circle text-gray-400"></i>
-                  <% else %>
-                    <%= feature[:enterprise] %>
-                  <% end %>
+          </thead>
+          <tbody class="divide-y divide-gray-100">
+            <% @feature_comparison.each_with_index do |category, cat_index| %>
+              <!-- Category Header -->
+              <tr class="bg-gradient-to-r from-blue-50 to-purple-50">
+                <td colspan="4" class="py-4 px-8">
+                  <div class="flex items-center">
+                    <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center mr-3">
+                      <i class="fas fa-folder text-white text-sm"></i>
+                    </div>
+                    <span class="font-bold text-gray-900 text-lg"><%= category[:category] %></span>
+                  </div>
                 </td>
               </tr>
+              
+              <!-- Category Features -->
+              <% category[:features].each_with_index do |feature, feat_index| %>
+                <tr class="hover:bg-gray-50 transition-colors duration-200 group">
+                  <td class="py-6 px-8 border-r border-gray-100">
+                    <div class="font-semibold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">
+                      <%= feature[:name] %>
+                    </div>
+                    <div class="text-sm text-gray-600 leading-relaxed">
+                      <%= feature[:description] %>
+                    </div>
+                  </td>
+                  
+                  <!-- Basic Plan Column -->
+                  <td class="py-6 px-6 text-center border-r border-gray-100">
+                    <% if feature[:basic] == "Not included" %>
+                      <div class="inline-flex items-center justify-center w-8 h-8 bg-gray-100 rounded-full">
+                        <i class="fas fa-times text-gray-400"></i>
+                      </div>
+                    <% else %>
+                      <div class="inline-flex items-center justify-center w-8 h-8 bg-green-100 rounded-full mr-2">
+                        <i class="fas fa-check text-green-600"></i>
+                      </div>
+                      <span class="text-gray-700 font-medium"><%= feature[:basic] %></span>
+                    <% end %>
+                  </td>
+                  
+                  <!-- Professional Plan Column (Highlighted) -->
+                  <td class="py-6 px-6 text-center bg-gradient-to-br from-purple-50 to-blue-50 border-r border-purple-200">
+                    <% if feature[:professional] == "Not included" %>
+                      <div class="inline-flex items-center justify-center w-8 h-8 bg-gray-100 rounded-full">
+                        <i class="fas fa-times text-gray-400"></i>
+                      </div>
+                    <% else %>
+                      <div class="inline-flex items-center justify-center w-8 h-8 bg-purple-100 rounded-full mr-2">
+                        <i class="fas fa-check text-purple-600"></i>
+                      </div>
+                      <span class="text-purple-800 font-bold"><%= feature[:professional] %></span>
+                    <% end %>
+                  </td>
+                  
+                  <!-- Enterprise Plan Column -->
+                  <td class="py-6 px-6 text-center">
+                    <% if feature[:enterprise] == "Not included" %>
+                      <div class="inline-flex items-center justify-center w-8 h-8 bg-gray-100 rounded-full">
+                        <i class="fas fa-times text-gray-400"></i>
+                      </div>
+                    <% else %>
+                      <div class="inline-flex items-center justify-center w-8 h-8 bg-indigo-100 rounded-full mr-2">
+                        <i class="fas fa-check text-indigo-600"></i>
+                      </div>
+                      <span class="text-gray-700 font-medium"><%= feature[:enterprise] %></span>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
             <% end %>
-          <% end %>
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      </div>
+      
+      <!-- Call to Action Footer -->
+      <div class="bg-gradient-to-r from-gray-900 to-gray-800 p-8">
+        <div class="flex flex-col md:flex-row items-center justify-between">
+          <div class="text-center md:text-left mb-6 md:mb-0">
+            <h3 class="text-2xl font-bold text-white mb-2">Ready to get started?</h3>
+            <p class="text-gray-300">Choose your plan and start your free trial today</p>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#pricing-cards" class="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-bold hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300">
+              View Plans
+            </a>
+            <a href="#" class="px-8 py-4 bg-transparent border-2 border-white text-white rounded-xl font-bold hover:bg-white hover:text-gray-900 transition-all duration-300">
+              Start Free Trial
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Special Offers Section -->
-<section class="py-20 bg-gray-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-12" data-controller="fade-in">
-      <div class="inline-flex items-center px-4 py-2 bg-purple-100 rounded-full mb-6">
-        <i class="fas fa-percentage text-purple-600 mr-2"></i>
-        <span class="text-sm font-medium text-purple-800">Special Offers</span>
+<!-- Enhanced Special Offers Section -->
+<section class="py-24 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 relative overflow-hidden">
+  <!-- Animated Background Elements -->
+  <div class="absolute inset-0">
+    <div class="absolute top-0 left-0 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+    <div class="absolute top-0 right-0 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse" style="animation-delay: 2s;"></div>
+    <div class="absolute bottom-0 left-1/2 w-80 h-80 bg-indigo-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse" style="animation-delay: 4s;"></div>
+  </div>
+  
+  <!-- Background Pattern -->
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute inset-0" style="background-image: radial-gradient(circle at 25px 25px, rgba(255,255,255,0.2) 2px, transparent 0); background-size: 50px 50px;"></div>
+  </div>
+  
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16" data-controller="fade-in">
+      <div class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mb-8 shadow-lg">
+        <div class="flex items-center">
+          <i class="fas fa-fire text-white mr-2 animate-pulse"></i>
+          <span class="text-sm font-bold text-white">EXCLUSIVE DISCOUNTS</span>
+          <div class="w-2 h-2 bg-yellow-400 rounded-full ml-2 animate-ping"></div>
+        </div>
       </div>
-      <h2 class="text-4xl font-bold text-gray-900 mb-6">Exclusive Discounts</h2>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-        Special pricing available for eligible organizations and individuals
+      
+      <h2 class="text-5xl font-black text-white mb-6">
+        Special Pricing for
+        <span class="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+          Heroes in Healthcare
+        </span>
+      </h2>
+      <p class="text-xl text-purple-200 max-w-3xl mx-auto">
+        We believe quality healthcare technology should be accessible to everyone making a difference
       </p>
     </div>
     
-    <div class="grid md:grid-cols-3 gap-8 mb-12">
-      <% @special_offers.each do |offer| %>
-        <div class="bg-white rounded-xl p-6 shadow-sm border border-purple-100" data-controller="fade-in">
-          <h3 class="text-xl font-bold text-gray-900 mb-3"><%= offer[:title] %></h3>
-          <p class="text-gray-600 mb-4"><%= offer[:description] %></p>
-          <div class="flex items-center justify-between">
-            <span class="text-purple-700 font-medium"><%= offer[:discount] %></span>
-            <div class="bg-purple-50 px-3 py-1 rounded-lg border border-purple-100">
-              <span class="text-sm font-mono font-medium text-purple-700">Code: <%= offer[:code] %></span>
+    <!-- Enhanced Special Offer Cards -->
+    <div class="grid md:grid-cols-3 gap-8 mb-16">
+      <% @special_offers.each_with_index do |offer, index| %>
+        <div class="group relative bg-white rounded-3xl p-8 shadow-2xl border-2 border-purple-200 hover:border-purple-400 transition-all duration-300 hover:shadow-purple-500/25 hover:-translate-y-2" data-controller="fade-in">
+          <!-- Offer Icon -->
+          <div class="absolute -top-6 left-1/2 transform -translate-x-1/2">
+            <div class="w-12 h-12 bg-gradient-to-r <%= case index
+              when 0 then 'from-blue-500 to-cyan-500'
+              when 1 then 'from-green-500 to-teal-500'
+              when 2 then 'from-purple-500 to-pink-500'
+            end %> rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+              <i class="fas <%= case index
+                when 0 then 'fa-user-md'
+                when 1 then 'fa-heart'
+                when 2 then 'fa-graduation-cap'
+              end %> text-white text-xl"></i>
             </div>
           </div>
+          
+          <div class="text-center pt-8">
+            <h3 class="text-2xl font-black text-gray-900 mb-4"><%= offer[:title] %></h3>
+            <p class="text-gray-600 mb-6 leading-relaxed"><%= offer[:description] %></p>
+            
+            <!-- Discount Display -->
+            <div class="bg-gradient-to-r <%= case index
+              when 0 then 'from-blue-50 to-cyan-50'
+              when 1 then 'from-green-50 to-teal-50'
+              when 2 then 'from-purple-50 to-pink-50'
+            end %> rounded-2xl p-6 mb-6">
+              <div class="text-3xl font-black <%= case index
+                when 0 then 'text-blue-600'
+                when 1 then 'text-green-600'
+                when 2 then 'text-purple-600'
+              end %> mb-2">
+                <%= offer[:discount] %>
+              </div>
+              <div class="inline-flex items-center px-4 py-2 bg-white rounded-full border-2 <%= case index
+                when 0 then 'border-blue-200'
+                when 1 then 'border-green-200'
+                when 2 then 'border-purple-200'
+              end %> shadow-sm">
+                <i class="fas fa-tag mr-2 <%= case index
+                  when 0 then 'text-blue-600'
+                  when 1 then 'text-green-600'
+                  when 2 then 'text-purple-600'
+                end %>"></i>
+                <span class="font-mono font-bold text-gray-800">Code: <%= offer[:code] %></span>
+              </div>
+            </div>
+            
+            <!-- Apply Button -->
+            <button class="w-full px-6 py-3 <%= case index
+              when 0 then 'bg-blue-600 hover:bg-blue-700'
+              when 1 then 'bg-green-600 hover:bg-green-700'
+              when 2 then 'bg-purple-600 hover:bg-purple-700'
+            end %> text-white rounded-xl font-bold transition-all duration-300 hover:shadow-lg transform hover:-translate-y-0.5">
+              Apply Discount
+            </button>
+          </div>
+          
+          <!-- Hover Effect -->
+          <div class="absolute inset-0 <%= case index
+            when 0 then 'bg-blue-500'
+            when 1 then 'bg-green-500'
+            when 2 then 'bg-purple-500'
+          end %> opacity-0 group-hover:opacity-5 rounded-3xl transition-opacity duration-300"></div>
         </div>
       <% end %>
     </div>
     
-    <div class="max-w-3xl mx-auto text-center">
-      <p class="text-gray-600 mb-6">
-        Contact our sales team to verify eligibility for these special offers. Additional verification may be required.
-      </p>
-      <a href="/contact" class="inline-flex items-center px-6 py-3 bg-purple-600 text-white font-medium rounded-lg shadow-md hover:bg-purple-700 transition-colors">
-        <i class="fas fa-envelope mr-2"></i>
-        Contact Us About Discounts
-      </a>
+    <!-- Verification Process -->
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="bg-white bg-opacity-10 backdrop-blur-lg rounded-3xl p-8 border border-white border-opacity-20">
+        <h3 class="text-2xl font-bold text-white mb-6">How to Qualify</h3>
+        <div class="grid md:grid-cols-3 gap-8 mb-8">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-file-medical text-white text-2xl"></i>
+            </div>
+            <h4 class="font-bold text-white mb-2">Submit Documentation</h4>
+            <p class="text-purple-200 text-sm">Provide verification of your professional status or student enrollment</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-clock text-white text-2xl"></i>
+            </div>
+            <h4 class="font-bold text-white mb-2">Quick Review</h4>
+            <p class="text-purple-200 text-sm">Our team reviews applications within 24-48 hours</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-check-circle text-white text-2xl"></i>
+            </div>
+            <h4 class="font-bold text-white mb-2">Start Saving</h4>
+            <p class="text-purple-200 text-sm">Begin using MedGemma Health with your exclusive discount</p>
+          </div>
+        </div>
+        
+        <a href="/contact" class="inline-flex items-center px-8 py-4 bg-white text-purple-900 font-bold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300">
+          <i class="fas fa-envelope mr-3"></i>
+          Apply for Special Pricing
+          <i class="fas fa-arrow-right ml-3"></i>
+        </a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Enterprise Section -->
-<section class="py-20 bg-gradient-to-r from-gray-900 to-blue-900 text-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-col lg:flex-row items-center justify-between">
-      <div class="lg:w-1/2 mb-10 lg:mb-0" data-controller="fade-in">
-        <div class="inline-flex items-center px-4 py-2 bg-blue-800 rounded-full mb-6">
-          <i class="fas fa-building text-blue-300 mr-2"></i>
-          <span class="text-sm font-medium text-blue-200">Enterprise Solutions</span>
+<!-- Enhanced Enterprise Section -->
+<section class="py-24 bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden">
+  <!-- Background Elements -->
+  <div class="absolute inset-0">
+    <div class="absolute top-0 left-0 w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-indigo-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style="animation-delay: 2s;"></div>
+  </div>
+  
+  <!-- Grid Pattern -->
+  <div class="absolute inset-0 opacity-5">
+    <div class="absolute inset-0" style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 50px 50px;"></div>
+  </div>
+  
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col lg:flex-row items-center justify-between gap-16">
+      <!-- Content Section -->
+      <div class="lg:w-1/2 space-y-8" data-controller="fade-in">
+        <div class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full shadow-lg">
+          <i class="fas fa-building text-white mr-3"></i>
+          <span class="text-sm font-bold text-white">ENTERPRISE SOLUTIONS</span>
         </div>
-        <h2 class="text-4xl font-bold mb-6">
-          Need a custom healthcare solution?
+        
+        <h2 class="text-5xl font-black leading-tight">
+          Scale Healthcare AI
+          <span class="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+            Across Your Organization
+          </span>
         </h2>
-        <p class="text-xl text-blue-200 mb-8">
-          Our Enterprise plan can be tailored to your specific requirements, from custom EMR integrations to white-label solutions.
+        
+        <p class="text-xl text-blue-200 leading-relaxed">
+          Transform your healthcare organization with enterprise-grade AI solutions, custom integrations, and dedicated support that scales with your needs.
         </p>
-        <ul class="space-y-4 mb-8">
-          <li class="flex items-start">
-            <i class="fas fa-check-circle text-green-400 mt-1 mr-3"></i>
-            <span>Dedicated account manager</span>
-          </li>
-          <li class="flex items-start">
-            <i class="fas fa-check-circle text-green-400 mt-1 mr-3"></i>
-            <span>Custom implementation tailored to your workflow</span>
-          </li>
-          <li class="flex items-start">
-            <i class="fas fa-check-circle text-green-400 mt-1 mr-3"></i>
-            <span>Volume discounts available</span>
-          </li>
-          <li class="flex items-start">
-            <i class="fas fa-check-circle text-green-400 mt-1 mr-3"></i>
-            <span>SLA with guaranteed uptime and support</span>
-          </li>
-        </ul>
-        <div class="flex flex-col sm:flex-row gap-4">
-          <%= link_to "Schedule a Consultation", "#", class: "px-6 py-3 bg-white text-blue-900 rounded-lg font-medium hover:bg-blue-50 transition-colors text-center" %>
-          <%= link_to "Download Enterprise Brochure", "#", class: "px-6 py-3 bg-transparent border border-white text-white rounded-lg font-medium hover:bg-blue-800 transition-colors text-center" %>
+        
+        <!-- Enhanced Feature List -->
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div class="flex items-start">
+            <div class="w-8 h-8 bg-gradient-to-r from-green-400 to-green-500 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+              <i class="fas fa-user-tie text-white text-sm"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-white mb-1">Dedicated Success Manager</h4>
+              <p class="text-blue-200 text-sm">Personal guidance and strategic support</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start">
+            <div class="w-8 h-8 bg-gradient-to-r from-blue-400 to-blue-500 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+              <i class="fas fa-cogs text-white text-sm"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-white mb-1">Custom Implementation</h4>
+              <p class="text-blue-200 text-sm">Tailored to your existing workflows</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start">
+            <div class="w-8 h-8 bg-gradient-to-r from-purple-400 to-purple-500 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+              <i class="fas fa-chart-line text-white text-sm"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-white mb-1">Volume Discounts</h4>
+              <p class="text-blue-200 text-sm">Significant savings for large organizations</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start">
+            <div class="w-8 h-8 bg-gradient-to-r from-indigo-400 to-indigo-500 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+              <i class="fas fa-shield-alt text-white text-sm"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-white mb-1">Enterprise SLA</h4>
+              <p class="text-blue-200 text-sm">99.9% uptime guarantee with priority support</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Enhanced CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 pt-6">
+          <%= link_to "#", class: "group px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 text-center" do %>
+            <span class="flex items-center justify-center">
+              <i class="fas fa-calendar-check mr-3"></i>
+              Schedule Enterprise Demo
+              <i class="fas fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform"></i>
+            </span>
+          <% end %>
+          
+          <%= link_to "#", class: "group px-8 py-4 bg-transparent border-2 border-white text-white rounded-xl font-bold text-lg hover:bg-white hover:text-gray-900 transition-all duration-300 text-center" do %>
+            <span class="flex items-center justify-center">
+              <i class="fas fa-download mr-3"></i>
+              Download Enterprise Guide
+            </span>
+          <% end %>
+        </div>
+        
+        <!-- Trust Indicators -->
+        <div class="pt-8 border-t border-blue-800">
+          <p class="text-blue-200 text-sm mb-4">Trusted by leading healthcare organizations:</p>
+          <div class="flex items-center space-x-6 text-blue-300">
+            <div class="flex items-center">
+              <i class="fas fa-hospital mr-2"></i>
+              <span class="text-sm">500+ Hospitals</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-clinic-medical mr-2"></i>
+              <span class="text-sm">2,000+ Clinics</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-users mr-2"></i>
+              <span class="text-sm">50K+ Providers</span>
+            </div>
+          </div>
         </div>
       </div>
+      
+      <!-- Enhanced Form Section -->
       <div class="lg:w-2/5" data-controller="fade-in">
-        <div class="bg-gradient-to-br from-blue-800 to-blue-900 p-8 rounded-2xl shadow-xl border border-blue-700">
-          <h3 class="text-2xl font-bold mb-6">Request Enterprise Demo</h3>
-          <form class="space-y-4">
-            <div>
-              <label class="block text-sm font-medium text-blue-200 mb-1">Organization Name</label>
-              <input type="text" class="w-full px-4 py-2 bg-blue-700 border border-blue-600 rounded-lg text-white placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <div class="bg-white bg-opacity-10 backdrop-blur-lg p-10 rounded-3xl shadow-2xl border border-white border-opacity-20">
+          <div class="text-center mb-8">
+            <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-rocket text-white text-3xl"></i>
             </div>
-            <div>
-              <label class="block text-sm font-medium text-blue-200 mb-1">Your Name</label>
-              <input type="text" class="w-full px-4 py-2 bg-blue-700 border border-blue-600 rounded-lg text-white placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <h3 class="text-2xl font-bold text-white mb-2">Get Started Today</h3>
+            <p class="text-blue-200">Schedule your personalized enterprise demo</p>
+          </div>
+          
+          <form class="space-y-6">
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-bold text-blue-200 mb-2">First Name</label>
+                <input type="text" class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-xl text-white placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all" placeholder="John">
+              </div>
+              <div>
+                <label class="block text-sm font-bold text-blue-200 mb-2">Last Name</label>
+                <input type="text" class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-xl text-white placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all" placeholder="Doe">
+              </div>
             </div>
+            
             <div>
-              <label class="block text-sm font-medium text-blue-200 mb-1">Business Email</label>
-              <input type="email" class="w-full px-4 py-2 bg-blue-700 border border-blue-600 rounded-lg text-white placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <label class="block text-sm font-bold text-blue-200 mb-2">Organization Name</label>
+              <input type="text" class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-xl text-white placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all" placeholder="Medical Center Name">
             </div>
+            
             <div>
-              <label class="block text-sm font-medium text-blue-200 mb-1">Phone Number</label>
-              <input type="tel" class="w-full px-4 py-2 bg-blue-700 border border-blue-600 rounded-lg text-white placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <label class="block text-sm font-bold text-blue-200 mb-2">Business Email</label>
+              <input type="email" class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-xl text-white placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all" placeholder="john@hospital.com">
             </div>
+            
             <div>
-              <label class="block text-sm font-medium text-blue-200 mb-1">Organization Size</label>
-              <select class="w-full px-4 py-2 bg-blue-700 border border-blue-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <option>1-10 employees</option>
-                <option>11-50 employees</option>
-                <option>51-200 employees</option>
-                <option>201-500 employees</option>
-                <option>501+ employees</option>
+              <label class="block text-sm font-bold text-blue-200 mb-2">Phone Number</label>
+              <input type="tel" class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-xl text-white placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all" placeholder="+1 (555) 123-4567">
+            </div>
+            
+            <div>
+              <label class="block text-sm font-bold text-blue-200 mb-2">Organization Size</label>
+              <select class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all">
+                <option value="" class="text-gray-900">Select organization size</option>
+                <option value="1-10" class="text-gray-900">1-10 employees</option>
+                <option value="11-50" class="text-gray-900">11-50 employees</option>
+                <option value="51-200" class="text-gray-900">51-200 employees</option>
+                <option value="201-500" class="text-gray-900">201-500 employees</option>
+                <option value="501+" class="text-gray-900">501+ employees</option>
               </select>
             </div>
-            <button type="submit" class="w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-medium hover:from-blue-600 hover:to-purple-700 transition-colors">
-              Request Demo
+            
+            <button type="submit" class="group w-full px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-xl font-bold text-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+              <span class="flex items-center justify-center">
+                <i class="fas fa-rocket mr-3"></i>
+                Request Enterprise Demo
+                <i class="fas fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform"></i>
+              </span>
             </button>
+            
+            <p class="text-center text-blue-200 text-sm">
+              <i class="fas fa-lock mr-2"></i>
+              Your information is secure and will not be shared
+            </p>
           </form>
         </div>
       </div>
@@ -317,271 +732,413 @@
   </div>
 </section>
 
-<!-- FAQ Section -->
-<section class="py-20 bg-gray-50">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16" data-controller="fade-in">
-      <h2 class="text-4xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
-      <p class="text-xl text-gray-600">Everything you need to know about our pricing and services</p>
+<!-- Enhanced FAQ Section -->
+<section class="py-24 bg-gradient-to-b from-white to-gray-50">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-20" data-controller="fade-in">
+      <div class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-yellow-100 to-orange-100 rounded-full mb-6">
+        <i class="fas fa-question-circle text-orange-600 mr-2"></i>
+        <span class="text-sm font-bold text-orange-800">FREQUENTLY ASKED</span>
+      </div>
+      <h2 class="text-5xl font-black text-gray-900 mb-6">
+        Got Questions? 
+        <span class="bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+          We Have Answers
+        </span>
+      </h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Everything you need to know about our pricing, features, and getting started
+      </p>
     </div>
 
-    <div class="space-y-6" data-controller="faq-accordion">
+    <!-- Enhanced FAQ Accordion -->
+    <div class="space-y-4" data-controller="accordion">
       <% @pricing_faqs.each_with_index do |faq, index| %>
-        <div class="bg-white rounded-xl shadow-sm overflow-hidden" data-controller="fade-in">
+        <div class="group bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 overflow-hidden" data-controller="fade-in">
           <button 
-            class="w-full text-left px-6 py-4 flex items-center justify-between focus:outline-none"
-            data-action="click->faq-accordion#toggle"
-            data-faq-accordion-target="question"
+            class="w-full text-left px-8 py-6 flex items-center justify-between focus:outline-none hover:bg-gray-50 transition-colors duration-200"
+            data-action="click->accordion#toggle"
+            data-accordion-target="question"
             data-index="<%= index %>"
           >
-            <h3 class="text-lg font-semibold text-gray-900"><%= faq[:question] %></h3>
-            <i class="fas fa-chevron-down text-gray-500 transition-transform"></i>
+            <div class="flex items-center">
+              <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mr-6 flex-shrink-0 group-hover:scale-110 transition-transform duration-200">
+                <i class="fas fa-question text-white text-lg"></i>
+              </div>
+              <h3 class="faq-question text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-200 invisible-text-fix">
+                <%= faq[:question] %>
+              </h3>
+            </div>
+            <div class="flex-shrink-0 ml-4">
+              <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center group-hover:bg-blue-100 transition-colors duration-200">
+                <i class="fas fa-chevron-down text-gray-500 group-hover:text-blue-600 transition-all duration-300" data-accordion-target="icon" data-index="<%= index %>"></i>
+              </div>
+            </div>
           </button>
-          <div class="px-6 pb-4 hidden" data-faq-accordion-target="answer" data-index="<%= index %>">
-            <p class="text-gray-600"><%= faq[:answer] %></p>
+          
+          <div class="px-8 pb-6 accordion-content" data-accordion-target="content" data-index="<%= index %>">
+            <div class="pl-18">
+              <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-6 border-l-4 border-blue-500">
+                <p class="faq-answer text-gray-700 leading-relaxed text-lg invisible-text-fix"><%= faq[:answer] %></p>
+              </div>
+            </div>
           </div>
         </div>
       <% end %>
     </div>
 
-    <div class="text-center mt-12 pt-6 border-t border-gray-200" data-controller="fade-in">
-      <p class="text-gray-600 mb-4">Still have questions about our pricing?</p>
-      <a href="/contact" class="inline-flex items-center px-6 py-3 bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 transition-colors">
-        <i class="fas fa-envelope mr-2"></i>
-        Contact Our Sales Team
-      </a>
+    <!-- Enhanced Contact Section -->
+    <div class="text-center mt-16 pt-12 border-t border-gray-200" data-controller="fade-in">
+      <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-12 text-white">
+        <div class="max-w-2xl mx-auto">
+          <div class="w-20 h-20 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-headset text-white text-3xl"></i>
+          </div>
+          <h3 class="text-3xl font-bold mb-4">Still Have Questions?</h3>
+          <p class="text-xl text-blue-100 mb-8">
+            Our healthcare technology experts are here to help you find the perfect solution
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/contact" class="group px-8 py-4 bg-white text-blue-600 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+              <span class="flex items-center justify-center">
+                <i class="fas fa-envelope mr-3"></i>
+                Contact Sales Team
+                <i class="fas fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform"></i>
+              </span>
+            </a>
+            <a href="tel:+1-555-MEDGEMMA" class="px-8 py-4 bg-transparent border-2 border-white text-white rounded-xl font-bold text-lg hover:bg-white hover:text-blue-600 transition-all duration-300">
+              <span class="flex items-center justify-center">
+                <i class="fas fa-phone mr-3"></i>
+                Call: (555) MEDGEMMA
+              </span>
+            </a>
+          </div>
+          <p class="text-blue-200 mt-6 text-sm">
+            <i class="fas fa-clock mr-2"></i>
+            Available Monday-Friday, 8AM-6PM EST
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Testimonials Carousel -->
-<section class="py-20 bg-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-12" data-controller="fade-in">
-      <div class="inline-flex items-center px-4 py-2 bg-green-100 rounded-full mb-6">
-        <i class="fas fa-star text-green-600 mr-2"></i>
-        <span class="text-sm font-medium text-green-800">Customer Stories</span>
+<!-- Enhanced Testimonials Carousel -->
+<section class="py-24 bg-gradient-to-br from-blue-50 via-white to-purple-50 relative overflow-hidden">
+  <!-- Background Elements -->
+  <div class="absolute top-0 left-0 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+  <div class="absolute bottom-0 right-0 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+  
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16" data-controller="fade-in">
+      <div class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-100 to-teal-100 rounded-full mb-6">
+        <div class="flex items-center">
+          <div class="flex text-yellow-400 mr-3">
+            <i class="fas fa-star text-sm"></i>
+            <i class="fas fa-star text-sm"></i>
+            <i class="fas fa-star text-sm"></i>
+            <i class="fas fa-star text-sm"></i>
+            <i class="fas fa-star text-sm"></i>
+          </div>
+          <span class="text-sm font-bold text-green-800">4.9/5 RATING</span>
+        </div>
       </div>
-      <h2 class="text-4xl font-bold text-gray-900 mb-6">
-        Trusted by Healthcare Professionals and Patients
+      
+      <h2 class="text-5xl font-black text-gray-900 mb-6">
+        Loved by Healthcare
+        <span class="bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent">
+          Professionals & Patients
+        </span>
       </h2>
       <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-        See what our customers are saying about MedGemma Health
+        See what thousands of users are saying about their MedGemma Health experience
       </p>
     </div>
     
-    <div class="flex overflow-x-auto pb-8 scrollbar-hide -mx-4 px-4" data-controller="testimonial-carousel">
-      <div class="flex space-x-6">
-        <div class="flex-shrink-0 w-96 bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-xl shadow-sm">
-          <div class="flex items-center mb-6">
-            <div class="text-yellow-400 flex">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
+    <!-- Enhanced Testimonials Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12" data-controller="testimonial-carousel">
+      <!-- Testimonial 1 -->
+      <div class="group bg-white rounded-3xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+        <div class="flex items-center mb-6">
+          <div class="flex text-yellow-400">
+            <i class="fas fa-star text-lg"></i>
+            <i class="fas fa-star text-lg"></i>
+            <i class="fas fa-star text-lg"></i>
+            <i class="fas fa-star text-lg"></i>
+            <i class="fas fa-star text-lg"></i>
           </div>
-          <p class="text-gray-700 mb-6">"The AI symptom checker is impressively accurate. It's like having a doctor in your pocket 24/7. Worth every penny of the Professional plan."</p>
-          <div class="flex items-center">
-            <% if asset_exists?('marketing/testimonials/doctor.jpg') %>
-              <img src="<%= asset_path('marketing/testimonials/doctor.jpg') %>" alt="Dr. Jennifer L." class="w-12 h-12 rounded-full mr-4 object-cover">
-            <% else %>
-              <div class="w-12 h-12 rounded-full flex items-center justify-center bg-blue-100 text-blue-600 mr-4">
-                <i class="fas fa-user-md text-2xl"></i>
-              </div>
-            <% end %>
-            <div>
-              <p class="font-medium text-gray-900">Dr. Jennifer L.</p>
-              <p class="text-gray-500 text-sm">Family Physician</p>
+          <span class="ml-3 bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full">
+            VERIFIED
+          </span>
+        </div>
+        
+        <p class="text-gray-700 mb-6 leading-relaxed font-medium">
+          "The AI symptom checker is impressively accurate. It's like having a doctor in your pocket 24/7. Worth every penny of the Professional plan."
+        </p>
+        
+        <div class="flex items-center">
+          <% if asset_exists?('marketing/testimonials/doctor.jpg') %>
+            <img src="<%= asset_path('marketing/testimonials/doctor.jpg') %>" alt="Dr. Jennifer L." class="w-14 h-14 rounded-full mr-4 object-cover ring-2 ring-blue-100">
+          <% else %>
+            <div class="w-14 h-14 rounded-full flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-500 text-white mr-4 ring-2 ring-blue-100">
+              <i class="fas fa-user-md text-xl"></i>
+            </div>
+          <% end %>
+          <div>
+            <p class="font-bold text-gray-900">Dr. Jennifer L.</p>
+            <p class="text-gray-500 text-sm">Family Physician</p>
+            <div class="flex items-center mt-1">
+              <i class="fas fa-shield-check text-blue-500 text-xs mr-1"></i>
+              <span class="text-xs text-blue-600 font-medium">Verified Professional</span>
             </div>
           </div>
         </div>
-        
-        <div class="flex-shrink-0 w-96 bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-xl shadow-sm">
-          <div class="flex items-center mb-6">
-            <div class="text-yellow-400 flex">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
+      </div>
+      
+      <!-- Testimonial 2 -->
+      <div class="group bg-white rounded-3xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+        <div class="flex items-center mb-6">
+          <div class="flex text-yellow-400">
+            <i class="fas fa-star text-lg"></i>
+            <i class="fas fa-star text-lg"></i>
+            <i class="fas fa-star text-lg"></i>
+            <i class="fas fa-star text-lg"></i>
+            <i class="fas fa-star text-lg"></i>
           </div>
-          <p class="text-gray-700 mb-6">"The Enterprise plan has transformed our clinic's workflow. Patient satisfaction is up 30% since implementing MedGemma's technology."</p>
-          <div class="flex items-center">
-            <% if asset_exists?('marketing/testimonials/admin.jpg') %>
-              <img src="<%= asset_path('marketing/testimonials/admin.jpg') %>" alt="Mark T." class="w-12 h-12 rounded-full mr-4 object-cover">
-            <% else %>
-              <div class="w-12 h-12 rounded-full flex items-center justify-center bg-blue-100 text-blue-600 mr-4">
-                <i class="fas fa-user-tie text-2xl"></i>
-              </div>
-            <% end %>
-            <div>
-              <p class="font-medium text-gray-900">Mark T.</p>
-              <p class="text-gray-500 text-sm">Medical Center Administrator</p>
+          <span class="ml-3 bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full">
+            VERIFIED
+          </span>
+        </div>
+        
+        <p class="text-gray-700 mb-6 leading-relaxed font-medium">
+          "The Enterprise plan has transformed our clinic's workflow. Patient satisfaction is up 30% since implementing MedGemma's technology."
+        </p>
+        
+        <div class="flex items-center">
+          <% if asset_exists?('marketing/testimonials/admin.jpg') %>
+            <img src="<%= asset_path('marketing/testimonials/admin.jpg') %>" alt="Mark T." class="w-14 h-14 rounded-full mr-4 object-cover ring-2 ring-purple-100">
+          <% else %>
+            <div class="w-14 h-14 rounded-full flex items-center justify-center bg-gradient-to-br from-purple-500 to-indigo-500 text-white mr-4 ring-2 ring-purple-100">
+              <i class="fas fa-user-tie text-xl"></i>
+            </div>
+          <% end %>
+          <div>
+            <p class="font-bold text-gray-900">Mark T.</p>
+            <p class="text-gray-500 text-sm">Medical Center Administrator</p>
+            <div class="flex items-center mt-1">
+              <i class="fas fa-building text-purple-500 text-xs mr-1"></i>
+              <span class="text-xs text-purple-600 font-medium">Enterprise Customer</span>
             </div>
           </div>
         </div>
-        
-        <div class="flex-shrink-0 w-96 bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-xl shadow-sm">
-          <div class="flex items-center mb-6">
-            <div class="text-yellow-400 flex">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star-half-alt"></i>
-            </div>
+      </div>
+      
+      <!-- Testimonial 3 -->
+      <div class="group bg-white rounded-3xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+        <div class="flex items-center mb-6">
+          <div class="flex text-yellow-400">
+            <i class="fas fa-star text-lg"></i>
+            <i class="fas fa-star text-lg"></i>
+            <i class="fas fa-star text-lg"></i>
+            <i class="fas fa-star text-lg"></i>
+            <i class="fas fa-star-half-alt text-lg"></i>
           </div>
-          <p class="text-gray-700 mb-6">"Even the Basic plan offers exceptional value. I've saved hours of waiting room time and unnecessary doctor visits using the symptom checker."</p>
-          <div class="flex items-center">
-            <% if asset_exists?('marketing/testimonials/patient.jpg') %>
-              <img src="<%= asset_path('marketing/testimonials/patient.jpg') %>" alt="Rachel K." class="w-12 h-12 rounded-full mr-4 object-cover">
-            <% else %>
-              <div class="w-12 h-12 rounded-full flex items-center justify-center bg-blue-100 text-blue-600 mr-4">
-                <i class="fas fa-user text-2xl"></i>
-              </div>
-            <% end %>
-            <div>
-              <p class="font-medium text-gray-900">Rachel K.</p>
-              <p class="text-gray-500 text-sm">Individual User</p>
+          <span class="ml-3 bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full">
+            VERIFIED
+          </span>
+        </div>
+        
+        <p class="text-gray-700 mb-6 leading-relaxed font-medium">
+          "Even the Basic plan offers exceptional value. I've saved hours of waiting room time and unnecessary doctor visits using the symptom checker."
+        </p>
+        
+        <div class="flex items-center">
+          <% if asset_exists?('marketing/testimonials/patient.jpg') %>
+            <img src="<%= asset_path('marketing/testimonials/patient.jpg') %>" alt="Rachel K." class="w-14 h-14 rounded-full mr-4 object-cover ring-2 ring-green-100">
+          <% else %>
+            <div class="w-14 h-14 rounded-full flex items-center justify-center bg-gradient-to-br from-green-500 to-teal-500 text-white mr-4 ring-2 ring-green-100">
+              <i class="fas fa-user text-xl"></i>
+            </div>
+          <% end %>
+          <div>
+            <p class="font-bold text-gray-900">Rachel K.</p>
+            <p class="text-gray-500 text-sm">Individual User</p>
+            <div class="flex items-center mt-1">
+              <i class="fas fa-heart text-green-500 text-xs mr-1"></i>
+              <span class="text-xs text-green-600 font-medium">Basic Plan User</span>
             </div>
           </div>
         </div>
-        
-        <div class="flex-shrink-0 w-96 bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-xl shadow-sm">
-          <div class="flex items-center mb-6">
-            <div class="text-yellow-400 flex">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
+      </div>
+      
+      <!-- Testimonial 4 -->
+      <div class="group bg-white rounded-3xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+        <div class="flex items-center mb-6">
+          <div class="flex text-yellow-400">
+            <i class="fas fa-star text-lg"></i>
+            <i class="fas fa-star text-lg"></i>
+            <i class="fas fa-star text-lg"></i>
+            <i class="fas fa-star text-lg"></i>
+            <i class="fas fa-star text-lg"></i>
           </div>
-          <p class="text-gray-700 mb-6">"I manage healthcare for my elderly parents and young children. The Professional plan's family management features are a lifesaver."</p>
-          <div class="flex items-center">
-            <% if asset_exists?('marketing/testimonials/family.jpg') %>
-              <img src="<%= asset_path('marketing/testimonials/family.jpg') %>" alt="Michael & Sarah P." class="w-12 h-12 rounded-full mr-4 object-cover">
-            <% else %>
-              <div class="w-12 h-12 rounded-full flex items-center justify-center bg-blue-100 text-blue-600 mr-4">
-                <i class="fas fa-users text-2xl"></i>
-              </div>
-            <% end %>
-            <div>
-              <p class="font-medium text-gray-900">Michael & Sarah P.</p>
-              <p class="text-gray-500 text-sm">Family Plan Subscribers</p>
+          <span class="ml-3 bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full">
+            VERIFIED
+          </span>
+        </div>
+        
+        <p class="text-gray-700 mb-6 leading-relaxed font-medium">
+          "I manage healthcare for my elderly parents and young children. The Professional plan's family management features are a lifesaver."
+        </p>
+        
+        <div class="flex items-center">
+          <% if asset_exists?('marketing/testimonials/family.jpg') %>
+            <img src="<%= asset_path('marketing/testimonials/family.jpg') %>" alt="Michael & Sarah P." class="w-14 h-14 rounded-full mr-4 object-cover ring-2 ring-orange-100">
+          <% else %>
+            <div class="w-14 h-14 rounded-full flex items-center justify-center bg-gradient-to-br from-orange-500 to-red-500 text-white mr-4 ring-2 ring-orange-100">
+              <i class="fas fa-users text-xl"></i>
+            </div>
+          <% end %>
+          <div>
+            <p class="font-bold text-gray-900">Michael & Sarah P.</p>
+            <p class="text-gray-500 text-sm">Family Plan Subscribers</p>
+            <div class="flex items-center mt-1">
+              <i class="fas fa-users text-orange-500 text-xs mr-1"></i>
+              <span class="text-xs text-orange-600 font-medium">Professional Plan</span>
             </div>
           </div>
         </div>
       </div>
     </div>
     
-    <div class="text-center mt-8">
-      <div class="inline-flex space-x-2">
-        <button class="w-3 h-3 rounded-full bg-blue-500" data-testimonial-carousel-target="dot" data-index="0"></button>
-        <button class="w-3 h-3 rounded-full bg-gray-300" data-testimonial-carousel-target="dot" data-index="1"></button>
-        <button class="w-3 h-3 rounded-full bg-gray-300" data-testimonial-carousel-target="dot" data-index="2"></button>
-        <button class="w-3 h-3 rounded-full bg-gray-300" data-testimonial-carousel-target="dot" data-index="3"></button>
+    <!-- Trust Indicators -->
+    <div class="bg-white rounded-3xl p-8 shadow-lg border border-gray-100" data-controller="fade-in">
+      <div class="text-center">
+        <h3 class="text-2xl font-bold text-gray-900 mb-6">Trusted by Healthcare Leaders</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div class="text-3xl font-black text-blue-600 mb-2">500+</div>
+            <div class="text-sm text-gray-600">Hospitals</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-black text-green-600 mb-2">2,000+</div>
+            <div class="text-sm text-gray-600">Clinics</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-black text-purple-600 mb-2">50K+</div>
+            <div class="text-sm text-gray-600">Providers</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-black text-indigo-600 mb-2">99.9%</div>
+            <div class="text-sm text-gray-600">Uptime</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA Section -->
-<section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-controller="fade-in">
-    <h2 class="text-4xl font-bold mb-6">Ready to Transform Your Healthcare Experience?</h2>
-    <p class="text-xl text-blue-100 mb-8">
-      Join thousands of satisfied users who trust MedGemma Health for their healthcare needs.
+<!-- Enhanced CTA Section -->
+<section class="relative py-24 bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 overflow-hidden">
+  <!-- Animated Background -->
+  <div class="absolute inset-0">
+    <div class="absolute top-0 left-0 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+    <div class="absolute top-0 right-0 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style="animation-delay: 2s;"></div>
+    <div class="absolute bottom-0 left-1/2 w-72 h-72 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style="animation-delay: 4s;"></div>
+  </div>
+  
+  <!-- Geometric Patterns -->
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute inset-0" style="background-image: radial-gradient(circle at 25px 25px, rgba(255,255,255,0.2) 2px, transparent 0); background-size: 50px 50px;"></div>
+  </div>
+  
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-controller="fade-in">
+    <!-- Attention Grabber -->
+    <div class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full mb-8 shadow-lg animate-bounce">
+      <i class="fas fa-rocket text-white mr-2"></i>
+      <span class="text-sm font-black text-white">LIMITED TIME: 50% OFF FIRST YEAR</span>
+      <div class="w-2 h-2 bg-white rounded-full ml-2 animate-ping"></div>
+    </div>
+    
+    <h2 class="text-6xl font-black text-white mb-8 leading-tight">
+      Ready to Transform
+      <span class="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+        Healthcare?
+      </span>
+    </h2>
+    
+    <p class="text-2xl text-blue-200 mb-12 max-w-4xl mx-auto leading-relaxed">
+      Join <span class="font-bold text-white">50,000+ satisfied users</span> who trust MedGemma Health 
+      for accurate, AI-powered healthcare solutions that save time and improve outcomes.
     </p>
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <%= link_to "Start Free Trial", "#", class: "px-8 py-4 bg-white text-blue-600 rounded-lg font-medium hover:bg-blue-50 shadow-lg transform hover:-translate-y-0.5 transition-all" %>
-      <%= link_to "Compare Plans", "#comparison", class: "px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-medium hover:bg-blue-500 transform hover:-translate-y-0.5 transition-all" %>
+    
+    <!-- Enhanced Stats Row -->
+    <div class="grid grid-cols-3 gap-8 max-w-2xl mx-auto mb-12">
+      <div class="text-center">
+        <div class="text-4xl font-black text-cyan-400 mb-2">14 Days</div>
+        <div class="text-blue-200">Free Trial</div>
+      </div>
+      <div class="text-center">
+        <div class="text-4xl font-black text-green-400 mb-2">No Setup</div>
+        <div class="text-blue-200">Required</div>
+      </div>
+      <div class="text-center">
+        <div class="text-4xl font-black text-yellow-400 mb-2">24/7</div>
+        <div class="text-blue-200">Support</div>
+      </div>
     </div>
-    <p class="text-blue-200 mt-6">No credit card required. Cancel anytime.</p>
+    
+    <!-- Enhanced CTA Buttons -->
+    <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
+      <%= link_to "#", class: "group relative px-12 py-6 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 text-white rounded-2xl font-black text-xl shadow-2xl hover:shadow-cyan-500/25 transform hover:-translate-y-2 transition-all duration-300 overflow-hidden" do %>
+        <span class="relative z-10 flex items-center">
+          <i class="fas fa-play mr-4 text-2xl"></i>
+          Start Your Free Trial
+          <i class="fas fa-arrow-right ml-4 group-hover:translate-x-2 transition-transform duration-300"></i>
+        </span>
+        <div class="absolute inset-0 bg-gradient-to-r from-white to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+        <div class="absolute -top-1 -left-1 -right-1 -bottom-1 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+      <% end %>
+      
+      <%= link_to "#comparison", class: "group px-12 py-6 bg-transparent border-3 border-white text-white rounded-2xl font-bold text-xl hover:bg-white hover:text-blue-900 transform hover:-translate-y-1 transition-all duration-300" do %>
+        <span class="flex items-center">
+          <i class="fas fa-chart-bar mr-4"></i>
+          Compare All Plans
+        </span>
+      <% end %>
+    </div>
+    
+    <!-- Trust & Security -->
+    <div class="bg-white bg-opacity-10 backdrop-blur-lg rounded-3xl p-8 border border-white border-opacity-20">
+      <div class="grid md:grid-cols-3 gap-6 text-center">
+        <div class="flex flex-col items-center">
+          <div class="w-16 h-16 bg-gradient-to-r from-green-400 to-green-500 rounded-2xl flex items-center justify-center mb-4">
+            <i class="fas fa-shield-alt text-white text-2xl"></i>
+          </div>
+          <h4 class="font-bold text-white mb-2">HIPAA Compliant</h4>
+          <p class="text-blue-200 text-sm">Bank-level security for your health data</p>
+        </div>
+        
+        <div class="flex flex-col items-center">
+          <div class="w-16 h-16 bg-gradient-to-r from-blue-400 to-blue-500 rounded-2xl flex items-center justify-center mb-4">
+            <i class="fas fa-award text-white text-2xl"></i>
+          </div>
+          <h4 class="font-bold text-white mb-2">FDA Recognized</h4>
+          <p class="text-blue-200 text-sm">Clinically validated AI technology</p>
+        </div>
+        
+        <div class="flex flex-col items-center">
+          <div class="w-16 h-16 bg-gradient-to-r from-purple-400 to-purple-500 rounded-2xl flex items-center justify-center mb-4">
+            <i class="fas fa-handshake text-white text-2xl"></i>
+          </div>
+          <h4 class="font-bold text-white mb-2">Money-Back Guarantee</h4>
+          <p class="text-blue-200 text-sm">30-day satisfaction guarantee</p>
+        </div>
+      </div>
+    </div>
+    
+    <p class="text-blue-300 mt-8 text-lg">
+      <i class="fas fa-lock mr-2"></i>
+      No credit card required • Cancel anytime • Instant activation
+    </p>
   </div>
 </section>
-
-<!-- Add the necessary JavaScript for the FAQ accordion -->
-<% content_for :extra_javascript do %>
-<script>
-  import { Controller } from "@hotwired/stimulus"
-
-  export default class extends Controller {
-    static targets = ["question", "answer"]
-    
-    toggle(event) {
-      const button = event.currentTarget;
-      const index = button.dataset.index;
-      const answer = this.answerTargets.find(target => target.dataset.index === index);
-      const icon = button.querySelector("i");
-      
-      answer.classList.toggle("hidden");
-      icon.classList.toggle("transform");
-      icon.classList.toggle("rotate-180");
-    }
-  }
-</script>
-
-<script>
-  import { Controller } from "@hotwired/stimulus"
-
-  export default class extends Controller {
-    static targets = ["dot"]
-    
-    connect() {
-      this.carousel = this.element.querySelector(".flex.space-x-6");
-      this.items = this.carousel.children;
-      this.currentIndex = 0;
-      
-      // Auto scroll if more than one testimonial
-      if (this.items.length > 1) {
-        this.startAutoScroll();
-      }
-    }
-    
-    startAutoScroll() {
-      this.interval = setInterval(() => {
-        this.next();
-      }, 5000);
-    }
-    
-    next() {
-      this.goToSlide((this.currentIndex + 1) % this.items.length);
-    }
-    
-    goToSlide(index) {
-      this.currentIndex = index;
-      const offset = this.items[index].offsetLeft - this.carousel.offsetLeft;
-      this.carousel.scrollTo({
-        left: offset,
-        behavior: "smooth"
-      });
-      
-      this.updateDots();
-    }
-    
-    updateDots() {
-      this.dotTargets.forEach((dot, i) => {
-        if (i === this.currentIndex) {
-          dot.classList.remove("bg-gray-300");
-          dot.classList.add("bg-blue-500");
-        } else {
-          dot.classList.remove("bg-blue-500");
-          dot.classList.add("bg-gray-300");
-        }
-      });
-    }
-    
-    disconnect() {
-      if (this.interval) {
-        clearInterval(this.interval);
-      }
-    }
-  }
-</script>
-<% end %>
-
-<!-- END Pricing Page -->

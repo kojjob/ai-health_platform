@@ -55,11 +55,11 @@ module MarketingHelper
             concat content_tag(:p, "Experience the future of healthcare with MedGemma Health", class: "text-gray-600")
           end
         end
-        
+
         # Add animated decorative elements to all placeholders
         concat content_tag(:div, nil, class: "absolute top-5 left-5 w-3 h-3 rounded-full bg-medgemma-300 animate-pulse-slow")
         concat content_tag(:div, nil, class: "absolute bottom-8 right-8 w-2 h-2 rounded-full bg-purple-300 animate-pulse-slow-reverse")
-        
+
         content
       end
     end
@@ -68,42 +68,42 @@ module MarketingHelper
   def milestone_icon(title)
     case title.downcase
     when /launch/
-      'fa-rocket'
+      "fa-rocket"
     when /patients/
-      'fa-users'
+      "fa-users"
     when /doctor|network/
-      'fa-user-md'
+      "fa-user-md"
     when /global|expansion/
-      'fa-globe'
+      "fa-globe"
     when /ai|enhancement/
-      'fa-brain'
+      "fa-brain"
     else
-      'fa-star'
+      "fa-star"
     end
   end
 
   def value_icon_class(value)
     case value.downcase
     when /privacy|security/
-      { icon: 'fa-shield-alt', bg: 'bg-blue-100', text: 'text-blue-600', gradient: 'from-blue-500 to-blue-700' }
+      { icon: "fa-shield-alt", bg: "bg-blue-100", text: "text-blue-600", gradient: "from-blue-500 to-blue-700" }
     when /care|quality/
-      { icon: 'fa-heart-pulse', bg: 'bg-green-100', text: 'text-green-600', gradient: 'from-green-500 to-green-700' }
+      { icon: "fa-heart-pulse", bg: "bg-green-100", text: "text-green-600", gradient: "from-green-500 to-green-700" }
     when /access/
-      { icon: 'fa-universal-access', bg: 'bg-purple-100', text: 'text-purple-600', gradient: 'from-purple-500 to-purple-700' }
+      { icon: "fa-universal-access", bg: "bg-purple-100", text: "text-purple-600", gradient: "from-purple-500 to-purple-700" }
     when /innovation/
-      { icon: 'fa-lightbulb', bg: 'bg-amber-100', text: 'text-amber-600', gradient: 'from-amber-500 to-amber-700' }
+      { icon: "fa-lightbulb", bg: "bg-amber-100", text: "text-amber-600", gradient: "from-amber-500 to-amber-700" }
     when /trust/
-      { icon: 'fa-handshake', bg: 'bg-sky-100', text: 'text-sky-600', gradient: 'from-sky-500 to-sky-700' }
+      { icon: "fa-handshake", bg: "bg-sky-100", text: "text-sky-600", gradient: "from-sky-500 to-sky-700" }
     when /improve/
-      { icon: 'fa-arrow-trend-up', bg: 'bg-indigo-100', text: 'text-indigo-600', gradient: 'from-indigo-500 to-indigo-700' }
+      { icon: "fa-arrow-trend-up", bg: "bg-indigo-100", text: "text-indigo-600", gradient: "from-indigo-500 to-indigo-700" }
     else
-      { icon: 'fa-star', bg: 'bg-gray-100', text: 'text-gray-600', gradient: 'from-gray-500 to-gray-700' }
+      { icon: "fa-star", bg: "bg-gray-100", text: "text-gray-600", gradient: "from-gray-500 to-gray-700" }
     end
   end
-  
+
   def team_photo(name, role = nil)
     # Define actual photo URLs for team members
-    case name.downcase.gsub(/[^a-z]/, '')
+    case name.downcase.gsub(/[^a-z]/, "")
     when /sarah|smith/
       photo_url = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
     when /john|doe/
@@ -112,16 +112,16 @@ module MarketingHelper
       photo_url = "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
     else
       # If no photo exists, create a gradient with initials
-      initials = name.split(' ').map(&:first).join('')
+      initials = name.split(" ").map(&:first).join("")
       return content_tag :div, class: "w-full h-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center" do
         content_tag :span, initials, class: "text-white text-2xl font-bold"
       end
     end
-    
+
     # If photo exists, return an image tag
     image_tag photo_url, alt: "#{name} - #{role}", class: "w-full h-full object-cover"
   end
-  
+
   def feature_category_style(category, index = 0)
     styles = {
       "AI-Powered Diagnostics" => {
@@ -173,7 +173,7 @@ module MarketingHelper
         shape: "rounded-tl-3xl rounded-br-3xl"
       }
     }
-    
+
     # Default style if category isn't found
     default_style = {
       icon: "fa-star",
@@ -187,117 +187,117 @@ module MarketingHelper
       angle: "rotate-0",
       shape: "rounded-2xl"
     }
-    
+
     styles[category] || default_style
   end
-  
+
   def feature_icon_style(feature_title)
     styles = {
       # AI-Powered Diagnostics Features
-      "Symptom Analysis" => { 
-        icon: "fa-stethoscope", 
-        color: "text-blue-600", 
+      "Symptom Analysis" => {
+        icon: "fa-stethoscope",
+        color: "text-blue-600",
         bg: "bg-blue-100",
         gradient: "bg-gradient-to-br from-blue-500 to-indigo-600",
         hover: "group-hover:shadow-blue-300/30"
       },
-      "Image Recognition" => { 
-        icon: "fa-image", 
-        color: "text-blue-600", 
+      "Image Recognition" => {
+        icon: "fa-image",
+        color: "text-blue-600",
         bg: "bg-blue-100",
         gradient: "bg-gradient-to-br from-blue-600 to-indigo-500",
-        hover: "group-hover:shadow-blue-300/30" 
+        hover: "group-hover:shadow-blue-300/30"
       },
-      "Real-time Learning" => { 
-        icon: "fa-chart-line", 
-        color: "text-blue-600", 
+      "Real-time Learning" => {
+        icon: "fa-chart-line",
+        color: "text-blue-600",
         bg: "bg-blue-100",
         gradient: "bg-gradient-to-br from-indigo-600 to-blue-500",
         hover: "group-hover:shadow-blue-300/30"
       },
-      
+
       # Virtual Consultation Features
-      "24/7 Availability" => { 
-        icon: "fa-clock", 
-        color: "text-green-600", 
+      "24/7 Availability" => {
+        icon: "fa-clock",
+        color: "text-green-600",
         bg: "bg-green-100",
         gradient: "bg-gradient-to-br from-green-500 to-teal-600",
         hover: "group-hover:shadow-green-300/30"
       },
-      "Secure Video Calls" => { 
-        icon: "fa-shield-alt", 
-        color: "text-green-600", 
+      "Secure Video Calls" => {
+        icon: "fa-shield-alt",
+        color: "text-green-600",
         bg: "bg-green-100",
         gradient: "bg-gradient-to-br from-teal-600 to-green-500",
         hover: "group-hover:shadow-green-300/30"
       },
-      "Multi-specialty Access" => { 
-        icon: "fa-user-md", 
-        color: "text-green-600", 
+      "Multi-specialty Access" => {
+        icon: "fa-user-md",
+        color: "text-green-600",
         bg: "bg-green-100",
         gradient: "bg-gradient-to-br from-green-600 to-teal-500",
         hover: "group-hover:shadow-green-300/30"
       },
-      
+
       # Patient Care Features
-      "Digital Health Records" => { 
-        icon: "fa-folder-open", 
-        color: "text-rose-600", 
+      "Digital Health Records" => {
+        icon: "fa-folder-open",
+        color: "text-rose-600",
         bg: "bg-rose-100",
         gradient: "bg-gradient-to-br from-rose-500 to-pink-600",
         hover: "group-hover:shadow-rose-300/30"
       },
-      "Medication Tracking" => { 
-        icon: "fa-pills", 
-        color: "text-rose-600", 
+      "Medication Tracking" => {
+        icon: "fa-pills",
+        color: "text-rose-600",
         bg: "bg-rose-100",
         gradient: "bg-gradient-to-br from-pink-600 to-rose-500",
         hover: "group-hover:shadow-rose-300/30"
       },
-      "Treatment Plans" => { 
-        icon: "fa-clipboard-check", 
-        color: "text-rose-600", 
+      "Treatment Plans" => {
+        icon: "fa-clipboard-check",
+        color: "text-rose-600",
         bg: "bg-rose-100",
         gradient: "bg-gradient-to-br from-rose-600 to-pink-500",
         hover: "group-hover:shadow-rose-300/30"
       },
-      
+
       # Emergency Services Features
-      "Urgent Care Triage" => { 
-        icon: "fa-first-aid", 
-        color: "text-amber-600", 
+      "Urgent Care Triage" => {
+        icon: "fa-first-aid",
+        color: "text-amber-600",
         bg: "bg-amber-100",
         gradient: "bg-gradient-to-br from-amber-500 to-orange-600",
         hover: "group-hover:shadow-amber-300/30"
       },
-      "Emergency Contacts" => { 
-        icon: "fa-phone-alt", 
-        color: "text-amber-600", 
+      "Emergency Contacts" => {
+        icon: "fa-phone-alt",
+        color: "text-amber-600",
         bg: "bg-amber-100",
         gradient: "bg-gradient-to-br from-orange-600 to-amber-500",
         hover: "group-hover:shadow-amber-300/30"
       },
-      "Location Services" => { 
-        icon: "fa-map-marker-alt", 
-        color: "text-amber-600", 
+      "Location Services" => {
+        icon: "fa-map-marker-alt",
+        color: "text-amber-600",
         bg: "bg-amber-100",
         gradient: "bg-gradient-to-br from-amber-600 to-orange-500",
         hover: "group-hover:shadow-amber-300/30"
       }
     }
-    
+
     # Default style if feature isn't found
-    default_style = { 
-      icon: "fa-check", 
-      color: "text-purple-600", 
+    default_style = {
+      icon: "fa-check",
+      color: "text-purple-600",
       bg: "bg-purple-100",
       gradient: "bg-gradient-to-br from-purple-500 to-violet-600",
       hover: "group-hover:shadow-purple-300/30"
     }
-    
+
     styles[feature_title] || default_style
   end
-  
+
   def feature_illustration(category_name)
     # Return high-quality feature imagery based on category name
     case category_name
@@ -322,10 +322,10 @@ module MarketingHelper
       alt_text = "Healthcare innovation"
       highlight = "Advanced technology"
     end
-    
-    return { 
-      url: image_url, 
-      alt: alt_text, 
+
+    {
+      url: image_url,
+      alt: alt_text,
       highlight: highlight,
       bg_accent: category_bg_accent(category_name)
     }
@@ -400,7 +400,7 @@ module MarketingHelper
       }
     end
   end
-  
+
   def contact_method_style(method_type)
     case method_type
     when "email"
@@ -468,11 +468,11 @@ module MarketingHelper
 
   def contact_form_input_style(field_type)
     base_styles = "w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-    
+
     case field_type
     when "text", "name"
       "#{base_styles} border-gray-300"
-    when "email" 
+    when "email"
       "#{base_styles} border-gray-300"
     when "phone"
       "#{base_styles} border-gray-300"
@@ -488,7 +488,7 @@ module MarketingHelper
       "#{base_styles} border-gray-300"
     end
   end
-  
+
   def office_location_style(location)
     case location.downcase
     when /san francisco/, /sf/, /california/
@@ -528,48 +528,48 @@ module MarketingHelper
       }
     end
   end
-  
+
   def social_icon_style(platform)
     case platform.to_s.downcase
     when "twitter", "x"
-      { 
-        icon: "fa-brands fa-x-twitter", 
-        bg: "bg-black hover:bg-gray-800", 
+      {
+        icon: "fa-brands fa-x-twitter",
+        bg: "bg-black hover:bg-gray-800",
         text: "text-white",
         hover: "hover:shadow-gray-500/30"
       }
     when "facebook"
-      { 
-        icon: "fa-brands fa-facebook-f", 
-        bg: "bg-blue-600 hover:bg-blue-700", 
+      {
+        icon: "fa-brands fa-facebook-f",
+        bg: "bg-blue-600 hover:bg-blue-700",
         text: "text-white",
         hover: "hover:shadow-blue-500/30"
       }
     when "instagram"
-      { 
-        icon: "fa-brands fa-instagram", 
-        bg: "bg-gradient-to-br from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700", 
+      {
+        icon: "fa-brands fa-instagram",
+        bg: "bg-gradient-to-br from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700",
         text: "text-white",
         hover: "hover:shadow-pink-500/30"
       }
     when "linkedin"
-      { 
-        icon: "fa-brands fa-linkedin-in", 
-        bg: "bg-blue-700 hover:bg-blue-800", 
-        text: "text-white", 
+      {
+        icon: "fa-brands fa-linkedin-in",
+        bg: "bg-blue-700 hover:bg-blue-800",
+        text: "text-white",
         hover: "hover:shadow-blue-600/30"
       }
     when "youtube"
-      { 
-        icon: "fa-brands fa-youtube", 
-        bg: "bg-red-600 hover:bg-red-700", 
+      {
+        icon: "fa-brands fa-youtube",
+        bg: "bg-red-600 hover:bg-red-700",
         text: "text-white",
         hover: "hover:shadow-red-500/30"
       }
     else
-      { 
-        icon: "fa-globe", 
-        bg: "bg-gray-600 hover:bg-gray-700", 
+      {
+        icon: "fa-globe",
+        bg: "bg-gray-600 hover:bg-gray-700",
         text: "text-white",
         hover: "hover:shadow-gray-500/30"
       }

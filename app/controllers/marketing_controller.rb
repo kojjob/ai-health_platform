@@ -1,8 +1,8 @@
 class MarketingController < ApplicationController
   # Skip CSRF protection only for newsletter subscription to allow external form submissions
-  skip_before_action :verify_authenticity_token, only: [:newsletter_subscription]
+  skip_before_action :verify_authenticity_token, only: [ :newsletter_subscription ]
 
-  layout 'marketing'
+  layout "marketing"
 
   def home
     @testimonials = load_testimonials
@@ -52,10 +52,10 @@ class MarketingController < ApplicationController
     if request.post?
       # Save inquiry details
       @inquiry = save_contact_inquiry(contact_params)
-      
+
       # Send email notification
       ContactFormMailer.new_inquiry(contact_params).deliver_later
-      
+
       # Redirect with success parameter for frontend handling
       redirect_to contact_path(success: true), notice: "Thank you for your message. We'll be in touch soon!"
     else
@@ -69,37 +69,37 @@ class MarketingController < ApplicationController
       # Validate newsletter parameters
       email = newsletter_params[:email]
       name = newsletter_params[:name]
-      
+
       if email.blank?
         render json: { success: false, message: "Email address is required." }, status: :bad_request
         return
       end
-      
+
       # In a real application, you would save to a newsletter service like Mailchimp, ConvertKit, etc.
       # For now, we'll simulate saving to database and sending confirmation
       newsletter_data = {
         email: email,
         name: name,
         subscribed_at: Time.current,
-        source: 'contact_page',
-        status: 'active'
+        source: "contact_page",
+        status: "active"
       }
-      
+
       # Simulate saving newsletter subscription
       save_newsletter_subscription(newsletter_data)
-      
+
       # Send welcome email (in real app, this would be handled by your email service)
       # NewsletterMailer.welcome_email(newsletter_data).deliver_later
-      
-      render json: { 
-        success: true, 
+
+      render json: {
+        success: true,
         message: "Thank you for subscribing! You'll receive our latest health insights and updates."
       }, status: :ok
-      
+
     rescue StandardError => e
       Rails.logger.error "Newsletter subscription error: #{e.message}"
-      render json: { 
-        success: false, 
+      render json: {
+        success: false,
         message: "Sorry, there was an error processing your subscription. Please try again."
       }, status: :internal_server_error
     end
@@ -108,43 +108,43 @@ class MarketingController < ApplicationController
   def security
     @compliance_certifications = load_compliance_certifications
   end
-  
+
   def help_center
     @help_categories = load_help_categories
     @popular_articles = load_popular_articles
   end
-  
+
   def help_search
     query = params[:query].to_s.downcase
     articles = load_help_articles
-    
+
     if query.present?
       filtered_articles = articles.select do |article|
-        article[:title].downcase.include?(query) || 
+        article[:title].downcase.include?(query) ||
         article[:category].downcase.include?(query) ||
         article[:content].to_s.downcase.include?(query)
       end
     else
       filtered_articles = []
     end
-    
+
     render json: filtered_articles
   end
-  
+
   def api_docs
     @api_versions = load_api_versions
     @api_endpoints = load_api_endpoints
   end
-  
+
   def faq
     @faqs = load_faqs
   end
-  
+
   def status
     @system_status = load_system_status
     @incident_history = load_incident_history
   end
-  
+
   def community
     @community_forums = load_community_forums
     @featured_discussions = load_featured_discussions
@@ -160,23 +160,23 @@ class MarketingController < ApplicationController
   def privacy
     # Privacy Policy content is rendered from the view
   end
-  
+
   def terms
     # Terms of Service content is rendered from the view
   end
-  
+
   def hipaa_compliance
     # HIPAA Compliance information is rendered from the view
   end
-  
+
   def cookie_policy
     # Cookie Policy content is rendered from the view
   end
-  
+
   def accessibility
     # Accessibility Statement content is rendered from the view
   end
-  
+
   def system_status
     # In a real implementation, this would fetch live status data from monitoring systems
     # For this demo, we're simulating real-time data
@@ -185,7 +185,7 @@ class MarketingController < ApplicationController
   end
 
   private
-  
+
   def load_help_categories
     [
       { name: "Getting Started", icon: "rocket", path: "#getting-started", article_count: 12 },
@@ -196,7 +196,7 @@ class MarketingController < ApplicationController
       { name: "Privacy & Security", icon: "shield-alt", path: "#privacy", article_count: 9 }
     ]
   end
-  
+
   def load_popular_articles
     [
       { title: "How to set up your MedGemma Health account", path: "#", views: 8432 },
@@ -206,14 +206,14 @@ class MarketingController < ApplicationController
       { title: "Uploading medical images properly", path: "#", views: 4982 }
     ]
   end
-  
+
   def load_api_versions
     [
       { version: "v2", status: "current", release_date: "April 15, 2025" },
       { version: "v1", status: "legacy", release_date: "September 10, 2024", sunset_date: "October 1, 2025" }
     ]
   end
-  
+
   def load_api_endpoints
     [
       { name: "Authentication", description: "OAuth 2.0 authentication endpoints", path: "#auth" },
@@ -224,7 +224,7 @@ class MarketingController < ApplicationController
       { name: "Webhooks", description: "Event notification system", path: "#webhooks" }
     ]
   end
-  
+
   def load_system_status
     {
       overall: "operational",
@@ -239,26 +239,26 @@ class MarketingController < ApplicationController
       ]
     }
   end
-  
+
   def load_incident_history
     [
-      { 
-        date: 15.days.ago, 
-        title: "Video Service Degradation", 
+      {
+        date: 15.days.ago,
+        title: "Video Service Degradation",
         description: "Some users experienced delayed video connections during consultations.",
         duration: "42 minutes",
         resolution: "Load balancer configuration updated to handle increased traffic."
       },
-      { 
-        date: 2.months.ago, 
-        title: "Scheduled Maintenance", 
+      {
+        date: 2.months.ago,
+        title: "Scheduled Maintenance",
         description: "Planned database upgrade to improve performance.",
         duration: "120 minutes",
         resolution: "Completed successfully with improved query response times."
       }
     ]
   end
-  
+
   def load_community_forums
     [
       { name: "Patient Discussion", icon: "users", topic_count: 1243, member_count: 5280 },
@@ -267,10 +267,10 @@ class MarketingController < ApplicationController
       { name: "Research & Studies", icon: "microscope", topic_count: 321, member_count: 890 }
     ]
   end
-  
+
   def load_featured_discussions
     [
-      { 
+      {
         title: "How MedGemma helped me get a quick diagnosis for my skin condition",
         author: "JenniferT",
         avatar_url: "https://randomuser.me/api/portraits/women/32.jpg",
@@ -278,7 +278,7 @@ class MarketingController < ApplicationController
         view_count: 1423,
         date: 3.days.ago
       },
-      { 
+      {
         title: "Best practices for uploading clear medical images",
         author: "Dr_Thompson",
         avatar_url: "https://randomuser.me/api/portraits/men/41.jpg",
@@ -286,7 +286,7 @@ class MarketingController < ApplicationController
         view_count: 2751,
         date: 5.days.ago
       },
-      { 
+      {
         title: "Feature request: Family account management",
         author: "RobertJ",
         avatar_url: "https://randomuser.me/api/portraits/men/22.jpg",
@@ -296,7 +296,7 @@ class MarketingController < ApplicationController
       }
     ]
   end
-  
+
   def load_upcoming_webinars
     [
       {
@@ -313,7 +313,7 @@ class MarketingController < ApplicationController
         registered_count: 423,
         image: "webinars/ai-diagnostics.jpg",
         featured: true,
-        tags: ["AI", "Diagnostics", "Research"],
+        tags: [ "AI", "Diagnostics", "Research" ],
         price: "Free",
         status: "upcoming"
       },
@@ -331,7 +331,7 @@ class MarketingController < ApplicationController
         registered_count: 76,
         image: "webinars/api-workshop.jpg",
         featured: false,
-        tags: ["API", "Development", "Integration"],
+        tags: [ "API", "Development", "Integration" ],
         price: "$99",
         status: "upcoming"
       },
@@ -349,7 +349,7 @@ class MarketingController < ApplicationController
         registered_count: 34,
         image: "webinars/leadership-roundtable.jpg",
         featured: false,
-        tags: ["Leadership", "Strategy", "Innovation"],
+        tags: [ "Leadership", "Strategy", "Innovation" ],
         price: "Premium Only",
         status: "upcoming"
       }
@@ -370,7 +370,7 @@ class MarketingController < ApplicationController
         level: "All Levels",
         recurring: true,
         image: "webinars/features-deep-dive.jpg",
-        tags: ["Features", "Training", "Weekly"],
+        tags: [ "Features", "Training", "Weekly" ],
         price: "Free",
         status: "recurring"
       },
@@ -386,7 +386,7 @@ class MarketingController < ApplicationController
         level: "All Levels",
         recurring: true,
         image: "webinars/patient-forum.jpg",
-        tags: ["Patient Stories", "Community", "Support"],
+        tags: [ "Patient Stories", "Community", "Support" ],
         price: "Free",
         status: "recurring"
       }
@@ -420,7 +420,7 @@ class MarketingController < ApplicationController
         recording_available: true,
         rating: 4.8,
         image: "webinars/intro-ai-healthcare.jpg",
-        tags: ["AI", "Introduction", "Healthcare"],
+        tags: [ "AI", "Introduction", "Healthcare" ],
         status: "completed"
       },
       {
@@ -437,7 +437,7 @@ class MarketingController < ApplicationController
         recording_available: true,
         rating: 4.7,
         image: "webinars/telemedicine-best-practices.jpg",
-        tags: ["Telemedicine", "Best Practices", "Virtual Care"],
+        tags: [ "Telemedicine", "Best Practices", "Virtual Care" ],
         status: "completed"
       },
       {
@@ -454,12 +454,12 @@ class MarketingController < ApplicationController
         recording_available: true,
         rating: 4.9,
         image: "webinars/hipaa-compliance.jpg",
-        tags: ["Security", "HIPAA", "Compliance"],
+        tags: [ "Security", "HIPAA", "Compliance" ],
         status: "completed"
       }
     ]
   end
-  
+
   def load_feature_categories
     [
       {
@@ -622,7 +622,7 @@ class MarketingController < ApplicationController
         bio: "Leading medical AI researcher with 15+ years experience in emergency medicine and digital health innovation.",
         image: "team/dr-sarah-chen.jpg",
         linkedin: "https://linkedin.com/in/sarahchen",
-        specialties: ["Emergency Medicine", "AI Diagnostics", "Digital Health"]
+        specialties: [ "Emergency Medicine", "AI Diagnostics", "Digital Health" ]
       },
       {
         name: "Mark Johnson",
@@ -630,7 +630,7 @@ class MarketingController < ApplicationController
         bio: "Former Google engineer specializing in machine learning and healthcare technology infrastructure.",
         image: "team/mark-johnson.jpg",
         linkedin: "https://linkedin.com/in/markjohnson",
-        specialties: ["Machine Learning", "Cloud Architecture", "Healthcare APIs"]
+        specialties: [ "Machine Learning", "Cloud Architecture", "Healthcare APIs" ]
       },
       {
         name: "Dr. Lisa Wang",
@@ -638,7 +638,7 @@ class MarketingController < ApplicationController
         bio: "PhD in Biomedical Informatics from Stanford, leading our AI research and clinical validation studies.",
         image: "team/dr-lisa-wang.jpg",
         linkedin: "https://linkedin.com/in/lisawang",
-        specialties: ["Biomedical Informatics", "Clinical Research", "AI Ethics"]
+        specialties: [ "Biomedical Informatics", "Clinical Research", "AI Ethics" ]
       }
     ]
   end
@@ -676,7 +676,7 @@ class MarketingController < ApplicationController
         price: 29,
         period: "month",
         description: "Perfect for individuals and small practices",
-        features: ["AI-powered consultations", "Basic health monitoring", "Mobile app access", "Email support"],
+        features: [ "AI-powered consultations", "Basic health monitoring", "Mobile app access", "Email support" ],
         testimonial: {
           content: "MedGemma Basic has been perfect for my personal health monitoring. The AI insights are incredibly helpful.",
           author: "Sarah Johnson",
@@ -689,7 +689,7 @@ class MarketingController < ApplicationController
         price: 99,
         period: "month",
         description: "Ideal for healthcare providers and clinics",
-        features: ["Everything in Basic", "Advanced diagnostics", "API access", "Priority support", "Team collaboration"],
+        features: [ "Everything in Basic", "Advanced diagnostics", "API access", "Priority support", "Team collaboration" ],
         testimonial: {
           content: "The Professional plan has transformed our clinic's efficiency. The API integration is seamless.",
           author: "Dr. Michael Chen",
@@ -702,7 +702,7 @@ class MarketingController < ApplicationController
         price: 299,
         period: "month",
         description: "For large healthcare organizations",
-        features: ["Everything in Professional", "Custom integrations", "Dedicated support", "Advanced analytics", "HIPAA compliance"],
+        features: [ "Everything in Professional", "Custom integrations", "Dedicated support", "Advanced analytics", "HIPAA compliance" ],
         testimonial: {
           content: "MedGemma Enterprise has scaled perfectly with our hospital network. Outstanding support and reliability.",
           author: "Dr. Lisa Wang",
@@ -718,52 +718,52 @@ class MarketingController < ApplicationController
       {
         category: "Core Features",
         features: [
-          { 
-            name: "AI Consultations", 
+          {
+            name: "AI Consultations",
             description: "AI-powered health consultations and diagnostics",
-            basic: true, 
-            professional: true, 
-            enterprise: true 
+            basic: true,
+            professional: true,
+            enterprise: true
           },
-          { 
-            name: "Mobile App", 
+          {
+            name: "Mobile App",
             description: "Full-featured mobile application",
-            basic: true, 
-            professional: true, 
-            enterprise: true 
+            basic: true,
+            professional: true,
+            enterprise: true
           },
-          { 
-            name: "24/7 Support", 
+          {
+            name: "24/7 Support",
             description: "Round-the-clock customer support",
-            basic: false, 
-            professional: true, 
-            enterprise: true 
+            basic: false,
+            professional: true,
+            enterprise: true
           }
         ]
       },
       {
         category: "Advanced Features",
         features: [
-          { 
-            name: "API Access", 
+          {
+            name: "API Access",
             description: "Full REST API access for integrations",
-            basic: false, 
-            professional: true, 
-            enterprise: true 
+            basic: false,
+            professional: true,
+            enterprise: true
           },
-          { 
-            name: "Advanced Analytics", 
+          {
+            name: "Advanced Analytics",
             description: "Detailed reporting and analytics dashboard",
-            basic: false, 
-            professional: false, 
-            enterprise: true 
+            basic: false,
+            professional: false,
+            enterprise: true
           },
-          { 
-            name: "Custom Integrations", 
+          {
+            name: "Custom Integrations",
             description: "Custom API integrations and webhooks",
-            basic: false, 
-            professional: false, 
-            enterprise: true 
+            basic: false,
+            professional: false,
+            enterprise: true
           }
         ]
       }
@@ -791,7 +791,7 @@ class MarketingController < ApplicationController
     # In a real application, you would save this to a database
     # For now, we'll just log it and return a simulated response
     Rails.logger.info "Contact inquiry received: #{params.inspect}"
-    { id: rand(1000..9999), submitted_at: Time.current, status: 'received' }
+    { id: rand(1000..9999), submitted_at: Time.current, status: "received" }
   end
 
   def save_newsletter_subscription(data)

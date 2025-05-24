@@ -2,11 +2,11 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Configure Devise routes for user authentication
-  devise_for :users, path: '', path_names: {
-    sign_in: 'login',
-    sign_out: 'logout',
-    sign_up: 'signup',
-    edit: 'edit-profile'
+  devise_for :users, path: "", path_names: {
+    sign_in: "login",
+    sign_out: "logout",
+    sign_up: "signup",
+    edit: "edit-profile"
   }
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "marketing#home"
-  
+
   # Marketing pages
   get "about", to: "marketing#about", as: :about
   get "how-it-works", to: "marketing#how_it_works", as: :how_it_works
@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   get "contact", to: "marketing#contact", as: :contact
   post "contact", to: "marketing#process_contact", as: :process_contact
   post "newsletter-subscription", to: "marketing#newsletter_subscription", as: :newsletter_subscription
-  
+
   # Legal pages
   get "privacy", to: "marketing#privacy", as: :privacy
   get "terms", to: "marketing#terms", as: :terms
@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   get "hipaa-compliance", to: "marketing#hipaa_compliance", as: :hipaa_compliance
   get "accessibility", to: "marketing#accessibility", as: :accessibility
   get "cookie-policy", to: "marketing#cookie_policy", as: :cookie_policy
-  
+
   # Resources pages
   get "blog", to: "marketing#blog", as: :blog
   get "help-center", to: "marketing#help_center", as: :help_center
@@ -44,7 +44,7 @@ Rails.application.routes.draw do
   get "webinars", to: "marketing#webinars", as: :webinars
   get "system-status", to: "marketing#status", as: :system_status
   get "community", to: "marketing#community", as: :community
-  
+
   # Solutions pages
   get "solutions/hospitals", to: "marketing#hospitals_solution", as: :hospitals_solution
   get "solutions/primary-care", to: "marketing#primary_care_solution", as: :primary_care_solution
@@ -52,7 +52,7 @@ Rails.application.routes.draw do
   get "solutions/telehealth-providers", to: "marketing#telehealth_providers_solution", as: :telehealth_providers_solution
   get "solutions/insurance", to: "marketing#insurance_solution", as: :insurance_solution
   get "case-studies", to: "marketing#case_studies", as: :case_studies
-  
+
   # Feature detail pages
   scope "features" do
     get "symptom-checker", to: "marketing#symptom_checker_feature", as: :symptom_checker_feature
@@ -78,7 +78,7 @@ Rails.application.routes.draw do
     get "clinical-decision", to: "marketing#clinical_decision_feature", as: :clinical_decision_feature
     get "quantum-analytics", to: "marketing#quantum_analytics_feature", as: :quantum_analytics_feature
   end
-  
+
   # User account routes
   get "dashboard", to: "dashboard#index", as: :dashboard
   get "account/profile", to: "account#profile", as: :account_profile

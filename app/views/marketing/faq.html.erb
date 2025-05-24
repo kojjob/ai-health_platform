@@ -1,0 +1,62 @@
+<%= content_for :title, "Frequently Asked Questions - MedGemma Health" %>
+<%= content_for :meta_description, "Find answers to common questions about MedGemma Health's AI diagnostic platform, consultations, insurance coverage, data security, and more." %>
+
+<!-- Hero Section -->
+<section class="pt-32 pb-20 bg-gradient-to-br from-slate-50 to-indigo-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-12" data-controller="fade-in">
+      <div class="inline-flex items-center px-4 py-2 bg-indigo-100 rounded-full mb-6">
+        <i class="fas fa-question-circle text-indigo-600 mr-2"></i>
+        <span class="text-sm font-medium text-indigo-800">Support Resources</span>
+      </div>
+      
+      <h1 class="text-5xl font-bold text-gray-900 mb-6">
+        Frequently Asked 
+        <span class="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+          Questions
+        </span>
+      </h1>
+      
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+        Find answers to common questions about our AI diagnostic platform, healthcare services, and more.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-16 bg-white" data-controller="faq">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="space-y-6" id="faq-list">
+      <% @faqs.each_with_index do |faq, index| %>
+        <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+          <button
+            class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none"
+            data-action="faq#toggle"
+            data-faq-target="question"
+            data-index="<%= index %>"
+          >
+            <h3 class="text-lg font-semibold text-gray-900"><%= faq[:question] %></h3>
+            <i class="fas fa-chevron-down text-gray-400 transform transition-transform duration-200"></i>
+          </button>
+          
+          <div class="hidden px-6 pb-4" data-faq-target="answer" data-index="<%= index %>">
+            <p class="text-gray-600"><%= faq[:answer] %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    
+    <div class="mt-12 bg-indigo-50 rounded-xl p-8 border border-indigo-100 text-center">
+      <h3 class="text-xl font-bold text-gray-900 mb-3">Still have questions?</h3>
+      <p class="text-gray-600 mb-6">
+        Our support team is ready to help you with any other questions you might have.
+      </p>
+      <a href="/contact" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all">
+        <i class="fas fa-envelope mr-2"></i>
+        Contact Support
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,451 @@
+<%= content_for :title, "Contact Us - MedGemma Health" %>
+
+<!-- Skip to content link for accessibility -->
+<a href="#main-content" 
+   class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded">
+  Skip to main content
+</a>
+
+<!-- Hero Section -->
+<section id="main-content" class="pt-32 pb-20 relative overflow-hidden">
+  <!-- Background decorations -->
+  <div class="absolute inset-0 z-0" aria-hidden="true">
+    <div class="absolute top-1/4 left-0 w-96 h-96 rounded-full bg-gradient-to-br from-blue-50 to-indigo-50 opacity-70 blur-3xl transform rotate-6 animate-pulse-slow"></div>
+    <div class="absolute top-1/3 right-0 w-96 h-96 rounded-full bg-gradient-to-br from-purple-50 to-violet-50 opacity-70 blur-3xl transform -rotate-12 animate-pulse-slow"></div>
+    
+    <!-- Decorative elements -->
+    <div class="absolute top-40 right-1/4 w-24 h-24 rounded-full border-4 border-blue-100 opacity-30"></div>
+    <div class="absolute bottom-20 right-1/3 w-12 h-12 rounded-full border-2 border-purple-100 opacity-30"></div>
+    
+    <!-- Lines -->
+    <div class="absolute top-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent opacity-30"></div>
+    <div class="absolute top-2/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent opacity-30"></div>
+  </div>
+  
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid lg:grid-cols-2 gap-10 md:gap-16 items-start">
+      <!-- Left Content -->
+      <div data-controller="fade-in">
+        <div class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-50 to-purple-50 rounded-full mb-6 shadow-sm">
+          <span class="bg-blue-600/10 w-6 h-6 flex items-center justify-center rounded-full mr-2">
+            <i class="fas fa-headset text-blue-600 text-xs"></i>
+          </span>
+          <span class="text-sm font-medium text-blue-800">Customer Support</span>
+        </div>
+        
+        <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 relative">
+          Let's Start a 
+          <span class="relative">
+            <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent inline-block">
+              Conversation
+            </span>
+            <svg class="absolute bottom-0 left-0 w-full h-2 opacity-30" viewBox="0 0 200 4" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0,2 C50,0 150,4 200,2" fill="none" stroke="url(#gradient)" stroke-width="2"/>
+              <defs>
+                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#3B82F6"/>
+                  <stop offset="100%" stop-color="#8B5CF6"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </span>
+        </h1>
+        
+        <p class="text-lg sm:text-xl text-gray-600 mb-10 max-w-lg">
+          Have questions about our platform? Want to schedule a demo? 
+          We're here to help you transform your healthcare experience.
+        </p>
+
+        <!-- Contact Options -->
+        <div class="grid sm:grid-cols-2 gap-6 mb-12">
+          <% contact_methods = [
+            { type: "email", title: "Email Us", content: "support@medgemmahealth.com", note: "We'll respond within 24 hours" },
+            { type: "phone", title: "Call Us", content: "1-800-MEDGEMMA", note: "Mon-Fri 9AM-6PM EST" },
+            { type: "chat", title: "Live Chat", content: "Chat with our support team", note: "Available 24/7" },
+            { type: "address", title: "Visit Us", content: "Find our office locations", note: "Schedule an appointment" }
+          ] %>
+          
+          <% contact_methods.each do |method| %>
+            <% styles = contact_method_style(method[:type]) %>
+            <div class="relative group" data-controller="fade-in">
+              <!-- Background effect -->
+              <div class="absolute inset-0 <%= styles[:pattern] %> <%= styles[:gradient_from] %> <%= styles[:gradient_to] %> opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl rounded-xl"></div>
+              
+              <!-- Card content -->
+              <div class="bg-white relative <%= styles[:shape] %> p-5 border border-gray-100 shadow-sm hover:shadow-xl <%= styles[:hover_shadow] %> transition-all duration-500 flex items-start space-x-4 group-hover:-translate-y-1 h-full">
+                <!-- Icon -->
+                <div class="flex-shrink-0">
+                  <div class="w-14 h-14 <%= styles[:light_bg] %> rounded-xl flex items-center justify-center group-hover:bg-gradient-to-br <%= styles[:gradient_from] %> <%= styles[:gradient_to] %> transition-colors duration-500 shadow-sm group-hover:shadow-md">
+                    <i class="fas <%= styles[:icon] %> <%= styles[:text_color] %> group-hover:text-white transition-colors duration-500"></i>
+                  </div>
+                </div>
+                
+                <!-- Text content -->
+                <div>
+                  <h3 class="font-semibold text-gray-900 mb-1 group-hover:<%= styles[:text_color] %> transition-colors duration-300">
+                    <%= method[:title] %>
+                  </h3>
+                  <p class="text-gray-600 font-medium"><%= method[:content] %></p>
+                  <p class="text-sm text-gray-500 mt-1"><%= method[:note] %></p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+        <!-- Office Locations -->
+        <div class="bg-white border border-gray-100 rounded-2xl p-8 shadow-lg relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-blue-50 to-purple-50 opacity-60 blur-2xl -z-10"></div>
+          
+          <h3 class="flex items-center text-xl font-semibold text-gray-900 mb-6">
+            <span class="w-8 h-8 flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mr-3 shadow-md">
+              <i class="fas fa-map-marker-alt text-white text-xs"></i>
+            </span>
+            Our Offices
+          </h3>
+          
+          <div class="grid sm:grid-cols-2 gap-6">
+            <% locations = ["San Francisco", "New York"] %>
+            
+            <% locations.each do |location| %>
+              <% styles = office_location_style(location) %>
+              <div class="relative group" data-controller="fade-in">
+                <div class="flex items-start space-x-4">
+                  <!-- Location image -->
+                  <div class="relative w-16 sm:w-20 h-16 sm:h-20 flex-shrink-0 rounded-lg overflow-hidden shadow-md">
+                    <img 
+                      src="<%= styles[:image] %>" 
+                      alt="<%= location %> Office" 
+                      class="w-full h-full object-cover"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    <div class="absolute bottom-1 right-1 w-6 h-6 <%= styles[:accent] %> rounded-full flex items-center justify-center">
+                      <i class="fas <%= styles[:icon] %> text-white text-xs"></i>
+                    </div>
+                  </div>
+                  
+                  <!-- Location info -->
+                  <div>
+                    <h4 class="font-medium text-gray-900 flex items-center">
+                      <%= location %>
+                      <span class="ml-2 inline-block w-2 h-2 bg-green-500 rounded-full"></span>
+                    </h4>
+                    <p class="text-gray-600">
+                      <% if location == "San Francisco" %>
+                        123 Health Street, Suite 100<br>San Francisco, CA 94105
+                      <% else %>
+                        456 Medical Ave, Floor 20<br>New York, NY 10013
+                      <% end %>
+                    </p>
+                    <a href="#" class="text-<%= styles[:color] %>-600 hover:text-<%= styles[:color] %>-700 text-sm font-medium flex items-center mt-2 group-hover:underline">
+                      <i class="fas fa-directions mr-1"></i> Get directions
+                    </a>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          
+          <!-- Social Media -->
+          <div class="mt-8 pt-6 border-t border-gray-100">
+            <div class="flex items-center justify-between">
+              <h4 class="font-medium text-gray-900">Connect With Us</h4>
+              <div class="flex space-x-3">
+                <% social_platforms = ["twitter", "facebook", "instagram", "linkedin"] %>
+                <% social_platforms.each do |platform| %>
+                  <% styles = social_icon_style(platform) %>
+                  <a href="#" class="w-8 h-8 <%= styles[:bg] %> <%= styles[:text] %> flex items-center justify-center rounded-full transition-all duration-300 hover:shadow-md <%= styles[:hover] %>">
+                    <i class="<%= styles[:icon] %> text-xs"></i>
+                  </a>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="relative group" data-controller="fade-in">
+        <!-- Background decorations -->
+        <div class="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-blue-400 to-purple-500 opacity-5 rounded-full blur-2xl transform rotate-12"></div>
+        <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-gradient-to-br from-green-400 to-blue-500 opacity-5 rounded-full blur-2xl transform -rotate-12"></div>
+        
+        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 relative">
+          <!-- Form header -->
+          <div class="mb-8 pb-6 border-b border-gray-100">
+            <div class="inline-flex items-center px-4 py-2 bg-blue-50 rounded-full mb-3">
+              <i class="fas fa-paper-plane text-blue-600 mr-2"></i>
+              <span class="text-sm font-medium text-blue-800">Get in Touch</span>
+            </div>
+            <h2 class="text-2xl font-bold text-gray-900">Send Us a Message</h2>
+            <p class="text-gray-600 mt-2">We'd love to hear from you! Fill out the form below.</p>
+          </div>
+          
+          <%= form_with url: contact_path, local: true, data: { controller: "contact-form", action: "submit->contact-form#validateForm" }, aria: { label: "Contact Form" } do |form| %>
+            <div class="space-y-6">
+              <!-- Form fields with enhanced styling -->
+              <div class="grid sm:grid-cols-2 gap-6">
+                <div class="relative">
+                  <div class="flex items-center">
+                    <%= form.label :first_name, class: "block text-sm font-medium text-gray-700 mb-2" %>
+                    <span class="bg-blue-50 text-blue-600 text-xs px-2 py-0.5 rounded-md ml-2">Required</span>
+                  </div>
+                  <div class="relative">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <i class="fas fa-user text-gray-400" aria-hidden="true"></i>
+                    </div>
+                    <%= form.text_field :first_name, 
+                        placeholder: "John",
+                        class: "#{contact_form_input_style('name')} pl-10",
+                        data: { action: "blur->contact-form#validateField" },
+                        "aria-required": "true" %>
+                  </div>
+                </div>
+                
+                <div class="relative">
+                  <%= form.label :last_name, class: "block text-sm font-medium text-gray-700 mb-2" %>
+                  <div class="relative">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <i class="fas fa-user text-gray-400" aria-hidden="true"></i>
+                    </div>
+                    <%= form.text_field :last_name, 
+                        placeholder: "Doe",
+                        class: "#{contact_form_input_style('name')} pl-10" %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="relative">
+                <div class="flex items-center">
+                  <%= form.label :email, class: "block text-sm font-medium text-gray-700 mb-2" %>
+                  <span class="bg-blue-50 text-blue-600 text-xs px-2 py-0.5 rounded-md ml-2">Required</span>
+                </div>
+                <div class="relative">
+                  <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <i class="fas fa-envelope text-gray-400" aria-hidden="true"></i>
+                  </div>
+                  <%= form.email_field :email, 
+                      placeholder: "john@example.com",
+                      class: "#{contact_form_input_style('email')} pl-10",
+                      data: { action: "blur->contact-form#validateField" },
+                      "aria-required": "true" %>
+                </div>
+              </div>
+
+              <div class="relative">
+                <%= form.label :phone, class: "block text-sm font-medium text-gray-700 mb-2" %>
+                <div class="relative">
+                  <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <i class="fas fa-phone-alt text-gray-400" aria-hidden="true"></i>
+                  </div>
+                  <%= form.telephone_field :phone, 
+                      placeholder: "(555) 123-4567",
+                      class: "#{contact_form_input_style('phone')} pl-10",
+                      data: { action: "blur->contact-form#validateField" },
+                      aria: { describedby: "phone-description" } %>
+                  <div id="phone-description" class="text-xs text-gray-500 mt-1">Optional - for follow-up calls only</div>
+                </div>
+              </div>
+
+              <div class="relative">
+                <%= form.label :inquiry_type, "I'm interested in", class: "block text-sm font-medium text-gray-700 mb-2" %>
+                <div class="relative">
+                  <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <i class="fas fa-question-circle text-gray-400" aria-hidden="true"></i>
+                  </div>
+                  <%= form.select :inquiry_type, 
+                      options_for_select([
+                        ['General Inquiry', 'general'],
+                        ['Schedule a Demo', 'demo'],
+                        ['Technical Support', 'support'],
+                        ['Partnership Opportunities', 'partnership'],
+                        ['Media Inquiry', 'media']
+                      ]),
+                      { prompt: 'Select an option' },
+                      class: "#{contact_form_input_style('select')} pl-10",
+                      aria: { label: "Inquiry Type" } %>
+                  <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                    <i class="fas fa-chevron-down text-gray-400 text-xs" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="relative">
+                <%= form.label :message, class: "block text-sm font-medium text-gray-700 mb-2" %>
+                <div class="relative">
+                  <div class="absolute top-3 left-0 pl-3 flex items-center pointer-events-none">
+                    <i class="fas fa-comment-alt text-gray-400" aria-hidden="true"></i>
+                  </div>
+                  <%= form.text_area :message, 
+                      rows: 4,
+                      placeholder: "Tell us how we can help...",
+                      class: "#{contact_form_input_style('textarea')} pl-10",
+                      aria: { describedby: "message-description" } %>
+                  <div id="message-description" class="text-xs text-gray-500 mt-1">Please be specific with your request</div>
+                </div>
+              </div>
+
+              <div class="bg-gray-50 rounded-xl p-4 flex items-center space-x-3">
+                <div class="flex items-center">
+                  <%= form.check_box :subscribe, 
+                      class: contact_form_input_style('checkbox'),
+                      aria: { describedby: "subscribe-description" } %>
+                  <%= form.label :subscribe, "Send me updates about MedGemma Health", 
+                      class: "ml-2 text-sm text-gray-600" %>
+                </div>
+                <div id="subscribe-description" class="text-xs text-gray-400">Optional</div>
+              </div>
+
+              <!-- Privacy notice -->
+              <div class="text-xs text-gray-500">
+                By submitting this form, you agree to our 
+                <a href="#" class="text-blue-600 hover:underline focus:ring-2 focus:ring-blue-500 focus:outline-none rounded px-1">Privacy Policy</a> and
+                <a href="#" class="text-blue-600 hover:underline focus:ring-2 focus:ring-blue-500 focus:outline-none rounded px-1">Terms of Service</a>.
+              </div>
+
+              <!-- Submit button with enhanced styling and accessibility -->
+              <div class="relative group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+                <%= form.submit "Send Message", 
+                    class: contact_form_input_style('submit'),
+                    aria: { label: "Submit contact form" } %>
+                <!-- Screen reader only status message -->
+                <div class="sr-only" aria-live="polite" data-contact-form-target="submitStatus">
+                  Form ready for submission
+                </div>
+              </div>
+            </div>
+          <% end %>
+          
+          <!-- Form footer with additional contact info -->
+          <div class="mt-8 pt-6 border-t border-gray-100 flex items-center justify-between">
+            <div class="text-sm text-gray-500">Need immediate help?</div>
+            <a href="tel:1-800-MEDGEMMA" class="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-700">
+              <i class="fas fa-headset mr-1.5"></i>
+              1-800-MEDGEMMA
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Map Section -->
+<section class="py-10 sm:py-16 bg-gray-50 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-8 sm:mb-12 relative" data-controller="fade-in">
+      <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Find Us Worldwide</h2>
+      <p class="text-lg sm:text-xl text-gray-600 mt-2 max-w-2xl mx-auto">
+        With offices across the globe, we're never far away.
+      </p>
+      <!-- Decorative elements -->
+      <div class="absolute top-1/2 left-1/4 w-12 h-12 border-2 border-blue-100 rounded-full opacity-40 transform -translate-y-1/2 hidden sm:block"></div>
+      <div class="absolute top-1/2 right-1/4 w-8 h-8 border border-purple-100 rounded-full opacity-40 transform -translate-y-1/2 hidden sm:block"></div>
+    </div>
+    
+    <div class="relative rounded-2xl overflow-hidden shadow-xl border border-gray-100 h-72 sm:h-96" data-controller="fade-in">
+      <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" 
+           alt="World map with office locations" 
+           class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+      
+      <!-- Office location pins -->
+      <div class="absolute inset-0">
+        <!-- San Francisco Pin -->
+        <div class="absolute top-1/3 left-1/5 transform -translate-x-1/2 -translate-y-full">
+          <div class="relative group cursor-pointer">
+            <div class="absolute w-5 h-5 bg-blue-600 rounded-full animate-ping opacity-75"></div>
+            <div class="relative w-5 h-5 bg-blue-600 rounded-full flex items-center justify-center">
+              <div class="w-2 h-2 bg-white rounded-full"></div>
+            </div>
+            <!-- Tooltip -->
+            <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 -translate-y-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div class="bg-white px-3 py-1.5 rounded-lg shadow-lg text-sm font-medium text-gray-900 whitespace-nowrap">
+                San Francisco
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- New York Pin -->
+        <div class="absolute top-1/3 left-1/4 transform -translate-x-1/2 -translate-y-full">
+          <div class="relative group cursor-pointer">
+            <div class="absolute w-5 h-5 bg-purple-600 rounded-full animate-ping opacity-75"></div>
+            <div class="relative w-5 h-5 bg-purple-600 rounded-full flex items-center justify-center">
+              <div class="w-2 h-2 bg-white rounded-full"></div>
+            </div>
+            <!-- Tooltip -->
+            <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 -translate-y-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div class="bg-white px-3 py-1.5 rounded-lg shadow-lg text-sm font-medium text-gray-900 whitespace-nowrap">
+                New York
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Caption -->
+      <div class="absolute bottom-6 left-6 right-6">
+        <div class="bg-white bg-opacity-90 backdrop-blur-sm rounded-xl p-4 shadow-lg">
+          <h3 class="text-lg font-semibold text-gray-900 mb-1">Global Presence</h3>
+          <p class="text-gray-700">
+            With dedicated offices and partners in major healthcare hubs worldwide, MedGemma Health delivers seamless care regardless of location.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-12 sm:py-20 relative overflow-hidden">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-8 sm:mb-16 relative" data-controller="fade-in">
+      <div class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-50 to-purple-50 rounded-full mb-4 shadow-sm">
+        <i class="fas fa-question-circle text-blue-600 mr-2"></i>
+        <span class="text-sm font-medium text-blue-800">Frequently Asked Questions</span>
+      </div>
+      <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Got Questions?</h2>
+      <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+        Find answers to our most commonly asked questions. If you don't see what you're looking for, please contact us.
+      </p>
+    </div>
+    
+    <div class="grid md:grid-cols-2 gap-6 sm:gap-8">
+      <% faqs = [
+        { question: "How do I schedule a demo?", 
+          answer: "You can schedule a demo through our contact form above by selecting 'Schedule a Demo' as your inquiry type, or by calling our sales team directly." },
+        { question: "Is my data secure with MedGemma Health?", 
+          answer: "Yes! We follow HIPAA guidelines and employ military-grade encryption to ensure that your medical data remains private and secure." },
+        { question: "Can I integrate MedGemma with my existing systems?", 
+          answer: "Absolutely. Our platform offers API access and integrations with most major EMR systems and healthcare software providers." },
+        { question: "What devices can I use MedGemma on?", 
+          answer: "Our platform is accessible on desktops, tablets, and mobile phones, with native apps available for iOS and Android." }
+      ] %>
+      
+      <% faqs.each_with_index do |faq, index| %>
+        <div class="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow p-6" data-controller="fade-in">
+          <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-start">
+            <span class="w-6 h-6 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 text-white flex items-center justify-center text-xs font-medium mr-3 mt-0.5 flex-shrink-0">
+              <%= index + 1 %>
+            </span>
+            <%= faq[:question] %>
+          </h3>
+          <p class="text-gray-600 ml-9">
+            <%= faq[:answer] %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+    
+    <!-- View more FAQs link -->
+    <div class="text-center mt-10">
+      <a href="#" class="inline-flex items-center px-6 py-3 bg-gray-50 hover:bg-gray-100 text-blue-600 rounded-lg font-medium transition-colors">
+        View all FAQs
+        <i class="fas fa-arrow-right ml-2"></i>
+      </a>
+    </div>
+  </div>
+</section>

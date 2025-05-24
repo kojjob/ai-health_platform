@@ -1,0 +1,377 @@
+<%= content_for :title, "Community - MedGemma Health" %>
+<%= content_for :meta_description, "Join the MedGemma Health community to connect with patients, healthcare providers, and developers. Share experiences, request features, and participate in discussions." %>
+
+<!-- Hero Section -->
+<section class="pt-32 pb-20 bg-gradient-to-br from-slate-50 to-purple-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-12" data-controller="fade-in">
+      <div class="inline-flex items-center px-4 py-2 bg-purple-100 rounded-full mb-6">
+        <i class="fas fa-users text-purple-600 mr-2"></i>
+        <span class="text-sm font-medium text-purple-800">Join Our Community</span>
+      </div>
+      
+      <h1 class="text-5xl font-bold text-gray-900 mb-6">
+        MedGemma Health
+        <span class="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+          Community
+        </span>
+      </h1>
+      
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+        Connect with patients, healthcare providers and developers to share experiences, request features, and learn from each other.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="#forums" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all hover:-translate-y-1">
+          <i class="fas fa-comment-alt mr-2"></i>
+          Join Discussion Forums
+        </a>
+        <a href="#events" class="inline-flex items-center px-6 py-3 bg-white text-gray-800 border border-gray-300 font-medium rounded-lg shadow-sm hover:shadow hover:bg-gray-50 transition-all">
+          <i class="fas fa-calendar-alt mr-2"></i>
+          Upcoming Events
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Community Stats -->
+<section class="py-12 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div class="text-center">
+        <div class="text-4xl font-bold text-purple-600 mb-2">10k+</div>
+        <div class="text-gray-600">Community Members</div>
+      </div>
+      <div class="text-center">
+        <div class="text-4xl font-bold text-purple-600 mb-2">2.8k+</div>
+        <div class="text-gray-600">Discussion Topics</div>
+      </div>
+      <div class="text-center">
+        <div class="text-4xl font-bold text-purple-600 mb-2">350+</div>
+        <div class="text-gray-600">Feature Requests</div>
+      </div>
+      <div class="text-center">
+        <div class="text-4xl font-bold text-purple-600 mb-2">48</div>
+        <div class="text-gray-600">Monthly Events</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Forums -->
+<section id="forums" class="py-16 bg-gray-50" data-controller="community fade-in">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">Discussion Forums</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Join our specialized forums to connect with others, share your experiences, and learn from the community.
+      </p>
+    </div>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+      <% @community_forums.each do |forum| %>
+        <div class="bg-white rounded-xl shadow-sm p-8 border border-gray-200 hover:border-purple-200 transition-all" 
+             data-community-target="forum" 
+             data-fade-in-target="item">
+          <div class="flex flex-col sm:flex-row items-center sm:items-start">
+            <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center sm:mr-6 mb-4 sm:mb-0">
+              <i class="fas fa-<%= forum[:icon] %> text-2xl text-purple-600"></i>
+            </div>
+            <div class="flex-1 text-center sm:text-left">
+              <h3 class="text-xl font-bold text-gray-900 mb-2"><%= forum[:name] %></h3>
+              <div class="flex flex-col sm:flex-row sm:items-center text-gray-600 sm:space-x-6 space-y-2 sm:space-y-0">
+                <div class="flex items-center">
+                  <i class="fas fa-comments text-gray-400 mr-2"></i>
+                  <span data-community-target="topicCount"><%= forum[:topic_count] %> topics</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-users text-gray-400 mr-2"></i>
+                  <span class="member-count"><%= forum[:member_count] %></span>
+                  <span class="ml-1">members</span>
+                </div>
+              </div>
+              <div class="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
+                <a href="#" class="inline-flex items-center justify-center px-5 py-2 border border-purple-200 text-purple-700 font-medium rounded-lg transition-colors hover:bg-purple-50">
+                  Visit Forum
+                  <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                </a>
+                <button type="button" 
+                        class="inline-flex items-center justify-center px-5 py-2 bg-purple-100 hover:bg-purple-200 text-purple-700 font-medium rounded-lg transition-colors"
+                        data-action="community#joinForum">
+                  <i class="fas fa-user-plus mr-2"></i>
+                  Join
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Discussions -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-8">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">Featured Discussions</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Explore the most popular and insightful conversations happening in our community right now.
+      </p>
+    </div>
+    
+    <div class="mb-8 flex flex-wrap justify-center gap-2">
+      <button type="button" class="px-4 py-2 bg-purple-100 text-purple-800 text-sm font-medium rounded-full"
+              data-category="all" data-action="click->community#filterDiscussions">
+        All Discussions
+      </button>
+      <button type="button" class="px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-full"
+              data-category="patient" data-action="click->community#filterDiscussions">
+        Patient Experiences
+      </button>
+      <button type="button" class="px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-full"
+              data-category="feature" data-action="click->community#filterDiscussions">
+        Feature Requests
+      </button>
+      <button type="button" class="px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-full"
+              data-category="technical" data-action="click->community#filterDiscussions">
+        Technical Support
+      </button>
+    </div>
+    
+    <div class="space-y-6">
+      <% @featured_discussions.each_with_index do |discussion, index| %>
+        <% 
+          # Assign categories for demo filtering functionality
+          categories = ["patient", "feature", "technical"]
+          category = categories[index % categories.length]
+        %>
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:border-purple-200 transition-all" 
+             data-controller="fade-in" 
+             data-community-target="discussion"
+             data-category="<%= category %>">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:space-x-4">
+            <div class="flex-shrink-0 mb-4 sm:mb-0 mx-auto sm:mx-0">
+              <img src="<%= discussion[:avatar_url] %>" alt="<%= discussion[:author] %>" class="w-12 h-12 rounded-full">
+            </div>
+            <div class="flex-1 min-w-0 text-center sm:text-left">
+              <h3 class="text-lg font-semibold text-gray-900 mb-1">
+                <a href="#" class="hover:text-purple-600"><%= discussion[:title] %></a>
+              </h3>
+              <p class="text-sm text-gray-500">
+                Posted by <span class="font-medium text-gray-700"><%= discussion[:author] %></span> • <%= time_ago_in_words(discussion[:date]) %> ago
+              </p>
+              <div class="mt-3 flex flex-wrap justify-center sm:justify-start gap-4 sm:gap-6 text-sm">
+                <div class="flex items-center text-gray-500">
+                  <i class="fas fa-comment-alt mr-2 text-gray-400"></i>
+                  <span data-community-target="replyCount"><%= discussion[:reply_count] %> replies</span>
+                </div>
+                <div class="flex items-center text-gray-500">
+                  <i class="fas fa-eye mr-2 text-gray-400"></i>
+                  <span data-community-target="viewCount"><%= discussion[:view_count] %> views</span>
+                </div>
+                <button class="flex items-center text-gray-500 hover:text-red-500" data-action="community#likeDiscussion">
+                  <i class="far fa-heart mr-2"></i>
+                  <span><%= rand(5..25) %></span>
+                </button>
+              </div>
+              
+              <div class="mt-4 sm:hidden flex justify-center">
+                <a href="#" class="inline-flex items-center px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-lg transition-colors">
+                  View Thread
+                </a>
+              </div>
+            </div>
+            <div class="flex-shrink-0 hidden sm:block">
+              <a href="#" class="inline-flex items-center px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-lg transition-colors">
+                View Thread
+              </a>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      
+      <div class="text-center mt-10">
+        <a href="#" class="inline-flex items-center px-6 py-3 bg-white border border-purple-500 text-purple-600 font-medium rounded-lg shadow-sm hover:shadow hover:bg-purple-50 transition-all">
+          View All Discussions
+          <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Events -->
+<section id="events" class="py-16 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">Upcoming Events</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Join our webinars, workshops, and virtual meetups to learn from experts and connect with the community.
+      </p>
+    </div>
+    
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden" data-controller="fade-in">
+        <div class="h-48 bg-purple-100 flex items-center justify-center p-6">
+          <i class="fas fa-laptop-medical text-5xl text-purple-500"></i>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center mb-4">
+            <div class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">Webinar</div>
+            <div class="text-sm text-gray-500 ml-auto">Jun 15, 2023</div>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">AI in Healthcare Diagnostics</h3>
+          <p class="text-gray-600 text-sm mb-4">Learn how MedGemma's AI is transforming the diagnostic process for patients and providers.</p>
+          <a href="#" class="text-purple-600 hover:text-purple-700 font-medium inline-flex items-center">
+            Register Now
+            <i class="fas fa-arrow-right ml-1 text-xs"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden" data-controller="fade-in">
+        <div class="h-48 bg-blue-100 flex items-center justify-center p-6">
+          <i class="fas fa-code text-5xl text-blue-500"></i>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center mb-4">
+            <div class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Workshop</div>
+            <div class="text-sm text-gray-500 ml-auto">Jun 22, 2023</div>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Building with the MedGemma API</h3>
+          <p class="text-gray-600 text-sm mb-4">A hands-on workshop for developers looking to integrate healthcare solutions.</p>
+          <a href="#" class="text-purple-600 hover:text-purple-700 font-medium inline-flex items-center">
+            Register Now
+            <i class="fas fa-arrow-right ml-1 text-xs"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden" data-controller="fade-in">
+        <div class="h-48 bg-green-100 flex items-center justify-center p-6">
+          <i class="fas fa-users text-5xl text-green-500"></i>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center mb-4">
+            <div class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Meetup</div>
+            <div class="text-sm text-gray-500 ml-auto">Jun 30, 2023</div>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Patient Experience Forum</h3>
+          <p class="text-gray-600 text-sm mb-4">Join patients and care providers to share experiences and improvement ideas.</p>
+          <a href="#" class="text-purple-600 hover:text-purple-700 font-medium inline-flex items-center">
+            Register Now
+            <i class="fas fa-arrow-right ml-1 text-xs"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="text-center mt-10">
+      <a href="#" class="inline-flex items-center px-6 py-3 bg-white border border-purple-500 text-purple-600 font-medium rounded-lg shadow-sm hover:shadow hover:bg-purple-50 transition-all">
+        View All Events
+        <i class="fas fa-arrow-right ml-2"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Join Community -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-gradient-to-br from-purple-100 to-indigo-50 rounded-3xl overflow-hidden shadow-lg">
+      <div class="grid md:grid-cols-2">
+        <div class="p-12 flex items-center">
+          <div>
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Join Our Growing Community Today</h2>
+            <p class="text-lg text-gray-700 mb-6">
+              Connect with other patients and healthcare providers, share your experiences, and help shape the future of MedGemma Health.
+            </p>
+            <div class="space-y-4">
+              <div class="flex items-center">
+                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-4">
+                  <i class="fas fa-lightbulb text-purple-600"></i>
+                </div>
+                <span class="text-gray-800">Contribute ideas and feature requests</span>
+              </div>
+              <div class="flex items-center">
+                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-4">
+                  <i class="fas fa-comment-dots text-purple-600"></i>
+                </div>
+                <span class="text-gray-800">Share experiences and get support</span>
+              </div>
+              <div class="flex items-center">
+                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-4">
+                  <i class="fas fa-users text-purple-600"></i>
+                </div>
+                <span class="text-gray-800">Participate in research and improvement initiatives</span>
+              </div>
+            </div>
+            <div class="mt-8">
+              <a href="#" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all">
+                Sign Up Now
+                <i class="fas fa-arrow-right ml-2"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="bg-purple-600 p-8 flex items-center justify-center">
+          <img src="/assets/community-illustration.svg" alt="Community Illustration" class="max-w-full h-auto">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Resources -->
+<section class="py-16 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-3xl font-bold text-gray-900 mb-8">Additional Resources</h2>
+    
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200 hover:shadow-md transition-all">
+        <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <i class="fas fa-book-medical text-blue-600 text-xl"></i>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">Knowledge Base</h3>
+        <p class="text-gray-600 mb-4">
+          Browse our extensive library of articles, guides, and frequently asked questions.
+        </p>
+        <a href="/help-center" class="text-purple-600 hover:text-purple-700 font-medium inline-flex items-center">
+          Visit Knowledge Base
+          <i class="fas fa-arrow-right ml-1 text-xs"></i>
+        </a>
+      </div>
+      
+      <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200 hover:shadow-md transition-all">
+        <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <i class="fas fa-code text-green-600 text-xl"></i>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">Developer Hub</h3>
+        <p class="text-gray-600 mb-4">
+          Technical documentation, API reference, and integration guides for developers.
+        </p>
+        <a href="/api-docs" class="text-purple-600 hover:text-purple-700 font-medium inline-flex items-center">
+          Explore API Docs
+          <i class="fas fa-arrow-right ml-1 text-xs"></i>
+        </a>
+      </div>
+      
+      <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200 hover:shadow-md transition-all">
+        <div class="w-14 h-14 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <i class="fas fa-server text-yellow-600 text-xl"></i>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">System Status</h3>
+        <p class="text-gray-600 mb-4">
+          Check the current status of all MedGemma Health services and components.
+        </p>
+        <a href="/status" class="text-purple-600 hover:text-purple-700 font-medium inline-flex items-center">
+          View Status Page
+          <i class="fas fa-arrow-right ml-1 text-xs"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

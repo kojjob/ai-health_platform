@@ -1,0 +1,294 @@
+<%= content_for :title, "System Status - MedGemma Health" %>
+<%= content_for :meta_description, "Real-time status of MedGemma Health platform services including API, web applications, and infrastructure components." %>
+
+<!-- Hero Section -->
+<section class="pt-32 pb-20 bg-gradient-to-br from-slate-50 to-blue-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-12" data-controller="fade-in">
+      <div class="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full mb-6">
+        <i class="fas fa-server text-blue-600 mr-2"></i>
+        <span class="text-sm font-medium text-blue-800">Platform Status</span>
+      </div>
+      
+      <h1 class="text-5xl font-bold text-gray-900 mb-6">
+        MedGemma Health
+        <span class="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+          System Status
+        </span>
+      </h1>
+      
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+        Check the real-time operational status of all MedGemma Health services and platform components.
+      </p>
+
+      <!-- Overall Status -->
+      <div class="mx-auto max-w-lg overall-status">
+        <div class="bg-white rounded-xl shadow-md p-8 border border-gray-200">
+          <div class="flex items-center justify-center space-x-4">
+            <% if @system_status[:overall] == "operational" %>
+              <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center status-icon-container">
+                <i class="fas fa-check text-white"></i>
+              </div>
+              <div class="text-2xl font-bold text-green-600 status-text">All Systems Operational</div>
+            <% elsif @system_status[:overall] == "degraded" %>
+              <div class="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center status-icon-container">
+                <i class="fas fa-exclamation text-white"></i>
+              </div>
+              <div class="text-2xl font-bold text-yellow-600 status-text">Partial Service Degradation</div>
+            <% else %>
+              <div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center status-icon-container">
+                <i class="fas fa-times text-white"></i>
+              </div>
+              <div class="text-2xl font-bold text-red-600 status-text">Service Disruption</div>
+            <% end %>
+          </div>
+          <p class="mt-4 text-gray-600 text-center">
+            Last updated: <span data-status-page-target="lastUpdated"><%= @system_status[:last_updated].strftime("%B %d, %Y at %H:%M %Z") %></span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Component Status -->
+<section class="py-16 bg-white" data-controller="status-page" data-status-page-refresh-interval="60">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-3xl">
+      <div class="flex justify-between items-center mb-8">
+        <h2 class="text-3xl font-bold text-gray-900">Service Components</h2>
+        <div class="flex items-center">
+          <button 
+            type="button" 
+            class="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 transition-colors mr-4" 
+            data-action="click->status-page#requestNotifications">
+            <i class="fas fa-bell mr-2"></i>
+            Enable Browser Notifications
+          </button>
+          <button 
+            class="flex items-center text-blue-600 hover:text-blue-800" 
+            data-action="click->status-page#refreshStatus"
+            data-status-page-target="refreshButton">
+            <i class="fas fa-sync-alt mr-2"></i>
+            Refresh
+          </button>
+        </div>
+      </div>
+      
+      <div class="flex items-center justify-center text-sm text-gray-500 mb-6">
+        <span>Last updated: </span>
+        <span data-status-page-target="lastUpdated" class="ml-1 font-medium"><%= @system_status[:last_updated].strftime("%H:%M:%S") %></span>
+      </div>
+      
+      <style>
+        /* Add animation for status indicators */
+        .pulse {
+          animation: pulse-animation 1s ease-in-out;
+        }
+        
+        @keyframes pulse-animation {
+          0% {
+            transform: scale(1);
+            opacity: 1;
+          }
+          50% {
+            transform: scale(1.5);
+            opacity: 0.7;
+          }
+          100% {
+            transform: scale(1);
+            opacity: 1;
+          }
+        }
+        
+        /* Add animation for refresh button */
+        .animate-spin {
+          animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+      </style>
+      
+      <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden" data-controller="fade-in">
+        <div class="divide-y divide-gray-200">
+          <% @system_status[:components].each do |component| %>
+            <div class="p-6 flex flex-col sm:flex-row sm:items-center justify-between" data-component-id="<%= component[:name] %>">
+              <div class="flex items-center mb-2 sm:mb-0">
+                <% if component[:status] == "operational" %>
+                  <div class="w-3 h-3 bg-green-500 rounded-full mr-4 status-indicator"></div>
+                <% elsif component[:status] == "degraded" %>
+                  <div class="w-3 h-3 bg-yellow-500 rounded-full mr-4 status-indicator"></div>
+                <% else %>
+                  <div class="w-3 h-3 bg-red-500 rounded-full mr-4 status-indicator"></div>
+                <% end %>
+                <div>
+                  <h3 class="text-lg font-semibold text-gray-900"><%= component[:name] %></h3>
+                </div>
+              </div>
+              <div class="flex items-center pl-7 sm:pl-0">
+                <span class="text-sm text-gray-600 mr-3">Uptime:</span>
+                <span class="text-sm font-medium uptime <%= component[:uptime].to_f >= 99.9 ? 'text-green-600' : (component[:uptime].to_f >= 99.0 ? 'text-yellow-600' : 'text-red-600') %>">
+                  <%= component[:uptime] %>
+                </span>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Historical Incidents -->
+<section class="py-16 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-3xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-2 text-center">Incident History</h2>
+      <p class="text-gray-600 text-center mb-12">Past incidents and their resolutions</p>
+      
+      <% if @incident_history.any? %>
+        <div class="space-y-8">
+          <% @incident_history.each do |incident| %>
+            <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden" data-controller="fade-in">
+              <div class="border-l-4 <%= incident[:title].include?('Maintenance') ? 'border-blue-500' : 'border-yellow-500' %>">
+                <div class="p-6 cursor-pointer" data-status-page-target="incident" data-action="click->status-page#toggleDetails">
+                  <div class="flex justify-between items-start">
+                    <div class="flex-1">
+                      <h3 class="text-lg font-bold text-gray-900 pr-8"><%= incident[:title] %></h3>
+                      <div class="flex flex-col sm:flex-row items-start sm:items-center mt-1">
+                        <span class="text-sm text-gray-500"><%= incident[:date].strftime("%B %d, %Y") %></span>
+                        <span class="hidden sm:inline mx-2 text-gray-400">•</span>
+                        <span class="text-sm text-gray-500">Duration: <%= incident[:duration] %></span>
+                      </div>
+                    </div>
+                    <i class="fas fa-chevron-down text-gray-400 toggle-icon absolute right-6"></i>
+                  </div>
+                </div>
+                
+                <div class="px-6 pb-6 hidden" data-status-page-target="details">
+                  <p class="text-gray-700 mb-4"><%= incident[:description] %></p>
+                  
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <div class="flex items-start">
+                      <span class="font-medium text-gray-700 mr-2">Resolution:</span>
+                      <span class="text-gray-600"><%= incident[:resolution] %></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="text-center py-12 bg-white rounded-xl shadow-sm">
+          <i class="fas fa-check-circle text-5xl text-green-500 mb-4"></i>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">No Incidents Reported</h3>
+          <p class="text-gray-600">There have been no incidents in the past 90 days.</p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<!-- Subscription Section -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-10 shadow-sm border border-blue-100">
+      <div class="text-center mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-2">Status Updates</h2>
+        <p class="text-gray-600">Subscribe to receive status updates and incident notifications</p>
+      </div>
+      
+      <form action="#" method="POST" class="flex flex-col sm:flex-row gap-4 justify-center">
+        <input 
+          type="email" 
+          name="email" 
+          placeholder="Enter your email address" 
+          class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          required
+        >
+        <button 
+          type="submit"
+          class="px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5"
+        >
+          Subscribe
+        </button>
+      </form>
+      
+      <div class="mt-6 pt-6 border-t border-blue-100">
+        <div class="flex items-center justify-center">
+          <button 
+            type="button" 
+            class="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 transition-colors" 
+            data-action="click->status-page#requestNotifications"
+          >
+            <i class="fas fa-bell mr-2"></i>
+            Enable Browser Notifications
+          </button>
+        </div>
+        <p class="text-xs text-gray-500 text-center mt-2">
+          Get instant alerts in your browser when service status changes
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Developer Resources -->
+<section class="py-16 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-3xl font-bold text-gray-900 mb-8">Developer Resources</h2>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200 hover:shadow-md transition-all">
+        <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <i class="fas fa-code text-blue-600 text-xl"></i>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">API Documentation</h3>
+        <p class="text-gray-600 mb-4">
+          Comprehensive guides, reference, and examples for integrating with our API.
+        </p>
+        <a href="/api-docs" class="text-blue-600 hover:text-blue-700 font-medium inline-flex items-center">
+          View Documentation
+          <i class="fas fa-arrow-right ml-1 text-xs"></i>
+        </a>
+      </div>
+      
+      <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200 hover:shadow-md transition-all">
+        <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <i class="fas fa-question-circle text-green-600 text-xl"></i>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">Support Center</h3>
+        <p class="text-gray-600 mb-4">
+          Find answers to common questions, troubleshooting guides, and support resources.
+        </p>
+        <a href="/help-center" class="text-blue-600 hover:text-blue-700 font-medium inline-flex items-center">
+          Get Support
+          <i class="fas fa-arrow-right ml-1 text-xs"></i>
+        </a>
+      </div>
+      
+      <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200 hover:shadow-md transition-all">
+        <div class="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <i class="fas fa-users text-purple-600 text-xl"></i>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">Community</h3>
+        <p class="text-gray-600 mb-4">
+          Join our community forum to discuss with other developers and share knowledge.
+        </p>
+        <a href="/community" class="text-blue-600 hover:text-blue-700 font-medium inline-flex items-center">
+          Visit Community
+          <i class="fas fa-arrow-right ml-1 text-xs"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,1012 @@
+<% content_for :title, "How It Works | MedGemma Health" %>
+<% content_for :meta_description, "Learn how MedGemma Health's AI-powered healthcare platform works. From symptoms to treatment in minutes with our three-step process." %>
+<% content_for :canonical_url, how_it_works_url %>
+<% content_for :open_graph do %>
+  <meta property="og:title" content="How MedGemma Health Works | AI-Powered Healthcare">
+  <meta property="og:description" content="Get from symptoms to treatment in minutes with our AI-powered healthcare platform. Upload symptoms, get AI analysis, and connect with doctors.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="<%= how_it_works_url %>">
+<% end %>
+
+<!-- Skip to main content link for accessibility -->
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-medgemma-600 focus:shadow-lg focus:rounded-md">
+  Skip to main content
+</a>
+
+<section id="main-content" class="pt-32 pb-20" data-controller="analytics" data-analytics-page-value="how-it-works" data-analytics-section-value="hero">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-16 animate-fade-in">
+      <div class="inline-flex items-center px-5 py-2.5 bg-medgemma-100 rounded-full mb-6 shadow-sm hover:shadow-md transition-all duration-300">
+        <i class="fas fa-stethoscope text-medgemma-600 mr-2"></i>
+        <span class="text-sm font-medium text-medgemma-800">Streamlined Healthcare Journey</span>
+      </div>
+      
+      <h1 class="text-5xl font-bold text-gray-900 mb-6">
+        How 
+        <span class="bg-gradient-to-r from-medgemma-500 to-purple-600 bg-clip-text text-transparent">
+          MedGemma Health
+        </span>
+        Works
+      </h1>
+      
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in" style="animation-delay: 0.2s">
+        Get from symptoms to treatment in minutes with our AI-powered healthcare platform
+      </p>
+    </div>
+
+    <!-- Process Steps -->
+    <div class="relative">
+      <!-- Connection Line -->
+      <div class="absolute left-1/2 transform -translate-x-1/2 w-1.5 h-full bg-gradient-to-b from-medgemma-500 to-purple-600 hidden lg:block rounded-full shadow-glow-blue"></div>
+
+      <!-- Step 1 -->
+      <div class="relative grid lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-16 lg:mb-24">
+        <div class="lg:text-right animate-fade-in-up" style="animation-delay: 0.1s">
+          <div class="flex lg:justify-end">
+            <div class="inline-flex items-center justify-center w-14 h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-medgemma-500 to-purple-600 rounded-full text-white text-xl lg:text-2xl font-bold mb-4 lg:mb-6 shadow-lg transform hover:scale-105 transition-all duration-300">
+              1
+            </div>
+          </div>
+          <h3 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-3 lg:mb-4">Upload Your Symptoms</h3>
+          <p class="text-base lg:text-lg text-gray-600 mb-4 lg:mb-6">
+            Take photos of your condition and describe your symptoms. Our secure platform encrypts everything instantly.
+          </p>
+          
+          <!-- Mobile-optimized feature list -->
+          <div class="lg:hidden bg-white rounded-lg shadow-sm p-4 mb-4">
+            <ul class="space-y-3">
+              <li class="flex items-center">
+                <div class="flex-shrink-0 w-8 h-8 bg-medgemma-100 rounded-full flex items-center justify-center">
+                  <i class="fas fa-shield-alt text-medgemma-600"></i>
+                </div>
+                <span class="ml-3 text-gray-700 font-medium">Secure photo upload</span>
+              </li>
+              <li class="flex items-center">
+                <div class="flex-shrink-0 w-8 h-8 bg-medgemma-100 rounded-full flex items-center justify-center">
+                  <i class="fas fa-clipboard-list text-medgemma-600"></i>
+                </div>
+                <span class="ml-3 text-gray-700 font-medium">Symptom questionnaire</span>
+              </li>
+              <li class="flex items-center">
+                <div class="flex-shrink-0 w-8 h-8 bg-medgemma-100 rounded-full flex items-center justify-center">
+                  <i class="fas fa-file-medical text-medgemma-600"></i>
+                </div>
+                <span class="ml-3 text-gray-700 font-medium">Medical history review</span>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- Desktop feature list -->
+          <ul class="hidden lg:block space-y-4 text-left lg:text-right">
+            <li class="flex items-center lg:justify-end">
+              <span class="text-gray-800 font-medium">Secure photo upload</span>
+              <div class="ml-3 w-7 h-7 rounded-full bg-medgemma-100 flex items-center justify-center shadow-md">
+                <i class="fas fa-shield-alt text-medgemma-600"></i>
+              </div>
+            </li>
+            <li class="flex items-center lg:justify-end">
+              <span class="text-gray-800 font-medium">Symptom questionnaire</span>
+              <div class="ml-3 w-7 h-7 rounded-full bg-medgemma-100 flex items-center justify-center shadow-md">
+                <i class="fas fa-clipboard-list text-medgemma-600"></i>
+              </div>
+            </li>
+            <li class="flex items-center lg:justify-end">
+              <span class="text-gray-800 font-medium">Medical history review</span>
+              <div class="ml-3 w-7 h-7 rounded-full bg-medgemma-100 flex items-center justify-center shadow-md">
+                <i class="fas fa-file-medical text-medgemma-600"></i>
+              </div>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="relative animate-fade-in-up" style="animation-delay: 0.3s">
+          <div class="bg-gradient-to-br from-medgemma-50 to-purple-100 rounded-xl lg:rounded-2xl p-4 lg:p-6 shadow-lg lg:shadow-xl hover:shadow-2xl transition-all duration-300">
+            <%= marketing_image_tag "marketing/step-upload.png", class: "w-full h-56 lg:h-72 rounded-lg object-cover" %>
+            <div class="absolute -bottom-3 -right-3 lg:-bottom-4 lg:-right-4 bg-white p-3 lg:p-4 rounded-full shadow-lg">
+              <i class="fas fa-lock text-xl lg:text-2xl text-medgemma-600"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="relative grid lg:grid-cols-2 gap-12 items-center mb-24">
+        <div class="order-2 lg:order-1 animate-fade-in-up" style="animation-delay: 0.2s">
+          <div class="bg-gradient-to-br from-teal-50 to-blue-100 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300">
+            <%= marketing_image_tag "marketing/step-ai-analysis.png", class: "w-full h-72 rounded-lg object-cover" %>
+            <div class="absolute -bottom-4 -left-4 bg-white p-4 rounded-full shadow-lg">
+              <i class="fas fa-microchip text-2xl text-teal-600"></i>
+            </div>
+          </div>
+        </div>
+        
+        <div class="order-1 lg:order-2 animate-fade-in-up" style="animation-delay: 0.4s">
+          <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-teal-500 to-blue-600 rounded-full text-white text-2xl font-bold mb-6 shadow-lg transform hover:scale-105 transition-all duration-300">
+            2
+          </div>
+          <h3 class="text-3xl font-bold text-gray-900 mb-4">AI Analysis & Diagnosis</h3>
+          <p class="text-lg text-gray-600 mb-6">
+            MedGemma AI analyzes your symptoms and images in seconds, providing preliminary diagnosis with confidence scores.
+          </p>
+          <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-teal-100">
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center">
+                <i class="fas fa-robot text-teal-600 mr-2"></i>
+                <span class="text-gray-700 font-medium">AI Analysis</span>
+              </div>
+              <span class="text-teal-600 font-medium">98% Complete</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-3 mb-4">
+              <div class="bg-gradient-to-r from-teal-400 to-blue-600 h-3 rounded-full animate-pulse transition-all duration-1000" style="width: 98%"></div>
+            </div>
+            <div class="grid grid-cols-2 gap-3 mt-4">
+              <div class="bg-teal-50 p-3 rounded-lg">
+                <div class="text-sm text-gray-500">Symptoms Match</div>
+                <div class="font-bold text-teal-700">93%</div>
+              </div>
+              <div class="bg-blue-50 p-3 rounded-lg">
+                <div class="text-sm text-gray-500">Image Analysis</div>
+                <div class="font-bold text-blue-700">97%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="relative grid lg:grid-cols-2 gap-12 items-center">
+        <div class="lg:text-right animate-fade-in-up" style="animation-delay: 0.3s">
+          <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full text-white text-2xl font-bold mb-6 shadow-lg transform hover:scale-105 transition-all duration-300">
+            3
+          </div>
+          <h3 class="text-3xl font-bold text-gray-900 mb-4">Doctor Consultation</h3>
+          <p class="text-lg text-gray-600 mb-6">
+            Connect with verified doctors who review AI findings and provide personalized treatment plans.
+          </p>
+          <div class="flex flex-col lg:flex-row lg:items-center space-y-3 lg:space-y-0 lg:space-x-3">
+            <div class="inline-flex items-center px-6 py-3 bg-purple-100 rounded-full shadow-sm hover:shadow-md transition-all duration-300">
+              <i class="fas fa-video text-purple-600 mr-3"></i>
+              <span class="text-purple-800 font-medium">Average wait: 5 min</span>
+            </div>
+            <div class="inline-flex items-center px-6 py-3 bg-pink-100 rounded-full shadow-sm hover:shadow-md transition-all duration-300">
+              <i class="fas fa-certificate text-pink-600 mr-3"></i>
+              <span class="text-pink-800 font-medium">100% Board Certified</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="relative animate-fade-in-up" style="animation-delay: 0.5s">
+          <div class="bg-gradient-to-br from-purple-50 to-pink-100 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300">
+            <%= marketing_image_tag "marketing/step-consultation.png", class: "w-full h-72 rounded-lg object-cover" %>
+            <div class="absolute -bottom-4 -right-4 bg-white p-4 rounded-full shadow-lg">
+              <i class="fas fa-user-md text-2xl text-purple-600"></i>
+            </div>
+          </div>
+          
+          <!-- Testimonial Pill -->
+          <div class="absolute -bottom-12 left-12 bg-white rounded-xl p-4 shadow-lg max-w-xs animate-float-slow">
+            <div class="flex items-start">
+              <div class="flex-shrink-0">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 flex items-center justify-center text-white font-medium">JD</div>
+              </div>
+              <div class="ml-3">
+                <div class="text-sm text-gray-900 font-medium">"Got my prescription in minutes. Amazing!"</div>
+                <div class="flex items-center mt-1">
+                  <i class="fas fa-star text-yellow-400 text-xs"></i>
+                  <i class="fas fa-star text-yellow-400 text-xs"></i>
+                  <i class="fas fa-star text-yellow-400 text-xs"></i>
+                  <i class="fas fa-star text-yellow-400 text-xs"></i>
+                  <i class="fas fa-star text-yellow-400 text-xs"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Benefits Banner -->
+      <div class="mt-32 grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-in-up" style="animation-delay: 0.6s">
+        <div class="bg-medgemma-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          <div class="text-medgemma-600 mb-4 text-3xl">
+            <i class="fas fa-lock-alt"></i>
+          </div>
+          <h4 class="text-xl font-semibold text-gray-900 mb-2">HIPAA Compliant</h4>
+          <p class="text-gray-600">Your data is always secured with enterprise-grade encryption and security protocols.</p>
+        </div>
+        
+        <div class="bg-teal-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          <div class="text-teal-600 mb-4 text-3xl">
+            <i class="fas fa-heartbeat"></i>
+          </div>
+          <h4 class="text-xl font-semibold text-gray-900 mb-2">Instant Care</h4>
+          <p class="text-gray-600">Get diagnosis and treatment plans in minutes, not days or weeks.</p>
+        </div>
+        
+        <div class="bg-purple-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          <div class="text-purple-600 mb-4 text-3xl">
+            <i class="fas fa-file-prescription"></i>
+          </div>
+          <h4 class="text-xl font-semibold text-gray-900 mb-2">E-Prescriptions</h4>
+          <p class="text-gray-600">Medications delivered to your door or sent electronically to your local pharmacy.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- App Demo Section -->
+<section class="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+  <!-- Decorative elements -->
+  <div class="absolute top-0 left-0 w-64 h-64 bg-medgemma-100 rounded-full -translate-x-1/2 -translate-y-1/2 opacity-50"></div>
+  <div class="absolute bottom-0 right-0 w-96 h-96 bg-purple-100 rounded-full translate-x-1/3 translate-y-1/3 opacity-50"></div>
+  
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center mb-16 animate-fade-in-up">
+      <div class="inline-flex items-center px-5 py-2.5 bg-medgemma-100 rounded-full mb-6 shadow-sm">
+        <i class="fas fa-mobile-alt text-medgemma-600 mr-2"></i>
+        <span class="text-sm font-medium text-medgemma-800">Interactive Preview</span>
+      </div>
+      <h2 class="text-4xl font-bold text-gray-900 mb-4">Experience MedGemma Health</h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">See how our app works on your mobile device</p>
+    </div>
+    
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Phone Mockup -->
+      <div class="order-2 lg:order-1 mx-auto" data-controller="app-preview">
+        <!-- Phone frame -->
+        <div class="relative w-[280px] h-[580px] bg-gray-900 rounded-[40px] p-3 shadow-2xl mx-auto">
+          <!-- Phone details -->
+          <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-40 h-6 bg-black rounded-b-xl"></div>
+          <div class="absolute top-4 left-1/2 transform -translate-x-1/2 w-16 h-2 bg-gray-800 rounded"></div>
+          
+          <!-- Screen -->
+          <div class="relative bg-white h-full w-full rounded-[30px] overflow-hidden">
+            <!-- App screens -->
+            <!-- Screen 1: Symptom Entry -->
+            <div class="h-full flex flex-col" data-app-preview-target="screen">
+              <div class="bg-gradient-to-r from-medgemma-500 to-purple-600 p-4 text-white">
+                <div class="flex justify-between items-center">
+                  <div class="text-xs">9:41 AM</div>
+                  <div class="flex space-x-2">
+                    <i class="fas fa-signal"></i>
+                    <i class="fas fa-wifi"></i>
+                    <i class="fas fa-battery-full"></i>
+                  </div>
+                </div>
+                <div class="text-center mt-2">
+                  <div class="text-sm font-bold">MedGemma Health</div>
+                  <div class="text-xs opacity-80">New Consultation</div>
+                </div>
+              </div>
+              
+              <div class="p-4 flex-1 overflow-y-auto">
+                <div class="mb-6">
+                  <h3 class="font-semibold text-gray-800 mb-2">Tell us about your symptoms</h3>
+                  <div class="bg-gray-100 rounded-lg p-3">
+                    <div class="text-sm text-gray-700">I've had a red rash on my arm for 2 days. It's itchy and slightly raised.</div>
+                  </div>
+                </div>
+                
+                <div class="mb-6">
+                  <h3 class="font-semibold text-gray-800 mb-2">Upload photos</h3>
+                  <div class="grid grid-cols-2 gap-2">
+                    <div class="bg-medgemma-50 rounded-lg aspect-square flex items-center justify-center">
+                      <i class="fas fa-camera text-medgemma-400 text-2xl"></i>
+                    </div>
+                    <div class="bg-medgemma-50 rounded-lg aspect-square flex items-center justify-center">
+                      <i class="fas fa-plus text-medgemma-400"></i>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="mb-4">
+                  <h3 class="font-semibold text-gray-800 mb-2">When did it start?</h3>
+                  <div class="bg-gray-100 rounded-lg p-3">
+                    <div class="text-sm text-gray-700">2 days ago</div>
+                  </div>
+                </div>
+                
+                <div class="mb-4">
+                  <h3 class="font-semibold text-gray-800 mb-2">Rate your discomfort</h3>
+                  <div class="flex justify-between mb-2">
+                    <span class="text-xs text-gray-600">Mild</span>
+                    <span class="text-xs text-gray-600">Severe</span>
+                  </div>
+                  <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                    <div class="h-full w-1/3 bg-gradient-to-r from-green-400 to-yellow-400 rounded-full"></div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="p-4 border-t">
+                <button class="w-full py-3 bg-gradient-to-r from-medgemma-500 to-purple-600 text-white rounded-lg font-medium">
+                  Continue
+                </button>
+              </div>
+            </div>
+            
+            <!-- Screen 2: AI Analysis -->
+            <div class="h-full flex-col" style="display: none;" data-app-preview-target="screen">
+              <div class="bg-gradient-to-r from-teal-500 to-blue-600 p-4 text-white">
+                <div class="flex justify-between items-center">
+                  <div class="text-xs">9:42 AM</div>
+                  <div class="flex space-x-2">
+                    <i class="fas fa-signal"></i>
+                    <i class="fas fa-wifi"></i>
+                    <i class="fas fa-battery-full"></i>
+                  </div>
+                </div>
+                <div class="text-center mt-2">
+                  <div class="text-sm font-bold">MedGemma Health</div>
+                  <div class="text-xs opacity-80">AI Analysis</div>
+                </div>
+              </div>
+              
+              <div class="p-4 flex-1 overflow-y-auto">
+                <div class="flex justify-center mb-6">
+                  <div class="w-24 h-24 rounded-full bg-teal-100 flex items-center justify-center">
+                    <i class="fas fa-brain text-4xl text-teal-600"></i>
+                  </div>
+                </div>
+                
+                <div class="text-center mb-6">
+                  <h3 class="text-lg font-bold text-gray-800">AI Analysis Complete</h3>
+                  <p class="text-sm text-gray-600">Our AI has analyzed your symptoms and images</p>
+                </div>
+                
+                <div class="bg-white rounded-lg border border-gray-200 p-4 mb-4 shadow-sm">
+                  <div class="flex items-center justify-between mb-2">
+                    <div class="font-medium text-gray-800">Possible Diagnosis</div>
+                    <div class="text-xs bg-teal-100 text-teal-800 px-2 py-1 rounded-full">94% Match</div>
+                  </div>
+                  <div class="text-gray-800">Contact Dermatitis</div>
+                  <div class="text-xs text-gray-600 mt-1">Common inflammatory skin condition caused by contact with a substance</div>
+                </div>
+                
+                <div class="bg-white rounded-lg border border-gray-200 p-4 mb-4 shadow-sm">
+                  <div class="flex items-center justify-between mb-2">
+                    <div class="font-medium text-gray-800">Alternative Diagnosis</div>
+                    <div class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">78% Match</div>
+                  </div>
+                  <div class="text-gray-800">Eczema</div>
+                  <div class="text-xs text-gray-600 mt-1">Inflammatory skin condition that causes itchy, rash-like symptoms</div>
+                </div>
+                
+                <div class="bg-gray-100 rounded-lg p-3 mb-4">
+                  <div class="text-xs text-gray-600 mb-1">Note</div>
+                  <div class="text-sm text-gray-700">A doctor will review these findings and provide personalized treatment recommendations.</div>
+                </div>
+              </div>
+              
+              <div class="p-4 border-t">
+                <button class="w-full py-3 bg-gradient-to-r from-teal-500 to-blue-600 text-white rounded-lg font-medium">
+                  Connect with Doctor
+                </button>
+              </div>
+            </div>
+            
+            <!-- Screen 3: Doctor Chat -->
+            <div class="h-full flex-col" style="display: none;" data-app-preview-target="screen">
+              <div class="bg-gradient-to-r from-purple-500 to-pink-600 p-4 text-white">
+                <div class="flex justify-between items-center">
+                  <div class="text-xs">9:45 AM</div>
+                  <div class="flex space-x-2">
+                    <i class="fas fa-signal"></i>
+                    <i class="fas fa-wifi"></i>
+                    <i class="fas fa-battery-full"></i>
+                  </div>
+                </div>
+                <div class="text-center mt-2">
+                  <div class="flex items-center justify-center">
+                    <div class="w-8 h-8 rounded-full bg-white flex-shrink-0 flex items-center justify-center">
+                      <i class="fas fa-user-md text-purple-600"></i>
+                    </div>
+                    <div class="ml-2 text-left">
+                      <div class="text-sm font-bold">Dr. Sarah Johnson</div>
+                      <div class="text-xs opacity-80">Board Certified Dermatologist</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="p-4 flex-1 overflow-y-auto bg-gray-50">
+                <!-- Chat messages -->
+                <div class="flex mb-4">
+                  <div class="w-8 h-8 rounded-full bg-purple-100 flex-shrink-0 flex items-center justify-center">
+                    <i class="fas fa-user-md text-purple-600 text-xs"></i>
+                  </div>
+                  <div class="ml-2 bg-white p-3 rounded-lg rounded-tl-none shadow-sm max-w-[80%]">
+                    <p class="text-sm text-gray-800">Hi there! I've reviewed your symptoms and the AI analysis. Based on the images and description, I agree this looks like contact dermatitis.</p>
+                  </div>
+                </div>
+                
+                <div class="flex justify-end mb-4">
+                  <div class="bg-medgemma-100 p-3 rounded-lg rounded-tr-none shadow-sm max-w-[80%] mr-2">
+                    <p class="text-sm text-gray-800">Thank you, doctor. Do you know what might have caused it?</p>
+                  </div>
+                  <div class="w-8 h-8 rounded-full bg-medgemma-200 flex-shrink-0 flex items-center justify-center">
+                    <span class="text-medgemma-600 text-xs font-medium">You</span>
+                  </div>
+                </div>
+                
+                <div class="flex mb-4">
+                  <div class="w-8 h-8 rounded-full bg-purple-100 flex-shrink-0 flex items-center justify-center">
+                    <i class="fas fa-user-md text-purple-600 text-xs"></i>
+                  </div>
+                  <div class="ml-2 bg-white p-3 rounded-lg rounded-tl-none shadow-sm max-w-[80%]">
+                    <p class="text-sm text-gray-800">It could be from a new laundry detergent, soap, or plant you came in contact with. I'm going to prescribe a topical corticosteroid cream to reduce inflammation and itching.</p>
+                  </div>
+                </div>
+                
+                <div class="flex justify-center mb-4">
+                  <div class="bg-blue-50 p-3 rounded-lg text-center w-full">
+                    <div class="text-xs text-blue-600 mb-1">Prescription Added</div>
+                    <div class="text-sm font-medium text-blue-800">Hydrocortisone 1% Cream</div>
+                    <div class="text-xs text-blue-600">Apply twice daily for 7 days</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="p-2 border-t flex">
+                <input type="text" class="flex-1 border rounded-full px-4 py-2 text-sm" placeholder="Type a message...">
+                <button class="ml-2 w-10 h-10 rounded-full bg-gradient-to-r from-purple-500 to-pink-600 flex items-center justify-center text-white">
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+              </div>
+            </div>
+            
+            <!-- Screen controls -->
+            <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex items-center space-x-3 bg-black bg-opacity-50 rounded-full px-4 py-2">
+              <button class="w-8 h-8 flex items-center justify-center text-white hover:text-medgemma-200 transition-colors" data-action="app-preview#previous">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <span class="text-white text-xs" data-app-preview-target="currentStep">1/3</span>
+              <button class="w-8 h-8 flex items-center justify-center text-white hover:text-medgemma-200 transition-colors" data-action="app-preview#next">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Screen descriptions -->
+        <div class="mt-6 text-center">
+          <div data-app-preview-target="caption">
+            <h3 class="font-semibold text-lg text-gray-900 mb-2">Step 1: Describe Your Symptoms</h3>
+            <p class="text-gray-600">Tell us what's wrong and upload photos of your condition</p>
+          </div>
+          <div class="hidden" data-app-preview-target="caption">
+            <h3 class="font-semibold text-lg text-gray-900 mb-2">Step 2: AI Analysis</h3>
+            <p class="text-gray-600">Our AI analyzes your symptoms and provides initial diagnosis</p>
+          </div>
+          <div class="hidden" data-app-preview-target="caption">
+            <h3 class="font-semibold text-lg text-gray-900 mb-2">Step 3: Doctor Consultation</h3>
+            <p class="text-gray-600">Connect with a board-certified doctor for diagnosis and treatment</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- App Features -->
+      <div class="order-1 lg:order-2">
+        <h3 class="text-3xl font-bold text-gray-900 mb-6 animate-fade-in-up">The Future of Healthcare in Your Pocket</h3>
+        <p class="text-lg text-gray-600 mb-8 animate-fade-in-up" style="animation-delay: 0.1s">
+          Our mobile app makes healthcare accessible anywhere, anytime. Get diagnosed, talk to doctors, and receive prescriptions all from your smartphone.
+        </p>
+        
+        <div class="space-y-6 stagger-show">
+          <div class="flex">
+            <div class="flex-shrink-0">
+              <div class="w-12 h-12 rounded-full bg-medgemma-100 flex items-center justify-center">
+                <i class="fas fa-image text-medgemma-600"></i>
+              </div>
+            </div>
+            <div class="ml-4">
+              <h4 class="text-xl font-semibold text-gray-900">Photo Diagnostics</h4>
+              <p class="text-gray-600">Upload photos of your condition for more accurate AI analysis</p>
+            </div>
+          </div>
+          
+          <div class="flex">
+            <div class="flex-shrink-0">
+              <div class="w-12 h-12 rounded-full bg-teal-100 flex items-center justify-center">
+                <i class="fas fa-chat-dots text-teal-600"></i>
+              </div>
+            </div>
+            <div class="ml-4">
+              <h4 class="text-xl font-semibold text-gray-900">Instant Messaging</h4>
+              <p class="text-gray-600">Chat with doctors in real-time through secure messaging</p>
+            </div>
+          </div>
+          
+          <div class="flex">
+            <div class="flex-shrink-0">
+              <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center">
+                <i class="fas fa-file-prescription text-purple-600"></i>
+              </div>
+            </div>
+            <div class="ml-4">
+              <h4 class="text-xl font-semibold text-gray-900">Digital Prescriptions</h4>
+              <p class="text-gray-600">Get prescriptions sent directly to your pharmacy or delivered</p>
+            </div>
+          </div>
+          
+          <div class="flex">
+            <div class="flex-shrink-0">
+              <div class="w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center">
+                <i class="fas fa-history text-pink-600"></i>
+              </div>
+            </div>
+            <div class="ml-4">
+              <h4 class="text-xl font-semibold text-gray-900">Medical History</h4>
+              <p class="text-gray-600">Access your complete medical history and past consultations</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mt-8 flex flex-col sm:flex-row gap-4">
+          <a href="#" class="bg-black text-white px-6 py-3 rounded-xl flex items-center justify-center hover:bg-gray-800 transition-colors" data-analytics-trackable data-analytics-category="app_download" data-analytics-label="app_store">
+            <i class="fab fa-apple text-2xl mr-3"></i>
+            <div class="text-left">
+              <div class="text-xs">Download on the</div>
+              <div class="font-semibold">App Store</div>
+            </div>
+          </a>
+          <a href="#" class="bg-black text-white px-6 py-3 rounded-xl flex items-center justify-center hover:bg-gray-800 transition-colors" data-analytics-trackable data-analytics-category="app_download" data-analytics-label="google_play">
+            <i class="fab fa-google-play text-2xl mr-3"></i>
+            <div class="text-left">
+              <div class="text-xs">Get it on</div>
+              <div class="font-semibold">Google Play</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Video Demo Section -->
+<section class="py-20 bg-gray-50">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12 animate-fade-in-up">
+      <div class="inline-flex items-center px-5 py-2.5 bg-medgemma-100 rounded-full mb-6 shadow-sm">
+        <i class="fas fa-play-circle text-medgemma-600 mr-2"></i>
+        <span class="text-sm font-medium text-medgemma-800">Video Demonstration</span>
+      </div>
+      <h2 class="text-4xl font-bold text-gray-900 mb-4">See MedGemma Health In Action</h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">Watch this 2-minute demo to see how our platform transforms the healthcare experience</p>
+    </div>
+    
+    <div class="relative rounded-2xl overflow-hidden shadow-2xl animate-fade-in" style="animation-delay: 0.3s">
+      <div class="aspect-w-16 aspect-h-9 bg-gradient-to-br from-gray-900 to-black">
+        <!-- Video placeholder -->
+        <div class="flex items-center justify-center">
+          <div class="relative group">
+            <div class="absolute inset-0 bg-gradient-to-r from-medgemma-500 to-purple-600 rounded-full opacity-75 blur-xl group-hover:opacity-100 transition-opacity duration-300"></div>
+            <button class="relative w-24 h-24 bg-white rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-xl">
+              <i class="fas fa-play text-medgemma-600 text-3xl ml-1"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Video caption -->
+      <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-8">
+        <div class="flex items-center justify-between">
+          <div class="text-white">
+            <p class="font-medium mb-1">MedGemma Health Platform Demo</p>
+            <p class="text-sm opacity-75">2:15 | See how our AI diagnoses common skin conditions</p>
+          </div>
+          <div class="flex space-x-3">
+            <button class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all">
+              <i class="fas fa-closed-captioning text-white"></i>
+            </button>
+            <button class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all">
+              <i class="fas fa-volume-up text-white"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-24 bg-gray-50">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 animate-fade-in-up">
+      <div class="inline-flex items-center px-5 py-2.5 bg-purple-100 rounded-full mb-6 shadow-sm">
+        <i class="fas fa-question-circle text-purple-600 mr-2"></i>
+        <span class="text-sm font-medium text-purple-800">Frequently Asked Questions</span>
+      </div>
+      
+      <h2 class="text-4xl font-bold text-gray-900 mb-4">Common Questions</h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">Everything you need to know about our telehealth platform</p>
+    </div>
+    
+    <div class="grid gap-6 md:gap-8 animate-fade-in-up" data-controller="faq" style="animation-delay: 0.2s">
+      <!-- FAQ Item 1 -->
+      <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:border-medgemma-200 transition-all duration-300">
+        <button class="w-full flex justify-between items-center text-left focus:outline-none group" 
+                data-faq-target="question" 
+                data-action="click->faq#toggle"
+                aria-expanded="true">
+          <h3 class="text-lg md:text-xl font-semibold text-gray-900 group-hover:text-medgemma-600 transition-colors">Is MedGemma Health covered by insurance?</h3>
+          <i class="fas fa-chevron-down text-medgemma-500 transform transition-transform duration-300" 
+             data-faq-target="icon"></i>
+        </button>
+        <div class="mt-4 text-gray-600" data-faq-target="answer">
+          <p>Yes, MedGemma Health works with most major insurance providers. During registration, you can enter your insurance details, and our system will verify your coverage. We also offer affordable self-pay options starting at just $49 per consultation.</p>
+        </div>
+      </div>
+      
+      <!-- FAQ Item 2 -->
+      <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:border-medgemma-200 transition-all duration-300">
+        <button class="w-full flex justify-between items-center text-left focus:outline-none group" 
+                data-faq-target="question" 
+                data-action="click->faq#toggle"
+                aria-expanded="false">
+          <h3 class="text-lg md:text-xl font-semibold text-gray-900 group-hover:text-medgemma-600 transition-colors">What medical conditions can be treated through the platform?</h3>
+          <i class="fas fa-chevron-down text-medgemma-500 transform transition-transform duration-300" 
+             data-faq-target="icon"></i>
+        </button>
+        <div class="mt-4 text-gray-600 overflow-hidden transition-all duration-300" data-faq-target="answer">
+          <p>MedGemma Health can help diagnose and treat a wide range of non-emergency conditions, including:</p>
+          <ul class="list-disc ml-5 mt-2 space-y-1">
+            <li>Skin conditions (rashes, acne, eczema)</li>
+            <li>Cold and flu symptoms</li>
+            <li>Allergies</li>
+            <li>UTIs and other minor infections</li>
+            <li>Prescription refills</li>
+            <li>Mental health concerns</li>
+          </ul>
+          <p class="mt-2">For emergencies or life-threatening conditions, please call 911 or go to your nearest emergency room.</p>
+        </div>
+      </div>
+      
+      <!-- FAQ Item 3 -->
+      <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:border-medgemma-200 transition-all duration-300">
+        <button class="w-full flex justify-between items-center text-left focus:outline-none group" 
+                data-faq-target="question" 
+                data-action="click->faq#toggle"
+                aria-expanded="false">
+          <h3 class="text-lg md:text-xl font-semibold text-gray-900 group-hover:text-medgemma-600 transition-colors">How accurate is the AI diagnosis?</h3>
+          <i class="fas fa-chevron-down text-medgemma-500 transform transition-transform duration-300" 
+             data-faq-target="icon"></i>
+        </button>
+        <div class="mt-4 text-gray-600 overflow-hidden transition-all duration-300" data-faq-target="answer">
+          <p>Our AI diagnostic system has been trained on millions of medical cases and achieves an accuracy rate of over 92% for common conditions. However, all AI diagnoses are verified by board-certified physicians before any treatment plan is provided, ensuring you receive the highest quality care.</p>
+        </div>
+      </div>
+      
+      <!-- FAQ Item 4 -->
+      <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:border-medgemma-200 transition-all duration-300">
+        <button class="w-full flex justify-between items-center text-left focus:outline-none group" 
+                data-faq-target="question" 
+                data-action="click->faq#toggle"
+                aria-expanded="false">
+          <h3 class="text-lg md:text-xl font-semibold text-gray-900 group-hover:text-medgemma-600 transition-colors">Is my medical data secure?</h3>
+          <i class="fas fa-chevron-down text-medgemma-500 transform transition-transform duration-300" 
+             data-faq-target="icon"></i>
+        </button>
+        <div class="mt-4 text-gray-600 overflow-hidden transition-all duration-300" data-faq-target="answer">
+          <p>Absolutely. MedGemma Health is fully HIPAA compliant and uses end-to-end encryption for all data transmission. Your medical information is stored securely and is never shared with third parties without your explicit consent. We implement enterprise-grade security measures to protect your privacy.</p>
+        </div>
+      </div>
+      
+      <!-- FAQ Item 5 -->
+      <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:border-medgemma-200 transition-all duration-300">
+        <button class="w-full flex justify-between items-center text-left focus:outline-none group" 
+                data-faq-target="question" 
+                data-action="click->faq#toggle"
+                aria-expanded="false">
+          <h3 class="text-lg md:text-xl font-semibold text-gray-900 group-hover:text-medgemma-600 transition-colors">How soon can I get a prescription?</h3>
+          <i class="fas fa-chevron-down text-medgemma-500 transform transition-transform duration-300" 
+             data-faq-target="icon"></i>
+        </button>
+        <div class="mt-4 text-gray-600 overflow-hidden transition-all duration-300" data-faq-target="answer">
+          <p>If a medication is part of your treatment plan, prescriptions can be issued immediately following your consultation. You can choose to have them sent electronically to your preferred pharmacy for pickup within hours, or have medications delivered directly to your door (typically 1-2 business days).</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="text-center mt-12 animate-fade-in-up" style="animation-delay: 0.4s">
+      <a href="/faq" class="inline-flex items-center text-medgemma-600 font-medium hover:text-medgemma-700 transition-colors">
+        View all FAQs
+        <i class="fas fa-arrow-right ml-2"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Before & After Comparison Section -->
+<section class="py-24 bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 animate-fade-in-up">
+      <div class="inline-flex items-center px-5 py-2.5 bg-rose-100 rounded-full mb-6 shadow-sm">
+        <i class="fas fa-images text-rose-600 mr-2"></i>
+        <span class="text-sm font-medium text-rose-800">Results That Speak</span>
+      </div>
+      <h2 class="text-4xl font-bold text-gray-900 mb-4">See Real Patient Results</h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">Drag the slider to compare before and after treatments using MedGemma Health</p>
+    </div>
+    
+    <!-- Before & After Slider -->
+    <div class="max-w-3xl mx-auto rounded-2xl shadow-2xl overflow-hidden hover:shadow-[0_10px_40px_-15px_rgba(79,70,229,0.3)] transition-all duration-300" data-controller="before-after-slider" data-before-after-slider-initial-value="50">
+      <div class="relative w-full h-96" data-before-after-slider-target="slider">
+        <!-- After Image (base layer) -->
+        <div class="absolute inset-0 w-full h-full">
+          <%= marketing_image_tag "marketing/before-after/skin-condition-after.png", class: "w-full h-full object-cover", alt: "After treatment", loading: "lazy" %>
+        </div>
+        
+        <!-- Before Image (clipped layer) -->
+        <div class="absolute inset-0 w-full h-full" data-before-after-slider-target="beforeImage">
+          <%= marketing_image_tag "marketing/before-after/skin-condition-before-optimized.png", class: "w-full h-full object-cover", alt: "Before treatment", loading: "lazy" %>
+        </div>
+        
+        <!-- Drag Handle -->
+        <div class="absolute top-0 bottom-0 w-1.5 bg-white cursor-grab shadow-[0_0_10px_rgba(255,255,255,0.8)]" style="left: 50%;" data-before-after-slider-target="handle">
+          <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center border-2 border-medgemma-100">
+            <div class="flex">
+              <i class="fas fa-chevron-left text-medgemma-600 text-lg"></i>
+              <i class="fas fa-chevron-right text-medgemma-600 text-lg"></i>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Labels -->
+        <div class="absolute bottom-4 left-4 bg-black bg-opacity-75 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">Before</div>
+        <div class="absolute bottom-4 right-4 bg-medgemma-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">After</div>
+      </div>
+      
+      <div class="bg-gray-50 p-6">
+        <h3 class="text-lg font-bold text-gray-900 mb-2">Contact Dermatitis Treatment</h3>
+        <p class="text-gray-600">Patient treated for contact dermatitis through MedGemma Health's platform. Treatment prescribed after AI-assisted diagnosis and doctor consultation.</p>
+        <div class="mt-4 grid grid-cols-2 gap-4">
+          <div class="bg-white p-3 rounded-lg shadow-sm">
+            <div class="text-gray-500 text-sm">Time to Treatment</div>
+            <div class="flex items-baseline">
+              <span class="text-xl font-bold text-medgemma-600">12 minutes</span>
+              <span class="ml-1 text-xs text-gray-500">from first contact</span>
+            </div>
+          </div>
+          <div class="bg-white p-3 rounded-lg shadow-sm">
+            <div class="text-gray-500 text-sm">Recovery Time</div>
+            <div class="flex items-baseline">
+              <span class="text-xl font-bold text-medgemma-600">3 days</span>
+              <span class="ml-1 text-xs text-gray-500">to visible improvement</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="mt-12 text-center">
+      <a href="/success-stories" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-medgemma-500 to-rose-500 text-white font-medium rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
+        View More Success Stories
+        <i class="fas fa-arrow-right ml-2"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Back to top button -->
+<div data-controller="scroll-to-top" class="fixed bottom-8 right-8 z-50">
+  <button 
+    data-scroll-to-top-target="button"
+    data-action="click->scroll-to-top#scrollToTop" 
+    data-analytics-trackable data-analytics-category="navigation" data-analytics-label="back_to_top"
+    class="w-14 h-14 bg-gradient-to-r from-medgemma-500 to-purple-600 text-white rounded-full shadow-xl flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:bg-medgemma-600 hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-medgemma-500"
+    aria-label="Back to top">
+    <i class="fas fa-arrow-up text-lg"></i>
+  </button>
+</div>
+
+<!-- CTA Section -->
+<section class="py-20 bg-gradient-to-br from-medgemma-600 to-purple-700 relative overflow-hidden">
+  <!-- Decorative elements -->
+  <div class="absolute top-0 right-0 w-40 h-40 bg-white rounded-full opacity-10"></div>
+  <div class="absolute bottom-0 left-0 w-64 h-64 bg-white rounded-full opacity-10"></div>
+  
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div class="animate-fade-in-up">
+        <h2 class="text-4xl font-bold text-white mb-6">Ready to experience healthcare reimagined?</h2>
+        <p class="text-xl text-medgemma-100 mb-8">Join thousands of patients who've already discovered the future of healthcare with MedGemma Health.</p>
+        
+        <div class="grid sm:grid-cols-2 gap-4 mb-8">
+          <div class="bg-white bg-opacity-20 p-5 rounded-lg backdrop-blur-sm hover:bg-opacity-25 transition-all duration-300 transform hover:scale-105" data-controller="stats-counter" data-stats-counter-end-value="97" data-stats-counter-suffix-value="%" data-stats-counter-duration-value="2000">
+            <div class="text-3xl text-white font-bold mb-1" data-stats-counter-target="number">0%</div>
+            <div class="text-white text-opacity-90 font-medium">Patient satisfaction</div>
+          </div>
+          <div class="bg-white bg-opacity-20 p-5 rounded-lg backdrop-blur-sm hover:bg-opacity-25 transition-all duration-300 transform hover:scale-105" data-controller="stats-counter" data-stats-counter-end-value="5" data-stats-counter-duration-value="1500">
+            <div class="text-3xl text-white font-bold mb-1" data-stats-counter-target="number">0</div>
+            <div class="text-white text-opacity-90 font-medium">Average wait time (min)</div>
+          </div>
+          <div class="bg-white bg-opacity-20 p-5 rounded-lg backdrop-blur-sm hover:bg-opacity-25 transition-all duration-300 transform hover:scale-105" data-controller="stats-counter" data-stats-counter-end-value="24" data-stats-counter-duration-value="1800">
+            <div class="text-3xl text-white font-bold mb-1" data-stats-counter-target="number">0</div>
+            <div class="text-white text-opacity-90 font-medium">Hours availability</div>
+          </div>
+          <div class="bg-white bg-opacity-20 p-5 rounded-lg backdrop-blur-sm hover:bg-opacity-25 transition-all duration-300 transform hover:scale-105" data-controller="stats-counter" data-stats-counter-start-value="49" data-stats-counter-end-value="49" data-stats-counter-prefix-value="$" data-stats-counter-duration-value="1000">
+            <div class="text-3xl text-white font-bold mb-1" data-stats-counter-target="number">$0</div>
+            <div class="text-white text-opacity-90 font-medium">Starting price</div>
+          </div>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+          <a href="/signup" class="px-8 py-4 bg-white text-medgemma-600 font-bold rounded-full shadow-lg hover:shadow-xl hover:bg-gray-100 hover:scale-105 hover:text-medgemma-700 active:scale-95 transition-all duration-300" data-analytics-trackable data-analytics-category="cta" data-analytics-label="get_started_how_it_works">
+            Get Started Now
+          </a>
+          <a href="/contact" class="px-8 py-4 bg-transparent text-white font-medium rounded-full border-2 border-white hover:bg-white hover:bg-opacity-20 hover:border-opacity-80 hover:scale-105 active:scale-95 transition-all duration-300" data-analytics-trackable data-analytics-category="cta" data-analytics-label="contact_sales_how_it_works">
+            Contact Sales
+          </a>
+        </div>
+      </div>
+      
+      <div class="relative animate-fade-in" style="animation-delay: 0.3s">
+        <!-- Testimonials Carousel -->
+        <div class="bg-white rounded-xl p-6 shadow-2xl" data-controller="testimonial-carousel">
+          <!-- Navigation controls -->
+          <div class="absolute top-1/2 -translate-y-1/2 left-2 md:-left-4 z-10">
+            <button class="w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors" 
+                    data-action="testimonial-carousel#previous"
+                    aria-label="Previous testimonial">
+              <i class="fas fa-chevron-left text-medgemma-500"></i>
+            </button>
+          </div>
+          <div class="absolute top-1/2 -translate-y-1/2 right-2 md:-right-4 z-10">
+            <button class="w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors" 
+                    data-action="testimonial-carousel#next"
+                    aria-label="Next testimonial">
+              <i class="fas fa-chevron-right text-medgemma-500"></i>
+            </button>
+          </div>
+          
+          <!-- Testimonial slides -->
+          <div>
+            <!-- Testimonial 1 -->
+            <div data-testimonial-carousel-target="slide">
+              <div class="flex items-center mb-4">
+                <div class="w-12 h-12 rounded-full bg-medgemma-100 flex items-center justify-center text-medgemma-600 font-bold">MP</div>
+                <div class="ml-4">
+                  <h4 class="font-medium text-gray-900">Melissa P.</h4>
+                  <div class="text-sm text-gray-500">New York, NY</div>
+                </div>
+                <div class="ml-auto flex">
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                </div>
+              </div>
+              <blockquote class="text-gray-700 italic">
+                "I was able to get my skin condition diagnosed and treated without ever leaving my home. The doctor was kind and thorough, and the AI analysis was spot-on!"
+              </blockquote>
+            </div>
+            
+            <!-- Testimonial 2 -->
+            <div data-testimonial-carousel-target="slide" class="hidden">
+              <div class="flex items-center mb-4">
+                <div class="w-12 h-12 rounded-full bg-teal-100 flex items-center justify-center text-teal-600 font-bold">JR</div>
+                <div class="ml-4">
+                  <h4 class="font-medium text-gray-900">James R.</h4>
+                  <div class="text-sm text-gray-500">Chicago, IL</div>
+                </div>
+                <div class="ml-auto flex">
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                </div>
+              </div>
+              <blockquote class="text-gray-700 italic">
+                "When my daughter developed a rash late on Sunday evening, MedGemma Health was a lifesaver. Within minutes we had a prescription and peace of mind."
+              </blockquote>
+            </div>
+            
+            <!-- Testimonial 3 -->
+            <div data-testimonial-carousel-target="slide" class="hidden">
+              <div class="flex items-center mb-4">
+                <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold">AK</div>
+                <div class="ml-4">
+                  <h4 class="font-medium text-gray-900">Dr. Alicia K.</h4>
+                  <div class="text-sm text-gray-500">Board Certified Dermatologist</div>
+                </div>
+                <div class="ml-auto">
+                  <div class="text-xs font-semibold uppercase tracking-wide text-teal-600 bg-teal-100 px-2 py-1 rounded-full">Provider</div>
+                </div>
+              </div>
+              <blockquote class="text-gray-700 italic">
+                "As a provider on the MedGemma platform, I'm impressed with how the AI assists my diagnoses. It helps me provide better care while seeing more patients efficiently."
+              </blockquote>
+            </div>
+            
+            <!-- Testimonial 4 (New) -->
+            <div data-testimonial-carousel-target="slide" class="hidden">
+              <div class="flex items-center mb-4">
+                <div class="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center text-amber-600 font-bold">TL</div>
+                <div class="ml-4">
+                  <h4 class="font-medium text-gray-900">Thomas L.</h4>
+                  <div class="text-sm text-gray-500">Austin, TX</div>
+                </div>
+                <div class="ml-auto flex">
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star-half-alt text-yellow-400"></i>
+                </div>
+              </div>
+              <blockquote class="text-gray-700 italic">
+                "As someone with chronic health issues, MedGemma has changed how I manage my care. The 24/7 access to medical professionals has reduced my anxiety and hospital visits."
+              </blockquote>
+            </div>
+            
+            <!-- Testimonial 5 (New) -->
+            <div data-testimonial-carousel-target="slide" class="hidden">
+              <div class="flex items-center mb-4">
+                <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold">EP</div>
+                <div class="ml-4">
+                  <h4 class="font-medium text-gray-900">Emma P.</h4>
+                  <div class="text-sm text-gray-500">Seattle, WA</div>
+                </div>
+                <div class="ml-auto flex">
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                </div>
+              </div>
+              <blockquote class="text-gray-700 italic">
+                "The medication delivery service is incredibly convenient. I received my prescription the next morning without having to leave home during my illness."
+              </blockquote>
+            </div>
+          </div>
+          
+          <!-- Pagination dots -->
+          <div class="flex justify-center space-x-2 mt-6">
+            <button class="w-3 h-3 rounded-full bg-medgemma-500 transition-colors" 
+                    data-testimonial-carousel-target="indicator" 
+                    data-action="click->testimonial-carousel#goToSlide"
+                    aria-label="Go to testimonial 1"></button>
+            <button class="w-3 h-3 rounded-full bg-gray-300 transition-colors" 
+                    data-testimonial-carousel-target="indicator" 
+                    data-action="click->testimonial-carousel#goToSlide"
+                    aria-label="Go to testimonial 2"></button>
+            <button class="w-3 h-3 rounded-full bg-gray-300 transition-colors" 
+                    data-testimonial-carousel-target="indicator" 
+                    data-action="click->testimonial-carousel#goToSlide"
+                    aria-label="Go to testimonial 3"></button>
+            <button class="w-3 h-3 rounded-full bg-gray-300 transition-colors" 
+                    data-testimonial-carousel-target="indicator" 
+                    data-action="click->testimonial-carousel#goToSlide"
+                    aria-label="Go to testimonial 4"></button>
+            <button class="w-3 h-3 rounded-full bg-gray-300 transition-colors" 
+                    data-testimonial-carousel-target="indicator" 
+                    data-action="click->testimonial-carousel#goToSlide"
+                    aria-label="Go to testimonial 5"></button>
+          </div>
+        </div>
+        
+        <!-- Certified Badges -->
+        <div class="absolute -bottom-6 -right-6 w-24 h-24 rounded-full bg-white flex items-center justify-center shadow-xl">
+          <div class="w-20 h-20 rounded-full bg-gradient-to-r from-medgemma-500 to-purple-600 flex items-center justify-center text-white p-2">
+            <div class="text-center">
+              <i class="fas fa-check-circle text-xl"></i>
+              <div class="text-xs font-bold mt-1">HIPAA Certified</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="absolute -top-4 -left-4 flex space-x-2">
+          <div class="bg-white rounded-lg shadow-lg p-2 flex items-center">
+            <img src="https://www.entasecurity.com/wp-content/uploads/2020/08/hipaa_compliant_seal_blue-150x150.jpg" alt="HIPAA Compliance" class="h-10 w-10 rounded" />
+            <div class="ml-2 text-xs font-semibold text-gray-800">HIPAA Compliant</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

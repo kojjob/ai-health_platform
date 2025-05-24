@@ -1,0 +1,299 @@
+<%= content_for :title, "Help Center - MedGemma Health" %>
+<%= content_for :meta_description, "Find answers to your questions about MedGemma Health's services, account management, consultations, billing and more." %>
+
+<!-- Hero Section -->
+<section class="pt-32 pb-20 bg-gradient-to-br from-blue-50 to-indigo-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-12" data-controller="fade-in">
+      <div class="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full mb-6">
+        <i class="fas fa-question-circle text-blue-600 mr-2"></i>
+        <span class="text-sm font-medium text-blue-800">Resources & Support</span>
+      </div>
+      
+      <h1 class="text-5xl font-bold text-gray-900 mb-6">
+        How Can We 
+        <span class="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+          Help You Today?
+        </span>
+      </h1>
+      
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+        Browse our comprehensive knowledge base or search for specific topics to quickly find the answers you need.
+      </p>
+      
+      <!-- Search Bar -->
+      <div class="max-w-2xl mx-auto" data-controller="help-search">
+        <div class="relative">
+          <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+            <i class="fas fa-search text-gray-400"></i>
+          </div>
+          <input 
+            type="text" 
+            class="block w-full pl-12 pr-12 py-4 border border-gray-300 rounded-xl bg-white shadow-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" 
+            placeholder="Search help topics..." 
+            data-help-search-target="input" 
+            data-action="keyup->help-search#search"
+          >
+          <div class="absolute inset-y-0 right-0 pr-4 flex items-center">
+            <span class="hidden sm:inline text-sm text-gray-500 mr-2">Press '/' to search</span>
+            <button type="button" class="text-gray-400 hover:text-gray-600" data-action="help-search#clearSearch">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Search Results -->
+        <div class="mt-2 bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden absolute z-10 w-full hidden" data-help-search-target="results">
+          <!-- Results will be populated dynamically -->
+        </div>
+        
+        <div class="mt-4 text-sm text-gray-600 flex flex-wrap items-center justify-center" data-help-search-target="commonSearches">
+          <span class="mr-2 mb-2">Common searches:</span> 
+          <div class="flex flex-wrap justify-center gap-2">
+            <a href="javascript:void(0)" class="mb-2 inline-flex items-center px-3 py-1 bg-white rounded-full text-sm font-medium text-gray-700 hover:bg-gray-100 transition-colors" data-action="click->help-search#quickSearch">account setup</a>
+            <a href="javascript:void(0)" class="mb-2 inline-flex items-center px-3 py-1 bg-white rounded-full text-sm font-medium text-gray-700 hover:bg-gray-100 transition-colors" data-action="click->help-search#quickSearch">billing</a>
+            <a href="javascript:void(0)" class="mb-2 inline-flex items-center px-3 py-1 bg-white rounded-full text-sm font-medium text-gray-700 hover:bg-gray-100 transition-colors" data-action="click->help-search#quickSearch">consultations</a>
+            <a href="javascript:void(0)" class="mb-2 inline-flex items-center px-3 py-1 bg-white rounded-full text-sm font-medium text-gray-700 hover:bg-gray-100 transition-colors" data-action="click->help-search#quickSearch">insurance</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Help Categories -->
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16" data-controller="fade-in">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">Browse Help By Category</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Select a category to find relevant help articles and guides
+      </p>
+    </div>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" data-controller="fade-in">
+      <% @help_categories.each do |category| %>
+        <a href="<%= category[:path] %>" class="group">
+          <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 transition-all duration-300 group-hover:shadow-xl group-hover:border-blue-100 group-hover:-translate-y-1 h-full">
+            <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-6 shadow-md transform transition-transform group-hover:rotate-3 group-hover:scale-110">
+              <i class="fas fa-<%= category[:icon] %> text-white text-2xl"></i>
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors"><%= category[:name] %></h3>
+              <p class="text-gray-600 mb-4"><%= category[:article_count] %> articles in this section</p>
+              <span class="text-blue-600 font-medium flex items-center">
+                Browse articles
+                <i class="fas fa-arrow-right ml-2 transition-all transform translate-x-0 group-hover:translate-x-2"></i>
+              </span>
+            </div>
+          </div>
+        </a>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<!-- Popular Articles -->
+<section class="py-20 bg-gray-50">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16" data-controller="fade-in">
+      <div class="inline-flex items-center px-4 py-2 bg-indigo-100 rounded-full mb-6">
+        <i class="fas fa-star text-indigo-600 mr-2"></i>
+        <span class="text-sm font-medium text-indigo-800">Most Read</span>
+      </div>
+      
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">Popular Help Articles</h2>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+        Quick answers to our most frequently asked questions
+      </p>
+    </div>
+    
+    <div class="space-y-4" data-controller="fade-in">
+      <% @popular_articles.each do |article| %>
+        <a href="<%= article[:path] %>" class="block bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-gray-100 group">
+          <div class="flex justify-between items-center">
+            <h3 class="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors"><%= article[:title] %></h3>
+            <div class="flex items-center text-sm text-gray-500">
+              <i class="fas fa-eye mr-1"></i>
+              <span><%= number_with_delimiter(article[:views]) %></span>
+            </div>
+          </div>
+          <div class="mt-2 flex justify-between items-center">
+            <div class="flex items-center">
+              <div class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">Article</div>
+              <div class="text-xs text-gray-500 ml-2">5 min read</div>
+            </div>
+            <div class="text-blue-600 group-hover:translate-x-2 transition-transform transform">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </div>
+        </a>
+      <% end %>
+      
+      <div class="text-center mt-8">
+        <a href="#" class="inline-flex items-center px-6 py-3 border border-blue-600 text-blue-600 bg-white hover:bg-blue-50 rounded-xl font-medium transition-colors">
+          View All Help Articles
+          <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Support -->
+<section class="py-20 bg-white relative overflow-hidden">
+  <!-- Decorative elements -->
+  <div class="absolute top-0 right-0 w-64 h-64 bg-blue-50 rounded-full -z-10 blur-3xl opacity-70"></div>
+  <div class="absolute bottom-0 left-0 w-64 h-64 bg-indigo-50 rounded-full -z-10 blur-3xl opacity-70"></div>
+  
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <div class="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl shadow-xl overflow-hidden" data-controller="fade-in">
+      <div class="grid md:grid-cols-2 items-center">
+        <div class="p-10 md:p-12 text-white">
+          <h2 class="text-3xl font-bold mb-4">Still Need Help?</h2>
+          <p class="mb-6 text-blue-50">
+            Our support team is available 24/7 to assist you with any questions or concerns you may have.
+          </p>
+          
+          <div class="space-y-4">
+            <a href="/contact" class="flex items-center group">
+              <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center mr-3 group-hover:bg-white/30 transition-colors">
+                <i class="fas fa-comments text-white"></i>
+              </div>
+              <div>
+                <div class="font-medium">Chat with Support</div>
+                <div class="text-sm text-blue-50">Typical response in < 2 minutes</div>
+              </div>
+            </a>
+            
+            <a href="tel:+18005551234" class="flex items-center group">
+              <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center mr-3 group-hover:bg-white/30 transition-colors">
+                <i class="fas fa-phone-alt text-white"></i>
+              </div>
+              <div>
+                <div class="font-medium">Call Us</div>
+                <div class="text-sm text-blue-50">1-800-555-1234</div>
+              </div>
+            </a>
+            
+            <a href="mailto:support@medgemma.com" class="flex items-center group">
+              <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center mr-3 group-hover:bg-white/30 transition-colors">
+                <i class="fas fa-envelope text-white"></i>
+              </div>
+              <div>
+                <div class="font-medium">Email Support</div>
+                <div class="text-sm text-blue-50">support@medgemma.com</div>
+              </div>
+            </a>
+          </div>
+        </div>
+        
+        <div class="hidden md:block relative h-full">
+          <img src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80" 
+               alt="Customer support team" 
+               class="w-full h-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-r from-blue-600/50 to-transparent"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Video Tutorials -->
+<section class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16" data-controller="fade-in">
+      <div class="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full mb-6">
+        <i class="fas fa-video text-blue-600 mr-2"></i>
+        <span class="text-sm font-medium text-blue-800">Visual Learning</span>
+      </div>
+      
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">Video Tutorials</h2>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+        Watch step-by-step guides for using MedGemma Health features
+      </p>
+    </div>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" data-controller="fade-in">
+      <% videos = [
+        { title: "Getting Started with MedGemma", duration: "4:32", thumbnail: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80" },
+        { title: "How to Schedule a Consultation", duration: "3:16", thumbnail: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80" },
+        { title: "Uploading Medical Images", duration: "2:45", thumbnail: "https://images.unsplash.com/photo-1581056771234-26d6e7f880a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80" }
+      ] %>
+      
+      <% videos.each do |video| %>
+        <div class="group">
+          <div class="relative rounded-xl overflow-hidden shadow-lg">
+            <img src="<%= video[:thumbnail] %>" alt="<%= video[:title] %>" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+            <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+              <div class="w-16 h-16 bg-white bg-opacity-20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                <div class="w-14 h-14 bg-blue-600 rounded-full flex items-center justify-center">
+                  <i class="fas fa-play text-white text-xl"></i>
+                </div>
+              </div>
+            </div>
+            <div class="absolute bottom-3 right-3 bg-black bg-opacity-70 text-white text-xs px-2 py-1 rounded-md">
+              <%= video[:duration] %>
+            </div>
+          </div>
+          <h3 class="mt-4 text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors"><%= video[:title] %></h3>
+        </div>
+      <% end %>
+      
+      <div class="lg:col-span-3 text-center mt-6">
+        <a href="#" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-medium shadow-md hover:shadow-lg transition-all hover:-translate-y-1">
+          View All Video Tutorials
+          <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-20 bg-white">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16" data-controller="fade-in">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+      <p class="text-lg text-gray-600">
+        Quick answers to common questions about MedGemma Health
+      </p>
+    </div>
+    
+    <div class="space-y-6" data-controller="fade-in">
+      <% faqs = [
+        { question: "How do I reset my password?", 
+          answer: "You can reset your password by clicking on the 'Forgot Password' link on the login page, or by going to your account settings and selecting 'Change Password'." },
+        { question: "Is my medical information secure?", 
+          answer: "Yes, all your medical data is encrypted and securely stored in compliance with HIPAA regulations. We implement enterprise-grade security measures to ensure your privacy." },
+        { question: "How long does a typical consultation take?", 
+          answer: "Most consultations take between 15-20 minutes, depending on the complexity of your condition. Our AI pre-screening helps doctors focus on your specific needs." },
+        { question: "Can I get prescriptions through MedGemma Health?", 
+          answer: "Yes, our licensed physicians can write prescriptions when medically necessary. These can be sent electronically to your preferred pharmacy or delivered to your door." }
+      ] %>
+      
+      <% faqs.each_with_index do |faq, index| %>
+        <div class="bg-gray-50 rounded-xl p-6 hover:shadow-md transition-shadow" data-controller="faq">
+          <button class="w-full flex justify-between items-center focus:outline-none" 
+                  data-faq-target="question" 
+                  data-action="click->faq#toggle">
+            <h3 class="text-lg font-semibold text-gray-900 text-left"><%= faq[:question] %></h3>
+            <i class="fas fa-plus text-blue-600 transform transition-transform" data-faq-target="icon"></i>
+          </button>
+          <div class="mt-4 text-gray-600 hidden" data-faq-target="answer">
+            <p><%= faq[:answer] %></p>
+          </div>
+        </div>
+      <% end %>
+      
+      <div class="text-center mt-10">
+        <a href="/faq" class="inline-flex items-center px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-xl font-medium transition-colors">
+          View All FAQs
+          <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

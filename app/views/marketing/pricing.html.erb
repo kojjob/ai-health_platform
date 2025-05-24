@@ -1,0 +1,587 @@
+<%= content_for :title, "Pricing - MedGemma Health" %>
+<%= content_for :meta_description, "Discover MedGemma Health's transparent pricing options for individuals, families, and healthcare providers. Choose from Basic, Professional, or Enterprise plans." %>
+
+<!-- Hero Section -->
+<section class="pt-32 pb-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-16" data-controller="fade-in">
+      <div class="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full mb-6">
+        <i class="fas fa-tags text-blue-600 mr-2"></i>
+        <span class="text-sm font-medium text-blue-800">Flexible Plans</span>
+      </div>
+      
+      <h1 class="text-5xl font-bold text-gray-900 mb-6">
+        Simple, Transparent
+        <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          Pricing
+        </span>
+      </h1>
+      
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Choose the perfect plan for your healthcare needs. All plans include our core AI technology.
+      </p>
+    </div>
+
+    <!-- Free Trial Banner -->
+    <div class="max-w-5xl mx-auto mb-12 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-200 p-6 shadow-sm" data-controller="fade-in">
+      <div class="flex flex-col md:flex-row items-center justify-between">
+        <div class="mb-4 md:mb-0">
+          <div class="flex items-center mb-2">
+            <i class="fas fa-gift text-blue-600 mr-2"></i>
+            <h3 class="text-lg font-semibold text-gray-900">Try MedGemma Health Risk-Free</h3>
+          </div>
+          <p class="text-gray-600">Start your 14-day free trial with full access to all features. No credit card required.</p>
+        </div>
+        <a href="#" class="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors">
+          Start Free Trial
+        </a>
+      </div>
+    </div>
+
+    <!-- Pricing Section with Toggle -->
+    <div data-controller="pricing">
+      <!-- Billing Toggle -->
+      <div class="flex justify-center items-center space-x-4 mb-12" data-controller="fade-in">
+        <span class="text-gray-600 font-medium" data-pricing-target="monthlyText">Monthly</span>
+        <button 
+          type="button" 
+          class="relative inline-flex h-10 w-20 items-center rounded-full bg-gray-200 cursor-pointer"
+          data-action="click->pricing#toggle"
+          role="switch"
+          aria-checked="false"
+        >
+          <span class="absolute inset-0 flex items-center justify-start pl-2">
+            <span 
+              data-pricing-target="toggleButton"
+              class="h-8 w-8 rounded-full bg-white shadow-lg transform transition-transform duration-200">
+            </span>
+          </span>
+        </button>
+        <span class="text-gray-600">
+          <span data-pricing-target="annualText" class="font-medium">Annual</span>
+          <span class="text-green-500 text-sm ml-1">(Save 20%)</span>
+        </span>
+      </div>
+
+      <!-- Pricing Cards -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+      <% @pricing_plans.each_with_index do |plan, index| %>
+        <div 
+          class="relative bg-white rounded-2xl shadow-lg border <%= plan[:highlight] ? 'border-blue-500' : 'border-gray-100' %>" 
+          data-controller="fade-in"
+          data-action="mouseenter->fade-in#pulse"
+        >
+          <% if plan[:badge] %>
+            <div class="absolute -top-5 inset-x-0 flex justify-center">
+              <span class="px-4 py-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-medium rounded-full">
+                <%= plan[:badge] %>
+              </span>
+            </div>
+          <% end %>
+            
+            <div class="p-8">
+              <!-- Plan Header -->
+              <div class="text-center mb-8">
+                <h3 class="text-2xl font-bold text-gray-900 mb-4"><%= plan[:name] %></h3>
+                <p class="text-gray-600 mb-6"><%= plan[:description] %></p>
+                <div class="flex items-end justify-center mb-6">
+                  <div data-pricing-target="monthlyPrice" class="items-end">
+                    <span class="text-5xl font-bold text-gray-900">$<%= plan[:monthly_price] %></span>
+                    <span class="text-gray-500 ml-2">/month</span>
+                  </div>
+                  <div data-pricing-target="annualPrice" class="items-end hidden">
+                    <span class="text-5xl font-bold text-gray-900">$<%= plan[:annual_price] %></span>
+                    <span class="text-gray-500 ml-2">/month</span>
+                    <span class="ml-2 text-sm text-green-500">(billed annually)</span>
+                  </div>
+                </div>
+              <%= link_to plan[:cta_text], "#", class: "block w-full px-6 py-3 text-center #{plan[:highlight] ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white' : 'bg-gray-100 text-gray-900'} rounded-lg font-medium hover:shadow-lg transform hover:-translate-y-0.5 transition-all" %>
+            </div>
+
+            <!-- Feature List -->
+            <div class="border-t border-gray-100 pt-8 px-8">
+              <ul class="space-y-4">
+                <% plan[:features].each do |feature| %>
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                    <span class="text-gray-600"><%= feature %></span>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+            
+            <!-- Testimonial -->
+            <div class="mt-8 p-6 bg-gray-50 rounded-b-2xl border-t border-gray-100">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 mr-4">
+                  <% if asset_exists?(plan[:testimonial][:avatar]) %>
+                    <img src="<%= asset_path(plan[:testimonial][:avatar]) %>" alt="<%= plan[:testimonial][:author] %>" class="w-12 h-12 rounded-full object-cover shadow-sm">
+                  <% else %>
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center bg-blue-100 text-blue-600">
+                      <i class="fas fa-user-circle text-2xl"></i>
+                    </div>
+                  <% end %>
+                </div>
+                <div>
+                  <p class="text-gray-600 text-sm italic mb-2">"<%= plan[:testimonial][:quote] %>"</p>
+                  <p class="text-gray-800 font-medium text-sm"><%= plan[:testimonial][:author] %></p>
+                  <p class="text-gray-500 text-xs"><%= plan[:testimonial][:role] %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<!-- Comparison Table Section -->
+<section class="py-20 bg-gradient-to-b from-white to-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12" data-controller="fade-in">
+      <h2 class="text-4xl font-bold text-gray-900 mb-6">Feature Comparison</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Compare plans to find the perfect fit for your healthcare needs
+      </p>
+    </div>
+    
+    <div class="overflow-x-auto" data-controller="fade-in">
+      <table class="w-full min-w-max bg-white rounded-xl shadow-md overflow-hidden">
+        <thead>
+          <tr class="text-left bg-gray-50">
+            <th class="py-4 px-6 font-medium text-gray-500 w-1/3">Features</th>
+            <th class="py-4 px-6 font-medium text-gray-500 text-center">Basic Care</th>
+            <th class="py-4 px-6 font-medium text-gray-500 text-center">Professional</th>
+            <th class="py-4 px-6 font-medium text-gray-500 text-center">Enterprise</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-100">
+          <% @feature_comparison.each do |category| %>
+            <tr class="bg-blue-50">
+              <td colspan="4" class="py-3 px-6 font-medium text-blue-800"><%= category[:category] %></td>
+            </tr>
+            <% category[:features].each do |feature| %>
+              <tr>
+                <td class="py-4 px-6">
+                  <div class="font-medium text-gray-900"><%= feature[:name] %></div>
+                  <div class="text-sm text-gray-500"><%= feature[:description] %></div>
+                </td>
+                <td class="py-4 px-6 text-center text-gray-600">
+                  <% if feature[:basic] == "Not included" %>
+                    <i class="fas fa-times-circle text-gray-400"></i>
+                  <% else %>
+                    <%= feature[:basic] %>
+                  <% end %>
+                </td>
+                <td class="py-4 px-6 text-center text-gray-600 bg-blue-50">
+                  <% if feature[:professional] == "Not included" %>
+                    <i class="fas fa-times-circle text-gray-400"></i>
+                  <% else %>
+                    <span class="font-medium"><%= feature[:professional] %></span>
+                  <% end %>
+                </td>
+                <td class="py-4 px-6 text-center text-gray-600">
+                  <% if feature[:enterprise] == "Not included" %>
+                    <i class="fas fa-times-circle text-gray-400"></i>
+                  <% else %>
+                    <%= feature[:enterprise] %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Special Offers Section -->
+<section class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12" data-controller="fade-in">
+      <div class="inline-flex items-center px-4 py-2 bg-purple-100 rounded-full mb-6">
+        <i class="fas fa-percentage text-purple-600 mr-2"></i>
+        <span class="text-sm font-medium text-purple-800">Special Offers</span>
+      </div>
+      <h2 class="text-4xl font-bold text-gray-900 mb-6">Exclusive Discounts</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Special pricing available for eligible organizations and individuals
+      </p>
+    </div>
+    
+    <div class="grid md:grid-cols-3 gap-8 mb-12">
+      <% @special_offers.each do |offer| %>
+        <div class="bg-white rounded-xl p-6 shadow-sm border border-purple-100" data-controller="fade-in">
+          <h3 class="text-xl font-bold text-gray-900 mb-3"><%= offer[:title] %></h3>
+          <p class="text-gray-600 mb-4"><%= offer[:description] %></p>
+          <div class="flex items-center justify-between">
+            <span class="text-purple-700 font-medium"><%= offer[:discount] %></span>
+            <div class="bg-purple-50 px-3 py-1 rounded-lg border border-purple-100">
+              <span class="text-sm font-mono font-medium text-purple-700">Code: <%= offer[:code] %></span>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-gray-600 mb-6">
+        Contact our sales team to verify eligibility for these special offers. Additional verification may be required.
+      </p>
+      <a href="/contact" class="inline-flex items-center px-6 py-3 bg-purple-600 text-white font-medium rounded-lg shadow-md hover:bg-purple-700 transition-colors">
+        <i class="fas fa-envelope mr-2"></i>
+        Contact Us About Discounts
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Enterprise Section -->
+<section class="py-20 bg-gradient-to-r from-gray-900 to-blue-900 text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col lg:flex-row items-center justify-between">
+      <div class="lg:w-1/2 mb-10 lg:mb-0" data-controller="fade-in">
+        <div class="inline-flex items-center px-4 py-2 bg-blue-800 rounded-full mb-6">
+          <i class="fas fa-building text-blue-300 mr-2"></i>
+          <span class="text-sm font-medium text-blue-200">Enterprise Solutions</span>
+        </div>
+        <h2 class="text-4xl font-bold mb-6">
+          Need a custom healthcare solution?
+        </h2>
+        <p class="text-xl text-blue-200 mb-8">
+          Our Enterprise plan can be tailored to your specific requirements, from custom EMR integrations to white-label solutions.
+        </p>
+        <ul class="space-y-4 mb-8">
+          <li class="flex items-start">
+            <i class="fas fa-check-circle text-green-400 mt-1 mr-3"></i>
+            <span>Dedicated account manager</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-check-circle text-green-400 mt-1 mr-3"></i>
+            <span>Custom implementation tailored to your workflow</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-check-circle text-green-400 mt-1 mr-3"></i>
+            <span>Volume discounts available</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-check-circle text-green-400 mt-1 mr-3"></i>
+            <span>SLA with guaranteed uptime and support</span>
+          </li>
+        </ul>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <%= link_to "Schedule a Consultation", "#", class: "px-6 py-3 bg-white text-blue-900 rounded-lg font-medium hover:bg-blue-50 transition-colors text-center" %>
+          <%= link_to "Download Enterprise Brochure", "#", class: "px-6 py-3 bg-transparent border border-white text-white rounded-lg font-medium hover:bg-blue-800 transition-colors text-center" %>
+        </div>
+      </div>
+      <div class="lg:w-2/5" data-controller="fade-in">
+        <div class="bg-gradient-to-br from-blue-800 to-blue-900 p-8 rounded-2xl shadow-xl border border-blue-700">
+          <h3 class="text-2xl font-bold mb-6">Request Enterprise Demo</h3>
+          <form class="space-y-4">
+            <div>
+              <label class="block text-sm font-medium text-blue-200 mb-1">Organization Name</label>
+              <input type="text" class="w-full px-4 py-2 bg-blue-700 border border-blue-600 rounded-lg text-white placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-blue-200 mb-1">Your Name</label>
+              <input type="text" class="w-full px-4 py-2 bg-blue-700 border border-blue-600 rounded-lg text-white placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-blue-200 mb-1">Business Email</label>
+              <input type="email" class="w-full px-4 py-2 bg-blue-700 border border-blue-600 rounded-lg text-white placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-blue-200 mb-1">Phone Number</label>
+              <input type="tel" class="w-full px-4 py-2 bg-blue-700 border border-blue-600 rounded-lg text-white placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-blue-200 mb-1">Organization Size</label>
+              <select class="w-full px-4 py-2 bg-blue-700 border border-blue-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <option>1-10 employees</option>
+                <option>11-50 employees</option>
+                <option>51-200 employees</option>
+                <option>201-500 employees</option>
+                <option>501+ employees</option>
+              </select>
+            </div>
+            <button type="submit" class="w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-medium hover:from-blue-600 hover:to-purple-700 transition-colors">
+              Request Demo
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-20 bg-gray-50">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16" data-controller="fade-in">
+      <h2 class="text-4xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
+      <p class="text-xl text-gray-600">Everything you need to know about our pricing and services</p>
+    </div>
+
+    <div class="space-y-6" data-controller="faq-accordion">
+      <% @pricing_faqs.each_with_index do |faq, index| %>
+        <div class="bg-white rounded-xl shadow-sm overflow-hidden" data-controller="fade-in">
+          <button 
+            class="w-full text-left px-6 py-4 flex items-center justify-between focus:outline-none"
+            data-action="click->faq-accordion#toggle"
+            data-faq-accordion-target="question"
+            data-index="<%= index %>"
+          >
+            <h3 class="text-lg font-semibold text-gray-900"><%= faq[:question] %></h3>
+            <i class="fas fa-chevron-down text-gray-500 transition-transform"></i>
+          </button>
+          <div class="px-6 pb-4 hidden" data-faq-accordion-target="answer" data-index="<%= index %>">
+            <p class="text-gray-600"><%= faq[:answer] %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="text-center mt-12 pt-6 border-t border-gray-200" data-controller="fade-in">
+      <p class="text-gray-600 mb-4">Still have questions about our pricing?</p>
+      <a href="/contact" class="inline-flex items-center px-6 py-3 bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 transition-colors">
+        <i class="fas fa-envelope mr-2"></i>
+        Contact Our Sales Team
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Carousel -->
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12" data-controller="fade-in">
+      <div class="inline-flex items-center px-4 py-2 bg-green-100 rounded-full mb-6">
+        <i class="fas fa-star text-green-600 mr-2"></i>
+        <span class="text-sm font-medium text-green-800">Customer Stories</span>
+      </div>
+      <h2 class="text-4xl font-bold text-gray-900 mb-6">
+        Trusted by Healthcare Professionals and Patients
+      </h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        See what our customers are saying about MedGemma Health
+      </p>
+    </div>
+    
+    <div class="flex overflow-x-auto pb-8 scrollbar-hide -mx-4 px-4" data-controller="testimonial-carousel">
+      <div class="flex space-x-6">
+        <div class="flex-shrink-0 w-96 bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-xl shadow-sm">
+          <div class="flex items-center mb-6">
+            <div class="text-yellow-400 flex">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <p class="text-gray-700 mb-6">"The AI symptom checker is impressively accurate. It's like having a doctor in your pocket 24/7. Worth every penny of the Professional plan."</p>
+          <div class="flex items-center">
+            <% if asset_exists?('marketing/testimonials/doctor.jpg') %>
+              <img src="<%= asset_path('marketing/testimonials/doctor.jpg') %>" alt="Dr. Jennifer L." class="w-12 h-12 rounded-full mr-4 object-cover">
+            <% else %>
+              <div class="w-12 h-12 rounded-full flex items-center justify-center bg-blue-100 text-blue-600 mr-4">
+                <i class="fas fa-user-md text-2xl"></i>
+              </div>
+            <% end %>
+            <div>
+              <p class="font-medium text-gray-900">Dr. Jennifer L.</p>
+              <p class="text-gray-500 text-sm">Family Physician</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flex-shrink-0 w-96 bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-xl shadow-sm">
+          <div class="flex items-center mb-6">
+            <div class="text-yellow-400 flex">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <p class="text-gray-700 mb-6">"The Enterprise plan has transformed our clinic's workflow. Patient satisfaction is up 30% since implementing MedGemma's technology."</p>
+          <div class="flex items-center">
+            <% if asset_exists?('marketing/testimonials/admin.jpg') %>
+              <img src="<%= asset_path('marketing/testimonials/admin.jpg') %>" alt="Mark T." class="w-12 h-12 rounded-full mr-4 object-cover">
+            <% else %>
+              <div class="w-12 h-12 rounded-full flex items-center justify-center bg-blue-100 text-blue-600 mr-4">
+                <i class="fas fa-user-tie text-2xl"></i>
+              </div>
+            <% end %>
+            <div>
+              <p class="font-medium text-gray-900">Mark T.</p>
+              <p class="text-gray-500 text-sm">Medical Center Administrator</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flex-shrink-0 w-96 bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-xl shadow-sm">
+          <div class="flex items-center mb-6">
+            <div class="text-yellow-400 flex">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+          <p class="text-gray-700 mb-6">"Even the Basic plan offers exceptional value. I've saved hours of waiting room time and unnecessary doctor visits using the symptom checker."</p>
+          <div class="flex items-center">
+            <% if asset_exists?('marketing/testimonials/patient.jpg') %>
+              <img src="<%= asset_path('marketing/testimonials/patient.jpg') %>" alt="Rachel K." class="w-12 h-12 rounded-full mr-4 object-cover">
+            <% else %>
+              <div class="w-12 h-12 rounded-full flex items-center justify-center bg-blue-100 text-blue-600 mr-4">
+                <i class="fas fa-user text-2xl"></i>
+              </div>
+            <% end %>
+            <div>
+              <p class="font-medium text-gray-900">Rachel K.</p>
+              <p class="text-gray-500 text-sm">Individual User</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flex-shrink-0 w-96 bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-xl shadow-sm">
+          <div class="flex items-center mb-6">
+            <div class="text-yellow-400 flex">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <p class="text-gray-700 mb-6">"I manage healthcare for my elderly parents and young children. The Professional plan's family management features are a lifesaver."</p>
+          <div class="flex items-center">
+            <% if asset_exists?('marketing/testimonials/family.jpg') %>
+              <img src="<%= asset_path('marketing/testimonials/family.jpg') %>" alt="Michael & Sarah P." class="w-12 h-12 rounded-full mr-4 object-cover">
+            <% else %>
+              <div class="w-12 h-12 rounded-full flex items-center justify-center bg-blue-100 text-blue-600 mr-4">
+                <i class="fas fa-users text-2xl"></i>
+              </div>
+            <% end %>
+            <div>
+              <p class="font-medium text-gray-900">Michael & Sarah P.</p>
+              <p class="text-gray-500 text-sm">Family Plan Subscribers</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="text-center mt-8">
+      <div class="inline-flex space-x-2">
+        <button class="w-3 h-3 rounded-full bg-blue-500" data-testimonial-carousel-target="dot" data-index="0"></button>
+        <button class="w-3 h-3 rounded-full bg-gray-300" data-testimonial-carousel-target="dot" data-index="1"></button>
+        <button class="w-3 h-3 rounded-full bg-gray-300" data-testimonial-carousel-target="dot" data-index="2"></button>
+        <button class="w-3 h-3 rounded-full bg-gray-300" data-testimonial-carousel-target="dot" data-index="3"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-controller="fade-in">
+    <h2 class="text-4xl font-bold mb-6">Ready to Transform Your Healthcare Experience?</h2>
+    <p class="text-xl text-blue-100 mb-8">
+      Join thousands of satisfied users who trust MedGemma Health for their healthcare needs.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <%= link_to "Start Free Trial", "#", class: "px-8 py-4 bg-white text-blue-600 rounded-lg font-medium hover:bg-blue-50 shadow-lg transform hover:-translate-y-0.5 transition-all" %>
+      <%= link_to "Compare Plans", "#comparison", class: "px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-medium hover:bg-blue-500 transform hover:-translate-y-0.5 transition-all" %>
+    </div>
+    <p class="text-blue-200 mt-6">No credit card required. Cancel anytime.</p>
+  </div>
+</section>
+
+<!-- Add the necessary JavaScript for the FAQ accordion -->
+<% content_for :extra_javascript do %>
+<script>
+  import { Controller } from "@hotwired/stimulus"
+
+  export default class extends Controller {
+    static targets = ["question", "answer"]
+    
+    toggle(event) {
+      const button = event.currentTarget;
+      const index = button.dataset.index;
+      const answer = this.answerTargets.find(target => target.dataset.index === index);
+      const icon = button.querySelector("i");
+      
+      answer.classList.toggle("hidden");
+      icon.classList.toggle("transform");
+      icon.classList.toggle("rotate-180");
+    }
+  }
+</script>
+
+<script>
+  import { Controller } from "@hotwired/stimulus"
+
+  export default class extends Controller {
+    static targets = ["dot"]
+    
+    connect() {
+      this.carousel = this.element.querySelector(".flex.space-x-6");
+      this.items = this.carousel.children;
+      this.currentIndex = 0;
+      
+      // Auto scroll if more than one testimonial
+      if (this.items.length > 1) {
+        this.startAutoScroll();
+      }
+    }
+    
+    startAutoScroll() {
+      this.interval = setInterval(() => {
+        this.next();
+      }, 5000);
+    }
+    
+    next() {
+      this.goToSlide((this.currentIndex + 1) % this.items.length);
+    }
+    
+    goToSlide(index) {
+      this.currentIndex = index;
+      const offset = this.items[index].offsetLeft - this.carousel.offsetLeft;
+      this.carousel.scrollTo({
+        left: offset,
+        behavior: "smooth"
+      });
+      
+      this.updateDots();
+    }
+    
+    updateDots() {
+      this.dotTargets.forEach((dot, i) => {
+        if (i === this.currentIndex) {
+          dot.classList.remove("bg-gray-300");
+          dot.classList.add("bg-blue-500");
+        } else {
+          dot.classList.remove("bg-blue-500");
+          dot.classList.add("bg-gray-300");
+        }
+      });
+    }
+    
+    disconnect() {
+      if (this.interval) {
+        clearInterval(this.interval);
+      }
+    }
+  }
+</script>
+<% end %>
+
+<!-- END Pricing Page -->

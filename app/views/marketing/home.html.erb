@@ -1,0 +1,307 @@
+<%= content_for :head do %>
+  <title>MedGemma - AI-Powered Healthcare</title>
+  <meta name="description" content="Experience instant medical consultations powered by Google's MedGemma AI. Get accurate diagnoses, 24/7 virtual care, and personalized health insights—all from your home.">
+<% end %>
+
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-16 overflow-hidden">
+  <!-- Animated Background -->
+  <div class="absolute inset-0 z-0">
+    <div class="absolute top-20 left-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+    <div class="absolute top-40 right-10 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+    <div class="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Left Content -->
+      <div data-controller="fade-in">
+        <div class="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full mb-6">
+          <span class="flex h-2 w-2 relative mr-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+          </span>
+          <span class="text-sm font-medium text-blue-800">AI-Powered Healthcare is Live</span>
+        </div>
+        
+        <h1 class="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+          Your Health,
+          <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Reimagined
+          </span>
+          with AI
+        </h1>
+        
+        <p class="text-xl text-gray-600 mb-8">
+          Experience instant medical consultations powered by Google's MedGemma AI. 
+          Get accurate diagnoses, 24/7 virtual care, and personalized health insights—all from your home.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 mb-8">
+          <%= link_to new_user_registration_path, 
+              class: "inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white bg-gradient-to-r from-blue-600 to-purple-600 rounded-full hover:shadow-2xl transform hover:-translate-y-1 transition-all" do %>
+            Start Free Consultation
+            <i class="fas fa-arrow-right ml-2"></i>
+          <% end %>
+          
+          <button class="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-gray-700 bg-white border-2 border-gray-200 rounded-full hover:border-blue-500 hover:text-blue-600 transition-all"
+                  data-controller="modal"
+                  data-action="click->modal#open">
+            <i class="fas fa-play-circle mr-2 text-blue-600"></i>
+            Watch Demo
+          </button>
+        </div>
+
+        <!-- Trust Indicators -->
+        <div class="flex items-center space-x-6 text-sm text-gray-600">
+          <div class="flex items-center">
+            <i class="fas fa-shield-alt text-green-500 mr-2"></i>
+            HIPAA Compliant
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-lock text-green-500 mr-2"></i>
+            256-bit Encryption
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+            FDA Registered
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Visual -->
+      <div class="relative" data-controller="parallax">
+        <div class="relative z-10">
+          <%= image_tag "doctor-ai-hero.png", 
+              class: "w-full h-auto rounded-2xl shadow-2xl",
+              alt: "AI-Powered Medical Consultation" %>
+          
+          <!-- Floating Elements -->
+          <div class="absolute -top-6 -right-6 bg-white rounded-2xl shadow-xl p-4 animate-float">
+            <div class="flex items-center space-x-3">
+              <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-check text-green-600 text-xl"></i>
+              </div>
+              <div>
+                <p class="font-semibold">AI Diagnosis</p>
+                <p class="text-sm text-gray-600">95% Accuracy</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-4 animate-float animation-delay-2000">
+            <div class="flex items-center space-x-3">
+              <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-clock text-blue-600 text-xl"></i>
+              </div>
+              <div>
+                <p class="font-semibold">Instant Results</p>
+                <p class="text-sm text-gray-600">Under 30 seconds</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Section -->
+<section class="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="text-center" data-controller="counter">
+        <div class="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <span data-counter-target="number" data-counter-end-value="50000">0</span>+
+        </div>
+        <p class="mt-2 text-gray-600">Happy Patients</p>
+      </div>
+      
+      <div class="text-center" data-controller="counter">
+        <div class="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent">
+          <span data-counter-target="number" data-counter-end-value="95">0</span>%
+        </div>
+        <p class="mt-2 text-gray-600">Diagnosis Accuracy</p>
+      </div>
+      
+      <div class="text-center" data-controller="counter">
+        <div class="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+          <span data-counter-target="number" data-counter-end-value="24">0</span>/7
+        </div>
+        <p class="mt-2 text-gray-600">Available Support</p>
+      </div>
+      
+      <div class="text-center" data-controller="counter">
+        <div class="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+          <span data-counter-target="number" data-counter-end-value="30">0</span>s
+        </div>
+        <p class="mt-2 text-gray-600">Average Response</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Grid -->
+<section class="py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+        Everything You Need for
+        <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          Better Health
+        </span>
+      </h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Our AI-powered platform brings world-class healthcare to your fingertips
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Feature 1 -->
+      <div class="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 opacity-0 group-hover:opacity-10 transition-opacity"></div>
+        
+        <div class="relative z-10">
+          <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <i class="fas fa-robot text-white text-2xl"></i>
+          </div>
+          
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">AI-Powered Diagnosis</h3>
+          <p class="text-gray-600 mb-4">
+            Get instant, accurate medical assessments powered by Google's MedGemma AI technology.
+          </p>
+          
+          <a href="#" class="inline-flex items-center text-blue-600 font-medium group-hover:text-purple-600 transition-colors">
+            Learn more
+            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-green-500 to-teal-600 opacity-0 group-hover:opacity-10 transition-opacity"></div>
+        
+        <div class="relative z-10">
+          <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <i class="fas fa-video text-white text-2xl"></i>
+          </div>
+          
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">Virtual Consultations</h3>
+          <p class="text-gray-600 mb-4">
+            Connect with certified doctors through secure video calls, available 24/7 from anywhere.
+          </p>
+          
+          <a href="#" class="inline-flex items-center text-green-600 font-medium group-hover:text-teal-600 transition-colors">
+            Learn more
+            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-600 opacity-0 group-hover:opacity-10 transition-opacity"></div>
+        
+        <div class="relative z-10">
+          <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <i class="fas fa-shield-virus text-white text-2xl"></i>
+          </div>
+          
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">Secure & Private</h3>
+          <p class="text-gray-600 mb-4">
+            Your health data is protected with military-grade encryption and full HIPAA compliance.
+          </p>
+          
+          <a href="#" class="inline-flex items-center text-purple-600 font-medium group-hover:text-pink-600 transition-colors">
+            Learn more
+            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-orange-500 to-red-600 opacity-0 group-hover:opacity-10 transition-opacity"></div>
+        
+        <div class="relative z-10">
+          <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <i class="fas fa-camera text-white text-2xl"></i>
+          </div>
+          
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">Image Analysis</h3>
+          <p class="text-gray-600 mb-4">
+            Upload medical images for instant AI analysis of skin conditions, wounds, and more.
+          </p>
+          
+          <a href="#" class="inline-flex items-center text-orange-600 font-medium group-hover:text-red-600 transition-colors">
+            Learn more
+            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Feature 5 -->
+      <div class="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-yellow-500 to-orange-600 opacity-0 group-hover:opacity-10 transition-opacity"></div>
+        
+        <div class="relative z-10">
+          <div class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <i class="fas fa-file-medical text-white text-2xl"></i>
+          </div>
+          
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">Digital Health Records</h3>
+          <p class="text-gray-600 mb-4">
+            Keep all your medical records, prescriptions, and test results organized in one place.
+          </p>
+          
+          <a href="#" class="inline-flex items-center text-yellow-600 font-medium group-hover:text-orange-600 transition-colors">
+            Learn more
+            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Feature 6 -->
+      <div class="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-indigo-500 to-blue-600 opacity-0 group-hover:opacity-10 transition-opacity"></div>
+        
+        <div class="relative z-10">
+          <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <i class="fas fa-pills text-white text-2xl"></i>
+          </div>
+          
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">Prescription Management</h3>
+          <p class="text-gray-600 mb-4">
+            Get prescriptions digitally, track medications, and receive refill reminders automatically.
+          </p>
+          
+          <a href="#" class="inline-flex items-center text-indigo-600 font-medium group-hover:text-blue-600 transition-colors">
+            Learn more
+            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
+      Ready to Experience the Future of Healthcare?
+    </h2>
+    <p class="text-xl text-blue-100 mb-8">
+      Join thousands of patients who have already transformed their healthcare experience
+    </p>
+    
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <%= link_to "Start Free Trial", new_user_registration_path,
+          class: "inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-blue-600 bg-white rounded-full hover:shadow-2xl transform hover:-translate-y-1 transition-all" %>
+      
+      <%= link_to "Schedule Demo", contact_path,
+          class: "inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white border-2 border-white rounded-full hover:bg-white hover:text-blue-600 transition-all" %>
+    </div>
+  </div>
+</section>

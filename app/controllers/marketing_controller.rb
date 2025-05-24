@@ -613,4 +613,231 @@ class MarketingController < ApplicationController
       }
     ]
   end
+
+  def load_team_members
+    [
+      {
+        name: "Dr. Sarah Chen",
+        role: "Chief Medical Officer",
+        bio: "Leading medical AI researcher with 15+ years experience in emergency medicine and digital health innovation.",
+        image: "team/dr-sarah-chen.jpg",
+        linkedin: "https://linkedin.com/in/sarahchen",
+        specialties: ["Emergency Medicine", "AI Diagnostics", "Digital Health"]
+      },
+      {
+        name: "Mark Johnson",
+        role: "Chief Technology Officer",
+        bio: "Former Google engineer specializing in machine learning and healthcare technology infrastructure.",
+        image: "team/mark-johnson.jpg",
+        linkedin: "https://linkedin.com/in/markjohnson",
+        specialties: ["Machine Learning", "Cloud Architecture", "Healthcare APIs"]
+      },
+      {
+        name: "Dr. Lisa Wang",
+        role: "Head of Research",
+        bio: "PhD in Biomedical Informatics from Stanford, leading our AI research and clinical validation studies.",
+        image: "team/dr-lisa-wang.jpg",
+        linkedin: "https://linkedin.com/in/lisawang",
+        specialties: ["Biomedical Informatics", "Clinical Research", "AI Ethics"]
+      }
+    ]
+  end
+
+  def load_milestones
+    [
+      { year: "2023", title: "MedGemma Founded", description: "Started with a vision to democratize healthcare through AI" },
+      { year: "2024", title: "AI Model Launch", description: "Released our first AI diagnostic model with 95% accuracy" },
+      { year: "2024", title: "10K+ Patients", description: "Reached milestone of serving over 10,000 patients" },
+      { year: "2025", title: "Global Expansion", description: "Expanding to serve patients in 50+ countries worldwide" }
+    ]
+  end
+
+  def load_contact_faqs
+    [
+      {
+        question: "How quickly will I receive a response?",
+        answer: "We typically respond to all inquiries within 24 hours during business days."
+      },
+      {
+        question: "Do you offer technical support?",
+        answer: "Yes! Our technical support team is available 24/7 for urgent issues."
+      },
+      {
+        question: "Can I schedule a demo?",
+        answer: "Absolutely! Contact us to schedule a personalized demo of our platform."
+      }
+    ]
+  end
+
+  def load_pricing_plans
+    [
+      {
+        name: "Basic",
+        price: 29,
+        period: "month",
+        description: "Perfect for individuals and small practices",
+        features: ["AI-powered consultations", "Basic health monitoring", "Mobile app access", "Email support"],
+        testimonial: {
+          content: "MedGemma Basic has been perfect for my personal health monitoring. The AI insights are incredibly helpful.",
+          author: "Sarah Johnson",
+          role: "Patient",
+          avatar: "testimonials/sarah-johnson.jpg"
+        }
+      },
+      {
+        name: "Professional",
+        price: 99,
+        period: "month",
+        description: "Ideal for healthcare providers and clinics",
+        features: ["Everything in Basic", "Advanced diagnostics", "API access", "Priority support", "Team collaboration"],
+        testimonial: {
+          content: "The Professional plan has transformed our clinic's efficiency. The API integration is seamless.",
+          author: "Dr. Michael Chen",
+          role: "Family Medicine",
+          avatar: "testimonials/dr-michael-chen.jpg"
+        }
+      },
+      {
+        name: "Enterprise",
+        price: 299,
+        period: "month",
+        description: "For large healthcare organizations",
+        features: ["Everything in Professional", "Custom integrations", "Dedicated support", "Advanced analytics", "HIPAA compliance"],
+        testimonial: {
+          content: "MedGemma Enterprise has scaled perfectly with our hospital network. Outstanding support and reliability.",
+          author: "Dr. Lisa Wang",
+          role: "CTO, Metro Health",
+          avatar: "testimonials/dr-lisa-wang.jpg"
+        }
+      }
+    ]
+  end
+
+  def load_feature_comparison
+    [
+      {
+        category: "Core Features",
+        features: [
+          { 
+            name: "AI Consultations", 
+            description: "AI-powered health consultations and diagnostics",
+            basic: true, 
+            professional: true, 
+            enterprise: true 
+          },
+          { 
+            name: "Mobile App", 
+            description: "Full-featured mobile application",
+            basic: true, 
+            professional: true, 
+            enterprise: true 
+          },
+          { 
+            name: "24/7 Support", 
+            description: "Round-the-clock customer support",
+            basic: false, 
+            professional: true, 
+            enterprise: true 
+          }
+        ]
+      },
+      {
+        category: "Advanced Features",
+        features: [
+          { 
+            name: "API Access", 
+            description: "Full REST API access for integrations",
+            basic: false, 
+            professional: true, 
+            enterprise: true 
+          },
+          { 
+            name: "Advanced Analytics", 
+            description: "Detailed reporting and analytics dashboard",
+            basic: false, 
+            professional: false, 
+            enterprise: true 
+          },
+          { 
+            name: "Custom Integrations", 
+            description: "Custom API integrations and webhooks",
+            basic: false, 
+            professional: false, 
+            enterprise: true 
+          }
+        ]
+      }
+    ]
+  end
+
+  def load_pricing_faqs
+    [
+      {
+        question: "Can I change my plan anytime?",
+        answer: "Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately."
+      },
+      {
+        question: "Is there a free trial?",
+        answer: "Yes! We offer a 14-day free trial with full access to all Basic plan features."
+      },
+      {
+        question: "What payment methods do you accept?",
+        answer: "We accept all major credit cards, PayPal, and can arrange invoicing for Enterprise customers."
+      }
+    ]
+  end
+
+  def save_contact_inquiry(params)
+    # In a real application, you would save this to a database
+    # For now, we'll just log it and return a simulated response
+    Rails.logger.info "Contact inquiry received: #{params.inspect}"
+    { id: rand(1000..9999), submitted_at: Time.current, status: 'received' }
+  end
+
+  def save_newsletter_subscription(data)
+    # In a real application, you would save this to a database or external service
+    Rails.logger.info "Newsletter subscription: #{data.inspect}"
+    true
+  end
+
+  def contact_params
+    params.permit(:name, :email, :subject, :message, :company, :phone)
+  end
+
+  def newsletter_params
+    params.permit(:email, :name)
+  end
+
+  def load_compliance_certifications
+    [
+      {
+        name: "HIPAA Compliance",
+        description: "Health Insurance Portability and Accountability Act compliance for patient data protection",
+        icon: "fa-shield-alt",
+        status: "certified",
+        certificate_url: "#hipaa-cert"
+      },
+      {
+        name: "SOC 2 Type II",
+        description: "Service Organization Control 2 certification for security, availability, and confidentiality",
+        icon: "fa-certificate",
+        status: "certified",
+        certificate_url: "#soc2-cert"
+      },
+      {
+        name: "ISO 27001",
+        description: "International standard for information security management systems",
+        icon: "fa-lock",
+        status: "certified",
+        certificate_url: "#iso27001-cert"
+      },
+      {
+        name: "GDPR Compliance",
+        description: "General Data Protection Regulation compliance for EU data protection",
+        icon: "fa-user-shield",
+        status: "certified",
+        certificate_url: "#gdpr-cert"
+      }
+    ]
+  end
 end

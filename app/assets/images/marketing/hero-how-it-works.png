@@ -1,0 +1,225 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F0F9FF;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#E0F2FE;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F0FDF4;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0EA5E9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0284C7;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#22C55E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16A34A;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+  
+  <rect width="1200" height="800" fill="url(#bgGradient)"/>
+  
+  <!-- Title -->
+  <text x="600" y="80" font-family="Arial, sans-serif" font-size="48" font-weight="bold" text-anchor="middle" fill="#1E293B">
+    How AI-Health Platform Works
+  </text>
+  
+  <text x="600" y="120" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="#64748B">
+    From symptoms to treatment in 4 simple steps
+  </text>
+  
+  <!-- Step 1 -->
+  <g transform="translate(150, 200)">
+    <!-- Circle background -->
+    <circle cx="60" cy="60" r="60" fill="white" filter="url(#shadow)"/>
+    <circle cx="60" cy="60" r="55" fill="none" stroke="url(#blueGradient)" stroke-width="3"/>
+    
+    <!-- Icon -->
+    <g transform="translate(30, 30)">
+      <path d="M10 20 L10 40 L50 40 L50 20 L40 10 L20 10 Z" fill="none" stroke="#0EA5E9" stroke-width="3"/>
+      <path d="M20 25 L40 25 M20 32 L35 32" stroke="#0EA5E9" stroke-width="2"/>
+      <path d="M40 10 L40 20 L50 20" fill="none" stroke="#0EA5E9" stroke-width="3"/>
+    </g>
+    
+    <!-- Text -->
+    <text x="60" y="150" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#1E293B">
+      1. Submit Request
+    </text>
+    <text x="60" y="175" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#64748B">
+      Describe symptoms
+    </text>
+    <text x="60" y="195" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#64748B">
+      Upload photos
+    </text>
+  </g>
+  
+  <!-- Arrow 1->2 -->
+  <path d="M270 260 L380 260" stroke="#CBD5E1" stroke-width="4" fill="none" marker-end="url(#arrowhead)"/>
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#CBD5E1"/>
+    </marker>
+  </defs>
+  
+  <!-- Step 2 -->
+  <g transform="translate(400, 200)">
+    <!-- Circle background -->
+    <circle cx="60" cy="60" r="60" fill="white" filter="url(#shadow)"/>
+    <circle cx="60" cy="60" r="55" fill="none" stroke="url(#greenGradient)" stroke-width="3"/>
+    
+    <!-- AI Brain Icon -->
+    <g transform="translate(25, 25)">
+      <circle cx="15" cy="20" r="4" fill="#22C55E"/>
+      <circle cx="35" cy="15" r="4" fill="#22C55E"/>
+      <circle cx="55" cy="20" r="4" fill="#22C55E"/>
+      <circle cx="35" cy="35" r="6" fill="#22C55E"/>
+      <circle cx="15" cy="50" r="4" fill="#22C55E"/>
+      <circle cx="55" cy="50" r="4" fill="#22C55E"/>
+      <circle cx="35" cy="55" r="4" fill="#22C55E"/>
+      
+      <!-- Connections -->
+      <path d="M15,20 L35,35 M35,15 L35,35 M55,20 L35,35 M15,50 L35,35 M55,50 L35,35 M35,35 L35,55" 
+            stroke="#22C55E" stroke-width="2" opacity="0.5"/>
+    </g>
+    
+    <!-- Text -->
+    <text x="60" y="150" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#1E293B">
+      2. AI Analysis
+    </text>
+    <text x="60" y="175" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#64748B">
+      MedGemma processes
+    </text>
+    <text x="60" y="195" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#64748B">
+      ~30 seconds
+    </text>
+  </g>
+  
+  <!-- Arrow 2->3 -->
+  <path d="M520 260 L630 260" stroke="#CBD5E1" stroke-width="4" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Step 3 -->
+  <g transform="translate(650, 200)">
+    <!-- Circle background -->
+    <circle cx="60" cy="60" r="60" fill="white" filter="url(#shadow)"/>
+    <circle cx="60" cy="60" r="55" fill="none" stroke="#A855F7" stroke-width="3"/>
+    
+    <!-- Doctor Icon -->
+    <g transform="translate(30, 25)">
+      <circle cx="30" cy="20" r="15" fill="none" stroke="#A855F7" stroke-width="3"/>
+      <path d="M15 45 Q30 35 45 45 L45 65 L15 65 Z" fill="none" stroke="#A855F7" stroke-width="3"/>
+      <path d="M30 10 L30 5 M25 15 L20 10 M35 15 L40 10" stroke="#A855F7" stroke-width="2"/>
+    </g>
+    
+    <!-- Text -->
+    <text x="60" y="150" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#1E293B">
+      3. Doctor Match
+    </text>
+    <text x="60" y="175" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#64748B">
+      Specialist assigned
+    </text>
+    <text x="60" y="195" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#64748B">
+      Based on AI results
+    </text>
+  </g>
+  
+  <!-- Arrow 3->4 -->
+  <path d="M770 260 L880 260" stroke="#CBD5E1" stroke-width="4" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Step 4 -->
+  <g transform="translate(900, 200)">
+    <!-- Circle background -->
+    <circle cx="60" cy="60" r="60" fill="white" filter="url(#shadow)"/>
+    <circle cx="60" cy="60" r="55" fill="none" stroke="#6366F1" stroke-width="3"/>
+    
+    <!-- Video Icon -->
+    <g transform="translate(25, 30)">
+      <rect x="10" y="10" width="40" height="40" rx="4" fill="none" stroke="#6366F1" stroke-width="3"/>
+      <path d="M50 20 L65 15 L65 45 L50 40 Z" fill="none" stroke="#6366F1" stroke-width="3"/>
+      <circle cx="30" cy="30" r="8" fill="#6366F1" opacity="0.3"/>
+    </g>
+    
+    <!-- Text -->
+    <text x="60" y="150" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#1E293B">
+      4. Consultation
+    </text>
+    <text x="60" y="175" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#64748B">
+      Video call
+    </text>
+    <text x="60" y="195" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#64748B">
+      Get treatment
+    </text>
+  </g>
+  
+  <!-- Process Flow Visualization -->
+  <g transform="translate(100, 400)">
+    <rect x="0" y="0" width="1000" height="300" rx="20" fill="white" filter="url(#shadow)"/>
+    
+    <!-- Timeline -->
+    <line x1="100" y1="150" x2="900" y2="150" stroke="#E2E8F0" stroke-width="2"/>
+    
+    <!-- Time markers -->
+    <g>
+      <!-- 0 min -->
+      <circle cx="100" cy="150" r="8" fill="#0EA5E9"/>
+      <text x="100" y="180" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#64748B">0 min</text>
+      <text x="100" y="130" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#1E293B">Start</text>
+      
+      <!-- 1 min -->
+      <circle cx="300" cy="150" r="8" fill="#22C55E"/>
+      <text x="300" y="180" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#64748B">1 min</text>
+      <text x="300" y="130" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#1E293B">AI Processing</text>
+      
+      <!-- 5 min -->
+      <circle cx="600" cy="150" r="8" fill="#A855F7"/>
+      <text x="600" y="180" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#64748B">5 min</text>
+      <text x="600" y="130" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#1E293B">Doctor Matched</text>
+      
+      <!-- 15 min -->
+      <circle cx="900" cy="150" r="8" fill="#6366F1"/>
+      <text x="900" y="180" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#64748B">15 min</text>
+      <text x="900" y="130" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#1E293B">Consultation</text>
+    </g>
+    
+    <!-- Progress bar -->
+    <rect x="100" y="145" width="800" height="10" rx="5" fill="#E2E8F0"/>
+    <rect x="100" y="145" width="600" height="10" rx="5" fill="url(#blueGradient)"/>
+    
+    <!-- Features -->
+    <g transform="translate(50, 220)">
+      <rect x="0" y="0" width="200" height="60" rx="10" fill="#F0F9FF"/>
+      <text x="100" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#0EA5E9">HIPAA Compliant</text>
+      <text x="100" y="45" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#64748B">Secure & Private</text>
+    </g>
+    
+    <g transform="translate(275, 220)">
+      <rect x="0" y="0" width="200" height="60" rx="10" fill="#F0FDF4"/>
+      <text x="100" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#22C55E">90% Accuracy</text>
+      <text x="100" y="45" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#64748B">AI-Powered Analysis</text>
+    </g>
+    
+    <g transform="translate(500, 220)">
+      <rect x="0" y="0" width="200" height="60" rx="10" fill="#FAF5FF"/>
+      <text x="100" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#A855F7">24/7 Available</text>
+      <text x="100" y="45" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#64748B">Always Online</text>
+    </g>
+    
+    <g transform="translate(725, 220)">
+      <rect x="0" y="0" width="200" height="60" rx="10" fill="#EEF2FF"/>
+      <text x="100" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#6366F1">$45 Average</text>
+      <text x="100" y="45" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#64748B">Per Consultation</text>
+    </g>
+  </g>
+  
+  <!-- CTA Button -->
+  <g transform="translate(400, 750)">
+    <rect x="0" y="0" width="400" height="60" rx="30" fill="url(#blueGradient)" filter="url(#shadow)"/>
+    <text x="200" y="38" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">
+      Start Your Consultation Now
+    </text>
+  </g>
+</svg>

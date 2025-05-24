@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
+  # Configure Devise routes for user authentication
+  devise_for :users, path: '', path_names: {
+    sign_in: 'login',
+    sign_out: 'logout',
+    sign_up: 'signup',
+    edit: 'edit-profile'
+  }
+
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
@@ -19,6 +27,7 @@ Rails.application.routes.draw do
   get "pricing", to: "marketing#pricing", as: :pricing
   get "contact", to: "marketing#contact", as: :contact
   post "contact", to: "marketing#process_contact", as: :process_contact
+  post "newsletter-subscription", to: "marketing#newsletter_subscription", as: :newsletter_subscription
   
   # Legal pages
   get "privacy", to: "marketing#privacy", as: :privacy
@@ -71,14 +80,11 @@ Rails.application.routes.draw do
   end
   
   # User account routes
-  get "login", to: "devise/sessions#new", as: :login
-  get "signup", to: "devise/registrations#new", as: :signup
   get "dashboard", to: "dashboard#index", as: :dashboard
   get "account/profile", to: "account#profile", as: :account_profile
   get "account/settings", to: "account#settings", as: :account_settings
   get "account/notifications", to: "account#notifications", as: :account_notifications
   get "help", to: "account#help", as: :help
-  get "logout", to: "devise/sessions#destroy", as: :logout
 
   # All features page
   get "all-features", to: "marketing#all_features", as: :all_features

@@ -1,4 +1,6 @@
 class MarketingController < ApplicationController
+  # Skip CSRF protection only for newsletter subscription to allow external form submissions
+  skip_before_action :verify_authenticity_token, only: [:newsletter_subscription]
 
   layout 'marketing'
 
@@ -62,6 +64,47 @@ class MarketingController < ApplicationController
     end
   end
 
+  def newsletter_subscription
+    begin
+      # Validate newsletter parameters
+      email = newsletter_params[:email]
+      name = newsletter_params[:name]
+      
+      if email.blank?
+        render json: { success: false, message: "Email address is required." }, status: :bad_request
+        return
+      end
+      
+      # In a real application, you would save to a newsletter service like Mailchimp, ConvertKit, etc.
+      # For now, we'll simulate saving to database and sending confirmation
+      newsletter_data = {
+        email: email,
+        name: name,
+        subscribed_at: Time.current,
+        source: 'contact_page',
+        status: 'active'
+      }
+      
+      # Simulate saving newsletter subscription
+      save_newsletter_subscription(newsletter_data)
+      
+      # Send welcome email (in real app, this would be handled by your email service)
+      # NewsletterMailer.welcome_email(newsletter_data).deliver_later
+      
+      render json: { 
+        success: true, 
+        message: "Thank you for subscribing! You'll receive our latest health insights and updates."
+      }, status: :ok
+      
+    rescue StandardError => e
+      Rails.logger.error "Newsletter subscription error: #{e.message}"
+      render json: { 
+        success: false, 
+        message: "Sorry, there was an error processing your subscription. Please try again."
+      }, status: :internal_server_error
+    end
+  end
+
   def security
     @compliance_certifications = load_compliance_certifications
   end
@@ -106,7 +149,14 @@ class MarketingController < ApplicationController
     @community_forums = load_community_forums
     @featured_discussions = load_featured_discussions
   end
-  
+
+  def webinars
+    @upcoming_webinars = load_upcoming_webinars
+    @featured_webinars = load_featured_webinars
+    @webinar_categories = load_webinar_categories
+    @past_webinars = load_past_webinars
+  end
+
   def privacy
     # Privacy Policy content is rendered from the view
   end
@@ -247,383 +297,169 @@ class MarketingController < ApplicationController
     ]
   end
   
-  def load_faqs
+  def load_upcoming_webinars
     [
       {
-        question: "How does MedGemma Health's AI diagnosis work?",
-        answer: "MedGemma Health uses advanced machine learning algorithms trained on millions of medical data points to analyze symptoms, medical history, and images. The AI compares your information with its extensive database to suggest possible diagnoses, which are then reviewed by qualified healthcare professionals for confirmation."
+        id: 1,
+        title: "AI in Healthcare Diagnostics: The Future is Now",
+        description: "Discover how MedGemma's cutting-edge AI is revolutionizing diagnostic accuracy and speed. Join our lead researchers for live demos and Q&A.",
+        presenter: "Dr. Sarah Chen, Chief Medical Officer",
+        date: Date.parse("2025-05-28"),
+        time: "2:00 PM - 3:30 PM EDT",
+        duration: "90 minutes",
+        category: "AI & Technology",
+        level: "Beginner",
+        max_attendees: 500,
+        registered_count: 423,
+        image: "webinars/ai-diagnostics.jpg",
+        featured: true,
+        tags: ["AI", "Diagnostics", "Research"],
+        price: "Free",
+        status: "upcoming"
       },
       {
-        question: "Is my medical data secure with MedGemma Health?",
-        answer: "Absolutely. MedGemma Health complies with HIPAA regulations and employs end-to-end encryption for all patient data. Your information is stored in secure servers with multiple layers of protection, and we never share your data with third parties without your explicit consent."
+        id: 2,
+        title: "Building with the MedGemma API",
+        description: "A comprehensive hands-on workshop for developers looking to integrate healthcare AI solutions. Includes code examples and best practices.",
+        presenter: "Mark Johnson, Lead Developer",
+        date: Date.parse("2025-06-05"),
+        time: "11:00 AM - 2:00 PM PST",
+        duration: "3 hours",
+        category: "Development",
+        level: "Intermediate",
+        max_attendees: 100,
+        registered_count: 76,
+        image: "webinars/api-workshop.jpg",
+        featured: false,
+        tags: ["API", "Development", "Integration"],
+        price: "$99",
+        status: "upcoming"
       },
       {
-        question: "Can I use insurance with MedGemma Health services?",
-        answer: "Yes, MedGemma Health works with many major insurance providers. You can verify your coverage by entering your insurance information in your account settings. We also offer transparent self-pay options for those without coverage or who prefer not to use insurance."
+        id: 3,
+        title: "Healthcare Leaders Monthly Roundtable",
+        description: "Exclusive monthly discussions for healthcare executives, CIOs, and innovation leaders to share insights and discuss industry trends.",
+        presenter: "Dr. Michael Roberts, Healthcare Innovation",
+        date: Date.parse("2025-06-15"),
+        time: "11:00 AM - 12:00 PM PST",
+        duration: "60 minutes",
+        category: "Leadership",
+        level: "Executive",
+        max_attendees: 50,
+        registered_count: 34,
+        image: "webinars/leadership-roundtable.jpg",
+        featured: false,
+        tags: ["Leadership", "Strategy", "Innovation"],
+        price: "Premium Only",
+        status: "upcoming"
+      }
+    ]
+  end
+
+  def load_featured_webinars
+    [
+      {
+        id: 4,
+        title: "MedGemma Features Deep Dive",
+        description: "Weekly 30-minute focused sessions on specific MedGemma features. Perfect for busy professionals who want to maximize their platform usage.",
+        presenter: "Product Team",
+        date: "Every Friday",
+        time: "1:00 PM - 1:30 PM EST",
+        duration: "30 minutes",
+        category: "Training",
+        level: "All Levels",
+        recurring: true,
+        image: "webinars/features-deep-dive.jpg",
+        tags: ["Features", "Training", "Weekly"],
+        price: "Free",
+        status: "recurring"
       },
       {
-        question: "How quickly can I get a consultation with a doctor?",
-        answer: "Most patients can schedule a virtual consultation within 24-48 hours. For urgent issues, our on-demand service can connect you with a medical professional within 30 minutes during operating hours."
+        id: 5,
+        title: "Patient Experience Forum: Success Stories",
+        description: "Join fellow patients and care providers to share experiences, celebrate success stories, and discuss improvement ideas for better healthcare outcomes.",
+        presenter: "Maria Santos, Patient Advocate",
+        date: "Monthly",
+        time: "7:00 PM - 8:30 PM EST",
+        duration: "90 minutes",
+        category: "Patient Care",
+        level: "All Levels",
+        recurring: true,
+        image: "webinars/patient-forum.jpg",
+        tags: ["Patient Stories", "Community", "Support"],
+        price: "Free",
+        status: "recurring"
+      }
+    ]
+  end
+
+  def load_webinar_categories
+    [
+      { name: "AI & Technology", count: 15, color: "blue" },
+      { name: "Patient Care", count: 12, color: "green" },
+      { name: "Development", count: 8, color: "purple" },
+      { name: "Leadership", count: 6, color: "indigo" },
+      { name: "Training", count: 10, color: "orange" },
+      { name: "Research", count: 7, color: "teal" }
+    ]
+  end
+
+  def load_past_webinars
+    [
+      {
+        id: 6,
+        title: "Introduction to AI-Powered Healthcare",
+        description: "An overview of how artificial intelligence is transforming modern healthcare delivery and patient outcomes.",
+        presenter: "Dr. Sarah Chen, Chief Medical Officer",
+        date: Date.parse("2025-04-15"),
+        time: "2:00 PM - 3:30 PM EDT",
+        duration: "90 minutes",
+        category: "AI & Technology",
+        level: "Beginner",
+        attendees_count: 487,
+        recording_available: true,
+        rating: 4.8,
+        image: "webinars/intro-ai-healthcare.jpg",
+        tags: ["AI", "Introduction", "Healthcare"],
+        status: "completed"
       },
       {
-        question: "What medical conditions can MedGemma's AI help diagnose?",
-        answer: "Our AI system is trained to recognize thousands of conditions across multiple specialties, including dermatology, primary care, and more. However, it serves as a diagnostic aid, not a replacement for professional medical evaluation, which is why all AI suggestions are reviewed by qualified healthcare providers."
+        id: 7,
+        title: "Telemedicine Best Practices",
+        description: "Learn the best practices for conducting effective virtual consultations and improving patient engagement.",
+        presenter: "Dr. Lisa Wang, Telemedicine Specialist",
+        date: Date.parse("2025-03-20"),
+        time: "1:00 PM - 2:00 PM PST",
+        duration: "60 minutes",
+        category: "Patient Care",
+        level: "Intermediate",
+        attendees_count: 312,
+        recording_available: true,
+        rating: 4.7,
+        image: "webinars/telemedicine-best-practices.jpg",
+        tags: ["Telemedicine", "Best Practices", "Virtual Care"],
+        status: "completed"
       },
       {
-        question: "How do I get started with MedGemma Health?",
-        answer: "Getting started is easy! Simply create an account through our website or mobile app, complete your health profile, and you can immediately access our AI symptom checker or schedule your first consultation."
+        id: 8,
+        title: "Healthcare Data Security and HIPAA Compliance",
+        description: "Essential knowledge about protecting patient data and maintaining HIPAA compliance in digital healthcare.",
+        presenter: "John Davis, Security Officer",
+        date: Date.parse("2025-02-28"),
+        time: "10:00 AM - 11:30 AM EST",
+        duration: "90 minutes",
+        category: "Security",
+        level: "All Levels",
+        attendees_count: 256,
+        recording_available: true,
+        rating: 4.9,
+        image: "webinars/hipaa-compliance.jpg",
+        tags: ["Security", "HIPAA", "Compliance"],
+        status: "completed"
       }
     ]
   end
   
-  def load_help_articles
-    [
-      { title: "How to set up your MedGemma Health account", path: "/help/getting-started/account-setup", category: "Getting Started", content: "Learn how to create and set up your MedGemma Health account in a few simple steps." },
-      { title: "Managing your health profile", path: "/help/account/health-profile", category: "Account Management", content: "Keep your health profile updated for more accurate diagnoses and better healthcare recommendations." },
-      { title: "Connecting your insurance information", path: "/help/billing/insurance", category: "Billing & Insurance", content: "Step-by-step guide to connecting and verifying your insurance information in your account." },
-      { title: "How to schedule a virtual consultation", path: "/help/consultations/scheduling", category: "Consultations", content: "Learn how to book, reschedule, or cancel virtual consultations with healthcare providers." },
-      { title: "Understanding your diagnosis report", path: "/help/technical/diagnosis-report", category: "Technical Support", content: "How to interpret the AI-generated diagnosis reports and medical recommendations." },
-      { title: "Uploading medical images properly", path: "/help/technical/uploading-images", category: "Technical Support", content: "Best practices for uploading clear, usable medical images for accurate AI analysis." },
-      { title: "How billing works", path: "/help/billing/billing-process", category: "Billing & Insurance", content: "Everything you need to know about our billing process, insurance claims, and payment options." },
-      { title: "Secure data handling policies", path: "/help/privacy/data-policies", category: "Privacy & Security", content: "Learn how we protect your sensitive medical information and ensure HIPAA compliance." },
-      { title: "Supported health insurance providers", path: "/help/billing/supported-insurance", category: "Billing & Insurance", content: "See the list of insurance providers we currently work with and how coverage works." },
-      { title: "Sharing medical records with your doctor", path: "/help/privacy/sharing-records", category: "Privacy & Security", content: "How to securely share your MedGemma Health records with your existing healthcare providers." },
-      { title: "Troubleshooting video consultation issues", path: "/help/technical/video-troubleshooting", category: "Technical Support", content: "Common video consultation problems and how to solve them quickly." },
-      { title: "Setting up family member profiles", path: "/help/account/family-profiles", category: "Account Management", content: "How to add and manage family member profiles under your account." }
-    ]
-  end
-
-  def contact_params
-    params.permit(:first_name, :last_name, :email, :phone, :inquiry_type, :message, :subscribe)
-  end
-
-  def load_testimonials
-    [
-      {
-        name: "Sarah Johnson",
-        role: "Patient",
-        content: "MedGemma diagnosed my skin condition accurately when three doctors couldn't. Amazing technology!",
-        rating: 5,
-        image: "testimonial-1.jpg"
-      },
-      {
-        name: "Dr. Michael Chen",
-        role: "Dermatologist",
-        content: "The AI assistance helps me provide better care to more patients. It's like having a specialist colleague 24/7.",
-        rating: 5,
-        image: "testimonial-2.jpg"
-      }
-    ]
-  end
-
-  def load_features
-    [
-      {
-        icon: "fa-robot",
-        title: "AI-Powered Diagnosis",
-        description: "Get instant analysis powered by Google's MedGemma",
-        color: "blue"
-      },
-      {
-        icon: "fa-video",
-        title: "Virtual Consultations",
-        description: "Connect with doctors anytime, anywhere",
-        color: "green"
-      },
-      {
-        icon: "fa-shield-virus",
-        title: "Secure & Private",
-        description: "HIPAA compliant with military-grade encryption",
-        color: "purple"
-      }
-    ]
-  end
-
-  def load_team_members
-    [
-      {
-        name: "Dr. Sarah Smith",
-        role: "CEO & Co-founder",
-        bio: "Former Chief of Digital Health at Mayo Clinic with 15+ years in healthcare innovation."
-      },
-      {
-        name: "John Doe",
-        role: "CTO & Co-founder",
-        bio: "AI researcher and former Tech Lead at DeepMind Health."
-      },
-      {
-        name: "Dr. Lisa Chen",
-        role: "Chief Medical Officer",
-        bio: "Board-certified physician with expertise in telemedicine and digital health."
-      }
-    ]
-  end
-
-  def load_milestones
-    [
-      {
-        year: "2024",
-        title: "Platform Launch",
-        description: "MedGemma Health platform launched with core AI-powered diagnosis features."
-      },
-      {
-        year: "2024",
-        title: "First 10,000 Patients",
-        description: "Reached milestone of helping 10,000 patients with AI-assisted diagnoses."
-      },
-      {
-        year: "2024",
-        title: "Doctor Network",
-        description: "Expanded our network to over 1,000 verified healthcare providers."
-      },
-      {
-        year: "2025",
-        title: "Global Expansion",
-        description: "Extended services to 30+ countries worldwide."
-      },
-      {
-        year: "2025",
-        title: "AI Enhancement",
-        description: "Major upgrade to our AI diagnostic capabilities with 95% accuracy rate."
-      }
-    ]
-  end
-
-  def load_pricing_plans
-    [
-      {
-        name: "Basic Care",
-        monthly_price: 29,
-        annual_price: 279,  # Save ~20%
-        billing_period: "month",
-        badge: nil,
-        description: "Perfect for individuals seeking essential healthcare services",
-        highlight: false,
-        cta_text: "Start Free Trial",
-        features: [
-          "Up to 3 AI symptom checks per month",
-          "24/7 access to medical resources",
-          "Secure health record storage",
-          "Email support",
-          "Mobile app access"
-        ],
-        testimonial: {
-          quote: "MedGemma's Basic plan has been perfect for my occasional health concerns. The AI check-ups are impressively accurate.",
-          author: "Sarah J.",
-          role: "Individual User",
-          avatar: "marketing/testimonials/sarah.jpg"
-        }
-      },
-      {
-        name: "Professional",
-        monthly_price: 79,
-        annual_price: 759,  # Save ~20%
-        billing_period: "month",
-        badge: "Most Popular",
-        description: "Ideal for families and frequent healthcare needs",
-        highlight: true,
-        cta_text: "Start Free Trial",
-        features: [
-          "Unlimited AI symptom checks",
-          "Priority video consultations",
-          "Family health tracking (up to 4 members)",
-          "24/7 chat support",
-          "Medication reminders",
-          "Prescription management",
-          "Annual health assessment"
-        ],
-        testimonial: {
-          quote: "The family tracking features have been a game-changer. We can manage everyone's health in one place!",
-          author: "David & Maria L.",
-          role: "Family Plan",
-          avatar: "marketing/testimonials/family.jpg"
-        }
-      },
-      {
-        name: "Enterprise",
-        monthly_price: 199,
-        annual_price: 1919,  # Save ~20%
-        billing_period: "month",
-        badge: "Custom Solutions",
-        description: "Comprehensive solution for healthcare providers",
-        highlight: false,
-        cta_text: "Contact Sales",
-        features: [
-          "Full AI diagnostic suite",
-          "Custom EMR integration",
-          "Unlimited patient consultations",
-          "Priority support 24/7",
-          "Advanced analytics dashboard",
-          "HIPAA compliance tools",
-          "Custom branding options",
-          "Staff training and support"
-        ],
-        testimonial: {
-          quote: "MedGemma transformed our clinic workflow. The integration with our existing systems was seamless.",
-          author: "Dr. Michael T.",
-          role: "Cedar Medical Center",
-          avatar: "marketing/testimonials/doctor.jpg"
-        }
-      }
-    ]
-  end
-
-  def load_feature_comparison
-    [
-      {
-        category: "Core Features",
-        features: [
-          {
-            name: "AI Symptom Checks",
-            description: "Advanced AI-powered symptom analysis and recommendations",
-            basic: "3 per month",
-            professional: "Unlimited",
-            enterprise: "Unlimited + Custom Training"
-          },
-          {
-            name: "Health Record Storage",
-            description: "Secure storage for your medical records and history",
-            basic: "5GB",
-            professional: "25GB",
-            enterprise: "Unlimited"
-          },
-          {
-            name: "Mobile App Access",
-            description: "Access on iOS and Android devices",
-            basic: "Basic features",
-            professional: "Full features",
-            enterprise: "Full features + Custom branding"
-          }
-        ]
-      },
-      {
-        category: "Support",
-        features: [
-          {
-            name: "Customer Support",
-            description: "Access to our support team",
-            basic: "Email only",
-            professional: "24/7 Chat",
-            enterprise: "24/7 Priority Support"
-          },
-          {
-            name: "Response Time",
-            description: "Average time to first response",
-            basic: "24 hours",
-            professional: "4 hours",
-            enterprise: "1 hour guaranteed"
-          },
-          {
-            name: "Onboarding",
-            description: "Help getting started with the platform",
-            basic: "Self-serve",
-            professional: "Guided setup",
-            enterprise: "Dedicated specialist"
-          }
-        ]
-      },
-      {
-        category: "Advanced Features",
-        features: [
-          {
-            name: "Video Consultations",
-            description: "Live video consultations with healthcare professionals",
-            basic: "Not included",
-            professional: "Priority access",
-            enterprise: "Unlimited"
-          },
-          {
-            name: "Family Management",
-            description: "Manage multiple family members' health records",
-            basic: "Not included",
-            professional: "Up to 4 members",
-            enterprise: "Unlimited"
-          },
-          {
-            name: "EMR Integration",
-            description: "Integration with existing Electronic Medical Record systems",
-            basic: "Not included",
-            professional: "Basic integration",
-            enterprise: "Custom integration"
-          },
-          {
-            name: "Analytics Dashboard",
-            description: "Health insights and analytics",
-            basic: "Basic insights",
-            professional: "Enhanced dashboard",
-            enterprise: "Advanced analytics"
-          }
-        ]
-      }
-    ]
-  end
-
-  def load_pricing_faqs
-    [
-      {
-        question: "Can I switch plans at any time?",
-        answer: "Yes, you can upgrade or downgrade your plan at any time. Changes will be reflected in your next billing cycle. Upgrading takes effect immediately, while downgrades will take effect at the end of your current billing period."
-      },
-      {
-        question: "Is there a contract or commitment?",
-        answer: "No long-term contracts required. All plans are month-to-month, and you can cancel anytime. For annual plans, you commit to 12 months of service paid upfront with a significant discount."
-      },
-      {
-        question: "What payment methods do you accept?",
-        answer: "We accept all major credit cards (Visa, Mastercard, American Express, Discover), debit cards, and HSA/FSA cards for payment. Enterprise customers can also pay by invoice."
-      },
-      {
-        question: "Is my health data secure?",
-        answer: "Yes, we are HIPAA compliant and use industry-leading encryption to protect your health information. All data is encrypted at rest and in transit, and we undergo regular security audits."
-      },
-      {
-        question: "Do you offer refunds?",
-        answer: "We offer a 30-day money-back guarantee for new customers. If you're not satisfied with our service, contact our support team within 30 days of your initial payment for a full refund."
-      },
-      {
-        question: "How does the free trial work?",
-        answer: "Our 14-day free trial gives you full access to all features of your selected plan. No credit card is required to start. At the end of your trial, you can choose to subscribe or your account will automatically downgrade to our limited free tier."
-      },
-      {
-        question: "Are there any setup fees?",
-        answer: "There are no setup fees for Basic and Professional plans. Enterprise plans may include one-time setup fees depending on customization requirements, which will be outlined in your custom quote."
-      },
-      {
-        question: "Can I use MedGemma internationally?",
-        answer: "Yes, MedGemma is available globally. However, some features like video consultations with healthcare providers may be limited to certain regions due to licensing requirements. The platform supports multiple languages and regional healthcare standards."
-      }
-    ]
-  end
-
-  def load_contact_faqs
-    [
-      {
-        question: "How do I schedule a demo?", 
-        answer: "You can schedule a demo through our contact form by selecting 'Schedule a Demo' as your inquiry type, or by calling our sales team directly at 1-800-MEDGEMMA."
-      },
-      {
-        question: "Is my data secure with MedGemma Health?", 
-        answer: "Yes! We follow HIPAA guidelines and employ military-grade encryption to ensure that your medical data remains private and secure."
-      },
-      {
-        question: "Can I integrate MedGemma with my existing systems?", 
-        answer: "Absolutely. Our platform offers API access and integrations with most major EMR systems and healthcare software providers."
-      },
-      {
-        question: "What devices can I use MedGemma on?", 
-        answer: "Our platform is accessible on desktops, tablets, and mobile phones, with native apps available for iOS and Android."
-      },
-      {
-        question: "How quickly can I get started?", 
-        answer: "Most customers can be fully onboarded within 48 hours of signing up. Our team will guide you through the entire process."
-      },
-      {
-        question: "Do you offer training for my staff?", 
-        answer: "Yes, we provide comprehensive training sessions and documentation to ensure your team can make the most of our platform."
-      }
-    ]
-  end
-
   def load_feature_categories
     [
       {
@@ -713,6 +549,67 @@ class MarketingController < ApplicationController
             icon: "fa-map-marker-alt"
           }
         ]
+      }
+    ]
+  end
+
+  def load_testimonials
+    [
+      {
+        name: "Dr. Sarah Johnson",
+        role: "Emergency Medicine Physician",
+        hospital: "Metro General Hospital",
+        content: "MedGemma has revolutionized how I approach diagnosis. The AI-powered insights have helped me catch conditions I might have missed, especially during busy night shifts.",
+        rating: 5,
+        avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+        verified: true
+      },
+      {
+        name: "Maria Rodriguez",
+        role: "Patient",
+        location: "Austin, TX",
+        content: "As someone living in a rural area, MedGemma has been a lifesaver. I can get expert medical opinions without traveling hours to the city.",
+        rating: 5,
+        avatar: "https://randomuser.me/api/portraits/women/32.jpg",
+        verified: true
+      },
+      {
+        name: "Dr. Michael Chen",
+        role: "Dermatologist",
+        hospital: "University Medical Center",
+        content: "The skin condition analysis feature is incredibly accurate. It's become an essential tool in my practice for preliminary assessments.",
+        rating: 5,
+        avatar: "https://randomuser.me/api/portraits/men/22.jpg",
+        verified: true
+      }
+    ]
+  end
+
+  def load_features
+    [
+      {
+        title: "AI-Powered Diagnosis",
+        description: "Advanced machine learning algorithms analyze symptoms and medical images for accurate preliminary diagnosis.",
+        icon: "fa-brain",
+        category: "core"
+      },
+      {
+        title: "24/7 Virtual Consultations",
+        description: "Connect with licensed healthcare providers anytime, anywhere through secure video consultations.",
+        icon: "fa-video",
+        category: "core"
+      },
+      {
+        title: "Secure Health Records",
+        description: "HIPAA-compliant storage and management of your complete medical history and records.",
+        icon: "fa-shield-alt",
+        category: "security"
+      },
+      {
+        title: "Prescription Management",
+        description: "Digital prescription management with pharmacy integration and medication reminders.",
+        icon: "fa-pills",
+        category: "management"
       }
     ]
   end

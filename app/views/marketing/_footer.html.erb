@@ -58,11 +58,11 @@
       <div>
         <h3 class="font-semibold text-white mb-4">Resources</h3>
         <ul class="space-y-2">
-          <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
-          <li><a href="/help-center" class="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
-          <li><a href="/api-docs" class="text-gray-400 hover:text-white transition-colors">API Docs</a></li>
-          <li><a href="/status" class="text-gray-400 hover:text-white transition-colors">Status</a></li>
-          <li><a href="/community" class="text-gray-400 hover:text-white transition-colors">Community</a></li>
+          <li><%= link_to "Blog", blog_path, class: "text-gray-400 hover:text-white transition-colors" %></li>
+          <li><%= link_to "Help Center", help_center_path, class: "text-gray-400 hover:text-white transition-colors" %></li>
+          <li><%= link_to "API Docs", api_docs_path, class: "text-gray-400 hover:text-white transition-colors" %></li>
+          <li><%= link_to "Status", system_status_path, class: "text-gray-400 hover:text-white transition-colors" %></li>
+          <li><%= link_to "Community", community_path, class: "text-gray-400 hover:text-white transition-colors" %></li>
         </ul>
       </div>
 

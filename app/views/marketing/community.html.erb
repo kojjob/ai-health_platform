@@ -1,376 +1,1937 @@
-<%= content_for :title, "Community - MedGemma Health" %>
-<%= content_for :meta_description, "Join the MedGemma Health community to connect with patients, healthcare providers, and developers. Share experiences, request features, and participate in discussions." %>
+<% content_for :title, "Community Hub | MedGemma Health" %>
+<% content_for :meta_description, "Join 50,000+ healthcare professionals and patients in the MedGemma Health community. Connect, learn, and shape the future of AI-powered healthcare together." %>
+<% content_for :canonical_url, community_url %>
+<% content_for :open_graph do %>
+  <meta property="og:title" content="MedGemma Health Community | Connect, Learn, Grow">
+  <meta property="og:description" content="Join our thriving community of healthcare professionals, patients, and innovators. Share experiences, get support, and help shape the future of healthcare.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="<%= community_url %>">
+  <meta property="og:image" content="<%= asset_url('marketing/community-hero.png') %>">
+<% end %>
 
-<!-- Hero Section -->
-<section class="pt-32 pb-20 bg-gradient-to-br from-slate-50 to-purple-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- Header -->
-    <div class="text-center mb-12" data-controller="fade-in">
-      <div class="inline-flex items-center px-4 py-2 bg-purple-100 rounded-full mb-6">
-        <i class="fas fa-users text-purple-600 mr-2"></i>
-        <span class="text-sm font-medium text-purple-800">Join Our Community</span>
+<!-- Performance optimization: Preload critical resources -->
+<% content_for :head do %>
+  <link rel="preload" href="<%= asset_path('marketing/community-forums.png') %>" as="image">
+  <link rel="preload" href="<%= asset_path('marketing/community-events.png') %>" as="image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+    /* Critical CSS for above-the-fold content */
+    .community-hero-bg {
+      background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #eff6ff 100%);
+    }
+    .animate-float-community {
+      animation: floatCommunity 6s ease-in-out infinite;
+    }
+    @keyframes floatCommunity {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(3deg); }
+    }
+    .stats-counter {
+      animation: fadeInUp 0.8s ease-out forwards;
+      opacity: 0;
+    }
+  </style>
+<% end %>
+
+<!-- Skip to main content link for accessibility -->
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-medgemma-600 focus:shadow-lg focus:rounded-md">
+  Skip to main content
+</a>
+
+<!-- Enhanced Hero Section -->
+<section id="main-content" class="pt-32 pb-20 community-hero-bg relative overflow-hidden" data-controller="analytics stats-counter" data-analytics-page-value="community" data-analytics-section-value="hero">
+  <!-- Optimized decorative background elements -->
+  <div class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-medgemma-100/30 to-purple-100/20 rounded-full -translate-x-1/2 -translate-y-1/2 will-change-transform"></div>
+  <div class="absolute top-20 right-0 w-64 h-64 bg-gradient-to-bl from-indigo-100/40 to-blue-100/30 rounded-full translate-x-1/3 will-change-transform"></div>
+  <div class="absolute bottom-0 right-1/4 w-48 h-48 bg-gradient-to-t from-purple-100/30 to-pink-100/20 rounded-full will-change-transform"></div>
+  <div class="absolute top-1/2 left-1/4 w-32 h-32 bg-gradient-to-br from-teal-100/20 to-emerald-100/30 rounded-full animate-float-community"></div>
+  
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Enhanced Header -->
+    <div class="text-center mb-20 animate-fade-in">
+      <div class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-medgemma-50 via-purple-50 to-indigo-50 border border-medgemma-200/50 rounded-full mb-8 shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm">
+        <div class="w-10 h-10 bg-gradient-to-r from-medgemma-500 via-purple-600 to-indigo-600 rounded-full flex items-center justify-center mr-4">
+          <i class="fas fa-heartbeat text-white text-lg"></i>
+        </div>
+        <span class="text-base font-bold bg-gradient-to-r from-medgemma-700 via-purple-700 to-indigo-700 bg-clip-text text-transparent">Healthcare Community Hub</span>
+        <div class="ml-4 px-3 py-1 bg-gradient-to-r from-emerald-100 to-teal-100 rounded-full">
+          <span class="text-sm font-semibold text-emerald-700">50K+ Members</span>
+        </div>
       </div>
       
-      <h1 class="text-5xl font-bold text-gray-900 mb-6">
-        MedGemma Health
-        <span class="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
-          Community
+      <h1 class="text-6xl lg:text-7xl font-bold text-gray-900 mb-8 leading-tight">
+        <span class="bg-gradient-to-r from-medgemma-500 via-purple-600 to-indigo-500 bg-clip-text text-transparent">
+          Connect, Learn,
         </span>
+        <br>
+        <span class="text-5xl lg:text-6xl">Transform Healthcare</span>
+        <br>
+        <span class="text-4xl lg:text-5xl text-gray-700">Together</span>
       </h1>
       
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-        Connect with patients, healthcare providers and developers to share experiences, request features, and learn from each other.
+      <p class="text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto animate-fade-in leading-relaxed mb-12" style="animation-delay: 0.2s">
+        Join our thriving community of healthcare professionals, patients, and innovators. Share experiences, get expert support, and help shape the future of AI-powered healthcare.
       </p>
       
-      <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="#forums" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all hover:-translate-y-1">
-          <i class="fas fa-comment-alt mr-2"></i>
+      <!-- Enhanced CTA Buttons -->
+      <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16 animate-fade-in" style="animation-delay: 0.4s">
+        <a href="#forums" class="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-medgemma-500 via-purple-600 to-indigo-600 text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+          <i class="fas fa-comments mr-3 text-lg group-hover:animate-pulse"></i>
           Join Discussion Forums
+          <div class="ml-3 w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+            <i class="fas fa-arrow-right text-sm"></i>
+          </div>
         </a>
-        <a href="#events" class="inline-flex items-center px-6 py-3 bg-white text-gray-800 border border-gray-300 font-medium rounded-lg shadow-sm hover:shadow hover:bg-gray-50 transition-all">
-          <i class="fas fa-calendar-alt mr-2"></i>
+        <a href="#events" class="group inline-flex items-center px-8 py-4 bg-white text-gray-800 border-2 border-medgemma-200 font-bold rounded-full shadow-lg hover:shadow-xl hover:border-medgemma-300 transition-all duration-300 hover:scale-105">
+          <i class="fas fa-calendar-star mr-3 text-lg text-medgemma-600 group-hover:animate-bounce"></i>
           Upcoming Events
+          <div class="ml-3 w-8 h-8 bg-medgemma-100 rounded-full flex items-center justify-center">
+            <i class="fas fa-arrow-right text-sm text-medgemma-600"></i>
+          </div>
         </a>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- Community Stats -->
-<section class="py-12 bg-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-      <div class="text-center">
-        <div class="text-4xl font-bold text-purple-600 mb-2">10k+</div>
-        <div class="text-gray-600">Community Members</div>
-      </div>
-      <div class="text-center">
-        <div class="text-4xl font-bold text-purple-600 mb-2">2.8k+</div>
-        <div class="text-gray-600">Discussion Topics</div>
-      </div>
-      <div class="text-center">
-        <div class="text-4xl font-bold text-purple-600 mb-2">350+</div>
-        <div class="text-gray-600">Feature Requests</div>
-      </div>
-      <div class="text-center">
-        <div class="text-4xl font-bold text-purple-600 mb-2">48</div>
-        <div class="text-gray-600">Monthly Events</div>
+      
+      <!-- Enhanced Community Highlights -->
+      <div class="grid grid-cols-3 gap-6 max-w-3xl mx-auto animate-fade-in" style="animation-delay: 0.6s">
+        <div class="text-center">
+          <div class="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-medgemma-600 to-purple-600 bg-clip-text text-transparent">24/7</div>
+          <div class="text-sm text-gray-500 font-medium">Expert Support</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent">98%</div>
+          <div class="text-sm text-gray-500 font-medium">Helpful Responses</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">2.5k</div>
+          <div class="text-sm text-gray-500 font-medium">Weekly Discussions</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Forums -->
-<section id="forums" class="py-16 bg-gray-50" data-controller="community fade-in">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Enhanced Community Stats with Real-time Counters -->
+<section class="py-16 bg-white relative overflow-hidden" data-controller="stats-counter analytics" data-analytics-section-value="stats">
+  <!-- Background decorations -->
+  <div class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-medgemma-50 to-purple-50 rounded-full translate-x-1/3 -translate-y-1/3"></div>
+  <div class="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-teal-50 to-blue-50 rounded-full -translate-x-1/4 translate-y-1/4"></div>
+  
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Section header -->
     <div class="text-center mb-16">
-      <h2 class="text-3xl font-bold text-gray-900 mb-4">Discussion Forums</h2>
+      <div class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-200/50 rounded-full mb-6 shadow-lg">
+        <div class="w-8 h-8 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-full flex items-center justify-center mr-3">
+          <i class="fas fa-chart-line text-white text-sm"></i>
+        </div>
+        <span class="text-sm font-semibold bg-gradient-to-r from-emerald-700 to-teal-700 bg-clip-text text-transparent">Community Impact</span>
+      </div>
+      <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+        <span class="bg-gradient-to-r from-medgemma-600 to-purple-600 bg-clip-text text-transparent">Powering Healthcare</span>
+        <br>Innovation Together
+      </h2>
       <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-        Join our specialized forums to connect with others, share your experiences, and learn from the community.
+        Our community drives real change in healthcare through collaboration, knowledge sharing, and continuous innovation.
       </p>
     </div>
     
-    <div class="grid md:grid-cols-2 gap-8">
-      <% @community_forums.each do |forum| %>
-        <div class="bg-white rounded-xl shadow-sm p-8 border border-gray-200 hover:border-purple-200 transition-all" 
-             data-community-target="forum" 
-             data-fade-in-target="item">
-          <div class="flex flex-col sm:flex-row items-center sm:items-start">
-            <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center sm:mr-6 mb-4 sm:mb-0">
-              <i class="fas fa-<%= forum[:icon] %> text-2xl text-purple-600"></i>
+    <!-- Enhanced stats grid -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+      <div class="text-center group">
+        <div class="bg-gradient-to-br from-medgemma-50 to-purple-50 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105 border border-medgemma-100">
+          <div class="w-16 h-16 bg-gradient-to-r from-medgemma-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-xl transition-all duration-300">
+            <i class="fas fa-users text-white text-2xl"></i>
+          </div>
+          <div class="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-medgemma-600 to-purple-600 bg-clip-text text-transparent mb-3" data-stats-counter-target="counter" data-end-value="52000">0</div>
+          <div class="text-gray-600 font-semibold text-lg">Community Members</div>
+          <div class="text-sm text-gray-500 mt-2">+15% this month</div>
+        </div>
+      </div>
+      
+      <div class="text-center group">
+        <div class="bg-gradient-to-br from-teal-50 to-blue-50 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105 border border-teal-100">
+          <div class="w-16 h-16 bg-gradient-to-r from-teal-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-xl transition-all duration-300">
+            <i class="fas fa-comments text-white text-2xl"></i>
+          </div>
+          <div class="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent mb-3" data-stats-counter-target="counter" data-end-value="3400">0</div>
+          <div class="text-gray-600 font-semibold text-lg">Discussion Topics</div>
+          <div class="text-sm text-gray-500 mt-2">+8% this week</div>
+        </div>
+      </div>
+      
+      <div class="text-center group">
+        <div class="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105 border border-emerald-100">
+          <div class="w-16 h-16 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-xl transition-all duration-300">
+            <i class="fas fa-lightbulb text-white text-2xl"></i>
+          </div>
+          <div class="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-3" data-stats-counter-target="counter" data-end-value="485">0</div>
+          <div class="text-gray-600 font-semibold text-lg">Feature Requests</div>
+          <div class="text-sm text-gray-500 mt-2">127 implemented</div>
+        </div>
+      </div>
+      
+      <div class="text-center group">
+        <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105 border border-purple-100">
+          <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-xl transition-all duration-300">
+            <i class="fas fa-calendar-check text-white text-2xl"></i>
+          </div>
+          <div class="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-3" data-stats-counter-target="counter" data-end-value="68">0</div>
+          <div class="text-gray-600 font-semibold text-lg">Monthly Events</div>
+          <div class="text-sm text-gray-500 mt-2">This month</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Additional community highlights -->
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-gradient-to-br from-white to-medgemma-25 rounded-2xl p-6 shadow-lg border border-medgemma-100">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-gradient-to-r from-medgemma-500 to-purple-600 rounded-xl flex items-center justify-center mr-4">
+            <i class="fas fa-clock text-white"></i>
+          </div>
+          <div>
+            <div class="text-2xl font-bold text-gray-900">< 2 hours</div>
+            <div class="text-sm text-gray-600">Average response time</div>
+          </div>
+        </div>
+        <p class="text-gray-600">Get expert answers from healthcare professionals and experienced community members.</p>
+      </div>
+      
+      <div class="bg-gradient-to-br from-white to-teal-25 rounded-2xl p-6 shadow-lg border border-teal-100">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-gradient-to-r from-teal-500 to-blue-600 rounded-xl flex items-center justify-center mr-4">
+            <i class="fas fa-globe text-white"></i>
+          </div>
+          <div>
+            <div class="text-2xl font-bold text-gray-900">50+ Countries</div>
+            <div class="text-sm text-gray-600">Global reach</div>
+          </div>
+        </div>
+        <p class="text-gray-600">Connect with healthcare innovators and patients from around the world.</p>
+      </div>
+      
+      <div class="bg-gradient-to-br from-white to-purple-25 rounded-2xl p-6 shadow-lg border border-purple-100">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mr-4">
+            <i class="fas fa-shield-check text-white"></i>
+          </div>
+          <div>
+            <div class="text-2xl font-bold text-gray-900">100% Safe</div>
+            <div class="text-sm text-gray-600">Moderated discussions</div>
+          </div>
+        </div>
+        <p class="text-gray-600">All discussions are moderated by healthcare professionals to ensure quality and safety.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Enhanced Forums Section -->
+<section id="forums" class="py-20 bg-gradient-to-br from-gray-50 via-white to-medgemma-25 relative overflow-hidden" data-controller="community fade-in analytics" data-analytics-section-value="forums">
+  <!-- Background decorations -->
+  <div class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-medgemma-100/20 to-purple-100/30 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+  <div class="absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-tl from-teal-100/20 to-blue-100/30 rounded-full translate-x-1/3 translate-y-1/3"></div>
+  
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Enhanced section header -->
+    <div class="text-center mb-20">
+      <div class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-medgemma-50 via-purple-50 to-indigo-50 border border-medgemma-200/50 rounded-full mb-8 shadow-lg">
+        <div class="w-10 h-10 bg-gradient-to-r from-medgemma-500 via-purple-600 to-indigo-600 rounded-full flex items-center justify-center mr-4">
+          <i class="fas fa-comments text-white text-lg"></i>
+        </div>
+        <span class="text-base font-bold bg-gradient-to-r from-medgemma-700 via-purple-700 to-indigo-700 bg-clip-text text-transparent">Discussion Forums</span>
+        <div class="ml-4 px-3 py-1 bg-gradient-to-r from-green-100 to-emerald-100 rounded-full">
+          <span class="text-sm font-semibold text-green-700">Active 24/7</span>
+        </div>
+      </div>
+      
+      <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+        <span class="bg-gradient-to-r from-medgemma-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">Connect & Collaborate</span>
+        <br>In Specialized Communities
+      </h2>
+      
+      <p class="text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+        Join our specialized forums to connect with like-minded individuals, share your experiences, and learn from healthcare professionals and fellow patients.
+      </p>
+    </div>
+    
+    <!-- Enhanced forums grid -->
+    <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8 mb-16">
+      <!-- Patient Support Forum -->
+      <div class="bg-gradient-to-br from-white via-medgemma-25 to-purple-25 rounded-3xl shadow-xl p-8 border border-medgemma-100 hover:border-medgemma-200 transition-all duration-500 group hover:scale-105 hover:shadow-2xl" 
+           data-community-target="forum" 
+           data-fade-in-target="item">
+        <div class="flex flex-col items-center text-center mb-6">
+          <div class="w-20 h-20 bg-gradient-to-br from-medgemma-500 via-purple-600 to-indigo-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:rotate-3">
+            <i class="fas fa-heart text-3xl text-white"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">Patient Support</h3>
+          <p class="text-gray-600 leading-relaxed mb-6">Share experiences, find emotional support, and connect with others on similar healthcare journeys.</p>
+        </div>
+        
+        <!-- Forum stats -->
+        <div class="grid grid-cols-2 gap-4 mb-6">
+          <div class="bg-white/60 backdrop-blur-sm rounded-xl p-4 text-center border border-medgemma-100">
+            <div class="text-2xl font-bold text-medgemma-700" data-community-target="topicCount">1,247</div>
+            <div class="text-sm text-gray-600">Active Topics</div>
+          </div>
+          <div class="bg-white/60 backdrop-blur-sm rounded-xl p-4 text-center border border-purple-100">
+            <div class="text-2xl font-bold text-purple-700">18.5k</div>
+            <div class="text-sm text-gray-600">Members</div>
+          </div>
+        </div>
+        
+        <!-- Quick stats -->
+        <div class="space-y-3 mb-6">
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-gray-600 font-medium">New posts today</span>
+            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full font-semibold">42</span>
+          </div>
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-gray-600 font-medium">Response rate</span>
+            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">96%</span>
+          </div>
+        </div>
+        
+        <!-- Action buttons -->
+        <div class="flex flex-col gap-3">
+          <a href="#" class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-medgemma-500 via-purple-600 to-indigo-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <i class="fas fa-sign-in-alt mr-2"></i>
+            Visit Forum
+          </a>
+          <button type="button" 
+                  class="inline-flex items-center justify-center px-6 py-3 bg-white border-2 border-medgemma-200 text-medgemma-700 font-bold rounded-xl hover:border-medgemma-300 hover:shadow-lg transition-all duration-300"
+                  data-action="community#joinForum">
+            <i class="fas fa-user-plus mr-2"></i>
+            Join Community
+          </button>
+        </div>
+      </div>
+      
+      <!-- Healthcare Professionals Forum -->
+      <div class="bg-gradient-to-br from-white via-teal-25 to-blue-25 rounded-3xl shadow-xl p-8 border border-teal-100 hover:border-teal-200 transition-all duration-500 group hover:scale-105 hover:shadow-2xl" 
+           data-community-target="forum" 
+           data-fade-in-target="item">
+        <div class="flex flex-col items-center text-center mb-6">
+          <div class="w-20 h-20 bg-gradient-to-br from-teal-500 via-blue-600 to-indigo-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:rotate-3">
+            <i class="fas fa-user-md text-3xl text-white"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">Healthcare Professionals</h3>
+          <p class="text-gray-600 leading-relaxed mb-6">Connect with fellow healthcare providers, share best practices, and discuss AI integration strategies.</p>
+        </div>
+        
+        <!-- Forum stats -->
+        <div class="grid grid-cols-2 gap-4 mb-6">
+          <div class="bg-white/60 backdrop-blur-sm rounded-xl p-4 text-center border border-teal-100">
+            <div class="text-2xl font-bold text-teal-700" data-community-target="topicCount">892</div>
+            <div class="text-sm text-gray-600">Active Topics</div>
+          </div>
+          <div class="bg-white/60 backdrop-blur-sm rounded-xl p-4 text-center border border-blue-100">
+            <div class="text-2xl font-bold text-blue-700">12.3k</div>
+            <div class="text-sm text-gray-600">Verified Members</div>
+          </div>
+        </div>
+        
+        <!-- Quick stats -->
+        <div class="space-y-3 mb-6">
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-gray-600 font-medium">Board certified</span>
+            <span class="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full font-semibold">98%</span>
+          </div>
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-gray-600 font-medium">Avg. experience</span>
+            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full font-semibold">12+ years</span>
+          </div>
+        </div>
+        
+        <!-- Action buttons -->
+        <div class="flex flex-col gap-3">
+          <a href="#" class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-teal-500 via-blue-600 to-indigo-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <i class="fas fa-stethoscope mr-2"></i>
+            Visit Forum
+          </a>
+          <button type="button" 
+                  class="inline-flex items-center justify-center px-6 py-3 bg-white border-2 border-teal-200 text-teal-700 font-bold rounded-xl hover:border-teal-300 hover:shadow-lg transition-all duration-300"
+                  data-action="community#joinForum">
+            <i class="fas fa-user-plus mr-2"></i>
+            Join Network
+          </button>
+        </div>
+      </div>
+      
+      <!-- Developers & Innovation Forum -->
+      <div class="bg-gradient-to-br from-white via-purple-25 to-pink-25 rounded-3xl shadow-xl p-8 border border-purple-100 hover:border-purple-200 transition-all duration-500 group hover:scale-105 hover:shadow-2xl" 
+           data-community-target="forum" 
+           data-fade-in-target="item">
+        <div class="flex flex-col items-center text-center mb-6">
+          <div class="w-20 h-20 bg-gradient-to-br from-purple-500 via-pink-600 to-rose-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:rotate-3">
+            <i class="fas fa-code text-3xl text-white"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">Developers & Innovation</h3>
+          <p class="text-gray-600 leading-relaxed mb-6">Build the future of healthcare technology together. Share code, discuss APIs, and collaborate on innovations.</p>
+        </div>
+        
+        <!-- Forum stats -->
+        <div class="grid grid-cols-2 gap-4 mb-6">
+          <div class="bg-white/60 backdrop-blur-sm rounded-xl p-4 text-center border border-purple-100">
+            <div class="text-2xl font-bold text-purple-700" data-community-target="topicCount">564</div>
+            <div class="text-sm text-gray-600">Active Topics</div>
+          </div>
+          <div class="bg-white/60 backdrop-blur-sm rounded-xl p-4 text-center border border-pink-100">
+            <div class="text-2xl font-bold text-pink-700">8.7k</div>
+            <div class="text-sm text-gray-600">Developers</div>
+          </div>
+        </div>
+        
+        <!-- Quick stats -->
+        <div class="space-y-3 mb-6">
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-gray-600 font-medium">Open source projects</span>
+            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full font-semibold">127</span>
+          </div>
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-gray-600 font-medium">API integrations</span>
+            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">2.3k</span>
+          </div>
+        </div>
+        
+        <!-- Action buttons -->
+        <div class="flex flex-col gap-3">
+          <a href="#" class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-purple-500 via-pink-600 to-rose-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <i class="fas fa-terminal mr-2"></i>
+            Visit Forum
+          </a>
+          <button type="button" 
+                  class="inline-flex items-center justify-center px-6 py-3 bg-white border-2 border-purple-200 text-purple-700 font-bold rounded-xl hover:border-purple-300 hover:shadow-lg transition-all duration-300"
+                  data-action="community#joinForum">
+            <i class="fas fa-user-plus mr-2"></i>
+            Join Developers
+          </button>
+        </div>
+      </div>
+      
+      <!-- Research & Clinical Trials Forum -->
+      <div class="bg-gradient-to-br from-white via-emerald-25 to-teal-25 rounded-3xl shadow-xl p-8 border border-emerald-100 hover:border-emerald-200 transition-all duration-500 group hover:scale-105 hover:shadow-2xl" 
+           data-community-target="forum" 
+           data-fade-in-target="item">
+        <div class="flex flex-col items-center text-center mb-6">
+          <div class="w-20 h-20 bg-gradient-to-br from-emerald-500 via-teal-600 to-blue-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:rotate-3">
+            <i class="fas fa-microscope text-3xl text-white"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">Research & Clinical Trials</h3>
+          <p class="text-gray-600 leading-relaxed mb-6">Participate in cutting-edge research, join clinical trials, and contribute to healthcare advancement.</p>
+        </div>
+        
+        <!-- Forum stats -->
+        <div class="grid grid-cols-2 gap-4 mb-6">
+          <div class="bg-white/60 backdrop-blur-sm rounded-xl p-4 text-center border border-emerald-100">
+            <div class="text-2xl font-bold text-emerald-700" data-community-target="topicCount">347</div>
+            <div class="text-sm text-gray-600">Active Studies</div>
+          </div>
+          <div class="bg-white/60 backdrop-blur-sm rounded-xl p-4 text-center border border-teal-100">
+            <div class="text-2xl font-bold text-teal-700">5.2k</div>
+            <div class="text-sm text-gray-600">Participants</div>
+          </div>
+        </div>
+        
+        <!-- Quick stats -->
+        <div class="space-y-3 mb-6">
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-gray-600 font-medium">Published papers</span>
+            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">89</span>
+          </div>
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-gray-600 font-medium">IRB approved</span>
+            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full font-semibold">100%</span>
+          </div>
+        </div>
+        
+        <!-- Action buttons -->
+        <div class="flex flex-col gap-3">
+          <a href="#" class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-emerald-500 via-teal-600 to-blue-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <i class="fas fa-flask mr-2"></i>
+            Visit Forum
+          </a>
+          <button type="button" 
+                  class="inline-flex items-center justify-center px-6 py-3 bg-white border-2 border-emerald-200 text-emerald-700 font-bold rounded-xl hover:border-emerald-300 hover:shadow-lg transition-all duration-300"
+                  data-action="community#joinForum">
+            <i class="fas fa-user-plus mr-2"></i>
+            Join Research
+          </button>
+        </div>
+      </div>
+      
+      <!-- Wellness & Prevention Forum -->
+      <div class="bg-gradient-to-br from-white via-yellow-25 to-orange-25 rounded-3xl shadow-xl p-8 border border-yellow-100 hover:border-yellow-200 transition-all duration-500 group hover:scale-105 hover:shadow-2xl" 
+           data-community-target="forum" 
+           data-fade-in-target="item">
+        <div class="flex flex-col items-center text-center mb-6">
+          <div class="w-20 h-20 bg-gradient-to-br from-yellow-500 via-orange-600 to-red-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:rotate-3">
+            <i class="fas fa-leaf text-3xl text-white"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">Wellness & Prevention</h3>
+          <p class="text-gray-600 leading-relaxed mb-6">Focus on preventive care, wellness strategies, and healthy lifestyle discussions for optimal health.</p>
+        </div>
+        
+        <!-- Forum stats -->
+        <div class="grid grid-cols-2 gap-4 mb-6">
+          <div class="bg-white/60 backdrop-blur-sm rounded-xl p-4 text-center border border-yellow-100">
+            <div class="text-2xl font-bold text-yellow-700" data-community-target="topicCount">789</div>
+            <div class="text-sm text-gray-600">Wellness Topics</div>
+          </div>
+          <div class="bg-white/60 backdrop-blur-sm rounded-xl p-4 text-center border border-orange-100">
+            <div class="text-2xl font-bold text-orange-700">14.1k</div>
+            <div class="text-sm text-gray-600">Wellness Warriors</div>
+          </div>
+        </div>
+        
+        <!-- Quick stats -->
+        <div class="space-y-3 mb-6">
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-gray-600 font-medium">Success stories</span>
+            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full font-semibold">1.2k</span>
+          </div>
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-gray-600 font-medium">Expert advice</span>
+            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">Daily</span>
+          </div>
+        </div>
+        
+        <!-- Action buttons -->
+        <div class="flex flex-col gap-3">
+          <a href="#" class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-yellow-500 via-orange-600 to-red-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <i class="fas fa-heartbeat mr-2"></i>
+            Visit Forum
+          </a>
+          <button type="button" 
+                  class="inline-flex items-center justify-center px-6 py-3 bg-white border-2 border-yellow-200 text-yellow-700 font-bold rounded-xl hover:border-yellow-300 hover:shadow-lg transition-all duration-300"
+                  data-action="community#joinForum">
+            <i class="fas fa-user-plus mr-2"></i>
+            Join Wellness
+          </button>
+        </div>
+      </div>
+      
+      <!-- General Discussion Forum -->
+      <div class="bg-gradient-to-br from-white via-indigo-25 to-blue-25 rounded-3xl shadow-xl p-8 border border-indigo-100 hover:border-indigo-200 transition-all duration-500 group hover:scale-105 hover:shadow-2xl" 
+           data-community-target="forum" 
+           data-fade-in-target="item">
+        <div class="flex flex-col items-center text-center mb-6">
+          <div class="w-20 h-20 bg-gradient-to-br from-indigo-500 via-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:rotate-3">
+            <i class="fas fa-comments-alt text-3xl text-white"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">General Discussion</h3>
+          <p class="text-gray-600 leading-relaxed mb-6">Open forum for all healthcare-related discussions, questions, and community announcements.</p>
+        </div>
+        
+        <!-- Forum stats -->
+        <div class="grid grid-cols-2 gap-4 mb-6">
+          <div class="bg-white/60 backdrop-blur-sm rounded-xl p-4 text-center border border-indigo-100">
+            <div class="text-2xl font-bold text-indigo-700" data-community-target="topicCount">1,456</div>
+            <div class="text-sm text-gray-600">Open Topics</div>
+          </div>
+          <div class="bg-white/60 backdrop-blur-sm rounded-xl p-4 text-center border border-blue-100">
+            <div class="text-2xl font-bold text-blue-700">22.8k</div>
+            <div class="text-sm text-gray-600">Active Members</div>
+          </div>
+        </div>
+        
+        <!-- Quick stats -->
+        <div class="space-y-3 mb-6">
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-gray-600 font-medium">Posts today</span>
+            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full font-semibold">156</span>
+          </div>
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-gray-600 font-medium">Most welcoming</span>
+            <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full font-semibold">⭐ 4.9/5</span>
+          </div>
+        </div>
+        
+        <!-- Action buttons -->
+        <div class="flex flex-col gap-3">
+          <a href="#" class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-indigo-500 via-blue-600 to-purple-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <i class="fas fa-comments mr-2"></i>
+            Visit Forum
+          </a>
+          <button type="button" 
+                  class="inline-flex items-center justify-center px-6 py-3 bg-white border-2 border-indigo-200 text-indigo-700 font-bold rounded-xl hover:border-indigo-300 hover:shadow-lg transition-all duration-300"
+                  data-action="community#joinForum">
+            <i class="fas fa-user-plus mr-2"></i>
+            Join Discussion
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Community guidelines callout -->
+    <div class="bg-gradient-to-r from-medgemma-50 via-purple-50 to-indigo-50 rounded-3xl p-8 lg:p-12 border border-medgemma-200 shadow-lg">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-center">
+        <div class="lg:col-span-2">
+          <h3 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
+            <span class="bg-gradient-to-r from-medgemma-600 to-purple-600 bg-clip-text text-transparent">Safe & Supportive</span>
+            Community Guidelines
+          </h3>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Our community is built on respect, empathy, and evidence-based discussions. All conversations are moderated by healthcare professionals to ensure quality and safety.
+          </p>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="flex items-center">
+              <div class="w-10 h-10 bg-gradient-to-r from-green-100 to-emerald-100 rounded-full flex items-center justify-center mr-3">
+                <i class="fas fa-shield-check text-green-600"></i>
+              </div>
+              <span class="text-gray-700 font-medium">HIPAA Compliant</span>
             </div>
-            <div class="flex-1 text-center sm:text-left">
-              <h3 class="text-xl font-bold text-gray-900 mb-2"><%= forum[:name] %></h3>
-              <div class="flex flex-col sm:flex-row sm:items-center text-gray-600 sm:space-x-6 space-y-2 sm:space-y-0">
-                <div class="flex items-center">
-                  <i class="fas fa-comments text-gray-400 mr-2"></i>
-                  <span data-community-target="topicCount"><%= forum[:topic_count] %> topics</span>
-                </div>
-                <div class="flex items-center">
-                  <i class="fas fa-users text-gray-400 mr-2"></i>
-                  <span class="member-count"><%= forum[:member_count] %></span>
-                  <span class="ml-1">members</span>
-                </div>
+            <div class="flex items-center">
+              <div class="w-10 h-10 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-full flex items-center justify-center mr-3">
+                <i class="fas fa-user-md text-blue-600"></i>
               </div>
-              <div class="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
-                <a href="#" class="inline-flex items-center justify-center px-5 py-2 border border-purple-200 text-purple-700 font-medium rounded-lg transition-colors hover:bg-purple-50">
-                  Visit Forum
-                  <i class="fas fa-arrow-right ml-2 text-xs"></i>
-                </a>
-                <button type="button" 
-                        class="inline-flex items-center justify-center px-5 py-2 bg-purple-100 hover:bg-purple-200 text-purple-700 font-medium rounded-lg transition-colors"
-                        data-action="community#joinForum">
-                  <i class="fas fa-user-plus mr-2"></i>
-                  Join
-                </button>
+              <span class="text-gray-700 font-medium">Expert Moderated</span>
+            </div>
+            <div class="flex items-center">
+              <div class="w-10 h-10 bg-gradient-to-r from-purple-100 to-pink-100 rounded-full flex items-center justify-center mr-3">
+                <i class="fas fa-heart text-purple-600"></i>
               </div>
+              <span class="text-gray-700 font-medium">Supportive Environment</span>
+            </div>
+            <div class="flex items-center">
+              <div class="w-10 h-10 bg-gradient-to-r from-yellow-100 to-orange-100 rounded-full flex items-center justify-center mr-3">
+                <i class="fas fa-clock text-yellow-600"></i>
+              </div>
+              <span class="text-gray-700 font-medium">24/7 Monitoring</span>
             </div>
           </div>
         </div>
-      <% end %>
+        <div class="text-center lg:text-right">
+          <div class="inline-flex flex-col items-center lg:items-end">
+            <div class="w-24 h-24 bg-gradient-to-r from-medgemma-500 via-purple-600 to-indigo-600 rounded-3xl flex items-center justify-center mb-4 shadow-lg">
+              <i class="fas fa-users-medical text-white text-3xl"></i>
+            </div>
+            <a href="/community-guidelines" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-medgemma-500 via-purple-600 to-indigo-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <i class="fas fa-book-open mr-2"></i>
+              Read Guidelines
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Featured Discussions -->
-<section class="py-16 bg-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-8">
-      <h2 class="text-3xl font-bold text-gray-900 mb-4">Featured Discussions</h2>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-        Explore the most popular and insightful conversations happening in our community right now.
+<!-- Enhanced Featured Discussions -->
+<section id="discussions" class="py-20 bg-gradient-to-br from-white via-gray-50 to-purple-25 relative overflow-hidden" data-controller="community fade-in analytics" data-analytics-section-value="discussions">
+  <!-- Background decorations -->
+  <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-100/20 to-pink-100/30 rounded-full translate-x-1/3 -translate-y-1/3"></div>
+  <div class="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-blue-100/20 to-teal-100/30 rounded-full -translate-x-1/4 translate-y-1/4"></div>
+  
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Enhanced section header -->
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-50 via-pink-50 to-indigo-50 border border-purple-200/50 rounded-full mb-8 shadow-lg">
+        <div class="w-10 h-10 bg-gradient-to-r from-purple-500 via-pink-600 to-indigo-600 rounded-full flex items-center justify-center mr-4">
+          <i class="fas fa-fire text-white text-lg"></i>
+        </div>
+        <span class="text-base font-bold bg-gradient-to-r from-purple-700 via-pink-700 to-indigo-700 bg-clip-text text-transparent">Trending Discussions</span>
+        <div class="ml-4 px-3 py-1 bg-gradient-to-r from-orange-100 to-red-100 rounded-full">
+          <span class="text-sm font-semibold text-orange-700">Hot 🔥</span>
+        </div>
+      </div>
+      
+      <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+        <span class="bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 bg-clip-text text-transparent">Featured Discussions</span>
+        <br>& Community Insights
+      </h2>
+      
+      <p class="text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+        Explore the most popular and insightful conversations happening in our community right now. Join the discussions that matter most.
       </p>
     </div>
     
-    <div class="mb-8 flex flex-wrap justify-center gap-2">
-      <button type="button" class="px-4 py-2 bg-purple-100 text-purple-800 text-sm font-medium rounded-full"
+    <!-- Enhanced filter tabs -->
+    <div class="mb-12 flex flex-wrap justify-center gap-3">
+      <button type="button" class="group px-6 py-3 bg-gradient-to-r from-purple-500 via-pink-600 to-indigo-600 text-white text-sm font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
               data-category="all" data-action="click->community#filterDiscussions">
+        <i class="fas fa-comments mr-2 group-hover:animate-pulse"></i>
         All Discussions
       </button>
-      <button type="button" class="px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-full"
+      <button type="button" class="px-6 py-3 bg-white border-2 border-purple-200 text-purple-700 text-sm font-bold rounded-full hover:border-purple-300 hover:shadow-lg transition-all duration-300 hover:scale-105"
               data-category="patient" data-action="click->community#filterDiscussions">
+        <i class="fas fa-heart mr-2 text-purple-600"></i>
         Patient Experiences
       </button>
-      <button type="button" class="px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-full"
+      <button type="button" class="px-6 py-3 bg-white border-2 border-blue-200 text-blue-700 text-sm font-bold rounded-full hover:border-blue-300 hover:shadow-lg transition-all duration-300 hover:scale-105"
               data-category="feature" data-action="click->community#filterDiscussions">
+        <i class="fas fa-lightbulb mr-2 text-blue-600"></i>
         Feature Requests
       </button>
-      <button type="button" class="px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-full"
+      <button type="button" class="px-6 py-3 bg-white border-2 border-emerald-200 text-emerald-700 text-sm font-bold rounded-full hover:border-emerald-300 hover:shadow-lg transition-all duration-300 hover:scale-105"
               data-category="technical" data-action="click->community#filterDiscussions">
+        <i class="fas fa-tools mr-2 text-emerald-600"></i>
         Technical Support
       </button>
+      <button type="button" class="px-6 py-3 bg-white border-2 border-yellow-200 text-yellow-700 text-sm font-bold rounded-full hover:border-yellow-300 hover:shadow-lg transition-all duration-300 hover:scale-105"
+              data-category="research" data-action="click->community#filterDiscussions">
+        <i class="fas fa-microscope mr-2 text-yellow-600"></i>
+        Research & Studies
+      </button>
     </div>
-    
-    <div class="space-y-6">
-      <% @featured_discussions.each_with_index do |discussion, index| %>
-        <% 
-          # Assign categories for demo filtering functionality
-          categories = ["patient", "feature", "technical"]
-          category = categories[index % categories.length]
-        %>
-        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:border-purple-200 transition-all" 
-             data-controller="fade-in" 
-             data-community-target="discussion"
-             data-category="<%= category %>">
-          <div class="flex flex-col sm:flex-row sm:items-start sm:space-x-4">
-            <div class="flex-shrink-0 mb-4 sm:mb-0 mx-auto sm:mx-0">
-              <img src="<%= discussion[:avatar_url] %>" alt="<%= discussion[:author] %>" class="w-12 h-12 rounded-full">
-            </div>
-            <div class="flex-1 min-w-0 text-center sm:text-left">
-              <h3 class="text-lg font-semibold text-gray-900 mb-1">
-                <a href="#" class="hover:text-purple-600"><%= discussion[:title] %></a>
+    <!-- Enhanced discussion cards -->
+    <div class="grid lg:grid-cols-2 gap-8 mb-16">
+      <!-- Sample featured discussions with modern design -->
+      <div class="bg-gradient-to-br from-white via-purple-25 to-pink-25 rounded-3xl shadow-xl p-8 border border-purple-100 hover:border-purple-200 transition-all duration-500 group hover:scale-105 hover:shadow-2xl" 
+           data-community-target="discussion"
+           data-category="patient"
+           data-fade-in-target="item">
+        <div class="flex items-start space-x-4 mb-6">
+          <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
+            <span class="text-white font-bold text-xl">SH</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-xl font-bold text-gray-900 group-hover:text-purple-700 transition-colors">
+                How MedGemma Helped Manage My Chronic Condition
               </h3>
-              <p class="text-sm text-gray-500">
-                Posted by <span class="font-medium text-gray-700"><%= discussion[:author] %></span> • <%= time_ago_in_words(discussion[:date]) %> ago
-              </p>
-              <div class="mt-3 flex flex-wrap justify-center sm:justify-start gap-4 sm:gap-6 text-sm">
-                <div class="flex items-center text-gray-500">
-                  <i class="fas fa-comment-alt mr-2 text-gray-400"></i>
-                  <span data-community-target="replyCount"><%= discussion[:reply_count] %> replies</span>
-                </div>
-                <div class="flex items-center text-gray-500">
-                  <i class="fas fa-eye mr-2 text-gray-400"></i>
-                  <span data-community-target="viewCount"><%= discussion[:view_count] %> views</span>
-                </div>
-                <button class="flex items-center text-gray-500 hover:text-red-500" data-action="community#likeDiscussion">
-                  <i class="far fa-heart mr-2"></i>
-                  <span><%= rand(5..25) %></span>
+              <div class="flex items-center space-x-2">
+                <span class="px-3 py-1 bg-purple-100 text-purple-800 text-xs font-bold rounded-full">Patient Story</span>
+                <button class="text-gray-400 hover:text-red-500 transition-colors" data-action="community#likeDiscussion">
+                  <i class="far fa-heart"></i>
                 </button>
               </div>
-              
-              <div class="mt-4 sm:hidden flex justify-center">
-                <a href="#" class="inline-flex items-center px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-lg transition-colors">
-                  View Thread
-                </a>
-              </div>
             </div>
-            <div class="flex-shrink-0 hidden sm:block">
-              <a href="#" class="inline-flex items-center px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-lg transition-colors">
-                View Thread
-              </a>
-            </div>
+            <p class="text-gray-600 font-medium mb-1">By Sarah H. • Healthcare Patient</p>
+            <p class="text-sm text-gray-500">Posted 2 hours ago in Patient Support</p>
           </div>
         </div>
-      <% end %>
+        
+        <p class="text-gray-700 leading-relaxed mb-6">
+          "After struggling with diabetes management for years, MedGemma's AI-powered insights transformed my daily routine. The personalized recommendations and continuous monitoring features gave me the confidence to take control of my health..."
+        </p>
+        
+        <div class="grid grid-cols-3 gap-4 mb-6">
+          <div class="bg-white/60 backdrop-blur-sm rounded-xl p-3 text-center border border-purple-100">
+            <div class="text-lg font-bold text-purple-700">47</div>
+            <div class="text-xs text-gray-600">Replies</div>
+          </div>
+          <div class="bg-white/60 backdrop-blur-sm rounded-xl p-3 text-center border border-pink-100">
+            <div class="text-lg font-bold text-pink-700">1.2k</div>
+            <div class="text-xs text-gray-600">Views</div>
+          </div>
+          <div class="bg-white/60 backdrop-blur-sm rounded-xl p-3 text-center border border-red-100">
+            <div class="text-lg font-bold text-red-700">89</div>
+            <div class="text-xs text-gray-600">Hearts</div>
+          </div>
+        </div>
+        
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-3">
+            <div class="flex items-center text-green-600">
+              <i class="fas fa-circle text-xs mr-2"></i>
+              <span class="text-sm font-medium">Active Discussion</span>
+            </div>
+            <div class="flex items-center text-gray-500">
+              <i class="fas fa-clock text-xs mr-2"></i>
+              <span class="text-sm">Last reply 8 min ago</span>
+            </div>
+          </div>
+          <a href="#" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <i class="fas fa-comment-dots mr-2"></i>
+            Join Discussion
+          </a>
+        </div>
+      </div>
       
-      <div class="text-center mt-10">
-        <a href="#" class="inline-flex items-center px-6 py-3 bg-white border border-purple-500 text-purple-600 font-medium rounded-lg shadow-sm hover:shadow hover:bg-purple-50 transition-all">
-          View All Discussions
-          <i class="fas fa-arrow-right ml-2"></i>
-        </a>
+      <div class="bg-gradient-to-br from-white via-blue-25 to-teal-25 rounded-3xl shadow-xl p-8 border border-blue-100 hover:border-blue-200 transition-all duration-500 group hover:scale-105 hover:shadow-2xl" 
+           data-community-target="discussion"
+           data-category="feature"
+           data-fade-in-target="item">
+        <div class="flex items-start space-x-4 mb-6">
+          <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-teal-500 rounded-2xl flex items-center justify-center shadow-lg">
+            <span class="text-white font-bold text-xl">DM</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors">
+                Feature Request: Advanced Analytics Dashboard
+              </h3>
+              <div class="flex items-center space-x-2">
+                <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-bold rounded-full">Feature Request</span>
+                <span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-bold rounded-full">In Progress</span>
+              </div>
+            </div>
+            <p class="text-gray-600 font-medium mb-1">By Dr. Michael R. • Cardiologist</p>
+            <p class="text-sm text-gray-500">Posted 6 hours ago in Feature Requests</p>
+          </div>
+        </div>
+        
+        <p class="text-gray-700 leading-relaxed mb-6">
+          "Would love to see more detailed analytics for patient trends over time. The current dashboard is great, but having predictive insights and comparative analysis tools would help us make better treatment decisions..."
+        </p>
+        
+        <div class="grid grid-cols-3 gap-4 mb-6">
+          <div class="bg-white/60 backdrop-blur-sm rounded-xl p-3 text-center border border-blue-100">
+            <div class="text-lg font-bold text-blue-700">23</div>
+            <div class="text-xs text-gray-600">Replies</div>
+          </div>
+          <div class="bg-white/60 backdrop-blur-sm rounded-xl p-3 text-center border border-teal-100">
+            <div class="text-lg font-bold text-teal-700">847</div>
+            <div class="text-xs text-gray-600">Views</div>
+          </div>
+          <div class="bg-white/60 backdrop-blur-sm rounded-xl p-3 text-center border border-emerald-100">
+            <div class="text-lg font-bold text-emerald-700">156</div>
+            <div class="text-xs text-gray-600">Votes</div>
+          </div>
+        </div>
+        
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-3">
+            <div class="flex items-center text-orange-600">
+              <i class="fas fa-tools text-xs mr-2"></i>
+              <span class="text-sm font-medium">Under Development</span>
+            </div>
+            <div class="flex items-center text-gray-500">
+              <i class="fas fa-users text-xs mr-2"></i>
+              <span class="text-sm">Dev team engaged</span>
+            </div>
+          </div>
+          <a href="#" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-500 to-teal-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <i class="fas fa-vote-yea mr-2"></i>
+            Vote & Discuss
+          </a>
+        </div>
+      </div>
+      
+      <div class="bg-gradient-to-br from-white via-emerald-25 to-teal-25 rounded-3xl shadow-xl p-8 border border-emerald-100 hover:border-emerald-200 transition-all duration-500 group hover:scale-105 hover:shadow-2xl" 
+           data-community-target="discussion"
+           data-category="technical"
+           data-fade-in-target="item">
+        <div class="flex items-start space-x-4 mb-6">
+          <div class="w-16 h-16 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-2xl flex items-center justify-center shadow-lg">
+            <span class="text-white font-bold text-xl">AL</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-xl font-bold text-gray-900 group-hover:text-emerald-700 transition-colors">
+                API Integration Best Practices Discussion
+              </h3>
+              <div class="flex items-center space-x-2">
+                <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full">Technical</span>
+                <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-bold rounded-full">Solved</span>
+              </div>
+            </div>
+            <p class="text-gray-600 font-medium mb-1">By Alex L. • Senior Developer</p>
+            <p class="text-sm text-gray-500">Posted 1 day ago in Technical Support</p>
+          </div>
+        </div>
+        
+        <p class="text-gray-700 leading-relaxed mb-6">
+          "Sharing some lessons learned from integrating the MedGemma API into our hospital's EMR system. Here are the key considerations for authentication, rate limiting, and error handling that saved us weeks of debugging..."
+        </p>
+        
+        <div class="grid grid-cols-3 gap-4 mb-6">
+          <div class="bg-white/60 backdrop-blur-sm rounded-xl p-3 text-center border border-emerald-100">
+            <div class="text-lg font-bold text-emerald-700">34</div>
+            <div class="text-xs text-gray-600">Replies</div>
+          </div>
+          <div class="bg-white/60 backdrop-blur-sm rounded-xl p-3 text-center border border-teal-100">
+            <div class="text-lg font-bold text-teal-700">692</div>
+            <div class="text-xs text-gray-600">Views</div>
+          </div>
+          <div class="bg-white/60 backdrop-blur-sm rounded-xl p-3 text-center border border-green-100">
+            <div class="text-lg font-bold text-green-700">67</div>
+            <div class="text-xs text-gray-600">Helpful</div>
+          </div>
+        </div>
+        
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-3">
+            <div class="flex items-center text-green-600">
+              <i class="fas fa-check-circle text-xs mr-2"></i>
+              <span class="text-sm font-medium">Solution Accepted</span>
+            </div>
+            <div class="flex items-center text-gray-500">
+              <i class="fas fa-bookmark text-xs mr-2"></i>
+              <span class="text-sm">47 bookmarks</span>
+            </div>
+          </div>
+          <a href="#" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <i class="fas fa-code mr-2"></i>
+            View Solution
+          </a>
+        </div>
+      </div>
+      
+      <div class="bg-gradient-to-br from-white via-yellow-25 to-orange-25 rounded-3xl shadow-xl p-8 border border-yellow-100 hover:border-yellow-200 transition-all duration-500 group hover:scale-105 hover:shadow-2xl" 
+           data-community-target="discussion"
+           data-category="research"
+           data-fade-in-target="item">
+        <div class="flex items-start space-x-4 mb-6">
+          <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg">
+            <span class="text-white font-bold text-xl">DR</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-xl font-bold text-gray-900 group-hover:text-yellow-700 transition-colors">
+                Clinical Study: AI Diagnostic Accuracy Results
+              </h3>
+              <div class="flex items-center space-x-2">
+                <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-xs font-bold rounded-full">Research</span>
+                <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs font-bold rounded-full">Peer Reviewed</span>
+              </div>
+            </div>
+            <p class="text-gray-600 font-medium mb-1">By Dr. Rachel K. • Research Director</p>
+            <p class="text-sm text-gray-500">Posted 3 days ago in Research & Clinical Trials</p>
+          </div>
+        </div>
+        
+        <p class="text-gray-700 leading-relaxed mb-6">
+          "Excited to share preliminary results from our 6-month study comparing AI diagnostic accuracy with traditional methods. MedGemma's AI achieved 94.7% accuracy across 2,847 cases. Full paper will be published in NEJM next month..."
+        </p>
+        
+        <div class="grid grid-cols-3 gap-4 mb-6">
+          <div class="bg-white/60 backdrop-blur-sm rounded-xl p-3 text-center border border-yellow-100">
+            <div class="text-lg font-bold text-yellow-700">78</div>
+            <div class="text-xs text-gray-600">Replies</div>
+          </div>
+          <div class="bg-white/60 backdrop-blur-sm rounded-xl p-3 text-center border border-orange-100">
+            <div class="text-lg font-bold text-orange-700">2.1k</div>
+            <div class="text-xs text-gray-600">Views</div>
+          </div>
+          <div class="bg-white/60 backdrop-blur-sm rounded-xl p-3 text-center border border-red-100">
+            <div class="text-lg font-bold text-red-700">234</div>
+            <div class="text-xs text-gray-600">Citations</div>
+          </div>
+        </div>
+        
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-3">
+            <div class="flex items-center text-purple-600">
+              <i class="fas fa-award text-xs mr-2"></i>
+              <span class="text-sm font-medium">Peer Reviewed</span>
+            </div>
+            <div class="flex items-center text-gray-500">
+              <i class="fas fa-download text-xs mr-2"></i>
+              <span class="text-sm">PDF available</span>
+            </div>
+          </div>
+          <a href="#" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-yellow-500 to-orange-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <i class="fas fa-microscope mr-2"></i>
+            Read Study
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- View all discussions CTA -->
+    <div class="text-center">
+      <div class="inline-flex flex-col items-center p-8 bg-gradient-to-br from-white via-purple-25 to-indigo-25 rounded-3xl shadow-lg border border-purple-100 max-w-2xl mx-auto">
+        <div class="w-16 h-16 bg-gradient-to-r from-purple-500 via-pink-600 to-indigo-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+          <i class="fas fa-comments text-white text-2xl"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Join the Conversation</h3>
+        <p class="text-gray-600 mb-6 text-center leading-relaxed">
+          Discover thousands more discussions across all our community forums. Share your expertise, ask questions, and connect with fellow healthcare innovators.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-500 via-pink-600 to-indigo-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <i class="fas fa-comments mr-2"></i>
+            View All Discussions
+          </a>
+          <a href="#" class="inline-flex items-center px-6 py-3 bg-white border-2 border-purple-200 text-purple-700 font-bold rounded-xl hover:border-purple-300 hover:shadow-lg transition-all duration-300 hover:scale-105">
+            <i class="fas fa-plus mr-2"></i>
+            Start New Discussion
+          </a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Events -->
-<section id="events" class="py-16 bg-gray-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16">
-      <h2 class="text-3xl font-bold text-gray-900 mb-4">Upcoming Events</h2>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-        Join our webinars, workshops, and virtual meetups to learn from experts and connect with the community.
+<!-- Enhanced Events Section -->
+<section id="events" class="py-20 bg-gradient-to-br from-indigo-50 via-white to-blue-25 relative overflow-hidden" data-controller="community fade-in analytics" data-analytics-section-value="events">
+  <!-- Background decorations -->
+  <div class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-indigo-100/20 to-blue-100/30 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+  <div class="absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-tl from-purple-100/20 to-pink-100/30 rounded-full translate-x-1/3 translate-y-1/3"></div>
+  <div class="absolute top-1/2 left-1/4 w-32 h-32 bg-gradient-to-br from-teal-100/20 to-emerald-100/30 rounded-full animate-float-community"></div>
+  
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Enhanced section header -->
+    <div class="text-center mb-20">
+      <div class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-indigo-50 via-blue-50 to-purple-50 border border-indigo-200/50 rounded-full mb-8 shadow-lg">
+        <div class="w-10 h-10 bg-gradient-to-r from-indigo-500 via-blue-600 to-purple-600 rounded-full flex items-center justify-center mr-4">
+          <i class="fas fa-calendar-star text-white text-lg"></i>
+        </div>
+        <span class="text-base font-bold bg-gradient-to-r from-indigo-700 via-blue-700 to-purple-700 bg-clip-text text-transparent">Community Events</span>
+        <div class="ml-4 px-3 py-1 bg-gradient-to-r from-green-100 to-emerald-100 rounded-full">
+          <span class="text-sm font-semibold text-green-700">Live Events</span>
+        </div>
+      </div>
+      
+      <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+        <span class="bg-gradient-to-r from-indigo-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">Upcoming Events</span>
+        <br>& Educational Webinars
+      </h2>
+      
+      <p class="text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+        Join our webinars, workshops, and virtual meetups to learn from experts, network with peers, and stay at the forefront of healthcare innovation.
       </p>
     </div>
     
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden" data-controller="fade-in">
-        <div class="h-48 bg-purple-100 flex items-center justify-center p-6">
-          <i class="fas fa-laptop-medical text-5xl text-purple-500"></i>
-        </div>
-        <div class="p-6">
-          <div class="flex items-center mb-4">
-            <div class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">Webinar</div>
-            <div class="text-sm text-gray-500 ml-auto">Jun 15, 2023</div>
+    <!-- Enhanced events grid -->
+    <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8 mb-16">
+      <!-- Featured Webinar -->
+      <div class="bg-gradient-to-br from-white via-indigo-25 to-purple-25 rounded-3xl shadow-xl overflow-hidden border border-indigo-100 hover:border-indigo-200 transition-all duration-500 group hover:scale-105 hover:shadow-2xl" 
+           data-fade-in-target="item">
+        <div class="relative h-48 bg-gradient-to-br from-indigo-500 via-blue-600 to-purple-600 flex items-center justify-center overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/80 via-blue-600/80 to-purple-600/80"></div>
+          <div class="relative text-center text-white z-10">
+            <i class="fas fa-laptop-medical text-5xl mb-4 group-hover:animate-pulse"></i>
+            <div class="text-xs font-bold bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full">
+              FEATURED WEBINAR
+            </div>
           </div>
-          <h3 class="text-lg font-bold text-gray-900 mb-2">AI in Healthcare Diagnostics</h3>
-          <p class="text-gray-600 text-sm mb-4">Learn how MedGemma's AI is transforming the diagnostic process for patients and providers.</p>
-          <a href="#" class="text-purple-600 hover:text-purple-700 font-medium inline-flex items-center">
-            Register Now
-            <i class="fas fa-arrow-right ml-1 text-xs"></i>
-          </a>
+          <div class="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+            LIVE
+          </div>
+        </div>
+        <div class="p-8">
+          <div class="flex items-center justify-between mb-4">
+            <div class="bg-indigo-100 text-indigo-800 text-xs font-bold px-3 py-1 rounded-full">Webinar</div>
+            <div class="text-sm text-gray-500 font-bold">May 28, 2025</div>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-indigo-700 transition-colors">
+            AI in Healthcare Diagnostics: The Future is Now
+          </h3>
+          <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+            Discover how MedGemma's cutting-edge AI is revolutionizing diagnostic accuracy and speed. Join our lead researchers for live demos and Q&A.
+          </p>
+          
+          <!-- Event details -->
+          <div class="space-y-3 mb-6">
+            <div class="flex items-center text-sm text-gray-600">
+              <i class="fas fa-clock mr-3 text-indigo-600"></i>
+              <span>2:00 PM - 3:30 PM EDT</span>
+            </div>
+            <div class="flex items-center text-sm text-gray-600">
+              <i class="fas fa-user-md mr-3 text-blue-600"></i>
+              <span>Dr. Sarah Chen, Chief Medical Officer</span>
+            </div>
+            <div class="flex items-center text-sm text-gray-600">
+              <i class="fas fa-users mr-3 text-purple-600"></i>
+              <span>847 registered • 23 spots left</span>
+            </div>
+          </div>
+          
+          <div class="flex flex-col gap-3">
+            <a href="#" class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-indigo-500 via-blue-600 to-purple-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <i class="fas fa-video mr-2"></i>
+              Join Live Webinar
+            </a>
+            <button type="button" class="inline-flex items-center justify-center px-6 py-3 bg-white border-2 border-indigo-200 text-indigo-700 font-bold rounded-xl hover:border-indigo-300 hover:shadow-lg transition-all duration-300">
+              <i class="fas fa-calendar-plus mr-2"></i>
+              Add to Calendar
+            </button>
+          </div>
         </div>
       </div>
       
-      <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden" data-controller="fade-in">
-        <div class="h-48 bg-blue-100 flex items-center justify-center p-6">
-          <i class="fas fa-code text-5xl text-blue-500"></i>
-        </div>
-        <div class="p-6">
-          <div class="flex items-center mb-4">
-            <div class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Workshop</div>
-            <div class="text-sm text-gray-500 ml-auto">Jun 22, 2023</div>
+      <!-- Developer Workshop -->
+      <div class="bg-gradient-to-br from-white via-emerald-25 to-teal-25 rounded-3xl shadow-xl overflow-hidden border border-emerald-100 hover:border-emerald-200 transition-all duration-500 group hover:scale-105 hover:shadow-2xl" 
+           data-fade-in-target="item">
+        <div class="relative h-48 bg-gradient-to-br from-emerald-500 via-teal-600 to-blue-600 flex items-center justify-center overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/80 via-teal-600/80 to-blue-600/80"></div>
+          <div class="relative text-center text-white z-10">
+            <i class="fas fa-code text-5xl mb-4 group-hover:animate-bounce"></i>
+            <div class="text-xs font-bold bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full">
+              HANDS-ON WORKSHOP
+            </div>
           </div>
-          <h3 class="text-lg font-bold text-gray-900 mb-2">Building with the MedGemma API</h3>
-          <p class="text-gray-600 text-sm mb-4">A hands-on workshop for developers looking to integrate healthcare solutions.</p>
-          <a href="#" class="text-purple-600 hover:text-purple-700 font-medium inline-flex items-center">
-            Register Now
-            <i class="fas fa-arrow-right ml-1 text-xs"></i>
-          </a>
+          <div class="absolute top-4 right-4 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+            HOT
+          </div>
+        </div>
+        <div class="p-8">
+          <div class="flex items-center justify-between mb-4">
+            <div class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">Workshop</div>
+            <div class="text-sm text-gray-500 font-bold">Jun 5, 2025</div>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-emerald-700 transition-colors">
+            Building with the MedGemma API
+          </h3>
+          <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+            A comprehensive hands-on workshop for developers looking to integrate healthcare AI solutions. Includes code examples and best practices.
+          </p>
+          
+          <!-- Event details -->
+          <div class="space-y-3 mb-6">
+            <div class="flex items-center text-sm text-gray-600">
+              <i class="fas fa-clock mr-3 text-emerald-600"></i>
+              <span>10:00 AM - 4:00 PM PDT</span>
+            </div>
+            <div class="flex items-center text-sm text-gray-600">
+              <i class="fas fa-code mr-3 text-teal-600"></i>
+              <span>Alex Rodriguez, Lead Developer</span>
+            </div>
+            <div class="flex items-center text-sm text-gray-600">
+              <i class="fas fa-laptop-code mr-3 text-blue-600"></i>
+              <span>Limited to 50 participants</span>
+            </div>
+          </div>
+          
+          <div class="flex flex-col gap-3">
+            <a href="#" class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-emerald-500 via-teal-600 to-blue-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <i class="fas fa-terminal mr-2"></i>
+              Register for Workshop
+            </a>
+            <button type="button" class="inline-flex items-center justify-center px-6 py-3 bg-white border-2 border-emerald-200 text-emerald-700 font-bold rounded-xl hover:border-emerald-300 hover:shadow-lg transition-all duration-300">
+              <i class="fas fa-download mr-2"></i>
+              Download Prerequisites
+            </button>
+          </div>
         </div>
       </div>
       
-      <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden" data-controller="fade-in">
-        <div class="h-48 bg-green-100 flex items-center justify-center p-6">
-          <i class="fas fa-users text-5xl text-green-500"></i>
-        </div>
-        <div class="p-6">
-          <div class="flex items-center mb-4">
-            <div class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Meetup</div>
-            <div class="text-sm text-gray-500 ml-auto">Jun 30, 2023</div>
+      <!-- Patient Meetup -->
+      <div class="bg-gradient-to-br from-white via-pink-25 to-purple-25 rounded-3xl shadow-xl overflow-hidden border border-pink-100 hover:border-pink-200 transition-all duration-500 group hover:scale-105 hover:shadow-2xl" 
+           data-fade-in-target="item">
+        <div class="relative h-48 bg-gradient-to-br from-pink-500 via-purple-600 to-indigo-600 flex items-center justify-center overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-pink-500/80 via-purple-600/80 to-indigo-600/80"></div>
+          <div class="relative text-center text-white z-10">
+            <i class="fas fa-users text-5xl mb-4 group-hover:animate-pulse"></i>
+            <div class="text-xs font-bold bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full">
+              COMMUNITY MEETUP
+            </div>
           </div>
-          <h3 class="text-lg font-bold text-gray-900 mb-2">Patient Experience Forum</h3>
-          <p class="text-gray-600 text-sm mb-4">Join patients and care providers to share experiences and improvement ideas.</p>
-          <a href="#" class="text-purple-600 hover:text-purple-700 font-medium inline-flex items-center">
-            Register Now
-            <i class="fas fa-arrow-right ml-1 text-xs"></i>
-          </a>
+          <div class="absolute top-4 right-4 bg-yellow-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+            NEW
+          </div>
+        </div>
+        <div class="p-8">
+          <div class="flex items-center justify-between mb-4">
+            <div class="bg-pink-100 text-pink-800 text-xs font-bold px-3 py-1 rounded-full">Virtual Meetup</div>
+            <div class="text-sm text-gray-500 font-bold">Jun 12, 2025</div>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-pink-700 transition-colors">
+            Patient Experience Forum: Success Stories
+          </h3>
+          <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+            Join fellow patients and care providers to share experiences, celebrate success stories, and discuss improvement ideas for better healthcare outcomes.
+          </p>
+          
+          <!-- Event details -->
+          <div class="space-y-3 mb-6">
+            <div class="flex items-center text-sm text-gray-600">
+              <i class="fas fa-clock mr-3 text-pink-600"></i>
+              <span>7:00 PM - 8:30 PM EST</span>
+            </div>
+            <div class="flex items-center text-sm text-gray-600">
+              <i class="fas fa-heart mr-3 text-purple-600"></i>
+              <span>Maria Santos, Patient Advocate</span>
+            </div>
+            <div class="flex items-center text-sm text-gray-600">
+              <i class="fas fa-comments mr-3 text-indigo-600"></i>
+              <span>Open discussion format</span>
+            </div>
+          </div>
+          
+          <div class="flex flex-col gap-3">
+            <a href="#" class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <i class="fas fa-hands-helping mr-2"></i>
+              Join Meetup
+            </a>
+            <button type="button" class="inline-flex items-center justify-center px-6 py-3 bg-white border-2 border-pink-200 text-pink-700 font-bold rounded-xl hover:border-pink-300 hover:shadow-lg transition-all duration-300">
+              <i class="fas fa-share mr-2"></i>
+              Share with Friends
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Research Symposium -->
+      <div class="bg-gradient-to-br from-white via-yellow-25 to-orange-25 rounded-3xl shadow-xl overflow-hidden border border-yellow-100 hover:border-yellow-200 transition-all duration-500 group hover:scale-105 hover:shadow-2xl" 
+           data-fade-in-target="item">
+        <div class="relative h-48 bg-gradient-to-br from-yellow-500 via-orange-600 to-red-600 flex items-center justify-center overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-yellow-500/80 via-orange-600/80 to-red-600/80"></div>
+          <div class="relative text-center text-white z-10">
+            <i class="fas fa-microscope text-5xl mb-4 group-hover:animate-bounce"></i>
+            <div class="text-xs font-bold bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full">
+              RESEARCH SYMPOSIUM
+            </div>
+          </div>
+          <div class="absolute top-4 right-4 bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+            PREMIUM
+          </div>
+        </div>
+        <div class="p-8">
+          <div class="flex items-center justify-between mb-4">
+            <div class="bg-yellow-100 text-yellow-800 text-xs font-bold px-3 py-1 rounded-full">Symposium</div>
+            <div class="text-sm text-gray-500 font-bold">Jun 18-19, 2025</div>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-yellow-700 transition-colors">
+            Annual Healthcare AI Research Symposium
+          </h3>
+          <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+            Two-day virtual symposium featuring the latest research in healthcare AI, with presentations from leading institutions and research groups worldwide.
+          </p>
+          
+          <!-- Event details -->
+          <div class="space-y-3 mb-6">
+            <div class="flex items-center text-sm text-gray-600">
+              <i class="fas fa-clock mr-3 text-yellow-600"></i>
+              <span>9:00 AM - 5:00 PM daily</span>
+            </div>
+            <div class="flex items-center text-sm text-gray-600">
+              <i class="fas fa-university mr-3 text-orange-600"></i>
+              <span>20+ Research Institutions</span>
+            </div>
+            <div class="flex items-center text-sm text-gray-600">
+              <i class="fas fa-certificate mr-3 text-red-600"></i>
+              <span>CME Credits Available</span>
+            </div>
+          </div>
+          
+          <div class="flex flex-col gap-3">
+            <a href="#" class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-yellow-500 via-orange-600 to-red-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <i class="fas fa-ticket-alt mr-2"></i>
+              Get Early Bird Tickets
+            </a>
+            <button type="button" class="inline-flex items-center justify-center px-6 py-3 bg-white border-2 border-yellow-200 text-yellow-700 font-bold rounded-xl hover:border-yellow-300 hover:shadow-lg transition-all duration-300">
+              <i class="fas fa-info-circle mr-2"></i>
+              View Full Agenda
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Monthly Roundtable -->
+      <div class="bg-gradient-to-br from-white via-blue-25 to-indigo-25 rounded-3xl shadow-xl overflow-hidden border border-blue-100 hover:border-blue-200 transition-all duration-500 group hover:scale-105 hover:shadow-2xl" 
+           data-fade-in-target="item">
+        <div class="relative h-48 bg-gradient-to-br from-blue-500 via-indigo-600 to-purple-600 flex items-center justify-center overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-blue-500/80 via-indigo-600/80 to-purple-600/80"></div>
+          <div class="relative text-center text-white z-10">
+            <i class="fas fa-users-cog text-5xl mb-4 group-hover:animate-pulse"></i>
+            <div class="text-xs font-bold bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full">
+              MONTHLY SERIES
+            </div>
+          </div>
+          <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+            RECURRING
+          </div>
+        </div>
+        <div class="p-8">
+          <div class="flex items-center justify-between mb-4">
+            <div class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full">Roundtable</div>
+            <div class="text-sm text-gray-500 font-bold">Every 3rd Thu</div>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-700 transition-colors">
+            Healthcare Leaders Monthly Roundtable
+          </h3>
+          <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+            Exclusive monthly discussions for healthcare executives, CIOs, and innovation leaders to share insights and discuss industry trends.
+          </p>
+          
+          <!-- Event details -->
+          <div class="space-y-3 mb-6">
+            <div class="flex items-center text-sm text-gray-600">
+              <i class="fas fa-clock mr-3 text-blue-600"></i>
+              <span>11:00 AM - 12:00 PM PST</span>
+            </div>
+            <div class="flex items-center text-sm text-gray-600">
+              <i class="fas fa-user-tie mr-3 text-indigo-600"></i>
+              <span>C-Suite & Directors Only</span>
+            </div>
+            <div class="flex items-center text-sm text-gray-600">
+              <i class="fas fa-lock mr-3 text-purple-600"></i>
+              <span>Invitation Required</span>
+            </div>
+          </div>
+          
+          <div class="flex flex-col gap-3">
+            <a href="#" class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <i class="fas fa-envelope mr-2"></i>
+              Request Invitation
+            </a>
+            <button type="button" class="inline-flex items-center justify-center px-6 py-3 bg-white border-2 border-blue-200 text-blue-700 font-bold rounded-xl hover:border-blue-300 hover:shadow-lg transition-all duration-300">
+              <i class="fas fa-question-circle mr-2"></i>
+              Learn More
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Quick Training Session -->
+      <div class="bg-gradient-to-br from-white via-teal-25 to-emerald-25 rounded-3xl shadow-xl overflow-hidden border border-teal-100 hover:border-teal-200 transition-all duration-500 group hover:scale-105 hover:shadow-2xl" 
+           data-fade-in-target="item">
+        <div class="relative h-48 bg-gradient-to-br from-teal-500 via-emerald-600 to-green-600 flex items-center justify-center overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-teal-500/80 via-emerald-600/80 to-green-600/80"></div>
+          <div class="relative text-center text-white z-10">
+            <i class="fas fa-graduation-cap text-5xl mb-4 group-hover:animate-bounce"></i>
+            <div class="text-xs font-bold bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full">
+              QUICK TRAINING
+            </div>
+          </div>
+          <div class="absolute top-4 right-4 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+            30 MIN
+          </div>
+        </div>
+        <div class="p-8">
+          <div class="flex items-center justify-between mb-4">
+            <div class="bg-teal-100 text-teal-800 text-xs font-bold px-3 py-1 rounded-full">Quick Training</div>
+            <div class="text-sm text-gray-500 font-bold">Every Friday</div>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-teal-700 transition-colors">
+            MedGemma Features Deep Dive
+          </h3>
+          <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+            Weekly 30-minute focused sessions on specific MedGemma features. Perfect for busy professionals who want to maximize their platform usage.
+          </p>
+          
+          <!-- Event details -->
+          <div class="space-y-3 mb-6">
+            <div class="flex items-center text-sm text-gray-600">
+              <i class="fas fa-clock mr-3 text-teal-600"></i>
+              <span>12:30 PM - 1:00 PM EST</span>
+            </div>
+            <div class="flex items-center text-sm text-gray-600">
+              <i class="fas fa-play-circle mr-3 text-emerald-600"></i>
+              <span>Recorded for later viewing</span>
+            </div>
+            <div class="flex items-center text-sm text-gray-600">
+              <i class="fas fa-medal mr-3 text-green-600"></i>
+              <span>Completion certificates</span>
+            </div>
+          </div>
+          
+          <div class="flex flex-col gap-3">
+            <a href="#" class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-teal-500 via-emerald-600 to-green-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <i class="fas fa-play mr-2"></i>
+              Join Training
+            </a>
+            <button type="button" class="inline-flex items-center justify-center px-6 py-3 bg-white border-2 border-teal-200 text-teal-700 font-bold rounded-xl hover:border-teal-300 hover:shadow-lg transition-all duration-300">
+              <i class="fas fa-calendar-week mr-2"></i>
+              View Schedule
+            </button>
+          </div>
         </div>
       </div>
     </div>
     
-    <div class="text-center mt-10">
-      <a href="#" class="inline-flex items-center px-6 py-3 bg-white border border-purple-500 text-purple-600 font-medium rounded-lg shadow-sm hover:shadow hover:bg-purple-50 transition-all">
-        View All Events
-        <i class="fas fa-arrow-right ml-2"></i>
-      </a>
+    <!-- Events CTA and newsletter signup -->
+    <div class="bg-gradient-to-r from-indigo-50 via-blue-50 to-purple-50 rounded-3xl p-8 lg:p-12 border border-indigo-200 shadow-lg">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h3 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
+            <span class="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Never Miss</span>
+            an Event
+          </h3>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Subscribe to our events newsletter and get notified about upcoming webinars, workshops, and community meetups. Plus, get exclusive early access to premium events.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-indigo-500 via-blue-600 to-purple-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <i class="fas fa-calendar-alt mr-2"></i>
+              View All Events
+            </a>
+            <button type="button" class="inline-flex items-center px-6 py-3 bg-white border-2 border-indigo-200 text-indigo-700 font-bold rounded-xl hover:border-indigo-300 hover:shadow-lg transition-all duration-300">
+              <i class="fas fa-bell mr-2"></i>
+              Subscribe to Updates
+            </button>
+          </div>
+        </div>
+        <div class="text-center">
+          <div class="inline-flex flex-col items-center">
+            <div class="w-24 h-24 bg-gradient-to-r from-indigo-500 via-blue-600 to-purple-600 rounded-3xl flex items-center justify-center mb-4 shadow-lg">
+              <i class="fas fa-rocket text-white text-3xl"></i>
+            </div>
+            <div class="text-sm text-gray-500 mb-2">This Month</div>
+            <div class="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">12 Events</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Join Community -->
-<section class="py-16 bg-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="bg-gradient-to-br from-purple-100 to-indigo-50 rounded-3xl overflow-hidden shadow-lg">
-      <div class="grid md:grid-cols-2">
-        <div class="p-12 flex items-center">
-          <div>
-            <h2 class="text-3xl font-bold text-gray-900 mb-4">Join Our Growing Community Today</h2>
-            <p class="text-lg text-gray-700 mb-6">
-              Connect with other patients and healthcare providers, share your experiences, and help shape the future of MedGemma Health.
-            </p>
-            <div class="space-y-4">
-              <div class="flex items-center">
-                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-4">
-                  <i class="fas fa-lightbulb text-purple-600"></i>
-                </div>
-                <span class="text-gray-800">Contribute ideas and feature requests</span>
+<!-- Enhanced Join Community Section -->
+<section class="py-20 bg-gradient-to-br from-slate-50 via-blue-25 to-indigo-25 relative overflow-hidden" data-controller="fade-in" data-fade-in-threshold-value="0.1">
+  <!-- Decorative background elements -->
+  <div class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-medgemma-100/30 to-purple-100/20 rounded-full -translate-x-1/2 -translate-y-1/4 will-change-transform"></div>
+  <div class="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-bl from-indigo-100/40 to-blue-100/30 rounded-full translate-x-1/3 translate-y-1/4 will-change-transform"></div>
+  <div class="absolute top-1/2 left-1/3 w-24 h-24 bg-gradient-to-br from-purple-100/20 to-pink-100/30 rounded-full animate-float-community"></div>
+  
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Enhanced Section Header -->
+    <div class="text-center mb-16" data-fade-in-target="item">
+      <div class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-100 to-indigo-100 text-purple-800 text-sm font-bold rounded-full mb-6 border border-purple-200">
+        <i class="fas fa-users mr-2"></i>
+        Join Our Growing Community
+      </div>
+      <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+        <span class="bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 bg-clip-text text-transparent">
+          50,000+ Members
+        </span>
+        <br>
+        Already Connected
+      </h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        Join healthcare professionals, patients, researchers, and innovators from around the world in building the future of AI-powered healthcare together.
+      </p>
+    </div>
+
+    <!-- Enhanced Community Cards Grid -->
+    <div class="grid lg:grid-cols-2 gap-12 mb-16">
+      <!-- Main Join Card -->
+      <div class="bg-gradient-to-br from-white via-purple-25 to-indigo-25 rounded-3xl shadow-2xl overflow-hidden border border-purple-100 hover:border-purple-200 transition-all duration-500 group hover:scale-105" data-fade-in-target="item">
+        <div class="relative h-64 bg-gradient-to-br from-purple-600 via-indigo-600 to-blue-600 flex items-center justify-center overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-purple-600/90 via-indigo-600/90 to-blue-600/90"></div>
+          <div class="relative text-center text-white z-10">
+            <div class="w-24 h-24 bg-white/20 backdrop-blur-sm rounded-3xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-500">
+              <i class="fas fa-rocket text-white text-4xl group-hover:animate-bounce"></i>
+            </div>
+            <div class="text-lg font-bold bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+              START YOUR JOURNEY
+            </div>
+          </div>
+          <div class="absolute top-4 right-4 bg-yellow-500 text-white text-xs font-bold px-3 py-1 rounded-full animate-pulse">
+            FREE
+          </div>
+        </div>
+        
+        <div class="p-8 lg:p-10">
+          <h3 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4 group-hover:text-purple-700 transition-colors">
+            Join Our Community Today
+          </h3>
+          <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+            Get instant access to exclusive discussions, early beta features, research opportunities, and direct communication with our development team.
+          </p>
+          
+          <!-- Enhanced Benefits List -->
+          <div class="space-y-4 mb-8">
+            <div class="flex items-start space-x-4 group/item hover:bg-white/60 rounded-xl p-3 transition-all duration-300">
+              <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0 group-hover/item:scale-110 transition-transform">
+                <i class="fas fa-lightbulb text-white text-lg"></i>
               </div>
-              <div class="flex items-center">
-                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-4">
-                  <i class="fas fa-comment-dots text-purple-600"></i>
-                </div>
-                <span class="text-gray-800">Share experiences and get support</span>
-              </div>
-              <div class="flex items-center">
-                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-4">
-                  <i class="fas fa-users text-purple-600"></i>
-                </div>
-                <span class="text-gray-800">Participate in research and improvement initiatives</span>
+              <div>
+                <div class="font-bold text-gray-900 mb-1">Shape Product Development</div>
+                <div class="text-gray-600 text-sm">Submit feature requests, vote on priorities, and influence our roadmap</div>
               </div>
             </div>
-            <div class="mt-8">
-              <a href="#" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all">
-                Sign Up Now
-                <i class="fas fa-arrow-right ml-2"></i>
-              </a>
+            
+            <div class="flex items-start space-x-4 group/item hover:bg-white/60 rounded-xl p-3 transition-all duration-300">
+              <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0 group-hover/item:scale-110 transition-transform">
+                <i class="fas fa-comment-medical text-white text-lg"></i>
+              </div>
+              <div>
+                <div class="font-bold text-gray-900 mb-1">Expert Support Network</div>
+                <div class="text-gray-600 text-sm">Connect with healthcare professionals and get expert guidance</div>
+              </div>
+            </div>
+            
+            <div class="flex items-start space-x-4 group/item hover:bg-white/60 rounded-xl p-3 transition-all duration-300">
+              <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-teal-600 rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0 group-hover/item:scale-110 transition-transform">
+                <i class="fas fa-flask text-white text-lg"></i>
+              </div>
+              <div>
+                <div class="font-bold text-gray-900 mb-1">Research Opportunities</div>
+                <div class="text-gray-600 text-sm">Participate in cutting-edge healthcare AI research studies</div>
+              </div>
+            </div>
+            
+            <div class="flex items-start space-x-4 group/item hover:bg-white/60 rounded-xl p-3 transition-all duration-300">
+              <div class="w-12 h-12 bg-gradient-to-br from-teal-500 to-emerald-600 rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0 group-hover/item:scale-110 transition-transform">
+                <i class="fas fa-star text-white text-lg"></i>
+              </div>
+              <div>
+                <div class="font-bold text-gray-900 mb-1">Early Access Benefits</div>
+                <div class="text-gray-600 text-sm">Beta testing, preview features, and exclusive content</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Enhanced CTA Buttons -->
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#" class="flex-1 inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 text-white font-bold rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+              <i class="fas fa-rocket mr-3"></i>
+              Join Community Now
+            </a>
+            <button type="button" class="flex-1 inline-flex items-center justify-center px-8 py-4 bg-white border-2 border-purple-200 text-purple-700 font-bold rounded-2xl hover:border-purple-300 hover:shadow-lg transition-all duration-300">
+              <i class="fas fa-play mr-3"></i>
+              Watch Tour
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Community Stats & Testimonials -->
+      <div class="space-y-8">
+        <!-- Community Stats Card -->
+        <div class="bg-gradient-to-br from-white via-medgemma-25 to-purple-25 rounded-3xl shadow-xl p-8 border border-medgemma-100 hover:border-medgemma-200 transition-all duration-500" data-fade-in-target="item">
+          <div class="text-center mb-6">
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">Community at a Glance</h3>
+            <p class="text-gray-600">Growing stronger every day</p>
+          </div>
+          
+          <div class="grid grid-cols-2 gap-6">
+            <div class="text-center">
+              <div class="w-16 h-16 bg-gradient-to-br from-medgemma-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-lg">
+                <i class="fas fa-users text-white text-2xl"></i>
+              </div>
+              <div class="text-2xl font-bold text-medgemma-700">50,247</div>
+              <div class="text-sm text-gray-600">Active Members</div>
+            </div>
+            <div class="text-center">
+              <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-lg">
+                <i class="fas fa-comments text-white text-2xl"></i>
+              </div>
+              <div class="text-2xl font-bold text-purple-700">127k</div>
+              <div class="text-sm text-gray-600">Discussions</div>
+            </div>
+            <div class="text-center">
+              <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-lg">
+                <i class="fas fa-lightbulb text-white text-2xl"></i>
+              </div>
+              <div class="text-2xl font-bold text-indigo-700">2,847</div>
+              <div class="text-sm text-gray-600">Ideas Shared</div>
+            </div>
+            <div class="text-center">
+              <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-lg">
+                <i class="fas fa-globe text-white text-2xl"></i>
+              </div>
+              <div class="text-2xl font-bold text-blue-700">89</div>
+              <div class="text-sm text-gray-600">Countries</div>
             </div>
           </div>
         </div>
-        <div class="bg-purple-600 p-8 flex items-center justify-center">
-          <img src="/assets/community-illustration.svg" alt="Community Illustration" class="max-w-full h-auto">
+
+        <!-- Featured Testimonials -->
+        <div class="bg-gradient-to-br from-white via-blue-25 to-indigo-25 rounded-3xl shadow-xl p-8 border border-blue-100 hover:border-blue-200 transition-all duration-500" data-fade-in-target="item">
+          <div class="text-center mb-6">
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">What Members Say</h3>
+            <div class="flex items-center justify-center space-x-1">
+              <i class="fas fa-star text-yellow-400"></i>
+              <i class="fas fa-star text-yellow-400"></i>
+              <i class="fas fa-star text-yellow-400"></i>
+              <i class="fas fa-star text-yellow-400"></i>
+              <i class="fas fa-star text-yellow-400"></i>
+              <span class="text-gray-600 ml-2 font-bold">4.9/5 Community Rating</span>
+            </div>
+          </div>
+          
+          <div class="space-y-6">
+            <!-- Testimonial 1 -->
+            <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-blue-100">
+              <div class="flex items-start space-x-4">
+                <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0">
+                  <span class="text-white font-bold text-lg">DR</span>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center justify-between mb-2">
+                    <div class="font-bold text-gray-900">Dr. Rachel Martinez</div>
+                    <div class="text-xs text-gray-500">Emergency Medicine</div>
+                  </div>
+                  <p class="text-gray-700 text-sm leading-relaxed">
+                    "The community has been instrumental in improving our patient care protocols. The shared experiences and research insights are invaluable."
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Testimonial 2 -->
+            <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-purple-100">
+              <div class="flex items-start space-x-4">
+                <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0">
+                  <span class="text-white font-bold text-lg">MK</span>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center justify-between mb-2">
+                    <div class="font-bold text-gray-900">Michael Kim</div>
+                    <div class="text-xs text-gray-500">Healthcare Developer</div>
+                  </div>
+                  <p class="text-gray-700 text-sm leading-relaxed">
+                    "Amazing technical support and collaboration opportunities. The API discussions have helped us integrate MedGemma seamlessly."
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Social Proof Banner -->
+    <div class="bg-gradient-to-r from-medgemma-50 via-purple-50 to-indigo-50 rounded-3xl p-8 lg:p-12 border border-medgemma-200 shadow-lg" data-fade-in-target="item">
+      <div class="grid md:grid-cols-3 gap-8 items-center text-center">
+        <div>
+          <div class="text-3xl font-bold bg-gradient-to-r from-medgemma-600 to-purple-600 bg-clip-text text-transparent mb-2">
+            Trusted by
+          </div>
+          <div class="text-lg text-gray-600">Leading healthcare institutions worldwide</div>
+        </div>
+        <div class="flex justify-center space-x-6 opacity-70">
+          <div class="w-16 h-8 bg-gray-300 rounded-lg flex items-center justify-center">
+            <span class="text-xs font-bold text-gray-600">MAYO</span>
+          </div>
+          <div class="w-16 h-8 bg-gray-300 rounded-lg flex items-center justify-center">
+            <span class="text-xs font-bold text-gray-600">JHMI</span>
+          </div>
+          <div class="w-16 h-8 bg-gray-300 rounded-lg flex items-center justify-center">
+            <span class="text-xs font-bold text-gray-600">MGH</span>
+          </div>
+        </div>
+        <div>
+          <div class="text-2xl font-bold text-gray-900 mb-1">Join Today</div>
+          <div class="text-gray-600">Setup takes less than 2 minutes</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Resources -->
-<section class="py-16 bg-gray-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <h2 class="text-3xl font-bold text-gray-900 mb-8">Additional Resources</h2>
-    
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200 hover:shadow-md transition-all">
-        <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <i class="fas fa-book-medical text-blue-600 text-xl"></i>
+<!-- Enhanced Resources Section -->
+<section class="py-20 bg-gradient-to-br from-gray-50 via-slate-25 to-blue-25 relative overflow-hidden" data-controller="fade-in" data-fade-in-threshold-value="0.1">
+  <!-- Decorative background elements -->
+  <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-100/30 to-indigo-100/20 rounded-full translate-x-1/2 -translate-y-1/4 will-change-transform"></div>
+  <div class="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-slate-100/40 to-gray-100/30 rounded-full -translate-x-1/3 translate-y-1/4 will-change-transform"></div>
+  <div class="absolute top-1/3 right-1/4 w-32 h-32 bg-gradient-to-br from-blue-100/20 to-purple-100/30 rounded-full animate-float-community"></div>
+  
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Enhanced Section Header -->
+    <div class="text-center mb-16" data-fade-in-target="item">
+      <div class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 text-sm font-bold rounded-full mb-6 border border-blue-200">
+        <i class="fas fa-books mr-2"></i>
+        Comprehensive Resources
+      </div>
+      <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+        <span class="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+          Everything You Need
+        </span>
+        <br>
+        to Succeed
+      </h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        Access comprehensive documentation, developer tools, support resources, and real-time system information to maximize your MedGemma Health experience.
+      </p>
+    </div>
+
+    <!-- Enhanced Resources Grid -->
+    <div class="grid lg:grid-cols-3 gap-8 mb-16">
+      <!-- Knowledge Base -->
+      <div class="bg-gradient-to-br from-white via-blue-25 to-indigo-25 rounded-3xl shadow-xl overflow-hidden border border-blue-100 hover:border-blue-200 transition-all duration-500 group hover:scale-105 hover:shadow-2xl" data-fade-in-target="item">
+        <div class="relative h-48 bg-gradient-to-br from-blue-500 via-indigo-600 to-purple-600 flex items-center justify-center overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-blue-500/90 via-indigo-600/90 to-purple-600/90"></div>
+          <div class="relative text-center text-white z-10">
+            <div class="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-3xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-500">
+              <i class="fas fa-book-medical text-white text-3xl group-hover:animate-bounce"></i>
+            </div>
+            <div class="text-sm font-bold bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full">
+              KNOWLEDGE BASE
+            </div>
+          </div>
+          <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+            UPDATED
+          </div>
         </div>
-        <h3 class="text-xl font-semibold text-gray-900 mb-2">Knowledge Base</h3>
-        <p class="text-gray-600 mb-4">
-          Browse our extensive library of articles, guides, and frequently asked questions.
+        
+        <div class="p-8">
+          <h3 class="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-700 transition-colors">
+            Comprehensive Guides
+          </h3>
+          <p class="text-gray-600 mb-6 leading-relaxed">
+            Browse our extensive library of articles, step-by-step guides, video tutorials, and frequently asked questions covering every aspect of MedGemma Health.
+          </p>
+          
+          <!-- Resource Stats -->
+          <div class="grid grid-cols-2 gap-4 mb-6">
+            <div class="bg-white/60 backdrop-blur-sm rounded-xl p-3 text-center border border-blue-100">
+              <div class="text-lg font-bold text-blue-700">450+</div>
+              <div class="text-xs text-gray-600">Articles</div>
+            </div>
+            <div class="bg-white/60 backdrop-blur-sm rounded-xl p-3 text-center border border-indigo-100">
+              <div class="text-lg font-bold text-indigo-700">120+</div>
+              <div class="text-xs text-gray-600">Videos</div>
+            </div>
+          </div>
+          
+          <!-- Featured Topics -->
+          <div class="space-y-3 mb-6">
+            <div class="flex items-center text-sm text-gray-700">
+              <i class="fas fa-check-circle text-green-500 mr-3"></i>
+              <span>Getting Started Guides</span>
+            </div>
+            <div class="flex items-center text-sm text-gray-700">
+              <i class="fas fa-check-circle text-green-500 mr-3"></i>
+              <span>Best Practices & Workflows</span>
+            </div>
+            <div class="flex items-center text-sm text-gray-700">
+              <i class="fas fa-check-circle text-green-500 mr-3"></i>
+              <span>Troubleshooting & FAQ</span>
+            </div>
+            <div class="flex items-center text-sm text-gray-700">
+              <i class="fas fa-check-circle text-green-500 mr-3"></i>
+              <span>Video Tutorials</span>
+            </div>
+          </div>
+          
+          <div class="flex flex-col gap-3">
+            <a href="/help-center" class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <i class="fas fa-book-open mr-2"></i>
+              Browse Knowledge Base
+            </a>
+            <button type="button" class="inline-flex items-center justify-center px-6 py-3 bg-white border-2 border-blue-200 text-blue-700 font-bold rounded-xl hover:border-blue-300 hover:shadow-lg transition-all duration-300">
+              <i class="fas fa-search mr-2"></i>
+              Search Articles
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Developer Hub -->
+      <div class="bg-gradient-to-br from-white via-emerald-25 to-teal-25 rounded-3xl shadow-xl overflow-hidden border border-emerald-100 hover:border-emerald-200 transition-all duration-500 group hover:scale-105 hover:shadow-2xl" data-fade-in-target="item">
+        <div class="relative h-48 bg-gradient-to-br from-emerald-500 via-teal-600 to-green-600 flex items-center justify-center overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/90 via-teal-600/90 to-green-600/90"></div>
+          <div class="relative text-center text-white z-10">
+            <div class="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-3xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-500">
+              <i class="fas fa-code text-white text-3xl group-hover:animate-bounce"></i>
+            </div>
+            <div class="text-sm font-bold bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full">
+              DEVELOPER HUB
+            </div>
+          </div>
+          <div class="absolute top-4 right-4 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+            API v2.1
+          </div>
+        </div>
+        
+        <div class="p-8">
+          <h3 class="text-2xl font-bold text-gray-900 mb-4 group-hover:text-emerald-700 transition-colors">
+            Technical Documentation
+          </h3>
+          <p class="text-gray-600 mb-6 leading-relaxed">
+            Complete API reference, SDKs, integration guides, and code examples to help developers build powerful healthcare applications with MedGemma.
+          </p>
+          
+          <!-- Developer Stats -->
+          <div class="grid grid-cols-2 gap-4 mb-6">
+            <div class="bg-white/60 backdrop-blur-sm rounded-xl p-3 text-center border border-emerald-100">
+              <div class="text-lg font-bold text-emerald-700">200+</div>
+              <div class="text-xs text-gray-600">Endpoints</div>
+            </div>
+            <div class="bg-white/60 backdrop-blur-sm rounded-xl p-3 text-center border border-teal-100">
+              <div class="text-lg font-bold text-teal-700">15</div>
+              <div class="text-xs text-gray-600">SDKs</div>
+            </div>
+          </div>
+          
+          <!-- Developer Resources -->
+          <div class="space-y-3 mb-6">
+            <div class="flex items-center text-sm text-gray-700">
+              <i class="fas fa-check-circle text-green-500 mr-3"></i>
+              <span>RESTful API Documentation</span>
+            </div>
+            <div class="flex items-center text-sm text-gray-700">
+              <i class="fas fa-check-circle text-green-500 mr-3"></i>
+              <span>Interactive API Explorer</span>
+            </div>
+            <div class="flex items-center text-sm text-gray-700">
+              <i class="fas fa-check-circle text-green-500 mr-3"></i>
+              <span>Code Examples & SDKs</span>
+            </div>
+            <div class="flex items-center text-sm text-gray-700">
+              <i class="fas fa-check-circle text-green-500 mr-3"></i>
+              <span>Integration Webhooks</span>
+            </div>
+          </div>
+          
+          <div class="flex flex-col gap-3">
+            <a href="/api-docs" class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-emerald-500 via-teal-600 to-green-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <i class="fas fa-terminal mr-2"></i>
+              Explore API Docs
+            </a>
+            <button type="button" class="inline-flex items-center justify-center px-6 py-3 bg-white border-2 border-emerald-200 text-emerald-700 font-bold rounded-xl hover:border-emerald-300 hover:shadow-lg transition-all duration-300">
+              <i class="fas fa-download mr-2"></i>
+              Download SDKs
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- System Status & Support -->
+      <div class="bg-gradient-to-br from-white via-orange-25 to-red-25 rounded-3xl shadow-xl overflow-hidden border border-orange-100 hover:border-orange-200 transition-all duration-500 group hover:scale-105 hover:shadow-2xl" data-fade-in-target="item">
+        <div class="relative h-48 bg-gradient-to-br from-orange-500 via-red-600 to-pink-600 flex items-center justify-center overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-orange-500/90 via-red-600/90 to-pink-600/90"></div>
+          <div class="relative text-center text-white z-10">
+            <div class="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-3xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-500">
+              <i class="fas fa-server text-white text-3xl group-hover:animate-bounce"></i>
+            </div>
+            <div class="text-sm font-bold bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full">
+              SYSTEM STATUS
+            </div>
+          </div>
+          <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full animate-pulse">
+            ALL SYSTEMS OPERATIONAL
+          </div>
+        </div>
+        
+        <div class="p-8">
+          <h3 class="text-2xl font-bold text-gray-900 mb-4 group-hover:text-orange-700 transition-colors">
+            Status & Support
+          </h3>
+          <p class="text-gray-600 mb-6 leading-relaxed">
+            Monitor real-time system status, service health, performance metrics, and get immediate support from our expert team.
+          </p>
+          
+          <!-- System Health -->
+          <div class="grid grid-cols-2 gap-4 mb-6">
+            <div class="bg-white/60 backdrop-blur-sm rounded-xl p-3 text-center border border-green-100">
+              <div class="text-lg font-bold text-green-700">99.9%</div>
+              <div class="text-xs text-gray-600">Uptime</div>
+            </div>
+            <div class="bg-white/60 backdrop-blur-sm rounded-xl p-3 text-center border border-blue-100">
+              <div class="text-lg font-bold text-blue-700">45ms</div>
+              <div class="text-xs text-gray-600">Response</div>
+            </div>
+          </div>
+          
+          <!-- Status Indicators -->
+          <div class="space-y-3 mb-6">
+            <div class="flex items-center justify-between text-sm">
+              <span class="text-gray-700">API Services</span>
+              <div class="flex items-center">
+                <div class="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                <span class="text-green-600 font-bold">Operational</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between text-sm">
+              <span class="text-gray-700">AI Processing</span>
+              <div class="flex items-center">
+                <div class="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                <span class="text-green-600 font-bold">Operational</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between text-sm">
+              <span class="text-gray-700">Data Storage</span>
+              <div class="flex items-center">
+                <div class="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                <span class="text-green-600 font-bold">Operational</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between text-sm">
+              <span class="text-gray-700">Authentication</span>
+              <div class="flex items-center">
+                <div class="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                <span class="text-green-600 font-bold">Operational</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="flex flex-col gap-3">
+            <a href="/status" class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-orange-500 via-red-600 to-pink-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <i class="fas fa-heartbeat mr-2"></i>
+              View Full Status
+            </a>
+            <button type="button" class="inline-flex items-center justify-center px-6 py-3 bg-white border-2 border-orange-200 text-orange-700 font-bold rounded-xl hover:border-orange-300 hover:shadow-lg transition-all duration-300">
+              <i class="fas fa-life-ring mr-2"></i>
+              Get Support
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional Resources Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+      <!-- Quick Start Guide -->
+      <div class="bg-gradient-to-br from-white via-purple-25 to-indigo-25 rounded-2xl shadow-lg p-6 border border-purple-100 hover:border-purple-200 transition-all duration-300 group hover:scale-105" data-fade-in-target="item">
+        <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:rotate-12 transition-transform">
+          <i class="fas fa-rocket text-white text-xl"></i>
+        </div>
+        <h3 class="text-lg font-bold text-gray-900 mb-2 text-center">Quick Start</h3>
+        <p class="text-gray-600 text-sm mb-4 text-center leading-relaxed">
+          Get up and running in under 5 minutes with our comprehensive quick start guide.
         </p>
-        <a href="/help-center" class="text-purple-600 hover:text-purple-700 font-medium inline-flex items-center">
-          Visit Knowledge Base
+        <a href="#" class="text-purple-600 hover:text-purple-700 font-bold text-sm inline-flex items-center justify-center w-full">
+          Start Now
           <i class="fas fa-arrow-right ml-1 text-xs"></i>
         </a>
       </div>
-      
-      <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200 hover:shadow-md transition-all">
-        <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <i class="fas fa-code text-green-600 text-xl"></i>
+
+      <!-- Video Tutorials -->
+      <div class="bg-gradient-to-br from-white via-blue-25 to-cyan-25 rounded-2xl shadow-lg p-6 border border-blue-100 hover:border-blue-200 transition-all duration-300 group hover:scale-105" data-fade-in-target="item">
+        <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:rotate-12 transition-transform">
+          <i class="fas fa-play text-white text-xl"></i>
         </div>
-        <h3 class="text-xl font-semibold text-gray-900 mb-2">Developer Hub</h3>
-        <p class="text-gray-600 mb-4">
-          Technical documentation, API reference, and integration guides for developers.
+        <h3 class="text-lg font-bold text-gray-900 mb-2 text-center">Video Tutorials</h3>
+        <p class="text-gray-600 text-sm mb-4 text-center leading-relaxed">
+          Watch step-by-step video guides covering all features and use cases.
         </p>
-        <a href="/api-docs" class="text-purple-600 hover:text-purple-700 font-medium inline-flex items-center">
-          Explore API Docs
+        <a href="#" class="text-blue-600 hover:text-blue-700 font-bold text-sm inline-flex items-center justify-center w-full">
+          Watch Videos
           <i class="fas fa-arrow-right ml-1 text-xs"></i>
         </a>
       </div>
-      
-      <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-200 hover:shadow-md transition-all">
-        <div class="w-14 h-14 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <i class="fas fa-server text-yellow-600 text-xl"></i>
+
+      <!-- Best Practices -->
+      <div class="bg-gradient-to-br from-white via-emerald-25 to-teal-25 rounded-2xl shadow-lg p-6 border border-emerald-100 hover:border-emerald-200 transition-all duration-300 group hover:scale-105" data-fade-in-target="item">
+        <div class="w-14 h-14 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:rotate-12 transition-transform">
+          <i class="fas fa-lightbulb text-white text-xl"></i>
         </div>
-        <h3 class="text-xl font-semibold text-gray-900 mb-2">System Status</h3>
-        <p class="text-gray-600 mb-4">
-          Check the current status of all MedGemma Health services and components.
+        <h3 class="text-lg font-bold text-gray-900 mb-2 text-center">Best Practices</h3>
+        <p class="text-gray-600 text-sm mb-4 text-center leading-relaxed">
+          Learn proven strategies and best practices from healthcare experts.
         </p>
-        <a href="/status" class="text-purple-600 hover:text-purple-700 font-medium inline-flex items-center">
-          View Status Page
+        <a href="#" class="text-emerald-600 hover:text-emerald-700 font-bold text-sm inline-flex items-center justify-center w-full">
+          Learn More
           <i class="fas fa-arrow-right ml-1 text-xs"></i>
         </a>
+      </div>
+
+      <!-- Security & Compliance -->
+      <div class="bg-gradient-to-br from-white via-yellow-25 to-orange-25 rounded-2xl shadow-lg p-6 border border-yellow-100 hover:border-yellow-200 transition-all duration-300 group hover:scale-105" data-fade-in-target="item">
+        <div class="w-14 h-14 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:rotate-12 transition-transform">
+          <i class="fas fa-shield-alt text-white text-xl"></i>
+        </div>
+        <h3 class="text-lg font-bold text-gray-900 mb-2 text-center">Security Guide</h3>
+        <p class="text-gray-600 text-sm mb-4 text-center leading-relaxed">
+          Comprehensive security and compliance documentation for healthcare.
+        </p>
+        <a href="#" class="text-yellow-600 hover:text-yellow-700 font-bold text-sm inline-flex items-center justify-center w-full">
+          View Guide
+          <i class="fas fa-arrow-right ml-1 text-xs"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Support CTA Banner -->
+    <div class="bg-gradient-to-r from-slate-50 via-blue-50 to-indigo-50 rounded-3xl p-8 lg:p-12 border border-slate-200 shadow-lg" data-fade-in-target="item">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h3 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
+            <span class="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Need Help?</span>
+            We're Here for You
+          </h3>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Our expert support team is available 24/7 to help you get the most out of MedGemma Health. Whether you need technical assistance or have questions about features, we're here to help.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <i class="fas fa-life-ring mr-2"></i>
+              Contact Support
+            </a>
+            <button type="button" class="inline-flex items-center px-6 py-3 bg-white border-2 border-blue-200 text-blue-700 font-bold rounded-xl hover:border-blue-300 hover:shadow-lg transition-all duration-300">
+              <i class="fas fa-comments mr-2"></i>
+              Live Chat
+            </button>
+          </div>
+        </div>
+        <div class="text-center">
+          <div class="inline-flex flex-col items-center">
+            <div class="w-24 h-24 bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-600 rounded-3xl flex items-center justify-center mb-4 shadow-lg">
+              <i class="fas fa-headset text-white text-3xl"></i>
+            </div>
+            <div class="text-sm text-gray-500 mb-2">Response Time</div>
+            <div class="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">&lt; 2 Hours</div>
+            <div class="text-sm text-gray-600 mt-1">Average Support Response</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

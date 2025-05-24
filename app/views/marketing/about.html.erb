@@ -1,53 +1,151 @@
 <%= content_for :title, "About MedGemma Health - Revolutionizing Healthcare with AI" %>
+<%= content_for :meta_description, "Learn about MedGemma Health's mission to revolutionize healthcare through AI-powered diagnostics, virtual consultations, and accessible medical care for everyone." %>
+<%= content_for :canonical_url, about_url %>
+<%= content_for :open_graph do %>
+  <meta property="og:title" content="About MedGemma Health | AI-Powered Healthcare Innovation">
+  <meta property="og:description" content="Meet the team revolutionizing healthcare with AI. Learn our story, values, and mission to make quality healthcare accessible to everyone through innovative technology.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="<%= about_url %>">
+  <meta property="og:image" content="<%= asset_url('marketing/about-hero.png') %>">
+<% end %>
 
-<!-- Hero Section -->
-<section class="pt-32 pb-20">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Performance optimization: Preload critical resources -->
+<%= content_for :head do %>
+  <link rel="preload" href="<%= asset_path('marketing/about-story.png') %>" as="image">
+  <link rel="preload" href="<%= asset_path('marketing/team-leadership.png') %>" as="image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+    /* Critical CSS for above-the-fold content */
+    .about-hero-bg {
+      background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #eff6ff 100%);
+    }
+    .animate-float-about {
+      animation: floatAbout 7s ease-in-out infinite;
+    }
+    @keyframes floatAbout {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(2deg); }
+    }
+    .values-card-hover {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .values-card-hover:hover {
+      transform: translateY(-5px) scale(1.02);
+    }
+    .team-card-hover {
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .team-card-hover:hover {
+      transform: translateY(-8px);
+    }
+  </style>
+<% end %>
+
+<!-- Skip to content link for accessibility -->
+<a href="#main-content" 
+   class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-blue-600 focus:shadow-lg focus:rounded-md">
+  Skip to main content
+</a>
+
+<!-- Enhanced Hero Section -->
+<section id="main-content" class="pt-32 pb-20 about-hero-bg relative overflow-hidden" data-controller="analytics fade-in" data-analytics-page-value="about" data-analytics-section-value="hero">
+  <!-- Enhanced background decorations -->
+  <div class="absolute inset-0 z-0" aria-hidden="true">
+    <!-- Large gradient orbs -->
+    <div class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-100/30 to-purple-100/20 rounded-full -translate-x-1/2 -translate-y-1/4 will-change-transform"></div>
+    <div class="absolute top-1/4 right-0 w-80 h-80 bg-gradient-to-bl from-indigo-100/40 to-teal-100/30 rounded-full translate-x-1/3 will-change-transform"></div>
+    <div class="absolute bottom-0 left-1/3 w-72 h-72 bg-gradient-to-t from-purple-100/30 to-pink-100/20 rounded-full will-change-transform"></div>
+    
+    <!-- Floating elements -->
+    <div class="absolute top-1/3 left-1/4 w-24 h-24 bg-gradient-to-br from-emerald-100/20 to-teal-100/30 rounded-full animate-float-about"></div>
+    <div class="absolute top-1/2 right-1/4 w-16 h-16 bg-gradient-to-br from-blue-100/30 to-indigo-100/20 rounded-full animate-float-about" style="animation-delay: -3s;"></div>
+    <div class="absolute bottom-1/3 left-1/5 w-20 h-20 bg-gradient-to-br from-purple-100/25 to-pink-100/15 rounded-full animate-float-about" style="animation-delay: -5s;"></div>
+    
+    <!-- Geometric shapes -->
+    <div class="absolute top-40 right-1/4 w-24 h-24 border-4 border-blue-100/50 rounded-2xl rotate-12 opacity-60"></div>
+    <div class="absolute bottom-32 right-1/3 w-12 h-12 border-2 border-purple-100/50 rounded-full opacity-50"></div>
+    <div class="absolute top-2/3 left-1/5 w-8 h-8 bg-blue-200/30 rounded-full"></div>
+    <div class="absolute top-1/4 left-2/3 w-6 h-6 bg-purple-200/40 rotate-45"></div>
+    
+    <!-- Grid pattern -->
+    <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
+    
+    <!-- Subtle lines -->
+    <div class="absolute top-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200/60 to-transparent"></div>
+    <div class="absolute top-2/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200/40 to-transparent"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <!-- Header -->
     <div class="text-center mb-16" data-controller="fade-in">
-      <div class="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full mb-6">
-        <i class="fas fa-hospital-user text-blue-600 mr-2"></i>
+      <div class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-50 to-purple-50 rounded-full mb-6 shadow-sm">
+        <span class="bg-blue-600/10 w-6 h-6 flex items-center justify-center rounded-full mr-2">
+          <i class="fas fa-hospital-user text-blue-600 text-xs"></i>
+        </span>
         <span class="text-sm font-medium text-blue-800">Transforming Healthcare</span>
       </div>
       
-      <h1 class="text-5xl font-bold text-gray-900 mb-6">
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 relative">
         Our Vision for
-        <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-          Modern Healthcare
+        <span class="relative">
+          <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent inline-block">
+            Modern Healthcare
+          </span>
+          <svg class="absolute bottom-0 left-0 w-full h-2 opacity-30" viewBox="0 0 200 4" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,2 C50,0 150,4 200,2" fill="none" stroke="url(#gradient-about)" stroke-width="2"/>
+            <defs>
+              <linearGradient id="gradient-about" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#3B82F6"/>
+                <stop offset="100%" stop-color="#8B5CF6"/>
+              </linearGradient>
+            </defs>
+          </svg>
         </span>
       </h1>
       
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+      <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
         We're building a future where quality healthcare is accessible to everyone, powered by AI and delivered by trusted medical professionals.
       </p>
     </div>
 
-    <!-- Mission Stats -->
+    <!-- Enhanced Mission Stats -->
     <div class="relative mb-20">
-      <!-- Background decorations -->
-      <div class="absolute top-10 left-10 w-64 h-64 bg-blue-50 rounded-full -z-10 blur-3xl opacity-70"></div>
-      <div class="absolute bottom-10 right-10 w-64 h-64 bg-purple-50 rounded-full -z-10 blur-3xl opacity-70"></div>
+      <!-- Enhanced background decorations -->
+      <div class="absolute top-10 left-10 w-64 h-64 bg-gradient-to-br from-blue-50/60 to-blue-100/40 rounded-full -z-10 blur-3xl opacity-70"></div>
+      <div class="absolute bottom-10 right-10 w-64 h-64 bg-gradient-to-bl from-purple-50/60 to-purple-100/40 rounded-full -z-10 blur-3xl opacity-70"></div>
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-gradient-to-r from-teal-50/40 to-emerald-50/30 rounded-full -z-10 blur-2xl opacity-50"></div>
       
       <div class="grid md:grid-cols-3 gap-8" data-controller="fade-in">
         <% stats = [
-          { number: "100K+", text: "Patients Helped", icon: "fa-users", color: "blue" },
-          { number: "1,000+", text: "Verified Doctors", icon: "fa-user-md", color: "green" },
-          { number: "30+", text: "Countries Served", icon: "fa-globe", color: "purple" }
+          { number: "100K+", text: "Patients Helped", icon: "fa-users", color: "blue", accent: "indigo" },
+          { number: "1,000+", text: "Verified Doctors", icon: "fa-user-md", color: "emerald", accent: "teal" },
+          { number: "30+", text: "Countries Served", icon: "fa-globe", color: "purple", accent: "pink" }
         ] %>
         
-        <% stats.each do |stat| %>
-          <div class="relative group">
-            <div class="absolute inset-0 bg-gradient-to-r from-<%= stat[:color] %>-500 to-<%= stat[:color] %>-600 rounded-2xl blur-md opacity-20 group-hover:opacity-30 transition-opacity"></div>
-            <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 relative h-full flex flex-col items-center text-center transform transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl overflow-hidden">
-              <!-- Light glow effect in background -->
-              <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-<%= stat[:color] %>-100 rounded-full opacity-50"></div>
+        <% stats.each_with_index do |stat, index| %>
+          <div class="relative group" style="animation-delay: <%= index * 0.2 %>s;">
+            <!-- Enhanced glow effect -->
+            <div class="absolute inset-0 bg-gradient-to-r from-<%= stat[:color] %>-500 to-<%= stat[:accent] %>-600 rounded-2xl blur-md opacity-20 group-hover:opacity-30 transition-all duration-500"></div>
+            
+            <!-- Main card -->
+            <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 relative h-full flex flex-col items-center text-center transform transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl overflow-hidden">
+              <!-- Enhanced light glow effects -->
+              <div class="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-<%= stat[:color] %>-100/60 to-<%= stat[:accent] %>-100/40 rounded-full opacity-50"></div>
+              <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-gradient-to-tr from-<%= stat[:color] %>-50/30 to-<%= stat[:accent] %>-50/20 rounded-full opacity-40"></div>
               
-              <div class="w-16 h-16 bg-gradient-to-br from-<%= stat[:color] %>-500 to-<%= stat[:color] %>-600 rounded-full flex items-center justify-center mb-6 shadow-lg transform -rotate-3">
+              <!-- Icon with enhanced styling -->
+              <div class="relative w-16 h-16 bg-gradient-to-br from-<%= stat[:color] %>-500 to-<%= stat[:accent] %>-600 rounded-full flex items-center justify-center mb-6 shadow-lg transform group-hover:scale-110 transition-all duration-300" style="transform: rotate(-3deg);">
                 <i class="fas <%= stat[:icon] %> text-white text-2xl"></i>
+                <div class="absolute inset-0 bg-white/20 rounded-full blur-sm"></div>
               </div>
               
-              <h3 class="text-4xl font-bold text-gray-900 mb-3"><%= stat[:number] %></h3>
-              <p class="text-<%= stat[:color] %>-600 font-medium"><%= stat[:text] %></p>
+              <h3 class="text-4xl font-bold text-gray-900 mb-3 relative z-10"><%= stat[:number] %></h3>
+              <p class="text-<%= stat[:color] %>-600 font-medium relative z-10"><%= stat[:text] %></p>
+              
+              <!-- Subtle sparkle effect -->
+              <div class="absolute top-4 right-4 w-2 h-2 bg-<%= stat[:color] %>-400 rounded-full opacity-60 group-hover:opacity-100 transition-opacity"></div>
+              <div class="absolute bottom-6 left-6 w-1.5 h-1.5 bg-<%= stat[:accent] %>-400 rounded-full opacity-40 group-hover:opacity-80 transition-opacity"></div>
             </div>
           </div>
         <% end %>
@@ -56,79 +154,160 @@
   </div>
 </section>
 
-<!-- Our Story Section -->
-<section class="py-20 bg-gray-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid lg:grid-cols-2 gap-12 items-center relative">
-      <div class="absolute top-0 left-0 w-32 h-32 bg-blue-50 rounded-full opacity-70 -z-10 blur-xl"></div>
-      <div class="absolute bottom-0 right-0 w-64 h-64 bg-purple-50 rounded-full opacity-70 -z-10 blur-3xl"></div>
+<!-- Enhanced Our Story Section -->
+<section class="py-20 bg-gradient-to-br from-gray-50 to-blue-50/30 relative overflow-hidden">
+  <!-- Enhanced background decorations -->
+  <div class="absolute inset-0 z-0" aria-hidden="true">
+    <div class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-100/20 to-indigo-100/15 rounded-full -translate-x-1/4 -translate-y-1/4 blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-tl from-purple-100/25 to-pink-100/15 rounded-full translate-x-1/4 translate-y-1/4 blur-3xl"></div>
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-teal-50/30 to-emerald-50/20 rounded-full blur-2xl"></div>
+    
+    <!-- Geometric accents -->
+    <div class="absolute top-20 right-20 w-16 h-16 border-2 border-blue-200/40 rounded-xl rotate-12"></div>
+    <div class="absolute bottom-32 left-16 w-8 h-8 bg-purple-200/30 rounded-full"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid lg:grid-cols-2 gap-12 xl:gap-16 items-center">
       
       <div data-controller="fade-in" class="relative z-10">
-        <div class="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full mb-6">
-          <i class="fas fa-history text-blue-600 mr-2"></i>
+        <div class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-full mb-6 shadow-sm">
+          <span class="bg-blue-600/10 w-6 h-6 flex items-center justify-center rounded-full mr-2">
+            <i class="fas fa-history text-blue-600 text-xs"></i>
+          </span>
           <span class="text-sm font-medium text-blue-800">Est. 2024</span>
         </div>
         
-        <h2 class="text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
-        <p class="text-lg text-gray-600 mb-6">
-          Founded in 2024, MedGemma Health emerged from a simple yet powerful idea: 
-          what if we could combine the expertise of skilled medical professionals with 
-          the analytical power of artificial intelligence?
-        </p>
-        <p class="text-lg text-gray-600 mb-8">
-          Our team of healthcare professionals, AI specialists, and tech innovators 
-          came together with a shared mission to make quality healthcare accessible 
-          to everyone, everywhere.
-        </p>
+        <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 relative">
+          Our 
+          <span class="relative">
+            <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Story
+            </span>
+            <div class="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-blue-600/30 to-purple-600/30 rounded-full"></div>
+          </span>
+        </h2>
         
-        <div class="bg-white rounded-xl shadow-md p-4 inline-flex items-center space-x-4 border border-gray-100">
-          <div class="flex -space-x-4">
-            <div class="w-12 h-12 rounded-full border-2 border-white overflow-hidden">
+        <div class="prose prose-lg prose-gray max-w-none">
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Founded in 2024, MedGemma Health emerged from a simple yet powerful idea: 
+            what if we could combine the expertise of skilled medical professionals with 
+            the analytical power of artificial intelligence?
+          </p>
+          <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+            Our team of healthcare professionals, AI specialists, and tech innovators 
+            came together with a shared mission to make quality healthcare accessible 
+            to everyone, everywhere.
+          </p>
+        </div>
+        
+        <!-- Enhanced team showcase -->
+        <div class="bg-white rounded-2xl shadow-lg p-6 inline-flex items-center space-x-4 border border-gray-100 hover:shadow-xl transition-all duration-300">
+          <div class="flex -space-x-3">
+            <div class="w-12 h-12 rounded-full border-3 border-white overflow-hidden shadow-md">
               <%= team_photo("Dr. Sarah Smith") %>
             </div>
-            <div class="w-12 h-12 rounded-full border-2 border-white overflow-hidden">
+            <div class="w-12 h-12 rounded-full border-3 border-white overflow-hidden shadow-md">
               <%= team_photo("John Doe") %>
             </div>
-            <div class="w-12 h-12 rounded-full border-2 border-white overflow-hidden">
+            <div class="w-12 h-12 rounded-full border-3 border-white overflow-hidden shadow-md">
               <%= team_photo("Dr. Lisa Chen") %>
             </div>
+            <div class="w-12 h-12 rounded-full border-3 border-white bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center text-white text-sm font-bold shadow-md">
+              3+
+            </div>
           </div>
-          <p class="text-gray-700 font-medium">Led by experienced healthcare professionals</p>
+          <div>
+            <p class="text-gray-900 font-semibold">Led by Healthcare Experts</p>
+            <p class="text-gray-500 text-sm">15+ years combined experience</p>
+          </div>
         </div>
       </div>
 
       <div class="relative z-10" data-controller="fade-in">
-        <div class="absolute -top-5 -right-5 w-24 h-24 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full opacity-20"></div>
-        <div class="absolute -bottom-5 -left-5 w-32 h-32 bg-gradient-to-br from-green-600 to-blue-600 rounded-full opacity-10"></div>
+        <!-- Enhanced decorative elements -->
+        <div class="absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-br from-blue-200/30 to-purple-200/20 rounded-full blur-sm"></div>
+        <div class="absolute -bottom-8 -left-8 w-32 h-32 bg-gradient-to-tr from-emerald-200/20 to-teal-200/15 rounded-full blur-md"></div>
         
-        <div class="relative bg-white rounded-2xl p-3 shadow-lg">
-          <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-sm">
+        <!-- Enhanced video/image container -->
+        <div class="relative bg-white rounded-3xl p-4 shadow-2xl border border-gray-100 transform hover:scale-105 transition-all duration-500">
+          <div class="aspect-w-16 aspect-h-10 rounded-2xl overflow-hidden shadow-lg">
             <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
                  alt="Healthcare professionals discussing AI diagnostics" 
-                 class="w-full h-full object-cover" />
+                 class="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
             
-            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end">
-              <div class="p-4 md:p-6">
-                <div class="inline-flex items-center px-3 py-1.5 bg-white/90 backdrop-blur-sm rounded-full mb-2">
-                  <i class="fas fa-play-circle text-blue-600 mr-2"></i>
-                  <span class="text-xs font-medium text-gray-800">Watch our story</span>
+            <!-- Enhanced overlay with better positioning -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end">
+              <div class="p-6 md:p-8 w-full">
+                <!-- Enhanced play button -->
+                <div class="inline-flex items-center px-4 py-2 bg-white/95 backdrop-blur-md rounded-full mb-3 shadow-lg hover:bg-white transition-all duration-300 group cursor-pointer">
+                  <div class="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300">
+                    <i class="fas fa-play text-white text-sm ml-0.5"></i>
+                  </div>
+                  <span class="text-sm font-semibold text-gray-800">Watch our story</span>
                 </div>
-                <h3 class="text-white font-medium text-lg md:text-xl">How MedGemma is transforming healthcare</h3>
+                <h3 class="text-white font-bold text-lg md:text-xl leading-tight">
+                  How MedGemma is transforming healthcare with AI
+                </h3>
+                <p class="text-white/90 text-sm mt-2">
+                  See how we're making healthcare more accessible
+                </p>
               </div>
             </div>
+            
+            <!-- Corner accent -->
+            <div class="absolute top-4 right-4 w-3 h-3 bg-blue-400 rounded-full animate-pulse"></div>
           </div>
+          
+          <!-- Bottom accent bar -->
+          <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-16 h-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Values Section -->
-<section class="py-20">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Enhanced Values Section -->
+<section class="py-20 relative overflow-hidden">
+  <!-- Enhanced background decorations -->
+  <div class="absolute inset-0 z-0" aria-hidden="true">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-100/20 to-indigo-100/15 rounded-full translate-x-1/4 -translate-y-1/4 blur-3xl"></div>
+    <div class="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-purple-100/25 to-pink-100/15 rounded-full -translate-x-1/4 translate-y-1/4 blur-3xl"></div>
+    <div class="absolute top-1/2 left-1/3 w-64 h-64 bg-gradient-to-r from-emerald-50/30 to-teal-50/20 rounded-full blur-2xl"></div>
+    
+    <!-- Geometric shapes -->
+    <div class="absolute top-32 left-16 w-12 h-12 border-2 border-blue-200/40 rounded-lg rotate-45"></div>
+    <div class="absolute bottom-40 right-20 w-8 h-8 bg-purple-200/30 rounded-full"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <div class="text-center mb-16" data-controller="fade-in">
-      <h2 class="text-4xl font-bold text-gray-900 mb-6">Our Core Values</h2>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+      <div class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-50 to-blue-50 rounded-full mb-6 shadow-sm">
+        <span class="bg-purple-600/10 w-6 h-6 flex items-center justify-center rounded-full mr-2">
+          <i class="fas fa-heart text-purple-600 text-xs"></i>
+        </span>
+        <span class="text-sm font-medium text-purple-800">Our Foundation</span>
+      </div>
+      
+      <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 relative">
+        Our Core 
+        <span class="relative">
+          <span class="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+            Values
+          </span>
+          <svg class="absolute bottom-0 left-0 w-full h-2 opacity-30" viewBox="0 0 200 4" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,2 C50,0 150,4 200,2" fill="none" stroke="url(#gradient-values)" stroke-width="2"/>
+            <defs>
+              <linearGradient id="gradient-values" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#8B5CF6"/>
+                <stop offset="100%" stop-color="#3B82F6"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </span>
+      </h2>
+      
+      <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
         The principles that guide everything we do at MedGemma Health
       </p>
     </div>
@@ -149,19 +328,33 @@
           description: "We're committed to constantly improving our services through feedback, research, and technological advancement." }
       ] %>
       
-      <% values.each do |value| %>
+      <% values.each_with_index do |value, index| %>
         <% icon_classes = value_icon_class(value[:name]) %>
-        <div class="relative group" data-controller="fade-in">
-          <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-            <div class="absolute -top-3 -left-3 w-16 h-16 rounded-xl bg-gradient-to-br <%= icon_classes[:gradient] %> flex items-center justify-center transform -rotate-3 shadow-lg">
+        <div class="relative group values-card-hover" data-controller="fade-in" style="animation-delay: <%= index * 0.1 %>s;">
+          <!-- Enhanced glow effect -->
+          <div class="absolute inset-0 bg-gradient-to-r <%= icon_classes[:gradient] %> rounded-2xl blur-md opacity-0 group-hover:opacity-20 transition-all duration-500"></div>
+          
+          <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 h-full relative overflow-hidden">
+            <!-- Enhanced background elements -->
+            <div class="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br <%= icon_classes[:gradient] %> rounded-full opacity-5"></div>
+            <div class="absolute -bottom-6 -left-6 w-24 h-24 bg-gradient-to-tr <%= icon_classes[:gradient] %> rounded-full opacity-5"></div>
+            
+            <!-- Enhanced icon -->
+            <div class="absolute -top-3 -left-3 w-16 h-16 rounded-xl bg-gradient-to-br <%= icon_classes[:gradient] %> flex items-center justify-center transform group-hover:scale-110 transition-all duration-300 shadow-lg" style="transform: rotate(-3deg);">
               <i class="fas <%= icon_classes[:icon] %> text-white text-xl"></i>
+              <div class="absolute inset-0 bg-white/20 rounded-xl blur-sm"></div>
             </div>
-            <div class="pt-8 pl-8">
+            
+            <div class="pt-8 pl-8 relative z-10">
               <h3 class="text-xl font-bold text-gray-900 mb-4"><%= value[:name] %></h3>
-              <p class="text-gray-600">
+              <p class="text-gray-600 leading-relaxed">
                 <%= value[:description] %>
               </p>
             </div>
+            
+            <!-- Subtle accent dots -->
+            <div class="absolute top-4 right-4 w-2 h-2 <%= icon_classes[:gradient] %> rounded-full opacity-60"></div>
+            <div class="absolute bottom-6 right-6 w-1.5 h-1.5 <%= icon_classes[:gradient] %> rounded-full opacity-40"></div>
           </div>
         </div>
       <% end %>
@@ -169,12 +362,39 @@
   </div>
 </section>
 
-<!-- Team Section -->
-<section class="py-20 bg-gray-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Enhanced Team Section -->
+<section class="py-20 bg-gradient-to-br from-gray-50 to-blue-50/30 relative overflow-hidden">
+  <!-- Enhanced background decorations -->
+  <div class="absolute inset-0 z-0" aria-hidden="true">
+    <div class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-emerald-100/20 to-teal-100/15 rounded-full -translate-x-1/4 -translate-y-1/4 blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-tl from-blue-100/25 to-indigo-100/15 rounded-full translate-x-1/4 translate-y-1/4 blur-3xl"></div>
+    <div class="absolute top-1/2 right-1/3 w-64 h-64 bg-gradient-to-l from-purple-50/30 to-pink-50/20 rounded-full blur-2xl"></div>
+    
+    <!-- Geometric accents -->
+    <div class="absolute top-20 right-20 w-16 h-16 border-2 border-emerald-200/40 rounded-xl rotate-12"></div>
+    <div class="absolute bottom-32 left-16 w-8 h-8 bg-blue-200/30 rounded-full"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <div class="text-center mb-16" data-controller="fade-in">
-      <h2 class="text-4xl font-bold text-gray-900 mb-6">Leadership Team</h2>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+      <div class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-full mb-6 shadow-sm">
+        <span class="bg-emerald-600/10 w-6 h-6 flex items-center justify-center rounded-full mr-2">
+          <i class="fas fa-users text-emerald-600 text-xs"></i>
+        </span>
+        <span class="text-sm font-medium text-emerald-800">Meet Our Team</span>
+      </div>
+      
+      <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 relative">
+        Leadership 
+        <span class="relative">
+          <span class="bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">
+            Team
+          </span>
+          <div class="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-emerald-600/30 to-blue-600/30 rounded-full"></div>
+        </span>
+      </h2>
+      
+      <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
         Meet the experienced professionals leading the future of healthcare
       </p>
     </div>
@@ -185,48 +405,66 @@
           name: "Dr. Sarah Smith", 
           role: "CEO & Co-founder", 
           bio: "Former Chief of Digital Health at Mayo Clinic with 15+ years in healthcare innovation.",
-          social: { linkedin: "#", twitter: "#" }
+          social: { linkedin: "#", twitter: "#" },
+          accent_color: "blue"
         },
         { 
           name: "John Doe", 
           role: "CTO & Co-founder", 
           bio: "AI researcher and former Tech Lead at DeepMind Health.",
-          social: { linkedin: "#", twitter: "#", github: "#" }
+          social: { linkedin: "#", twitter: "#", github: "#" },
+          accent_color: "emerald"
         },
         { 
           name: "Dr. Lisa Chen", 
           role: "Chief Medical Officer", 
           bio: "Board-certified physician with expertise in telemedicine and digital health.",
-          social: { linkedin: "#", twitter: "#" }
+          social: { linkedin: "#", twitter: "#" },
+          accent_color: "purple"
         }
       ] %>
       
-      <% team_members.each do |member| %>
-        <div class="group" data-controller="fade-in">
-          <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1">
+      <% team_members.each_with_index do |member, index| %>
+        <div class="group team-card-hover" data-controller="fade-in" style="animation-delay: <%= index * 0.2 %>s;">
+          <!-- Enhanced glow effect -->
+          <div class="absolute inset-0 bg-gradient-to-r from-<%= member[:accent_color] %>-500 to-<%= member[:accent_color] %>-600 rounded-2xl blur-md opacity-0 group-hover:opacity-20 transition-all duration-500"></div>
+          
+          <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden relative transform transition-all duration-500 group-hover:shadow-2xl">
+            <!-- Enhanced image container -->
             <div class="h-56 relative overflow-hidden">
-              <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-40 z-10"></div>
-              <div class="w-full h-full">
+              <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 z-10"></div>
+              <div class="w-full h-full transform group-hover:scale-110 transition-transform duration-700">
                 <%= team_photo(member[:name], member[:role]) %>
               </div>
-            </div>
-            
-            <div class="p-6 relative">
-              <div class="absolute -top-8 right-4 flex space-x-2 z-20">
+              
+              <!-- Floating social icons -->
+              <div class="absolute top-4 right-4 flex space-x-2 z-20 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
                 <% member[:social].each do |platform, link| %>
-                  <a href="<%= link %>" class="w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-blue-50 transition-colors">
-                    <i class="fab fa-<%= platform %> text-gray-700"></i>
+                  <a href="<%= link %>" class="w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm shadow-lg flex items-center justify-center hover:bg-<%= member[:accent_color] %>-50 hover:scale-110 transition-all duration-300">
+                    <i class="fab fa-<%= platform %> text-gray-700 text-sm"></i>
                   </a>
                 <% end %>
               </div>
               
-              <div class="text-center">
-                <h3 class="text-xl font-bold text-gray-900"><%= member[:name] %></h3>
-                <p class="text-blue-600 font-medium mb-3"><%= member[:role] %></p>
-                <p class="text-gray-600">
+              <!-- Accent corner -->
+              <div class="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-<%= member[:accent_color] %>-500/20 to-transparent"></div>
+            </div>
+            
+            <!-- Enhanced content -->
+            <div class="p-6 relative">
+              <!-- Background accent -->
+              <div class="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-bl from-<%= member[:accent_color] %>-100/30 to-transparent rounded-full"></div>
+              
+              <div class="text-center relative z-10">
+                <h3 class="text-xl font-bold text-gray-900 mb-1"><%= member[:name] %></h3>
+                <p class="text-<%= member[:accent_color] %>-600 font-semibold mb-3 text-sm uppercase tracking-wide"><%= member[:role] %></p>
+                <p class="text-gray-600 leading-relaxed">
                   <%= member[:bio] %>
                 </p>
               </div>
+              
+              <!-- Bottom accent line -->
+              <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-gradient-to-r from-<%= member[:accent_color] %>-500 to-<%= member[:accent_color] %>-600 rounded-full group-hover:w-20 transition-all duration-300"></div>
             </div>
           </div>
         </div>
@@ -235,69 +473,596 @@
   </div>
 </section>
 
-<!-- CTA Section -->
+<!-- Enhanced CTA Section -->
 <section class="py-20 relative overflow-hidden">
-  <!-- Background Elements -->
-  <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 opacity-80"></div>
-  <div class="absolute -top-40 -right-40 w-96 h-96 bg-blue-100 rounded-full opacity-50 blur-3xl"></div>
-  <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-purple-100 rounded-full opacity-50 blur-3xl"></div>
+  <!-- Enhanced Background Elements -->
+  <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50/50 to-pink-50/30"></div>
+  <div class="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-bl from-blue-200/30 to-indigo-200/20 rounded-full blur-3xl"></div>
+  <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-gradient-to-tr from-purple-200/30 to-pink-200/20 rounded-full blur-3xl"></div>
+  <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-emerald-100/20 to-teal-100/15 rounded-full blur-2xl"></div>
   
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10" data-controller="fade-in">
-    <div class="bg-white rounded-3xl shadow-xl p-10 md:p-14 border border-gray-100">
-      <div class="text-center mb-10">
-        <div class="inline-flex items-center px-4 py-2 bg-purple-100 rounded-full mb-6">
-          <i class="fas fa-hand-holding-heart text-purple-600 mr-2"></i>
+  <!-- Geometric accents -->
+  <div class="absolute top-20 left-20 w-16 h-16 border-2 border-blue-200/40 rounded-xl rotate-12"></div>
+  <div class="absolute bottom-32 right-16 w-8 h-8 bg-purple-200/30 rounded-full"></div>
+  
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10" data-controller="fade-in">
+    <div class="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
+      <!-- Enhanced header section -->
+      <div class="px-10 md:px-14 pt-10 md:pt-14 pb-8 text-center">
+        <div class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-50 to-pink-50 rounded-full mb-6 shadow-sm">
+          <span class="bg-purple-600/10 w-6 h-6 flex items-center justify-center rounded-full mr-2">
+            <i class="fas fa-hand-holding-heart text-purple-600 text-xs"></i>
+          </span>
           <span class="text-sm font-medium text-purple-800">Join Our Mission</span>
         </div>
         
-        <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-          Join Us in <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Transforming Healthcare</span>
+        <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 leading-tight relative">
+          Join Us in 
+          <span class="relative">
+            <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Transforming Healthcare
+            </span>
+            <svg class="absolute bottom-0 left-0 w-full h-2 opacity-30" viewBox="0 0 300 4" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0,2 C75,0 225,4 300,2" fill="none" stroke="url(#gradient-cta)" stroke-width="2"/>
+              <defs>
+                <linearGradient id="gradient-cta" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#3B82F6"/>
+                  <stop offset="100%" stop-color="#8B5CF6"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </span>
         </h2>
         
-        <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+        <p class="text-lg sm:text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
           Whether you're a healthcare provider or a patient, be part of the revolution 
           in medical care delivery.
         </p>
       </div>
       
-      <div class="flex flex-col sm:flex-row gap-6 justify-center">
-        <a href="#" class="group">
-          <div class="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-medium shadow-lg shadow-blue-500/20 flex items-center justify-center space-x-3 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-500/30">
-            <i class="fas fa-user-md text-xl"></i>
-            <span>Join as a Doctor</span>
-            <i class="fas fa-arrow-right opacity-0 -translate-x-3 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"></i>
-          </div>
-        </a>
-        
-        <a href="#" class="group">
-          <div class="px-8 py-4 bg-white border-2 border-blue-600 text-blue-600 rounded-xl font-medium shadow-lg shadow-blue-100/20 flex items-center justify-center space-x-3 transform transition-all duration-300 hover:-translate-y-1 hover:bg-blue-50 hover:shadow-xl hover:shadow-blue-100/30">
-            <i class="fas fa-user-plus text-xl"></i>
-            <span>Sign Up as a Patient</span>
-            <i class="fas fa-arrow-right opacity-0 -translate-x-3 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"></i>
-          </div>
-        </a>
+      <!-- Enhanced action buttons -->
+      <div class="px-10 md:px-14 pb-8">
+        <div class="flex flex-col sm:flex-row gap-6 justify-center">
+          <a href="#" class="group relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl blur-md opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
+            <div class="relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold shadow-lg flex items-center justify-center space-x-3 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
+              <i class="fas fa-user-md text-xl group-hover:scale-110 transition-transform duration-300"></i>
+              <span>Join as a Doctor</span>
+              <i class="fas fa-arrow-right opacity-0 -translate-x-3 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"></i>
+            </div>
+          </a>
+          
+          <a href="#" class="group relative overflow-hidden">
+            <div class="absolute inset-0 bg-blue-600 rounded-xl blur-md opacity-10 group-hover:opacity-20 transition-opacity duration-300"></div>
+            <div class="relative px-8 py-4 bg-white border-2 border-blue-600 text-blue-600 rounded-xl font-semibold shadow-lg flex items-center justify-center space-x-3 transform transition-all duration-300 hover:-translate-y-1 hover:bg-blue-50 hover:shadow-xl group">
+              <i class="fas fa-user-plus text-xl group-hover:scale-110 transition-transform duration-300"></i>
+              <span>Sign Up as a Patient</span>
+              <i class="fas fa-arrow-right opacity-0 -translate-x-3 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"></i>
+            </div>
+          </a>
+        </div>
       </div>
       
-      <div class="mt-10 pt-10 border-t border-gray-100 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        <div>
-          <div class="text-blue-600 mb-2"><i class="fas fa-shield-alt text-xl"></i></div>
-          <h4 class="font-medium text-gray-800">HIPAA Compliant</h4>
+      <!-- Enhanced features grid -->
+      <div class="px-10 md:px-14 pb-10 md:pb-14">
+        <div class="mt-8 pt-8 border-t border-gray-100">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <% features = [
+              { icon: "fa-shield-alt", title: "HIPAA Compliant", color: "blue" },
+              { icon: "fa-lock", title: "Secure Platform", color: "emerald" },
+              { icon: "fa-headset", title: "24/7 Support", color: "purple" },
+              { icon: "fa-mobile-alt", title: "Mobile App", color: "pink" }
+            ] %>
+            
+            <% features.each_with_index do |feature, index| %>
+              <div class="text-center group" style="animation-delay: <%= index * 0.1 %>s;">
+                <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-<%= feature[:color] %>-500 to-<%= feature[:color] %>-600 rounded-xl mb-3 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <i class="fas <%= feature[:icon] %> text-white text-lg"></i>
+                </div>
+                <h4 class="font-semibold text-gray-800 text-sm"><%= feature[:title] %></h4>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Bottom accent -->
+      <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Customer Testimonials Section -->
+<section class="py-20 bg-gradient-to-br from-gray-50/50 to-blue-50/30 relative overflow-hidden">
+  <!-- Background decorations -->
+  <div class="absolute inset-0 z-0" aria-hidden="true">
+    <div class="absolute top-0 left-0 w-80 h-80 bg-gradient-to-br from-blue-100/20 to-purple-100/15 rounded-full -translate-x-1/4 -translate-y-1/4 blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-emerald-100/25 to-teal-100/15 rounded-full translate-x-1/4 translate-y-1/4 blur-3xl"></div>
+    <!-- Floating accent dots -->
+    <div class="absolute top-1/4 right-1/4 w-3 h-3 bg-blue-300/40 rounded-full animate-pulse"></div>
+    <div class="absolute bottom-1/3 left-1/3 w-2 h-2 bg-purple-300/40 rounded-full animate-pulse" style="animation-delay: 1s;"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Section header -->
+    <div class="text-center mb-16" data-controller="fade-in">
+      <div class="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full mb-6 shadow-sm">
+        <i class="fas fa-star text-yellow-500 mr-2"></i>
+        <span class="text-sm font-medium text-gray-800">Customer Stories</span>
+      </div>
+      <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+        Trusted by Healthcare Leaders
+        <span class="relative">
+          <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Worldwide
+          </span>
+          <svg class="absolute bottom-0 left-0 w-full h-2 opacity-30" viewBox="0 0 200 4" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,2 C50,0 150,4 200,2" fill="none" stroke="url(#gradient-testimonials)" stroke-width="2"/>
+            <defs>
+              <linearGradient id="gradient-testimonials" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#3B82F6"/>
+                <stop offset="100%" stop-color="#8B5CF6"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </span>
+      </h2>
+      <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+        See how MedGemma Health has transformed healthcare experiences for providers and patients worldwide.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <% testimonials = [
+        {
+          name: "Dr. Sarah Chen",
+          role: "Chief Medical Officer",
+          organization: "Regional Medical Center",
+          quote: "MedGemma's platform has revolutionized how we deliver patient care. The AI-powered insights have improved our diagnostic accuracy by 40%.",
+          avatar: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
+          rating: 5
+        },
+        {
+          name: "Michael Rodriguez",
+          role: "Healthcare IT Director", 
+          organization: "City General Hospital",
+          quote: "The integration process was seamless. Our team was up and running in days, not months. The support team is exceptional.",
+          avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
+          rating: 5
+        },
+        {
+          name: "Dr. Emily Johnson",
+          role: "Practice Owner",
+          organization: "Johnson Family Medicine", 
+          quote: "Patient satisfaction scores have increased significantly since implementing MedGemma. The platform is intuitive for both staff and patients.",
+          avatar: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
+          rating: 5
+        }
+      ] %>
+
+      <% testimonials.each_with_index do |testimonial, index| %>
+        <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group border border-white/50" 
+             data-controller="fade-in" 
+             style="animation-delay: <%= index * 0.2 %>s;">
+          <!-- Quote -->
+          <div class="mb-6">
+            <div class="flex items-start mb-4">
+              <i class="fas fa-quote-left text-blue-500 text-2xl mr-3 opacity-60"></i>
+              <p class="text-gray-700 leading-relaxed italic">
+                "<%= testimonial[:quote] %>"
+              </p>
+            </div>
+          </div>
+
+          <!-- Author -->
+          <div class="flex items-center">
+            <div class="relative">
+              <img 
+                src="<%= testimonial[:avatar] %>" 
+                alt="<%= testimonial[:name] %>"
+                class="w-12 h-12 rounded-full object-cover shadow-md"
+              />
+              <div class="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 border-2 border-white rounded-full"></div>
+            </div>
+            <div class="ml-4">
+              <h4 class="font-semibold text-gray-900"><%= testimonial[:name] %></h4>
+              <p class="text-sm text-gray-600"><%= testimonial[:role] %></p>
+              <p class="text-xs text-blue-600 font-medium"><%= testimonial[:organization] %></p>
+            </div>
+          </div>
+
+          <!-- Rating -->
+          <div class="flex items-center mt-4 pt-4 border-t border-gray-100">
+            <div class="flex space-x-1">
+              <% testimonial[:rating].times do %>
+                <i class="fas fa-star text-yellow-400 text-sm"></i>
+              <% end %>
+            </div>
+            <span class="text-sm text-gray-500 ml-2">5.0 rating</span>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-12" data-controller="fade-in">
+      <p class="text-gray-600 mb-4">Join thousands of satisfied healthcare providers</p>
+      <a href="#main-content" class="inline-flex items-center px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+        Start Your Journey
+        <i class="fas fa-arrow-up ml-2"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Response Time Guarantee Section -->
+<section class="py-20 bg-gradient-to-r from-blue-600 to-purple-700 relative overflow-hidden">
+  <!-- Enhanced background decorations -->
+  <div class="absolute inset-0 z-0" aria-hidden="true">
+    <div class="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 w-80 h-80 bg-purple-300/10 rounded-full translate-x-1/2 translate-y-1/2 blur-3xl"></div>
+    <!-- Floating elements -->
+    <div class="absolute top-1/4 right-1/4 w-4 h-4 bg-white/20 rounded-full animate-float-about"></div>
+    <div class="absolute bottom-1/3 left-1/4 w-3 h-3 bg-blue-300/30 rounded-full animate-float-about" style="animation-delay: 2s;"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Left content -->
+      <div data-controller="fade-in">
+        <div class="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-6">
+          <i class="fas fa-clock text-white mr-2"></i>
+          <span class="text-sm font-medium text-white">Service Guarantee</span>
         </div>
         
-        <div>
-          <div class="text-blue-600 mb-2"><i class="fas fa-lock text-xl"></i></div>
-          <h4 class="font-medium text-gray-800">Secure Platform</h4>
-        </div>
+        <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">
+          Lightning-Fast Response Times
+        </h2>
         
-        <div>
-          <div class="text-blue-600 mb-2"><i class="fas fa-headset text-xl"></i></div>
-          <h4 class="font-medium text-gray-800">24/7 Support</h4>
+        <p class="text-lg text-blue-100 mb-8">
+          We understand that in healthcare, every moment matters. That's why we guarantee rapid response times for all support requests.
+        </p>
+
+        <!-- Guarantees -->
+        <div class="space-y-4 mb-8">
+          <% guarantees = [
+            { time: "< 1 hour", type: "Critical Issues", icon: "fas fa-exclamation-triangle" },
+            { time: "< 4 hours", type: "Technical Support", icon: "fas fa-tools" },
+            { time: "< 24 hours", type: "General Inquiries", icon: "fas fa-comment-dots" }
+          ] %>
+
+          <% guarantees.each do |guarantee| %>
+            <div class="flex items-center space-x-4">
+              <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                <i class="<%= guarantee[:icon] %> text-white"></i>
+              </div>
+              <div>
+                <div class="text-2xl font-bold text-white"><%= guarantee[:time] %></div>
+                <div class="text-blue-100"><%= guarantee[:type] %></div>
+              </div>
+            </div>
+          <% end %>
         </div>
+
+        <div class="flex items-center space-x-4">
+          <a href="#main-content" class="inline-flex items-center px-6 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-colors shadow-lg">
+            Contact Support
+            <i class="fas fa-headset ml-2"></i>
+          </a>
+          <div class="text-white/80 text-sm">
+            24/7 availability for critical issues
+          </div>
+        </div>
+      </div>
+
+      <!-- Right content - Stats -->
+      <div class="grid grid-cols-2 gap-6" data-controller="fade-in">
+        <% stats = [
+          { number: "99.9%", label: "Uptime", icon: "fas fa-server" },
+          { number: "15 min", label: "Avg Response", icon: "fas fa-tachometer-alt" },
+          { number: "24/7", label: "Monitoring", icon: "fas fa-shield-alt" },
+          { number: "98%", label: "Satisfaction", icon: "fas fa-heart" }
+        ] %>
+
+        <% stats.each_with_index do |stat, index| %>
+          <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center hover:bg-white/20 transition-all duration-300" 
+               style="animation-delay: <%= index * 0.1 %>s;">
+            <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <i class="<%= stat[:icon] %> text-white text-lg"></i>
+            </div>
+            <div class="text-3xl font-bold text-white mb-2"><%= stat[:number] %></div>
+            <div class="text-blue-100 text-sm"><%= stat[:label] %></div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-20 relative overflow-hidden">
+  <!-- Background decorations -->
+  <div class="absolute inset-0 z-0" aria-hidden="true">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-50/50 to-purple-50/30 rounded-full translate-x-1/4 -translate-y-1/4 blur-3xl"></div>
+    <div class="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-emerald-50/40 to-teal-50/30 rounded-full -translate-x-1/4 translate-y-1/4 blur-3xl"></div>
+  </div>
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center mb-16" data-controller="fade-in">
+      <div class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-50 to-purple-50 rounded-full mb-6 shadow-sm">
+        <i class="fas fa-question-circle text-blue-600 mr-2"></i>
+        <span class="text-sm font-medium text-blue-800">Frequently Asked Questions</span>
+      </div>
+      <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+        Got Questions About 
+        <span class="relative">
+          <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            MedGemma?
+          </span>
+          <svg class="absolute bottom-0 left-0 w-full h-2 opacity-30" viewBox="0 0 200 4" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,2 C50,0 150,4 200,2" fill="none" stroke="url(#gradient-faq)" stroke-width="2"/>
+            <defs>
+              <linearGradient id="gradient-faq" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#3B82F6"/>
+                <stop offset="100%" stop-color="#8B5CF6"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </span>
+      </h2>
+      <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+        Find answers to our most commonly asked questions. If you don't see what you're looking for, please contact us.
+      </p>
+    </div>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+      <% faqs = [
+        { question: "How does MedGemma's AI technology work?", 
+          answer: "Our AI uses advanced machine learning algorithms trained on millions of medical cases to analyze symptoms, medical history, and images. All AI suggestions are reviewed by board-certified physicians for accuracy." },
+        { question: "Is my medical data secure with MedGemma?", 
+          answer: "Yes! We follow HIPAA guidelines and employ military-grade encryption to ensure that your medical data remains private and secure. We never share your data without explicit consent." },
+        { question: "Can I integrate MedGemma with existing systems?", 
+          answer: "Absolutely. Our platform offers comprehensive API access and integrations with most major EMR systems and healthcare software providers." },
+        { question: "What devices can I use MedGemma on?", 
+          answer: "Our platform is accessible on desktops, tablets, and mobile phones, with native apps available for iOS and Android devices." },
+        { question: "How quickly can I get started?", 
+          answer: "Most customers can be fully onboarded within 48 hours of signing up. Our team will guide you through the entire setup process." },
+        { question: "Do you offer training for my staff?", 
+          answer: "Yes, we provide comprehensive training sessions, documentation, and ongoing support to ensure your team can make the most of our platform." }
+      ] %>
+      
+      <% faqs.each_with_index do |faq, index| %>
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 p-6" data-controller="fade-in">
+          <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-start">
+            <span class="w-6 h-6 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 text-white flex items-center justify-center text-xs font-medium mr-3 mt-0.5 flex-shrink-0">
+              <%= index + 1 %>
+            </span>
+            <%= faq[:question] %>
+          </h3>
+          <p class="text-gray-600 ml-9 leading-relaxed">
+            <%= faq[:answer] %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+    
+    <!-- View more FAQs link -->
+    <div class="text-center mt-12">
+      <a href="/faq" class="inline-flex items-center px-8 py-3 bg-gray-50 hover:bg-gray-100 text-blue-600 rounded-lg font-medium transition-colors shadow-sm hover:shadow-md">
+        View all FAQs
+        <i class="fas fa-arrow-right ml-2"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Resources Section -->
+<section class="py-20 bg-gradient-to-br from-gray-50/50 to-blue-50/30 relative overflow-hidden">
+  <!-- Background decorations -->
+  <div class="absolute inset-0 z-0" aria-hidden="true">
+    <div class="absolute top-1/4 left-0 w-80 h-80 bg-gradient-to-br from-emerald-100/20 to-teal-100/15 rounded-full -translate-x-1/4 blur-3xl"></div>
+    <div class="absolute bottom-1/4 right-0 w-96 h-96 bg-gradient-to-tl from-purple-100/25 to-pink-100/15 rounded-full translate-x-1/4 blur-3xl"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Section header -->
+    <div class="text-center mb-16" data-controller="fade-in">
+      <div class="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full mb-6 shadow-sm">
+        <i class="fas fa-book-open text-purple-600 mr-2"></i>
+        <span class="text-sm font-medium text-purple-800">Learning Resources</span>
+      </div>
+      <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+        Helpful Resources & 
+        <span class="relative">
+          <span class="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+            Guides
+          </span>
+          <svg class="absolute bottom-0 left-0 w-full h-2 opacity-30" viewBox="0 0 200 4" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,2 C50,0 150,4 200,2" fill="none" stroke="url(#gradient-resources)" stroke-width="2"/>
+            <defs>
+              <linearGradient id="gradient-resources" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#8B5CF6"/>
+                <stop offset="100%" stop-color="#3B82F6"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </span>
+      </h2>
+      <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+        Explore our comprehensive collection of guides, documentation, and resources to help you succeed with MedGemma Health.
+      </p>
+    </div>
+
+    <!-- Resources grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <% resources = [
+        {
+          title: "Getting Started Guide",
+          description: "Step-by-step instructions to set up your MedGemma Health account and configure your first workflows.",
+          icon: "fas fa-play-circle",
+          type: "Guide",
+          color: "blue",
+          readTime: "5 min read"
+        },
+        {
+          title: "API Documentation",
+          description: "Complete reference for integrating MedGemma Health with your existing healthcare systems and applications.",
+          icon: "fas fa-code",
+          type: "Documentation",
+          color: "green",
+          readTime: "Technical"
+        },
+        {
+          title: "Video Tutorials",
+          description: "Watch our comprehensive video series covering all features of the MedGemma Health platform.",
+          icon: "fas fa-video",
+          type: "Videos",
+          color: "purple",
+          readTime: "Multiple"
+        },
+        {
+          title: "Security Whitepaper",
+          description: "Learn about our security measures, compliance standards, and data protection protocols.",
+          icon: "fas fa-shield-alt",
+          type: "Whitepaper",
+          color: "red",
+          readTime: "15 min read"
+        },
+        {
+          title: "Best Practices",
+          description: "Proven strategies and tips from healthcare professionals using MedGemma Health successfully.",
+          icon: "fas fa-lightbulb",
+          type: "Guide",
+          color: "yellow",
+          readTime: "8 min read"
+        },
+        {
+          title: "System Status",
+          description: "Real-time status updates and maintenance schedules for all MedGemma Health services.",
+          icon: "fas fa-heartbeat",
+          type: "Status",
+          color: "indigo",
+          readTime: "Live"
+        }
+      ] %>
+
+      <% resources.each_with_index do |resource, index| %>
+        <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 group cursor-pointer"
+             data-controller="fade-in"
+             style="animation-delay: <%= index * 0.1 %>s;">
+          <!-- Header -->
+          <div class="flex items-start justify-between mb-4">
+            <div class="w-12 h-12 bg-<%= resource[:color] %>-100 rounded-xl flex items-center justify-center group-hover:bg-<%= resource[:color] %>-200 transition-colors">
+              <i class="<%= resource[:icon] %> text-<%= resource[:color] %>-600 text-lg"></i>
+            </div>
+            <div class="text-xs bg-<%= resource[:color] %>-100 text-<%= resource[:color] %>-800 px-2 py-1 rounded-full">
+              <%= resource[:type] %>
+            </div>
+          </div>
+          
+          <!-- Content -->
+          <h3 class="font-bold text-gray-900 mb-2 group-hover:text-<%= resource[:color] %>-600 transition-colors">
+            <%= resource[:title] %>
+          </h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-4">
+            <%= resource[:description] %>
+          </p>
+          
+          <!-- Footer -->
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-gray-500">
+              <i class="fas fa-clock mr-1"></i>
+              <%= resource[:readTime] %>
+            </span>
+            <div class="flex items-center text-<%= resource[:color] %>-600 text-sm font-medium group-hover:translate-x-1 transition-transform">
+              Access <i class="fas fa-arrow-right ml-1 text-xs"></i>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-12" data-controller="fade-in">
+      <a href="/help-center" class="inline-flex items-center px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl">
+        Browse All Resources
+        <i class="fas fa-external-link-alt ml-2"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter Signup Section -->
+<section class="py-20 bg-gradient-to-r from-blue-600 to-purple-700 relative overflow-hidden">
+  <!-- Enhanced background decorations -->
+  <div class="absolute inset-0 z-0" aria-hidden="true">
+    <div class="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 w-80 h-80 bg-purple-300/10 rounded-full translate-x-1/2 translate-y-1/2 blur-3xl"></div>
+    <!-- Grid pattern -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+    <div data-controller="fade-in">
+      <div class="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-6">
+        <i class="fas fa-envelope text-white mr-2"></i>
+        <span class="text-sm font-medium text-white">Stay Updated</span>
+      </div>
+      
+      <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">
+        Subscribe to Our Healthcare Insights
+      </h2>
+      
+      <p class="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
+        Get the latest updates on healthcare technology, AI innovations, and industry best practices delivered to your inbox.
+      </p>
+
+      <!-- Newsletter form -->
+      <div class="max-w-lg mx-auto" data-controller="fade-in">
+        <%= form_with url: newsletter_subscription_path, 
+            class: "flex flex-col sm:flex-row gap-4",
+            data: { 
+              controller: "newsletter-form",
+              newsletter_form_target: "form",
+              action: "submit->newsletter-form#submit"
+            } do |form| %>
+          <div class="flex-1">
+            <%= form.email_field :email, 
+                placeholder: "Enter your email address",
+                class: "w-full px-4 py-3 rounded-lg border-2 border-white/20 bg-white/10 backdrop-blur-sm text-white placeholder-white/70 focus:border-white focus:bg-white/20 focus:outline-none transition-all duration-300",
+                data: { newsletter_form_target: "email" },
+                "aria-label": "Email address for newsletter" %>
+          </div>
+          <%= form.submit "Subscribe", 
+              class: "px-8 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 whitespace-nowrap",
+              data: { newsletter_form_target: "submit" } %>
+        <% end %>
         
-        <div>
-          <div class="text-blue-600 mb-2"><i class="fas fa-mobile-alt text-xl"></i></div>
-          <h4 class="font-medium text-gray-800">Mobile App</h4>
-        </div>
+        <p class="text-white/80 text-sm mt-4">
+          No spam, unsubscribe at any time. Read our 
+          <a href="/privacy" class="underline hover:no-underline">Privacy Policy</a>.
+        </p>
+      </div>
+
+      <!-- Benefits -->
+      <div class="grid md:grid-cols-3 gap-8 mt-12">
+        <% benefits = [
+          { icon: "fas fa-brain", title: "AI Insights", description: "Latest in AI healthcare technology" },
+          { icon: "fas fa-users", title: "Industry Updates", description: "Healthcare industry news and trends" },
+          { icon: "fas fa-lightbulb", title: "Best Practices", description: "Tips from healthcare professionals" }
+        ] %>
+
+        <% benefits.each do |benefit| %>
+          <div class="text-center">
+            <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mx-auto mb-4">
+              <i class="<%= benefit[:icon] %> text-white text-lg"></i>
+            </div>
+            <h3 class="font-semibold text-white mb-2"><%= benefit[:title] %></h3>
+            <p class="text-blue-100 text-sm"><%= benefit[:description] %></p>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

@@ -1,0 +1,425 @@
+<% content_for :title, "Educational Webinars | MedGemma Health" %>
+<% content_for :meta_description, "Join our educational webinars and learn from healthcare experts about AI-powered medicine, best practices, and the future of healthcare technology." %>
+<% content_for :canonical_url, webinars_url %>
+<% content_for :open_graph do %>
+  <meta property="og:title" content="MedGemma Health Educational Webinars | Learn from Healthcare Experts">
+  <meta property="og:description" content="Join our educational webinars featuring healthcare experts, AI researchers, and medical professionals. Learn about the latest in healthcare technology and best practices.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="<%= webinars_url %>">
+  <meta property="og:image" content="/icon.png">
+<% end %>
+
+<!-- Performance optimization: Preload critical resources -->
+<% content_for :head do %>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+    /* Critical CSS for above-the-fold content */
+    .webinars-hero-bg {
+      background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #eff6ff 100%);
+    }
+    .animate-float-webinar {
+      animation: floatWebinar 6s ease-in-out infinite;
+    }
+    @keyframes floatWebinar {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(2deg); }
+    }
+    .webinar-card {
+      transition: all 0.3s ease;
+    }
+    .webinar-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+<% end %>
+
+<!-- Skip to main content link for accessibility -->
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-medgemma-600 focus:shadow-lg focus:rounded-md">
+  Skip to main content
+</a>
+
+<!-- Enhanced Hero Section -->
+<section id="main-content" class="pt-32 pb-20 webinars-hero-bg relative overflow-hidden" data-controller="analytics" data-analytics-page-value="webinars" data-analytics-section-value="hero">
+  <!-- Optimized decorative background elements -->
+  <div class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-medgemma-100/30 to-blue-100/20 rounded-full -translate-x-1/2 -translate-y-1/2 will-change-transform"></div>
+  <div class="absolute top-20 right-0 w-64 h-64 bg-gradient-to-bl from-purple-100/40 to-indigo-100/30 rounded-full translate-x-1/3 will-change-transform"></div>
+  <div class="absolute bottom-0 right-1/4 w-48 h-48 bg-gradient-to-t from-teal-100/30 to-emerald-100/30 rounded-full will-change-transform"></div>
+  <div class="absolute top-1/2 left-1/4 w-32 h-32 bg-gradient-to-br from-orange-100/20 to-yellow-100/30 rounded-full animate-float-webinar"></div>
+  
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Enhanced Header -->
+    <div class="text-center mb-20 animate-fade-in">
+      <div class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-medgemma-50 via-blue-50 to-purple-50 border border-medgemma-200/50 rounded-full mb-8 shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm">
+        <div class="w-10 h-10 bg-gradient-to-r from-medgemma-500 via-blue-600 to-purple-600 rounded-full flex items-center justify-center mr-4">
+          <i class="fas fa-graduation-cap text-white text-lg"></i>
+        </div>
+        <span class="text-base font-bold bg-gradient-to-r from-medgemma-700 via-blue-700 to-purple-700 bg-clip-text text-transparent">Educational Webinars</span>
+        <div class="ml-4 px-3 py-1 bg-gradient-to-r from-green-100 to-emerald-100 rounded-full">
+          <span class="text-sm font-semibold text-emerald-700">Live Learning</span>
+        </div>
+      </div>
+      
+      <h1 class="text-6xl lg:text-7xl font-bold text-gray-900 mb-8 leading-tight">
+        <span class="bg-gradient-to-r from-medgemma-500 via-blue-600 to-purple-500 bg-clip-text text-transparent">
+          Learn from
+        </span>
+        <br>
+        <span class="text-5xl lg:text-6xl">Healthcare Experts</span>
+        <br>
+        <span class="text-4xl lg:text-5xl text-gray-700">Worldwide</span>
+      </h1>
+      
+      <p class="text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto animate-fade-in leading-relaxed mb-12" style="animation-delay: 0.2s">
+        Join our educational webinars featuring healthcare experts, AI researchers, and medical professionals. Stay at the forefront of healthcare innovation and learn best practices from industry leaders.
+      </p>
+      
+      <!-- Enhanced CTA Buttons -->
+      <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16 animate-fade-in" style="animation-delay: 0.4s">
+        <a href="#upcoming-webinars" class="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-medgemma-500 via-blue-600 to-purple-600 text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+          <i class="fas fa-play-circle mr-3 text-lg group-hover:animate-pulse"></i>
+          View Upcoming Webinars
+          <div class="ml-3 w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+            <i class="fas fa-arrow-right text-sm"></i>
+          </div>
+        </a>
+        <a href="#past-webinars" class="group inline-flex items-center px-8 py-4 bg-white text-gray-800 border-2 border-medgemma-200 font-bold rounded-full shadow-lg hover:shadow-xl hover:border-medgemma-300 transition-all duration-300 hover:scale-105">
+          <i class="fas fa-video mr-3 text-lg text-medgemma-600 group-hover:animate-bounce"></i>
+          Browse Recordings
+          <div class="ml-3 w-8 h-8 bg-medgemma-100 rounded-full flex items-center justify-center">
+            <i class="fas fa-arrow-right text-sm text-medgemma-600"></i>
+          </div>
+        </a>
+      </div>
+      
+      <!-- Enhanced Webinar Statistics -->
+      <div class="grid grid-cols-3 gap-6 max-w-3xl mx-auto animate-fade-in" style="animation-delay: 0.6s">
+        <div class="text-center">
+          <div class="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-medgemma-600 to-blue-600 bg-clip-text text-transparent">50+</div>
+          <div class="text-sm text-gray-500 font-medium">Expert Speakers</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">100+</div>
+          <div class="text-sm text-gray-500 font-medium">Hours of Content</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">10K+</div>
+          <div class="text-sm text-gray-500 font-medium">Attendees</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Webinar Categories -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Browse by Category</h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Find webinars tailored to your interests and expertise level
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+      <% @webinar_categories.each do |category| %>
+        <div class="group bg-white rounded-xl border-2 border-gray-100 p-6 text-center hover:border-<%= category[:color] %>-200 hover:shadow-lg transition-all duration-300 cursor-pointer">
+          <div class="w-12 h-12 bg-<%= category[:color] %>-100 text-<%= category[:color] %>-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
+            <i class="fas fa-bookmark text-lg"></i>
+          </div>
+          <h3 class="font-semibold text-gray-900 mb-1 text-sm"><%= category[:name] %></h3>
+          <p class="text-xs text-gray-500"><%= category[:count] %> webinars</p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Webinars -->
+<section class="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center px-6 py-2 bg-gradient-to-r from-yellow-100 via-orange-100 to-red-100 rounded-full mb-6 shadow-sm border border-yellow-200">
+        <i class="fas fa-star text-yellow-600 mr-2"></i>
+        <span class="text-sm font-bold bg-gradient-to-r from-yellow-700 via-orange-700 to-red-700 bg-clip-text text-transparent">Featured Content</span>
+      </div>
+      <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+        <span class="bg-gradient-to-r from-yellow-600 via-orange-600 to-red-600 bg-clip-text text-transparent">Recurring</span>
+        Webinar Series
+      </h2>
+      <p class="text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+        Join our regular webinar series designed to keep you updated with the latest in healthcare technology and best practices.
+      </p>
+    </div>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+      <% @featured_webinars.each do |webinar| %>
+        <div class="webinar-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:border-medgemma-200">
+          <div class="relative h-64 bg-gradient-to-br from-medgemma-500 via-blue-600 to-purple-600 flex items-center justify-center">
+            <div class="absolute inset-0 bg-gradient-to-br from-medgemma-500/80 via-blue-600/80 to-purple-600/80"></div>
+            <div class="relative text-center text-white z-10">
+              <i class="fas fa-video text-5xl mb-4"></i>
+              <div class="text-sm font-bold bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full">
+                <%= webinar[:status].upcase %>
+              </div>
+            </div>
+            <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+              <%= webinar[:price] %>
+            </div>
+          </div>
+          <div class="p-8">
+            <div class="flex items-center justify-between mb-4">
+              <div class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full"><%= webinar[:category] %></div>
+              <div class="text-sm text-gray-500 font-bold"><%= webinar[:date] %></div>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3"><%= webinar[:title] %></h3>
+            <p class="text-gray-600 text-sm mb-6 leading-relaxed">
+              <%= webinar[:description] %>
+            </p>
+            
+            <!-- Webinar details -->
+            <div class="space-y-3 mb-6">
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-clock mr-3 text-blue-600"></i>
+                <span><%= webinar[:time] %></span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-user-md mr-3 text-purple-600"></i>
+                <span><%= webinar[:presenter] %></span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-hourglass-half mr-3 text-indigo-600"></i>
+                <span><%= webinar[:duration] %></span>
+              </div>
+            </div>
+            
+            <div class="flex flex-col gap-3">
+              <a href="#" class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-medgemma-500 via-blue-600 to-purple-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <i class="fas fa-calendar-plus mr-2"></i>
+                Register for Series
+              </a>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<!-- Upcoming Webinars -->
+<section id="upcoming-webinars" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center px-6 py-2 bg-gradient-to-r from-medgemma-100 via-blue-100 to-purple-100 rounded-full mb-6 shadow-sm border border-medgemma-200">
+        <i class="fas fa-calendar-alt text-medgemma-600 mr-2"></i>
+        <span class="text-sm font-bold bg-gradient-to-r from-medgemma-700 via-blue-700 to-purple-700 bg-clip-text text-transparent">Upcoming Events</span>
+      </div>
+      <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+        <span class="bg-gradient-to-r from-medgemma-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">Upcoming</span>
+        Webinars
+      </h2>
+      <p class="text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+        Register now for our upcoming educational sessions and secure your spot to learn from healthcare experts.
+      </p>
+    </div>
+    
+    <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+      <% @upcoming_webinars.each do |webinar| %>
+        <div class="webinar-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:border-medgemma-200 <%= 'ring-2 ring-medgemma-200 ring-opacity-50' if webinar[:featured] %>">
+          <div class="relative h-48 bg-gradient-to-br from-medgemma-500 via-blue-600 to-purple-600 flex items-center justify-center">
+            <div class="absolute inset-0 bg-gradient-to-br from-medgemma-500/80 via-blue-600/80 to-purple-600/80"></div>
+            <div class="relative text-center text-white z-10">
+              <i class="fas fa-laptop-medical text-4xl mb-3"></i>
+              <% if webinar[:featured] %>
+                <div class="text-xs font-bold bg-yellow-500 text-yellow-900 px-3 py-1 rounded-full">
+                  FEATURED
+                </div>
+              <% end %>
+            </div>
+            <div class="absolute top-4 right-4 bg-<%= webinar[:price] == 'Free' ? 'green' : 'blue' %>-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+              <%= webinar[:price] %>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-4">
+              <div class="bg-<%= webinar[:category] == 'AI & Technology' ? 'blue' : webinar[:category] == 'Development' ? 'purple' : 'indigo' %>-100 text-<%= webinar[:category] == 'AI & Technology' ? 'blue' : webinar[:category] == 'Development' ? 'purple' : 'indigo' %>-800 text-xs font-bold px-3 py-1 rounded-full"><%= webinar[:category] %></div>
+              <div class="text-sm text-gray-500 font-bold"><%= webinar[:date].strftime("%b %d, %Y") %></div>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-3"><%= webinar[:title] %></h3>
+            <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+              <%= webinar[:description] %>
+            </p>
+            
+            <!-- Webinar details -->
+            <div class="space-y-2 mb-6">
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-clock mr-3 text-blue-600"></i>
+                <span><%= webinar[:time] %></span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-user-md mr-3 text-purple-600"></i>
+                <span><%= webinar[:presenter] %></span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-users mr-3 text-indigo-600"></i>
+                <span><%= webinar[:registered_count] %> registered • <%= webinar[:max_attendees] - webinar[:registered_count] %> spots left</span>
+              </div>
+            </div>
+            
+            <div class="flex flex-col gap-3">
+              <a href="#" class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-medgemma-500 via-blue-600 to-purple-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <i class="fas fa-video mr-2"></i>
+                Register Now
+              </a>
+              <button type="button" class="inline-flex items-center justify-center px-6 py-3 bg-white border-2 border-gray-200 text-gray-700 font-bold rounded-xl hover:border-medgemma-300 hover:shadow-lg transition-all duration-300">
+                <i class="fas fa-calendar-plus mr-2"></i>
+                Add to Calendar
+              </button>
+            </div>
+            
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-2 mt-4">
+              <% webinar[:tags].each do |tag| %>
+                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full"><%= tag %></span>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<!-- Past Webinars & Recordings -->
+<section id="past-webinars" class="py-20 bg-gradient-to-br from-gray-50 via-white to-purple-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center px-6 py-2 bg-gradient-to-r from-purple-100 via-indigo-100 to-blue-100 rounded-full mb-6 shadow-sm border border-purple-200">
+        <i class="fas fa-video text-purple-600 mr-2"></i>
+        <span class="text-sm font-bold bg-gradient-to-r from-purple-700 via-indigo-700 to-blue-700 bg-clip-text text-transparent">Recorded Sessions</span>
+      </div>
+      <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+        <span class="bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 bg-clip-text text-transparent">Past Webinars</span>
+        & Recordings
+      </h2>
+      <p class="text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+        Catch up on previous webinars and access our library of recorded educational content available on-demand.
+      </p>
+    </div>
+    
+    <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+      <% @past_webinars.each do |webinar| %>
+        <div class="webinar-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:border-purple-200">
+          <div class="relative h-48 bg-gradient-to-br from-purple-500 via-indigo-600 to-blue-600 flex items-center justify-center">
+            <div class="absolute inset-0 bg-gradient-to-br from-purple-500/80 via-indigo-600/80 to-blue-600/80"></div>
+            <div class="relative text-center text-white z-10">
+              <i class="fas fa-play-circle text-4xl mb-3"></i>
+              <div class="text-xs font-bold bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full">
+                RECORDED
+              </div>
+            </div>
+            <% if webinar[:recording_available] %>
+              <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                AVAILABLE
+              </div>
+            <% end %>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-4">
+              <div class="bg-purple-100 text-purple-800 text-xs font-bold px-3 py-1 rounded-full"><%= webinar[:category] %></div>
+              <div class="text-sm text-gray-500 font-bold"><%= webinar[:date].strftime("%b %d, %Y") %></div>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-3"><%= webinar[:title] %></h3>
+            <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+              <%= webinar[:description] %>
+            </p>
+            
+            <!-- Webinar details -->
+            <div class="space-y-2 mb-6">
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-user-md mr-3 text-purple-600"></i>
+                <span><%= webinar[:presenter] %></span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-users mr-3 text-indigo-600"></i>
+                <span><%= webinar[:attendees_count] %> attendees</span>
+              </div>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-star mr-3 text-yellow-500"></i>
+                <span><%= webinar[:rating] %>/5.0 rating</span>
+              </div>
+            </div>
+            
+            <div class="flex flex-col gap-3">
+              <% if webinar[:recording_available] %>
+                <a href="#" class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-purple-500 via-indigo-600 to-blue-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                  <i class="fas fa-play mr-2"></i>
+                  Watch Recording
+                </a>
+              <% else %>
+                <button type="button" class="inline-flex items-center justify-center px-6 py-3 bg-gray-300 text-gray-500 font-bold rounded-xl cursor-not-allowed" disabled>
+                  <i class="fas fa-lock mr-2"></i>
+                  Recording Not Available
+                </button>
+              <% end %>
+            </div>
+            
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-2 mt-4">
+              <% webinar[:tags].each do |tag| %>
+                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full"><%= tag %></span>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter Subscription -->
+<section class="py-20 bg-gradient-to-br from-medgemma-600 via-blue-700 to-purple-800 relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-br from-medgemma-600/95 via-blue-700/95 to-purple-800/95"></div>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+    <div class="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full mb-4 shadow-sm">
+      <i class="fas fa-envelope text-medgemma-600 mr-2"></i>
+      <span class="text-sm font-medium text-gray-800">Stay Updated</span>
+    </div>
+    
+    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
+      Never Miss a Webinar
+    </h2>
+    
+    <p class="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
+      Get notified about upcoming webinars, new recordings, and exclusive healthcare insights delivered to your inbox.
+    </p>
+
+    <!-- Newsletter form -->
+    <div class="max-w-lg mx-auto">
+      <%= form_with url: newsletter_subscription_path, 
+          class: "flex flex-col sm:flex-row gap-4",
+          data: { 
+            controller: "newsletter-form",
+            newsletter_form_target: "form",
+            action: "submit->newsletter-form#submit"
+          } do |form| %>
+        <div class="flex-1">
+          <%= form.email_field :email, 
+              placeholder: "Enter your email address",
+              class: "w-full px-4 py-3 rounded-lg border-2 border-white/20 bg-white/10 backdrop-blur-sm text-white placeholder-white/70 focus:border-white focus:bg-white/20 focus:outline-none transition-all duration-300",
+              data: { newsletter_form_target: "email" },
+              "aria-label": "Email address for newsletter" %>
+        </div>
+        <%= form.submit "Subscribe for Updates", 
+            class: "px-8 py-3 bg-white text-medgemma-600 rounded-lg font-semibold hover:bg-blue-50 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 whitespace-nowrap",
+            data: { newsletter_form_target: "submit" } %>
+      <% end %>
+      
+      <p class="text-white/80 text-sm mt-4">
+        No spam, unsubscribe at any time. Read our 
+        <a href="/privacy" class="underline hover:no-underline">Privacy Policy</a>.
+      </p>
+    </div>
+  </div>
+</section>

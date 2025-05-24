@@ -1,3 +1,68 @@
+/* Accordion animation classes */
+.max-h-0 {
+  max-height: 0;
+}
+
+.max-h-96 {
+  max-height: 24rem;
+}
+
+/* Scroll animations */
+/* Pre-animation states */
+.fade-in-pre {
+  opacity: 0;
+}
+
+.fade-in-up-pre {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.fade-in-left-pre {
+  opacity: 0;
+  transform: translateX(-50px);
+}
+
+.fade-in-right-pre {
+  opacity: 0;
+  transform: translateX(50px);
+}
+
+.zoom-in-pre {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+/* Animation states */
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.8s ease-out;
+}
+
+.fade-in-up {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-left {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-right {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.zoom-in {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
 @keyframes blob {
     0% {
       transform: translate(0px, 0px) scale(1);
@@ -10,6 +75,18 @@
     }
     100% {
       transform: translate(0px, 0px) scale(1);
+    }
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+    100% {
+      transform: translateY(0px);
     }
   }
 
@@ -153,7 +230,7 @@
   }
   
   .animate-float {
-    animation: float 3s ease-in-out infinite;
+    animation: float 6s ease-in-out infinite;
   }
   
   .animate-fade-in-up {
@@ -164,8 +241,16 @@
     animation-delay: 2s;
   }
   
+  .animation-delay-3000 {
+    animation-delay: 3s;
+  }
+  
   .animation-delay-4000 {
     animation-delay: 4s;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse-slow 4s infinite;
   }
   
   /* Stats counter animations */
@@ -250,4 +335,39 @@
     100% {
       background-position: 0% 50%;
     }
-  }
+  }/* Animation delay classes - for use with both keyframe animations and transitions */
+.animation-delay-500 {
+  animation-delay: 500ms;
+}
+
+.animation-delay-1000 {
+  animation-delay: 1000ms;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2000ms;
+}
+
+.animation-delay-3000 {
+  animation-delay: 3000ms;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4000ms;
+}
+
+.transition-delay-500 {
+  transition-delay: 500ms;
+}
+
+.transition-delay-1000 {
+  transition-delay: 1000ms;
+}
+
+.transition-delay-1500 {
+  transition-delay: 1500ms;
+}
+
+.transition-delay-2000 {
+  transition-delay: 2000ms;
+}

@@ -4,7 +4,7 @@ export default class extends Controller {
   static targets = ["content", "icon"]
   
   connect() {
-    console.log("Mobile dropdown controller connected")
+    // Mobile dropdown controller connected
   }
   
   toggle(event) {
@@ -13,11 +13,8 @@ export default class extends Controller {
       event.stopPropagation()
     }
     
-    console.log("Mobile dropdown toggle called")
-    
     if (this.hasContentTarget) {
       this.contentTarget.classList.toggle('hidden')
-      console.log("Content toggled, hidden:", this.contentTarget.classList.contains('hidden'))
     }
     
     if (this.hasIconTarget) {

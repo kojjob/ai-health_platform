@@ -4,32 +4,43 @@ export default class extends Controller {
   static targets = ["menu"]
   
   connect() {
-    // Add event listeners for escape key and outside clicks
-    document.addEventListener('keydown', this.escapeHandler.bind(this))
-    document.addEventListener('click', this.outsideClickHandler.bind(this))
+    // Close on escape key
+    this.escapeHandler = this.escapeHandler.bind(this)
+    this.outsideClickHandler = this.outsideClickHandler.bind(this)
+    
+    document.addEventListener('keydown', this.escapeHandler)
+    document.addEventListener('click', this.outsideClickHandler)
   }
   
   disconnect() {
-    // Remove event listeners when controller disconnects
-    document.removeEventListener('keydown', this.escapeHandler.bind(this))
-    document.removeEventListener('click', this.outsideClickHandler.bind(this))
+    document.removeEventListener('keydown', this.escapeHandler)
+    document.removeEventListener('click', this.outsideClickHandler)
   }
   
   escapeHandler(e) {
-    if (e.key === 'Escape' && this.isOpen()) {
+    if (e.key === "Escape" && this.isOpen()) {
       this.hide()
     }
   }
   
   outsideClickHandler(e) {
-    const clickedInside = this.element.contains(e.target)
-    if (!clickedInside && this.isOpen()) {
+    // Don't close if clicking inside the dropdown element
+    if (this.element.contains(e.target)) {
+      return
+    }
+    
+    // Only close if the dropdown is currently visible
+    if (this.isOpen()) {
       this.hide()
     }
   }
   
   toggle(event) {
-    event.stopPropagation()
+    // Prevent the click from bubbling up to the document
+    if (event) {
+      event.preventDefault()
+      event.stopPropagation()
+    }
     
     if (this.isOpen()) {
       this.hide()
@@ -40,24 +51,35 @@ export default class extends Controller {
   }
   
   show() {
+    if (!this.hasMenuTarget) return
+    
+    // Close any other open dropdowns first
+    this.closeOtherDropdowns()
+    
     this.menuTarget.classList.remove('invisible', 'opacity-0', 'scale-95')
     this.menuTarget.classList.add('visible', 'opacity-100', 'scale-100')
   }
   
   hide() {
+    if (!this.hasMenuTarget) return
+    
     this.menuTarget.classList.remove('visible', 'opacity-100', 'scale-100')
     this.menuTarget.classList.add('invisible', 'opacity-0', 'scale-95')
   }
   
   isOpen() {
-    return this.menuTarget.classList.contains('visible')
+    if (!this.hasMenuTarget) return false
+    return this.menuTarget.classList.contains('visible') && 
+           this.menuTarget.classList.contains('opacity-100')
   }
   
   closeOtherDropdowns() {
-    document.querySelectorAll('[data-controller="dropdown"]').forEach(dropdown => {
+    // Find other dropdown controllers and close them
+    const otherDropdowns = document.querySelectorAll('[data-controller*="dropdown"]')
+    otherDropdowns.forEach(dropdown => {
       if (dropdown !== this.element) {
         const controller = this.application.getControllerForElementAndIdentifier(dropdown, 'dropdown')
-        if (controller && controller.isOpen()) {
+        if (controller && controller.hide) {
           controller.hide()
         }
       }

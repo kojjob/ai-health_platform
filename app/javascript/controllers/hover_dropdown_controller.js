@@ -8,15 +8,19 @@ export default class extends Controller {
   }
   
   show() {
-    this.cancelHide()
-    this.menuTarget.classList.add("visible", "opacity-100")
-    this.menuTarget.classList.remove("invisible", "opacity-0")
+    if (this.hideTimeout) {
+      clearTimeout(this.hideTimeout)
+      this.hideTimeout = null
+    }
+    
+    this.menuTarget.classList.remove('invisible', 'opacity-0')
+    this.menuTarget.classList.add('visible', 'opacity-100')
   }
   
   hideWithDelay() {
     this.hideTimeout = setTimeout(() => {
       this.hide()
-    }, 300)
+    }, 300) // Short delay to allow moving to the dropdown
   }
   
   cancelHide() {
@@ -27,7 +31,7 @@ export default class extends Controller {
   }
   
   hide() {
-    this.menuTarget.classList.remove("visible", "opacity-100")
-    this.menuTarget.classList.add("invisible", "opacity-0")
+    this.menuTarget.classList.remove('visible', 'opacity-100')
+    this.menuTarget.classList.add('invisible', 'opacity-0')
   }
 }

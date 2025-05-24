@@ -16,12 +16,12 @@ export default class extends Controller {
     console.log("Mobile dropdown toggle called")
     
     if (this.hasContentTarget) {
-      this.contentTarget.classList.toggle("hidden")
-      console.log("Content toggled, hidden:", this.contentTarget.classList.contains("hidden"))
+      this.contentTarget.classList.toggle('hidden')
+      console.log("Content toggled, hidden:", this.contentTarget.classList.contains('hidden'))
     }
     
     if (this.hasIconTarget) {
-      this.iconTarget.classList.toggle("rotate-180")
+      this.iconTarget.classList.toggle('rotate-180')
     }
   }
 }
